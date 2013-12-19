@@ -356,30 +356,49 @@
                     </xsl:call-template>
                 </xsl:variable>
                 <xsl:variable name="preceding"
-                    select="preceding-sibling::node()[icltt:textvalue(.) or icltt:splits-token(.)][1]"/>
-                <xsl:variable name="prev" as="item()?"
-                    select="parent::*/preceding-sibling::node()[icltt:textvalue(.) or icltt:splits-token(.)][1]"/>
+                	select="if (exists(preceding-sibling::node()[icltt:textvalue(.)])) then preceding-sibling::node()[icltt:textvalue(.)][1] else ancestor::node()[icltt:textvalue(.)][exists(preceding-sibling::node()[icltt:textvalue(.)])][1]/preceding-sibling::node()[icltt:textvalue(.)][1]"/>
+                
                 <xsl:variable name="following"
-                    select="following-sibling::node()[icltt:textvalue(.) or icltt:splits-token(.)][1]"/>
-                <xsl:variable name="next"
-                    select="parent::*/following-sibling::node()[icltt:textvalue(.) or icltt:splits-token(.)][1]"/>
+                	select="if (exists(following-sibling::node()[icltt:textvalue(.)])) then preceding-sibling::node()[icltt:textvalue(.)][1] else ancestor::node()[icltt:textvalue(.)][exists(following-sibling::node()[icltt:textvalue(.)])][1]/following-sibling::node()[icltt:textvalue(.)][1]"/>
 
                 <!-- TOKEN BEFORE FIRST BLANK-->
                 <xsl:choose>
-                    <xsl:when test="icltt:starts-token(.)">
-                        <xsl:copy-of select="$toks except $toks[last()]"/>
+                    <xsl:when test="icltt:starts-token(.) and icltt:ends-token(.)">
+                        <xsl:copy-of select="if (count($toks) eq 1) then $toks else $toks except $toks[last()]"/>
                     </xsl:when>
                     <!-- text node does not start with whitespace or pc 
                  ->  may be part of a partially marked up token. 
             -->
                     <xsl:otherwise>
                         <xsl:choose>
+                        	<xsl:when test="$toks[1]/self::tei:seg[@type='whitespace']">
+                        		<xsl:copy-of select="$toks except $toks[last()]"/>
+                        	</xsl:when>
+                        	<xsl:when test="count($toks) eq 1">
+                        		<xsl:choose>
+                        			<xsl:when test="icltt:starts-token(.) and not(icltt:ends-token(.))">
+                        				<tei:w part="I">
+                        					<xsl:value-of select="$toks[1]"/>
+                        				</tei:w>
+                        			</xsl:when>
+                        			<xsl:when test="icltt:ends-token(.) and not(icltt:starts-token(.))">
+                        				<tei:w part="F">
+                        					<xsl:value-of select="$toks[1]"/>
+                        				</tei:w>
+                        			</xsl:when>
+                        			<xsl:otherwise>
+                        				<tei:w>
+                        					<xsl:value-of select="$toks[1]"/>
+                        				</tei:w>
+                        			</xsl:otherwise>
+                        		</xsl:choose>
+                        	</xsl:when>
                             <xsl:when test="exists($preceding)">
                                 <xsl:choose>
                                     <xsl:when test="icltt:ends-token($preceding, true())">
-                                        <w>
+                                        <tei:w>
                                             <xsl:value-of select="$toks[1]"/>
-                                        </w>
+                                        </tei:w>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <xsl:choose>
@@ -417,10 +436,10 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:when>
-                            <xsl:otherwise>
+                            <!-- <xsl:otherwise>
                                 <xsl:choose>
-                                    <!-- preceding tag is defined as in-word-tag, 
-                                so this text() might be the continuation of the preceding token -->
+                                     preceding tag is defined as in-word-tag, 
+                                so this text() might be the continuation of the preceding token 
                                     <xsl:when test="exists($prev) and icltt:ends-token($prev)">
                                         <xsl:copy-of select="$toks except $toks[last()]"/>
                                     </xsl:when>
@@ -449,7 +468,7 @@
                                         <xsl:copy-of select="$toks except $toks[last()]"/>
                                     </xsl:otherwise>
                                 </xsl:choose>
-                            </xsl:otherwise>
+                    </xsl:otherwise>-->
                         </xsl:choose>
                     </xsl:otherwise>
                 </xsl:choose>
