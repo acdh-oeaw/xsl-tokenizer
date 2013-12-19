@@ -94,9 +94,6 @@
                                         <xsl:sequence select="icltt:ends-token($preceding, true())"
                                         />
                                     </xsl:when>
-                                    <!--<xsl:when test="exists($prev)">
-                                        <xsl:sequence select="icltt:ends-token($prev, true())"/>
-                                    </xsl:when>-->
                                     <xsl:otherwise>
                                         <xsl:sequence select="icltt:starts-token($node/parent::*)"/>
                                     </xsl:otherwise>
@@ -243,66 +240,6 @@
         </xsl:choose>
     </xsl:function>
 
-    <!--<xsl:function name="icltt:ends-token" as="xs:boolean">
-        <xsl:param name="node" as="node()"/>
-        <xsl:choose>
-            <!-\- node = text() -\->
-            <xsl:when test="$node instance of text()">
-                <xsl:variable name="toks" as="item()*">
-                    <xsl:call-template name="tokenize">
-                        <xsl:with-param name="node" select="$node"/>
-                        <xsl:with-param name="purgeWhitespace" select="false()"/>
-                    </xsl:call-template>
-                </xsl:variable>
-                <xsl:choose>
-                    <xsl:when
-                        test="$toks[last()]/self::tei:seg[@type='whitespace'] or $toks[last()]/self::tei:pc">
-                        <xsl:sequence select="true()"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:sequence select="false()"/>
-                        <!-\-<xsl:sequence select="icltt:ends-token($node/parent::*)"/>-\->
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:when>
-
-            <!-\- node = element() -\->
-            <xsl:otherwise>
-                <xsl:variable name="next"
-                    select="$node/parent::*/following-sibling::node()[icltt:textvalue(.) or icltt:splits-token(.)][1]"
-                    as="item()?"/>
-                <xsl:choose>
-                    <xsl:when test="not($next)">
-                        <xsl:choose>
-                            <xsl:when test="icltt:is-in-word-tag($node)">
-                                <xsl:sequence select="false()"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:sequence select="true()"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:choose>
-                            <xsl:when test="icltt:starts-token($next)">
-                                <xsl:sequence select="true()"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:choose>
-                                    <xsl:when test="icltt:is-in-word-tag($node)">
-                                        <xsl:sequence select="false()"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:sequence select="true()"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:function>-->
 
     <xsl:function name="icltt:is-token" as="xs:boolean">
         <xsl:param name="tag" as="element()"/>
@@ -422,13 +359,6 @@
                                                 <tei:w part="F">
                                                   <xsl:value-of select="$toks[1]"/>
                                                 </tei:w>
-                                                <!--</xsl:when>
-                                                  <xsl:otherwise>
-                                                  <tei:w>
-                                                  <xsl:value-of select="$toks[1]"/>
-                                                  </tei:w>
-                                                  </xsl:otherwise>
-                                                </xsl:choose>-->
                                             </xsl:otherwise>
                                         </xsl:choose>
                                         <xsl:sequence
@@ -436,39 +366,6 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:when>
-                            <!-- <xsl:otherwise>
-                                <xsl:choose>
-                                     preceding tag is defined as in-word-tag, 
-                                so this text() might be the continuation of the preceding token 
-                                    <xsl:when test="exists($prev) and icltt:ends-token($prev)">
-                                        <xsl:copy-of select="$toks except $toks[last()]"/>
-                                    </xsl:when>
-                                    <xsl:when
-                                        test="$prev instance of element() and icltt:is-in-word-tag($prev)">
-                                        <xsl:choose>
-                                            <xsl:when test="icltt:starts-token($prev)">
-                                                <xsl:copy-of select="$toks[1]"/>
-                                            </xsl:when>
-                                            <xsl:otherwise>
-                                                <tei:w>
-                                                  <xsl:choose>
-                                                  <xsl:when test="icltt:ends-token(.)">
-                                                  <xsl:attribute name="part">F</xsl:attribute>
-                                                  </xsl:when>
-                                                  <xsl:otherwise>
-                                                  <xsl:attribute name="part">M</xsl:attribute>
-                                                  </xsl:otherwise>
-                                                  </xsl:choose>
-                                                  <xsl:value-of select="$toks[1]"/>
-                                                </tei:w>
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:copy-of select="$toks except $toks[last()]"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                    </xsl:otherwise>-->
                         </xsl:choose>
                     </xsl:otherwise>
                 </xsl:choose>
@@ -609,42 +506,6 @@
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:otherwise>
-
-                    <!-- <xsl:otherwise>
-                        <xsl:variable name="prev"
-                            select="parent::*/preceding-sibling::node()[icltt:textvalue(.)][1]"/>
-                        <xsl:choose>
-                            <xsl:when test="exists($prev) and icltt:ends-token($prev)">
-                                <xsl:choose>
-                                    <xsl:when test="icltt:ends-token(.)">
-                                        <tei:w part="F">
-                                            <xsl:value-of select="."/>
-                                        </tei:w>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <tei:w part="I">
-                                            <xsl:value-of select="."/>
-                                        </tei:w>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:choose>
-                                    <xsl:when test="icltt:ends-token(.)">
-                                        <tei:w part="F">
-                                            <xsl:value-of select="."/>
-                                        </tei:w>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <tei:w part="M">
-                                            <xsl:value-of select="."/>
-                                        </tei:w>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:otherwise>
-               -->
                 </xsl:choose>
             </xsl:otherwise>
         </xsl:choose>
