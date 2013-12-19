@@ -1,0 +1,2443 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="stand_merged_all.xsl"?>
+<TEI>
+<text xml:space="preserve" ana="prose" type="book">
+<front>
+<pb facs="Abraham-Todten_Bruderschaft_i0001.jpg" xml:id="i0001" n="v. Umschlag recto"/>
+<pb facs="Abraham-Todten_Bruderschaft_i0002.jpg" xml:id="i0002" n="v. Umschlag verso"/>
+<pb facs="Abraham-Todten_Bruderschaft_i0003.jpg" xml:id="i0003" n="v. fliegendes Vorsatzblatt recto"/>
+<pb facs="Abraham-Todten_Bruderschaft_i0004.jpg" xml:id="i0004" n="v. fliegendes Vorsatzblatt verso"/>
+<pb facs="Abraham-Todten_Bruderschaft_i0005.jpg" xml:id="i0005" n="Leerseite"/>
+<pb facs="Abraham-Todten_Bruderschaft_i0006.jpg" xml:id="i0006" n="Leerseite"/>
+<pb facs="Abraham-Todten_Bruderschaft_i0007.jpg" xml:id="i0007" n="Abb. vor Titel recto"/>
+<titlePage>
+<figure>
+<p>Die grosse<lb/>
+<rs type="death" subtype="misc">Toden Bru<lb break="no"/>
+derschafft</rs></p>
+<p><choice><orig>Respeck</orig><reg>Respekt</reg></choice></p>
+</figure>
+</titlePage>
+<pb facs="Abraham-Todten_Bruderschaft_i0008.jpg" xml:id="i0008" n="Leerseite"/>
+<pb facs="Abraham-Todten_Bruderschaft_i0009.jpg" xml:id="i0009" n="Titel recto"/>
+<titlePage>
+<docTitle>
+<titlePart type="main">Grosse<lb/>
+<seg rend="bold"><rs type="death" subtype="misc"><seg rend="initialCapital">Todten</seg> <seg rend="initialCapital">Bruderschaft</seg></rs> /</seg><lb/>
+Das ist<lb/>
+Ein kurtzer Entwurff<lb/>
+Deß<lb/>
+<seg rend="bold"><rs type="death" subtype="misc"><seg rend="initialCapital">Sterblichen</seg></rs> <seg rend="initialCapital">Lebens</seg> /</seg><lb/>
+Mit beygefügten<lb/>
+<seg rend="antiqua"><seg rend="bold"><foreign xml:lang="la"><seg rend="spaced">CATALOGO</seg></foreign>,</seg></seg><lb/>
+Oder<lb/>
+<seg rend="bold"><seg rend="initialCapital">Verzeichnus</seg> aller der <seg rend="initialCapital">Jenigen</seg></seg><lb/>
+Herren Brüderen / Frauen / un̅ Jungfrauen<lb/>
+Schwesteren / welche aus der Hochlöblichen <rs type="death" subtype="misc">Todten<lb/>
+<seg rend="antiqua">Sodalitet</seg></rs> bey denen Ehrwürdigen <seg rend="antiqua">P. P.</seg>
+<rs type="profession" subtype="cleric" key="augu">Augu<lb break="no" type="d"/>
+stinern Parfüssern</rs> in <placeName type="city" subtype="dire" key="vien">Wienn</placeName> / von Anno<lb/>
+<date type="range"><seg rend="antiqua">1679</seg>. biß <seg rend="antiqua">1680</seg>.</date> <rs type="death" subtype="even">gestorben</rs> seyn.<lb/></titlePart>
+</docTitle>
+<figure/>
+<docImprint>Gedruckt im <choice><sic><supplied reason="missing">J</supplied>ahr</sic><corr cert="high">Jahr</corr></choice> <docDate><seg rend="antiqua">1681</seg></docDate>.</docImprint>
+</titlePage>
+<pb facs="Abraham-Todten_Bruderschaft_i0010.jpg" xml:id="i0010" n="Titel verso, Widmung [S. 1]"/>
+<milestone rend="high" type="hr"/>
+<div type="dedication" n="Widmung">
+<p>Jhro Gnaden<lb/>
+Dem Wohl=Edel=gebohrnen Herrn / Herrn<lb/>
+<persName type="hist">Adam Antoni Grundemann von Fal<lb break="no" type="d"/>
+ckenberg</persName> / auf <placeName type="vill" subtype="dire" key="walt">Waltenfelß</placeName> / <placeName type="vill" subtype="dire" key="eger">Egeregg</placeName> / <placeName type="vill" subtype="dire" key="sues">Sies<lb break="no" type="d"/>
+senbrunn</placeName> / vnd <placeName type="vill" subtype="dire" key="enge">Engelstein</placeName> / der Röm. Käyserl. Maj.<lb/>
+Rath / vnd Regenten deß Regiments der <placeName type="dist" subtype="dire" key="loau">N. Oe. Lan<lb break="no" type="d"/>
+den</placeName> / wie auch Land unter Marschallen in <placeName type="coun" subtype="dire" key="aust">Oester<lb break="no" type="d"/>
+reich unter der <placeName type="rive" subtype="dire" key="enns">Ennß</placeName></placeName> / <milestone rend="blEtc" type="symbol"/> Einer Löblichen<lb/>
+Bruderschafft <seg rend="antiqua">Præfect</seg>en.</p>
+<p>Dem Hoch= und Wohl=gebornen Herrn / Herrn<lb/>
+<seg rend="antiqua"><persName type="hist">Julio Friderico Bucelini</persName>,</seg> Freyherrn<lb/>
+von <placeName type="vill" subtype="dire" key="reic">Reichenberg</placeName> / auff <placeName type="vill" subtype="dire" key="wayd">Waydthaag</placeName> zur<lb/>
+<placeName type="rive" subtype="dire" key="sava">Sava</placeName> / Herrn der Herrschafft <placeName type="vill" subtype="dire" key="carn">Cärnabrunn</placeName> / Röm.<lb/>
+Käyserl. Maj. würcklichen Camerer / Raht und Re<lb break="no" type="d"/>
+genten der <placeName type="dist" subtype="dire" key="loau">N. Oe. Landen</placeName> / <milestone rend="blEtc" type="symbol"/> Einer Löbl. <rs type="death" subtype="misc">Tod<lb break="no" type="d"/>
+ten=Bruderschafft</rs> <seg rend="antiqua">Vice</seg> <seg rend="antiqua">Præfect</seg>en.</p>
+<p>Dem Hoch= und Wohlgebohrnen Herrn /<lb/>
+Herrn<lb/>
+<persName type="hist">Leonhard Ulrich von Harrach</persName> /<lb/>
+Graffen zu <placeName type="vill" subtype="dire" key="rora">Rorau</placeName> / Hn. Der Herrschaff<lb break="no" type="d"/>
+ten <placeName type="vill" subtype="dire" key="stau">Stauff</placeName> / <placeName type="vill" subtype="dire" key="asch">Aschach</placeName> / von <placeName type="vill" subtype="dire" key="prug">Prugg an der <placeName type="rive" subtype="dire" key="leit">Leytha</placeName></placeName> /<lb/>
+der Röm. Käyserl. Majestät würcklichen Camerern /<lb/>
+und Erbl. Stallmeistern in <placeName type="coun" subtype="dire" key="aust">Oesterreich unter /<lb/>
+und ob der <placeName type="rive" subtype="dire" key="enns">Ennß</placeName></placeName> / <milestone rend="blEtc" type="symbol"/> Der löblichen<lb/>
+<rs type="death" subtype="misc">Todten=Bruderschafft</rs> Ersten<lb/>
+<seg rend="antiqua">Assisten</seg>ten.</p>
+<fw place="bot_right" type="catch">Dem</fw>
+<pb facs="Abraham-Todten_Bruderschaft_i0011.jpg" xml:id="i0011" n="Widmung [S. 2]"/>
+<p>Dem Wohl=Edel=Gebohrnen Herrn /<lb/>
+Herrn<lb/>
+<persName type="hist">Johann Michael von Seitz</persName> /<lb/>
+Jhro Römis. Käyserlichen Majestät<lb/>
+Rath / vnd Regenten der <placeName type="dist" subtype="dire" key="loau">N. Oe. Landen</placeName> / <milestone rend="blEtc" type="symbol"/><lb/>
+Einer Löbl. <rs type="death" subtype="misc">Todten=Bruderschafft</rs> Anderten<lb/>
+Assistenten.</p>
+<p>Dem Wohl=Ehrwürdigen<lb/>
+<rs type="profession" subtype="cleric" key="augu"><seg rend="antiqua">P. Prior</seg> Augustiner Paarfüsser</rs> / der<lb/>
+Löbl. <rs type="death" subtype="misc">Todten=Bruderschafft</rs> <seg rend="antiqua">in <foreign xml:lang="la">Spiri<lb break="no" type="s"/>
+tualibus Directori</foreign>, &amp;c</seg>.</p>
+<p>Jhro <choice><sic>Gestrng</sic><corr cert="high">Gestreng</corr></choice> /<lb/>
+Dem Wohl=Edlen vnd Hochgelehrten Herrn<lb/>
+<rs type="profession" subtype="scientist" key="medi"><persName type="hist">Nicolao Wilhelm Peckers</persName> / Käyserl.<lb/>
+Leib<seg rend="antiqua">-Medico</seg></rs><seg rend="antiqua">, &amp;c.</seg> der Löblichen <rs type="death" subtype="misc">Todten=<lb break="no"/>
+Bruderschafft</rs> Ersten <seg rend="antiqua"><foreign xml:lang="la">Consultori</foreign>.</seg></p>
+<p>Jhro Gnaden / Dem Wohl=Edelgebohr<lb break="no" type="d"/>
+nen Herrn<lb/>
+<persName type="hist">Peter Bonaventur<seg rend="antiqua">æ</seg> Edlen von Cro<lb break="no" type="d"/>
+lolantza</persName> / der Röm. Kays. Mayest. Hoff=<lb break="no"/>
+Cammer Rath / <milestone rend="blEtc" type="symbol"/> der Löbl. <rs type="death" subtype="misc">Todten=Bruderschafft</rs><lb/>
+Anderten <seg rend="antiqua"><foreign xml:lang="la">Consultori</foreign>.</seg></p>
+<p>Dem Wohl=Edlen und Hochgelehrten<lb/>
+Herrn <persName type="hist">Georg Focky</persName> / <seg rend="antiqua">J. U. D.</seg> der Löbl.<lb/>
+<rs type="death" subtype="misc">Todten=Bruders.</rs> Dritten <seg rend="antiqua"><foreign xml:lang="la">Consultori</foreign>.</seg></p>
+<seg type="footer"><fw place="bot_center" type="pageNum">A 2</fw></seg><fw place="bot_right" type="catch">Dem</fw>
+<pb facs="Abraham-Todten_Bruderschaft_i0012.jpg" xml:id="i0012" n="Widmung [S. 3]"/>
+<p>Dem Edlen Herrn<lb/>
+<persName type="hist">Caspar Huigen</persName> / <foreign xml:lang="la"><seg rend="antiqua">Consultori</seg></foreign> wie auch<lb/>
+der Löbl. <rs type="death" subtype="misc">Todten=Bruderschafft</rs><lb/>
+<seg rend="antiqua"><foreign xml:lang="la">Procuratori</foreign>.</seg></p>
+<p>Dem Wohl=Edlen Herrn<lb/>
+<persName type="hist">Joseph Schnitzenbaum</persName> / der Hoch<lb break="no" type="d"/>
+löbl. N. Oe. Regierungs<seg rend="antiqua">-Secretario</seg>. Der<lb/>
+Löbl. <rs type="death" subtype="misc">Todten=Bruderschafft</rs> <seg rend="antiqua"><foreign xml:lang="la">Consultori</foreign>,</seg><lb/>
+vnd Schatzmeister.</p>
+<p>Dem Wohl=Edlen vnd Hochgelehrten<lb/>
+Herrn<lb/>
+<persName type="hist">Nicolao Hoche</persName> / <seg rend="antiqua">J. U. D.</seg> der Löblichen<lb/>
+<rs type="death" subtype="misc">Todten=Bruderschafft</rs> <seg rend="antiqua"><foreign xml:lang="la">Consultori</foreign>.</seg></p>
+<p>Dem Wohl=Edlen Herrn<lb/>
+<persName type="hist">Daniel Focky</persName> / deß Jnnern Stadt=<lb break="no"/>
+Rahts allhier / der Löbl. <rs type="death" subtype="misc">Todten=Brud.</rs><lb/>
+<foreign xml:lang="la"><seg rend="antiqua">Consult.</seg></foreign></p>
+<p>Dem Herrn<lb/>
+<persName type="hist">Johan̅ Blaßberger</persName> / Burgern vnd Eisen=<lb break="no"/>
+Handlern allhier / der Löbl. <rs type="death" subtype="misc">Todten=Brud.</rs><lb/>
+<foreign xml:lang="la"><seg rend="antiqua">Provis.</seg></foreign></p>
+<p>Wie auch allen <foreign xml:lang="la"><seg rend="antiqua">respective</seg></foreign> einverleibten Mitgliedern<lb/>
+der Löblichen <rs type="death" subtype="misc">Todten=Bruderschafft</rs>.</p>
+<p>Neben Anwünschung eines glückseeligen Fried= und<lb/>
+Freudenreichen Neuen=Jahrs.</p>
+<p>Unterthängist überreicht vnd <seg rend="antiqua"><foreign xml:lang="la">dedicirt</foreign>,</seg> Von<lb/>
+<persName type="hist">Jacob Höltzelman̅</persName> / vnd <persName type="hist">Stephan Häringer</persName> /<lb/>
+dero Löbl. <rs type="death" subtype="misc">Todten=Bruderschafft</rs> Ansageren.</p>
+</div>
+<fw place="bot_right" type="catch"><seg rend="antiqua">Omnes</seg></fw>
+</front>
+<body>
+<pb facs="Abraham-Todten_Bruderschaft_n0001.jpg" xml:id="n0001" n="S. 1"/>
+<seg type="header"><fw n="1" place="top_center" type="pageNum">1.</fw></seg>
+<milestone rend="high" type="hr"/>
+<div type="chapter" n="Omnes morimur">
+<div type="compTitle">
+<head type="main"><cit><foreign xml:lang="la"><seg rend="antiqua"><quote><seg rend="initialCapital">Omnes</seg> <rs type="death" subtype="even">morimur</rs>.</quote> <bibl>2. <seg rend="initialCapital">Reg.</seg> 16.</bibl></seg></foreign></cit></head>
+<head><seg rend="bold">Alle <rs type="death" subtype="even_a">müssen in die <rs type="death" subtype="misc">Todten=<lb break="no"/>
+Bruderschafft</rs></rs>.</seg></head>
+</div>
+<p rend="indent"><foreign xml:lang="la"><seg rend="antiqua">A. E. I. O. U.</seg></foreign> Ein vornehmer von<lb/>
+Adel bistu / Mensch / <seg rend="antiqua"><foreign xml:lang="la">scilicet</foreign>,</seg> dann dein<lb/>
+Stammen=Hauß ist die Laimbgruben /<lb/>
+dein gnädige Fraw Mutter ist die Erd /<lb/>
+dein Adeliches Geblüt ist ein Kothschral<lb break="no" type="d"/>
+len / deine Stieffbrüder seynd die Würm /<lb/>
+dein Wesenheit ist ein Darleyhung von<lb/>
+den vier Elementen.</p>
+<p rend="indent"><foreign xml:lang="la"><seg rend="antiqua">A. E. I. O. U.</seg></foreign> Ein sauberer Garten<lb/>
+bist du / Mensch / in welchem nichts als<lb/>
+Distel gefunden wird. Es zeiget zwar<lb/>
+das <rs type="profession" subtype="scientist" key="_scie" key2="habi">Kräuterbuch</rs> vielerley Distel / Brach /<lb/>
+Distel / Frawen=Distel / Gännß=Distel<lb/>
+Haber=Distel / Jungfrau=Distel / Kraut=<lb break="no"/>
+Distel / Margen=Distel / Rauten=Distel /<lb/>
+Sau=Distel / Weeg=Distel / Vieh=Distel /<lb/>
+Welsch=Distel / Garten=Distel: in dir a<lb break="no" type="d"/>
+ber / O Mensch / seynd tausendterley Di<lb break="no" type="d"/>
+stel / und wo du nur hingreiffest / so er<lb break="no" type="d"/>
+dapst ein Unkraut.</p>
+<seg type="footer"><fw place="bot_center" type="pageNum">A 3</fw></seg><fw place="bot_right" type="catch"><seg rend="antiqua">A. E.</seg></fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0002.jpg" xml:id="n0002" n="S. 2"/>
+<seg type="header"><fw n="2" place="top_center" type="pageNum">2.</fw></seg>
+<p rend="indent"><foreign xml:lang="la"><seg rend="antiqua">A. E. I. O. U.</seg></foreign> Ein schöns <rs type="profession" subtype="scientist" key="_scie" key2="habi">Buch</rs> bist du /<lb/>
+Mensch / <foreign xml:lang="la"><seg rend="antiqua">scilicet</seg></foreign>, ein <rs type="profession" subtype="scientist" key="_scie" key2="habi">Buch</rs> / aber zu <placeName type="city" subtype="dire" key="leip">Leipzig</placeName><lb/>
+beschrieben; ein <rs type="profession" subtype="scientist" key="_scie" key2="habi">Buch</rs> / aber zu <placeName type="vill" subtype="dire" key="schw">Schwein<lb break="no" type="d"/>
+furth</placeName> gedruckt / ein <rs type="profession" subtype="scientist" key="_scie" key2="habi">Buch</rs> / aber zu <placeName type="vill" subtype="dire" key="ach">Ach</placeName><lb/>
+eingebunden; ein <rs type="profession" subtype="scientist" key="_scie" key2="habi">Buch</rs> / aber zu <placeName type="city" subtype="dire" key="cons">Kostnitz</placeName><lb/>
+fayl; ein <rs type="profession" subtype="scientist" key="_scie" key2="habi">Buch</rs> / aber zu <placeName type="voll" subtype="dire" key="laus">Laußnitz</placeName> zu er<lb break="no" type="d"/>
+fragen.</p>
+<p rend="indent"><foreign xml:lang="la"><seg rend="antiqua">A. E. I. O. U.</seg></foreign> Ein Dummel=Platz bist<lb/>
+du / Mensch / dein Empfängniß ist Säue<lb break="no" type="d"/>
+rey / dein Geburt ist Keyerey / dein Leben<lb/>
+ist Phantasey / dein Kunst ist Tandlerey /<lb/>
+dein Reichthumb ist Posserey / dein Wan<lb break="no" type="d"/>
+del ist Fresserey / dein Freud ist Vopperey /<lb/>
+und du bist ein <rs type="profession" subtype="foolery" key="jest">Narretey</rs>.</p>
+<p rend="indent"><foreign xml:lang="la"><seg rend="antiqua">A. E. I. O. U.</seg></foreign> Ein Tändel=Marckt bist<lb/>
+du / Mensch; da find man allerley Wah<lb break="no" type="d"/>
+ren / Leder / aber nur Elend=Leder: Fleck /<lb/>
+aber nur Schandfleck: Samen / aber nur<lb/>
+Forchtsamen: Kreyden / aber nur Hauß=<lb break="no"/>
+Kreyden: Häut / aber nur Beeren=Häut:<lb/>
+Bender / aber nur Siendesbender / Haff<lb break="no" type="d"/>
+ner=Arbeit / aber lauter Krüg / Träxler=<lb break="no"/>
+Arbeit / aber lauter Knöpff / Glasser=Ar<lb break="no" type="d"/>
+beit / aber lauter Angster / Karter aber<lb/>
+nur lauter Säu.</p>
+<p rend="indent"><foreign xml:lang="la"><seg rend="antiqua">A. E. I. O. U.</seg></foreign> Ein fruchtbarer Baum<lb/>
+bist du / Mensch / aber nur ein Nußbaum /<lb/>
+<fw place="bot_right" type="catch">ge=</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0003.jpg" xml:id="n0003" n="S. 3"/>
+<seg type="header"><fw n="3" place="top_center" type="pageNum">3.</fw></seg>
+Gefängniß in Mutter=Leib / Betrangniß<lb/>
+in der Geburt / Verfolgniß in dem Leben /<lb/>
+Kumerniß in der Wirthschafft / Ergerniß<lb/>
+in dem Wandel / Betrübniß in dem <rs type="death" subtype="even">Todt</rs>.</p>
+<p rend="indent"><foreign xml:lang="la"><seg rend="antiqua">A. E. I. O. U.</seg></foreign> Ein lauterer Bettler bist<lb/>
+du / Mensch / dein Kappen hast genommen<lb/>
+von dem Mader / dein Bältz hast genom<lb break="no" type="d"/>
+men von dem Fuchsen / dein wollenen Rock<lb/>
+hast genom̅en von dem Lämbel / dein Hem<lb break="no" type="d"/>
+met hast genommen von den Flax der Er<lb break="no" type="d"/>
+den / deine Strimpff hast genommen von<lb/>
+den Seyden=Würm / deine Schuh hast<lb/>
+genommen von den Ochsen: Wann dann<lb/>
+du einem jeden sollest erstatten was sein<lb/>
+ist / so würdest du da stehen wie ein ge<lb break="no" type="d"/>
+rupffte Ganß.</p>
+<p rend="indent"><foreign xml:lang="la"><seg rend="antiqua">A. E. I. O. U.</seg></foreign> Ein elender Tropff bist<lb/>
+du / Mensch / absonderlich wegen deines<lb/>
+Lebens / welches sich so grosser Beständig<lb break="no" type="d"/>
+keit zu rühmen hat / wie der Butter an der<lb/>
+Sonnen: schawe den Lufft an / dort ist der<lb/>
+Nebel / so bald halt / bald / fallt / ein Con<lb break="no" type="d"/>
+trafet deines Lebens: schawe das Wasser<lb/>
+an / dort seynd die Blasen / welche bald ste<lb break="no" type="d"/>
+hen / bald vergehen / ein Ebenbild deines<lb/>
+Lebens: schaue das Feuer an / dort ist der<lb/>
+aufsteigende Rauch / welcher bald satt /<lb/>
+<seg type="footer"><fw place="bot_center" type="pageNum">A 4</fw></seg>
+<fw place="bot_right" type="catch">bald</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0004.jpg" xml:id="n0004" n="S. 4"/>
+<seg type="header"><fw n="4" place="top_center" type="pageNum">4.</fw></seg>
+bald matt / ein Copey deines Lebens: schau<lb/>
+die Erden an / dort ist die Rosen / welche<lb/>
+bald roth / bald <rs type="death" subtype="stat">todt</rs> / ein Abriß deines Le<lb break="no" type="d"/>
+bens. <rs type="death" subtype="even">Sterben</rs> ist dir gewiß / frag den <persName type="bibl">A<lb break="no" type="d"/>
+dam</persName> / welcher neun hundert vnd dreyssig<lb/>
+Jahr gelebt; Frag den <persName type="bibl">Seth</persName> seine̅ Sohn /<lb/>
+welcher neun hundert vnd zwölff Jahr<lb/>
+gelebt; Frag den <persName type="bibl">Cain</persName> / welcher neun hun<lb break="no" type="d"/>
+dert vnd zehen Jahr gelebt; Frag den<lb/>
+<persName type="bibl">Enoch</persName> / welcher neun hundert vnd fünff<lb/>
+Jahr gelebt; Frag den <persName type="bibl">Lamech</persName> / welcher<lb/>
+sieben hundert vnd sieben vnd siebentzig<lb/>
+Jahr gelebt / wo sie seynd? wie sie seynd?<lb/>
+wer sie seyn? so wirst du finden / daß all<lb/>
+dero <rs type="death" subtype="corp">Leiber</rs> ein Hand voll Aschen; nimb<lb/>
+solchen an statt deß stoltzen Haarpulvers /<lb/>
+strahe ihn auff deinen stoltzen Strobel=<lb break="no"/>
+Kopff / vnd gedencke / daß du in gleichen<lb/>
+Model wirst gossen werden; dann sterben<lb/>
+ist dir gewiß. <seg rend="antiqua"><persName type="hist">Alexander Magnus</persName>,</seg> ein mäch<lb break="no" type="d"/>
+tiger Pracht=Hanns / <persName type="hist"><seg rend="antiqua">Saladinus</seg></persName>, ein greu<lb break="no" type="d"/>
+licher Eysen=Fresser / <persName type="hist"><seg rend="antiqua">Tarquinius</seg></persName>, ein gros<lb break="no" type="d"/>
+ser Hahn im Korb / <seg rend="antiqua"><persName type="hist">Pompeius</persName>,</seg> ein treffli<lb break="no" type="d"/>
+cher Grillen=Vogt / <seg rend="antiqua"><persName type="hist">Hannibal</persName>,</seg> ein beissiger<lb/>
+Ketten=Hund / <seg rend="antiqua"><persName type="hist">Xerxes</persName>,</seg> ein mächtiger Fe<lb break="no" type="d"/>
+derfechter / seynd mit aller ihrer Macht in<lb/>
+Ohnmacht gefallen / vnd ist nichts übrig<lb/>
+von ihnen / als <seg rend="antiqua"><foreign xml:lang="la">FUIT</foreign>,</seg> er ist gewesen. Mit<lb/>
+<fw place="bot_right" type="catch">harter</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0005.jpg" xml:id="n0005" n="S. 5"/>
+<seg type="header"><fw n="5" place="top_center" type="pageNum">5.</fw></seg>
+harter Müh ist ein Bein von ihnen zu fin<lb break="no" type="d"/>
+den / wormit ein Gassen=Bub eine Hasel<lb break="no" type="d"/>
+nuß kan auffkloffen. Das wird dir auch<lb/>
+geschehen / <rs type="death" subtype="even">sterben</rs> ist dir gewiß. Die jenige<lb/>
+Kandelberger / welche nach vil Rundtrin<lb break="no" type="d"/>
+cken / Grundtrincken / Pfundtrincken /<lb/>
+vnd Schlundtrincken das obere Zimmer<lb/>
+also eindämffen / daß ihnen der <rs type="profession" subtype="science" key="scie_asso">Verstand</rs><lb/>
+auf Steltzen gehet / vnd den Pachzuber<lb/>
+für einen Budelhund ansehen / dise halten<lb/>
+sich embsig an der Wand / damit sie ihren<lb/>
+Weingrünen Schedel nicht vmbwerffen /<lb/>
+dann sie beklagen es gehe alles mit ihnen<lb/>
+vmb vnd vmb; Es wäre zuwüntschen / es<lb/>
+hätte aus der Viehischen Füllerey ein je<lb break="no" type="d"/>
+der den Gedancken / als gehe alles vmb<lb/>
+vnd vmb / und nichts beständig seye / auff<lb/>
+der Welt / absonderlich das Menschliche<lb/>
+Leben / dann ja leichter ein Schweines<lb break="no" type="d"/>
+Kraut=Leder bey den <rs type="profession" subtype="cleric" key="rabb">Rabinern</rs><choice><sic> auzutref<lb break="no" type="d"/>
+fen</sic><corr cert="high">anzutreffen</corr></choice> / als bey dem Menschlichen Leben eini<lb break="no" type="d"/>
+ge Beständigkeit. Wische <choice><sic>diene</sic><corr cert="high">deine</corr></choice> schläfferi<lb break="no" type="d"/>
+ge Augen aus / damit du desto besser <rs type="profession" subtype="scientist" key="habi_">lesen</rs><lb/>
+kanst das jenige / was dir der <rs type="profession" subtype="scientist" key="lang">Poet</rs> unter<lb/>
+die Nasen reibt.</p>
+<div ana="verse">
+<lg><l><choice><orig><seg rend="initialCapital">DJ</seg></orig><reg>DI</reg></choice> / di / la / la / hi / hi / ha / ha.</l>
+<l>Kanst billich drüber lachen /</l>
+<l>Daß vns die Welt / so läpisch gefält /</l>
+<seg type="footer"><fw place="bot_center" type="pageNum">A 5</fw></seg>
+<fw place="bot_right" type="catch">Seynd</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0006.jpg" xml:id="n0006" n="S. 6"/>
+<seg type="header"><fw n="6" place="top_center" type="pageNum">6.</fw></seg>
+<l>Seynd doch nur eytle Sachen /</l>
+<l>Als was gemacht / erdicht / erdacht /</l>
+<l>Auch von <persName type="myth">Apellis</persName> Handen /</l>
+<l>Das wird zu Grund / in wenig Stund</l>
+<l>Verderben / gehn zu Schanden.</l>
+<l>Klecht nicht ein Klag / auff einen Tag /</l>
+<l>Beweists der täglich Spiegel /</l>
+<l>Der <rs type="death" subtype="even">stirbt</rs> vom Schwerd / der falt vom Pferd /</l>
+<l>Den <rs type="death" subtype="misc">schlagt zu todt</rs> ein Ziegel /</l>
+<l>Der <rs type="death" subtype="even">stirbt</rs> durch Fraß / der muß durchs Glaß /</l>
+<l>Der durch ein Sucht <rs type="death" subtype="even">absterben</rs>.</l>
+<l>Der kriegt sein Rest / bald in der Pest /</l>
+<l>Die schnell viel tausend erben.</l>
+<l>Vnd wann die Red / für Ohren geht /</l>
+<l>Vnd hört es ohn Entsetzen /</l>
+<l>Muß ihme nur / Zeit vnd Mensur /</l>
+<l>Gnad gnug zum Himmel schetzen:</l>
+<l>Vnd wer gibt dir ein Brieff darfür?</l>
+<l>Der dich ein Tag versicher:</l>
+<l>Kein Stund hast gwiß / bezeigen diß /</l>
+<l><rs type="profession" subtype="scientist" key="_scie" key2="parl">Exempel</rs> / <rs type="profession" subtype="scientist" key="_scie" key2="habi">Schrifft</rs> / und <rs type="profession" subtype="scientist" key="_scie" key2="habi">Bücher</rs>.</l>
+<l>Gedenck an Haimb / O junge Blaim /</l>
+<l>Hast einmahl hier kein Bleiben.</l>
+<l>Zum Vatterland / noch vnbekandt /</l>
+<l>Soll dich ja Sorg antreiben:</l>
+<l>Gar viel vnd dick / all Augenblick /</l>
+<l>Dir kommen gwisse Botten /</l>
+<l>Vnd richten aus / was dort vom Hauß</l>
+<l>Entbieten alle <rs type="death" subtype="corp">Todten</rs>.</l>
+<l>Weist du dann nit / daß alle Schritt /</l>
+<l>Auch deinem <rs type="death" subtype="misc">Grab</rs> zu wanderst?</l>
+<l>Also g’schach mir / also gehts dir /</l>
+<l>Man macht es keinem anderst;</l>
+<fw place="bot_right" type="catch">Das</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0007.jpg" xml:id="n0007" n="S. 7"/>
+<seg type="header"><fw n="7" place="top_center" type="pageNum">7.</fw></seg>
+<l>Das ruffen die / so dir allhier</l>
+<l>Bey Lebens=Zeit gleich waren.</l>
+<l>Vnd dergestalt / wird auch man bald /</l>
+<l>Dich / mich / vnd all <rs type="death" subtype="misc">einscharren</rs>:</l>
+<l>Wann du Trostloß / in Aengen groß /</l>
+<l>Einmahl in letzten Zügen /</l>
+<l>Stumb / blind / vnd taub / dem Freund zu Raub</l>
+<l>Jm <rs type="death" subtype="misc">Todt=Beth</rs> da wirst liegen /</l>
+<l>Was wünschest du / (thue vor darzu:)</l>
+<l>Bereit dich auff die Strassen:</l>
+<l>Ehe du begehrst / spat wüntschest erst /</l>
+<l>Gethan / Ach vnterlassen.</l>
+<l>Was wüntschet ihr / die Seel darfür /</l>
+<l>Die vor im Wust geschwebet /</l>
+<l>O daß ihr Fleisch / fromb / rein und keusch /</l>
+<l>Jn Vnschuld hätt gelebet!</l>
+<l>Ja daß zugleich / an Tugend reich /</l>
+<l>Dem Leib nach in dem Elend /</l>
+<l>Für hoch / soll klein / gewesen seyn /</l>
+<l>Die Demuth auserwöhlet.</l>
+<l>Rebellion / der <rs type="death" subtype="stat">tödtlich</rs> Thon /</l>
+<l>Bey den vier Elementen /</l>
+<l>Wird alten Pact / im letzten Act /</l>
+<l>Geleister Freundschafft enden /</l>
+<l>Die künfftig Reiß / den kalten Schweiß</l>
+<l>Vom Hertzen hat gedrungen:</l>
+<l>Das Angesicht / erfalt / erbricht /</l>
+<l>Erstarren will die Zungen.</l>
+<l>Die Puls beschwert / den Gang verkehrt /</l>
+<l>Thut sich der Angst beklagen /</l>
+<l>Vnd spricht alsdann die Glieder an /</l>
+<l>Befilch Alarma schlagen:</l>
+<l>Es klingt und saust / dem Krancken graust /</l>
+<fw place="bot_right" type="catch">Es</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0008.jpg" xml:id="n0008" n="S. 8"/>
+<seg type="header"><fw n="8" place="top_center" type="pageNum">8.</fw></seg>
+<l>Es mögt die Schlacht mißlingen /</l>
+<l>Der Feind nicht schwach / will nach vnd nach /</l>
+<l>Noch mehr zum Hertzen dringen.</l>
+<l>Trost / Hülff vnd Raht / kommt alls zu spat /</l>
+<l>Mit angewendten Mittlen /</l>
+<l>Der <rs type="profession" subtype="scientist" key="medi">Doctor</rs> geht von deinem Beth /</l>
+<l>Fangt an den Kopff zu schüttlen;</l>
+<l>Man hilfft dir halt / so viel im G’walt /</l>
+<l>Gibt dir in d’Hand ein Kertzen /</l>
+<l>Der weynt / der lacht; dein Scheyden macht /</l>
+<l>Dem Frewd / dem andern Schmertzen.</l>
+<l>Das ist die Stund / an dero Grund /</l>
+<l>Heyl / Vnheyl / vil gelegen.</l>
+<l>Sih was du thust / wilst nit / so must /</l>
+<l>Deß Lebens dich verwegen.</l>
+<l>Wann dein <rs type="profession" subtype="science" key="scie_asso">Verstand</rs> / dich auf der Hand /</l>
+<l>Zum Vrtheil wird begleiten /</l>
+<l>Halts für ein Gnad / wer ist der’s hat?</l>
+<l>Für g’wiß kans niemand raten.</l>
+<l><rs type="profession" subtype="science" key="scie_asso">Verstand</rs> vnd Sinn / weicht als darhin /</l>
+<l>Gesetzt er wär zu gegen /</l>
+<l>Wird dich groß Angst / in der du hangst /</l>
+<l>Erst noch mehr Noth anlegen;</l>
+<l>Du sihst den Feind / der dir erscheint /</l>
+<l>Mit auffgesperrten Rachen:</l>
+<l>Zeigt dir ein Stell / tieff in der Höll /</l>
+<l>Das Hertz fangt an zu krachen.</l></lg>
+</div>
+<p rend="indent">Gelt der <rs type="profession" subtype="scientist" key="lang">Poet</rs> kan dir die Warheit sa<lb break="no" type="d"/>
+gen? Du sihest dann / daß du über deinen<lb/>
+Willen <rs type="death" subtype="even_a">must dich der <rs type="death" subtype="misc">Todten=Bruder<lb break="no" type="d"/>
+schafft</rs> einverleiben</rs>; du weist aber nicht<lb/>
+wann / deßwegen mache dich alle Stund<lb/>
+<fw place="bot_right" type="catch">gefast /</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0009.jpg" xml:id="n0009" n="S. 9"/>
+<seg type="header"><fw n="9" place="top_center" type="pageNum">9.</fw></seg>
+gefast / vnd bild dir ein / ein jede Stund seye<lb/>
+dir die letzte; So dir eine gantze Taffel voll<lb/>
+Speisen würde auffgesetzt / vnd du hättest<lb/>
+die gewisse Nachricht / daß eine aus diesen<lb/>
+Gift in sich halte / du wurdest ohngezweyf<lb break="no" type="d"/>
+let zu einer jeden zittern / vnd gedencken /<lb/>
+vielleicht ist diese / vielleich ist diese; Weilen<lb/>
+dann du die gründliche Gewißheit von<lb/>
+GOtt selbsten hast / daß du <rs type="death" subtype="even">sterben</rs> sollest<lb/>
+vnd müssest / aber vngewiß wann / warum̅<lb/>
+hast du nicht <choice><sic>benmässig</sic><corr cert="high">ebenmässig</corr></choice> einen jeden Tag<lb/>
+im Argwohn? warum komt dir nicht ein<lb/>
+jede Stund suspect vor / vnd gedenckest /<lb/>
+villeicht ist diese Stund / an dero ich muß<lb/>
+vor GOtt erscheinen / vnd von allen meine̅<lb/>
+Thun vnd Lassen Rechenschafft geben?</p>
+</div>
+<div type="chapter" n="Tod | Junge und Schöne">
+<div type="compTitle">
+<head type="main"><cit><foreign xml:lang="la"><seg rend="antiqua"><quote>Statutum est omnibus hominibus semel<lb/>
+<rs type="death" subtype="even">mori</rs>.</quote> <bibl>Hebr. 9. v. 27.</bibl></seg></foreign></cit></head>
+<head>Alle / auch die Jungen vnd Schönen<lb/>
+<rs type="death" subtype="even_a">müssen in die <rs type="death" subtype="misc">Todten=Bruderschafft</rs></rs>.</head>
+</div>
+<p><seg rend="initialCapital">KOmbt</seg> her ihr hüpsche Muster / ihr glat<lb break="no" type="d"/>
+te Gesichter / ihr haickliche Fell / ihr blüe<lb break="no" type="d"/>
+weisse Gestalten / ihr verschamorirte Do<lb break="no" type="d"/>
+cken / ihr süsse Zuckerhüt vnd Häut / ihr habt ohn<lb break="no" type="d"/>
+gezweifflet ein <seg rend="antiqua"><foreign xml:lang="la">Salva Guardia</foreign>,</seg> am Halß / ein<lb/>
+<foreign xml:lang="la"><seg rend="antiqua">Privilegium</seg></foreign> auf dem Buckel / einen Frey=Brieff<lb/>
+<fw place="bot_right" type="catch">in</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0010.jpg" xml:id="n0010" n="S. 10"/>
+<seg type="header"><fw n="10" place="top_center" type="pageNum">10.</fw></seg>
+in den Händen / daß euch der <rs type="death" subtype="figu">Tod</rs> nicht darff<lb/>
+antasten? Ja wol nicht: herzu; ihr gehört gleich<lb/>
+andern in die <rs type="death" subtype="misc">Todten=Bruderschafft</rs>; Wer ist<lb/>
+die jenige Tochter <persName type="bibl">Jairi</persName> / welche der HErr <persName type="bibl">JE<lb break="no" type="d"/>
+sus</persName> wunderbarlich zum Leben erweckt? Es ist ge<lb break="no" type="d"/>
+west ein junge Tochter / schön in Haaren / jung<lb/>
+in Jahren; hypsch in Wangen / frisch im Pran<lb break="no" type="d"/>
+gen; weiß im Gesicht / reich im Gewicht; freund<lb break="no" type="d"/>
+lich in Geberden / schön auff Erden / ist dannoch<lb/>
+<rs type="death" subtype="even">gestorben</rs> / dannoch. Wer ist der jenige Sohn<lb/>
+gewest / der Wittib zu <placeName type="city" subtype="dire" key="naim">Naim</placeName> / den Christus der<lb/>
+HErr vom <rs type="death" subtype="stat">Tod</rs> erweckt? Er ist gewest ein Jüng<lb break="no" type="d"/>
+ling von achtzehen Jahren / frisch / freundlich /<lb/>
+frölich / frey / frech / frolockend / freventlich / <milestone rend="blEtc" type="symbol"/><lb/>
+Ein junger vnd gesunder Mensch / ist dannoch<lb/>
+<rs type="death" subtype="even">gestorben</rs> / dannoch: Müssen also auch zum öff<lb break="no" type="d"/>
+tisten die Junge den <rs type="death" subtype="misc">Todten=Tantz</rs> mithüffen /<lb/>
+ob sie schon das springen nicht wohl ankombt.</p>
+<p rend="indent"><persName type="bibl">Moises</persName> hat das güldene Kalb der Abgötteri<lb break="no" type="d"/>
+schen Jsraeliter zu Aschen verbrennt; ist ja jm̅er<lb/>
+schad / das Gold zu Aschen machen: was wolt a<lb break="no" type="d"/>
+ber diß seyn? <persName type="undefined">Prinis</persName> war schön / <persName type="hist">Lais</persName> noch <choice><sic>schner</sic><corr cert="high">schöner</corr></choice> /<lb/>
+<persName type="hist">Theodora</persName> gar zum schönsten: <persName type="myth">Lamia</persName> ist hüpsch<lb/>
+geweßt / <persName type="myth">Flora</persName> noch hüpscher / <persName type="myth">Atlanta</persName> zum<lb/>
+hüpschisten: <persName type="hist">Alexandra</persName> war stattlich / <persName type="undefined">Al<lb break="no" type="d"/>
+fridis</persName> noch stattlicher / <persName type="hist">Cleopatra</persName> zum allerstatt<lb break="no" type="d"/>
+lichsten: <persName type="myth">Helena</persName> ein Wunderwerck der Schön<lb break="no" type="d"/>
+heit / <persName type="hist">Zenobia</persName> ein Kunststuck der Gestalt / <milestone rend="blEtc" type="symbol"/><lb/>
+<fw place="bot_right" type="catch">Hast</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0011.jpg" xml:id="n0011" n="S. 11"/>
+<seg type="header"><fw n="11" place="top_center" type="pageNum">11.</fw></seg>
+Hast lauter güldene Menscher / güldene Damsen /<lb/>
+güldenes Frauen=zimmer / ist aber dannoch <choice><sic>all<supplied reason="missing">e</supplied>s</sic><corr cert="high">alles</corr></choice><lb/>
+zu Aschen worden / und nach einem so kurtz ge<lb break="no" type="d"/>
+wehrten Fasching / ein so langer Aschermittwoch.<lb/>
+Alles schab ab im <rs type="death" subtype="misc">Grab</rs>.</p>
+<p rend="indent">Weil <persName type="bibl">Adam</persName> der erste Vatter ein gantze Ur<lb break="no" type="d"/>
+sach gewest ist deß <rs type="death" subtype="even">Todts</rs> / So fragst du nicht<lb/>
+ohne erhebliche Ursach / warum er dann nicht<lb/>
+auch der erst gewest / der <rs type="death" subtype="even_a">den Tod verkost hat</rs>?<lb/>
+warumb hat <persName type="bibl">Abel</persName> der schöne / junge starcke / wa<lb break="no" type="d"/>
+ckere / frische / junge Sohn zum allerersten müs<lb break="no" type="d"/>
+sen <rs type="death" subtype="even_a">dem <rs type="death" subtype="figu">Todt</rs> unter die Sensen gerathen</rs>? da<lb break="no" type="d"/>
+rumb (merck es wohl / was der heilige <persName type="hist">Theodo<lb break="no" type="d"/>
+retus</persName> antwortet) darumb / damit die junge vnd<lb/>
+schöne Leuth sich nicht verlassen auff jhre junge<lb/>
+Jahr / vnd gelbe Haar / <rs type="death" subtype="acti">vnd damit man sehe / daß<lb/>
+keiner sicher seye vorm <rs type="death" subtype="figu">Tod</rs> / und dieser so wohl<lb/>
+junge nimbt / als alte</rs>.</p>
+<div ana="verse">
+<lg><rs type="death" subtype="acti"><l>Alte Weiber / junge Madel /</l>
+<l>Bauren=Leuth / vnd gut von Adel /</l>
+<l>Käyser / König / vnd Welt=Regenten /</l>
+<l><rs type="profession" subtype="scientist" key="_scie">Doctor</rs> / <rs type="profession" subtype="scientist" key="_scie">Schueler</rs> / vnd <rs type="profession" subtype="scientist" key="_scie">Studenten</rs> /</l>
+<l>Fürsten / Herrn / Potentaten /</l>
+<l><rs type="profession" subtype="cleric" key="_cler">Münich</rs> / Bettler vnd Soldaten /</l>
+<l>Scepter / Cron / vnd Hawr=Hacken /</l>
+<l>Thut er als zusammen backen.</l></rs></lg>
+</div>
+<p rend="indent">Alle Gesätz lassen sich übertretten / aber das<lb/>
+Gesatz des <rs type="death" subtype="figu">Todts</rs> allein kan nicht umbgangen<lb/>
+<seg type="footer"><fw place="bot_center" type="pageNum">B</fw></seg>
+<fw place="bot_right" type="catch">werden:</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0012.jpg" xml:id="n0012" n="S. 12"/>
+<seg type="header"><fw n="12" place="top_center" type="pageNum">12.</fw></seg>
+werden: dann diesen Weeg muß ein jeder gehen /<lb/>
+dieses Bad muß ein jeder außtrincken / diesen<lb/>
+Knopff muß ein jeder aufflösen / diesen Trunck<lb/>
+muß ein jeder beschaidt thun / dieses Lied muß ein<lb/>
+jeder singen / nach dieser Pfeiffen muß ein jeder<lb/>
+tantzen / dieser Schuh thut ein jeden trucken / die<lb break="no" type="d"/>
+sen Zoll muß ein jeder ablegen: <rs type="death" subtype="even">sterben</rs> / <rs type="death" subtype="even">sterben</rs><lb/>
+müssen alle / vnd ihr junge seyd auch nicht befreyt.<lb/>
+Der Menschliche Leib ist ein Herberg / die Seel<lb/>
+ist ein Jnnwohner / GOtt kan ihm die Herberg<lb/>
+auffsagen / vnd den Strosack vor die Thür werf<lb break="no" type="d"/>
+fen / wann er will / vnd wo er will; Das Mensch<lb break="no" type="d"/>
+liche Leben ist ein Liecht / GOtt kann es außleschen /<lb/>
+wann er will / vnd wo er will; Das Menschli<lb break="no" type="d"/>
+che Leben hangt an einem Faden / diesen kan<lb/>
+GOTT abschneyden / wann er will / vnd wo er<lb/>
+will; Ja es ist nichts Neues / daß eine Blühe<lb/>
+vom Baum reifft / vnd die arme tröpffin nicht<lb/>
+zur Frucht gelanget; es geschicht gar offt / vnd<lb/>
+aber offt / daß die blühende Jugend <rs type="death" subtype="even_c">von dem<lb/>
+<rs type="death" subtype="attr">rassenden</rs> <rs type="death" subtype="figu">Tod</rs> hingezuckt wird</rs>.</p>
+<p rend="indent"><persName type="hist">Ladislaus</persName> König in <placeName type="coun" subtype="dire" key="bohe">Böhmen</placeName> vnd <placeName type="coun" subtype="dire" key="hung">Ungarn</placeName> /<lb/>
+ein Printz mit neunzehen Jahren ware verspro<lb break="no" type="d"/>
+chen mit <persName type="hist"><seg rend="antiqua">Margaritha Caroli</seg></persName> deß siebenden Kö<lb break="no" type="d"/>
+nigs in <placeName type="coun" subtype="dire" key="fran">Franckreich</placeName> Tochter; umb welche er<lb/>
+dann eine würckliche Gesandschafft abgehen las<lb break="no" type="d"/>
+sen / vnd seynd ohne das Frawenzimmer sieben<lb/>
+hundert vornehme Cavalier mit unerhörten<lb/>
+<fw place="bot_right" type="catch">Pomp</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0013.jpg" xml:id="n0013" n="S. 13"/>
+<seg type="header"><fw n="13" place="top_center" type="pageNum">13.</fw></seg>
+Pomp vnd Pracht nacher <placeName type="city" subtype="dire" key="pari">Pariß</placeName> gereist: Sie<lb/>
+führten mit heuffigen Gold überzogene Carotzen<lb/>
+vnd Wagen mit sich / daß es scheinte / als haben<lb/>
+alle Bergwerck hierzu contribuiren müssen;<lb/>
+Siehe aber / wie alles auff Steltzen gehet: als<lb/>
+diese hohe Gesandtschafft würcklich die Stadt<lb/>
+<placeName type="city" subtype="dire" key="pari">Pariß</placeName> erreicht / vnd ehe sie nach Hoff mit ge<lb break="no" type="d"/>
+wöhnlichen Pomp eingeholt worden / kombt an<lb/>
+ein schneller Curier mit diser bestürtzten Zeitung /<lb/>
+<persName type="hist">Ladislaus</persName> der Königliche Bräutigam seye <rs type="death" subtype="stat">todt</rs>:<lb/>
+<rs type="death" subtype="stat">todt</rs>? ja <rs type="death" subtype="stat">todt</rs>: ein Herr von <seg rend="antiqua">19.</seg> Jahren; dan<lb break="no" type="d"/>
+noch todt: allzeit in gewünschter Gesundheit;<lb/>
+dannoch <rs type="death" subtype="stat">todt</rs>: man hat alle erdenckliche Mittel<lb/>
+angewendt; dannoch <rs type="death" subtype="stat">todt</rs>; Ey du Menschli<lb break="no" type="d"/>
+ches Leben / du bist ja nichts / als lari / fari / vnd<lb/>
+kan schier noch mit dir trutzen der Mertzen=Schnee<lb/>
+wegen der Beständigkeit; Da sehet ihr junge<lb/>
+Blumen / die Schwachheit ewers Lebens! so<lb/>
+stellt dann euch jederzeit den <rs type="death" subtype="figu">Todt</rs> vor Augen /<lb/>
+deme ihr schon in Mutter=Leib die Botmässig<lb break="no" type="d"/>
+keit zugesagt. Verlast euch nicht zu viel auff<lb/>
+ewre rothe Wangen; Die rothe Farb schiest<lb/>
+bald geschwinder ab / als sonst ein andere / verlast<lb/>
+euch nicht zu viel auf ewren frischen Leib / <rs type="death" subtype="acti">der <rs type="death" subtype="figu">Tod</rs><lb/>
+brocket bald ehender ab einen frischen Apffel / als<lb/>
+einen Wurmstichigen</rs>: stellet demnach ewren<lb/>
+Lebens=Wandel also an / damit ihr also lebet /<lb/>
+daß ihr euch allzeit getraut zu <rs type="death" subtype="even">sterben</rs>: gedencket /<lb/>
+<seg type="footer"><fw place="bot_center" type="pageNum">B 2</fw></seg>
+<fw place="bot_right" type="catch">daß</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0014.jpg" xml:id="n0014" n="S. 14"/>
+<seg type="header"><fw n="14" place="top_center" type="pageNum">14.</fw></seg>
+daß viel tausend in der Höllischen Gluth sitzen<lb/>
+vnnd schwitzen / die ihre Jugend Zaumloß<lb/>
+in alle Welt weit lauffen lassen / in der Hoff<lb break="no" type="d"/>
+nung / als wolten sie das Alter der Buß widmen;<lb/>
+diese aber haben die weisse Haar nicht erreicht /<lb/>
+sondern mitten in der Jugend von einem unver<lb break="no" type="d"/>
+sehenen <rs type="death" subtype="misc">Todts=Sturm</rs> übereylt worden. O<lb/>
+wehe / vnd ewig wehe! spieglet euch ein wenig an<lb/>
+dieser <rs type="death" subtype="misc">Grabschrifft</rs>.</p>
+<div ana="verse">
+<lg><l>Hui / vnd Pfui.</l>
+<l>Allo! stehe still / frag was ligt hier?</l>
+<l>Und was thut also müffen?</l>
+<l>Du glaubst deß Schinders sein Revier /</l>
+<l>Wo sie die Hund auspüffen.</l>
+<l>Hui.</l>
+<l>Hui / gewest seyn wir / frisch frölichs Blut /</l>
+<l>Wie Blumen vnd wie Rosen /</l>
+<l>Hui / für vns ruckte ein jeder den Hut</l>
+<l>Dadurch vns zu liebkosen.</l>
+<l>Hui / vnsere Augen wie Cristall /</l>
+<l>Haben manchs Hertz verwundt</l>
+<l>Hui / Lefftzen trutz auch den Corall /</l>
+<l>Wie Silber Zähn im Mund.</l>
+<l>Hui / auff der Stern das Helffenbein /</l>
+<l>Gantz Kreidenweiß gewaschen /</l>
+<l>Hui / Wangen hipsch wie Sonnenschein /</l>
+<l>Der Lieb wohl rechte maschen /</l>
+<l>Hui / gantz / der Leib wie Bisem=Katz /</l>
+<l>Auffs lieblichst thätte riechen /</l>
+<l>Hui / alles vmb ein Musterplatz /</l>
+<l>Der <persName type="myth">Helenä</persName> aus <placeName type="coun" subtype="dire" key="gree">Griechen</placeName>.</l>
+<fw place="bot_right" type="catch">Pfui.</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0015.jpg" xml:id="n0015" n="S. 15"/>
+<seg type="header"><fw n="15" place="top_center" type="pageNum">15.</fw></seg>
+<l>Pfui.</l>
+<l>Pfui / du kurtzes Lebens=Ziehl /</l>
+<l>O Lebens eytler Schein;</l>
+<l>Pfui / du bist nur ein <rs type="game" subtype="term">Gauckel Spiel</rs></l>
+<l><rs type="game" subtype="fraud"><foreign xml:lang="la"><seg rend="antiqua">Mentiris</seg></foreign></rs> auff Latein.</l>
+<l>Pfui / garstig vnd im volln Gestanck /</l>
+<l>Thut vnser Fleisch jetzt stecken /</l>
+<l>Pfui / Würm wie habt ihr drumb ein Zanck /</l>
+<l>Thut auch die Kost so schmecken.</l>
+<l>Pfui / haltet doch die Nasen zu /</l>
+<l>Merckt ja wie <choice><sic>sehr</sic><corr cert="high">sehr wir</corr></choice> stincken /</l>
+<l>Pfui / im Koth vnd Wust ist vnser Ruh /</l>
+<l>Wir seynd ja all Mistfincken.</l>
+<l>Pfui / vnser Leib ist recht ein Aaß</l>
+<l>Voll Grausen vnd voll Eiter.</l>
+<l>Pfui / steckt nichts drinn / als <milestone rend="blEtc" type="symbol"/> wist schon was /</l>
+<l>O garstiger Bernheuter!</l>
+<l>Fragst noch einmahl wer dann hier sey /</l>
+<l>An diesem Ort <rs type="death" subtype="misc">begraben</rs>?</l>
+<l>Sieh grünes Graß wird auch zu Heu /</l>
+<l>Ein End auch junge haben.</l></lg>
+</div>
+</div>
+<div type="chapter" n="Tod | Alte und Betagte">
+<div type="compTitle">
+<head type="main"><cit><foreign xml:lang="la"><seg rend="antiqua"><quote>Si annis multis vixerit homo, &amp; in his omni<lb break="no" type="s"/>
+bus lætatus fuerit, meminisse debet te<lb break="no" type="s"/>
+nebrosi temporis mertis,</quote> <bibl>Eccles. 11.</bibl></seg></foreign></cit></head>
+<head>Alle <rs type="death" subtype="even_a">müssen in die <rs type="death" subtype="misc">Todten=Bruder<lb break="no" type="d"/>
+schafft</rs></rs>; alle / forderist die Alte vnd<lb/>
+Betagte bey Zeiten.</head>
+</div>
+<p><seg rend="initialCapital">HErbey</seg> ihr Alte / ihr seyd die allererste in<lb/>
+der <rs type="death" subtype="misc">Todten=Bruderschafft</rs>: <rs type="death" subtype="acti" aac_part="I">der <rs type="death" subtype="figu">Todt</rs></rs><lb/>
+<seg type="footer"><fw place="bot_center" type="pageNum">B 3</fw></seg>
+<fw place="bot_right" type="catch">führt</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0016.jpg" xml:id="n0016" n="S. 16"/>
+<seg type="header"><fw n="16" place="top_center" type="pageNum">16.</fw></seg>
+<rs type="death" subtype="acti" aac_part="F">führt euch schon an der Hand</rs> / vnd dannoch ihr<lb/>
+sambt den Brillen auff der Nasen sehet nicht wie<lb/>
+nahe euch der <rs type="death" subtype="figu">Todt</rs> ist; Man soll den alten vnd<lb/>
+betagten Leuthen lieber mit Kleidern behülfflich<lb/>
+seyn; aus Ursachen / weil dero kalte Natur stets<lb/>
+von dem Husch geplagt wird / ich aber wolt euch<lb/>
+so gern auch das Hembd abziehen: versteht mich<lb/>
+aber recht; das allgemeine Sprichwort sagt:<lb/>
+Die Gewohnheit sey ein eisene Pfaidt;<lb/>
+diese wolt ich euch gern außziehen / durch die Be<lb break="no" type="d"/>
+trachtung deß <rs type="death" subtype="even">Todts</rs>; Jene boßhaffte und rich<lb break="no" type="d"/>
+tige <choice><sic>Richter</sic><corr cert="high">Richter wollten</corr></choice> der keuschen <persName type="bibl">Susannä</persName> das beste<lb/>
+Kleinod entfrembden / vnd seynd sie nicht anderst<lb/>
+angefallen / als wie die Raub=Vögel ein einsa<lb break="no" type="d"/>
+me Tauben; was aber dißfalls höchst in Wun<lb break="no" type="d"/>
+derung zu ziehen / ist dieses: daß sie zwey: daß sie<lb/>
+zwey alte Lümmel vnd Schimel waren / vnd dan<lb break="no" type="d"/>
+noch diese zahnluckte Bösewichter das verbottene<lb/>
+Venus Confect wolten naschen; Wer hätt ih<lb break="no" type="d"/>
+me doch eingebildt / daß vnter dem Schnee solten<lb/>
+glüende Kohlen verhüllt seyn? Wer hätt ihme<lb/>
+einen Argwohn geschöpfft / daß / wann einer den<lb/>
+Winter schon auf den Kopff hat / noch solle die<lb/>
+Sommer=Hitz im Hertzen verbergen? hätt ich<lb/>
+doch vermeint / daß alle üppige Sinnlichkeiten<lb/>
+vnd schnöde Schleckerey solte von den alten Ge<lb break="no" type="d"/>
+cken so fern seyn / wie <placeName type="city" subtype="dire" key="scha">Schaffhausen</placeName> von <placeName type="city" subtype="dire" key="kitz">Kitz<lb break="no" type="d"/>
+pichel</placeName>. Auf solche Weis seynd dergleichen alte<lb/>
+<fw place="bot_right" type="catch">Böck</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0017.jpg" xml:id="n0017" n="S. 17"/>
+<seg type="header"><fw n="17" place="top_center" type="pageNum">17.</fw></seg>
+Böck nichts anders / als der Berg <placeName type="moun" subtype="dire" key="vesu">Vesuvius</placeName> /<lb/>
+welcher über sich mit Schnee bedeckt / inwendig<lb/>
+aber mit Feuerfuncken gefüttert; Es ist aber des<lb break="no" type="d"/>
+sen so groß Wunder nicht; diese zwey alten Kau<lb break="no" type="d"/>
+tzen seynd in der Jugend nichts nutz gewesen / da<lb break="no" type="d"/>
+hero was jung gethon / ist alt gewohn: die böse<lb/>
+Gewohnheit hats also verstrickt / daß sie sich auch<lb/>
+im Alter nicht konten außwicklen. Jhr alte<lb/>
+Tätl vnd eißgraue Männer / ihre betagte Müt<lb break="no" type="d"/>
+terle / ist es Sach / daß ihr euer Jugend der<lb/>
+schlüpfferigen Welt Geschenckt / ewre junge vnd<lb/>
+gesunde Jahr im schnöden Lust verschwendt / vnd<lb/>
+endlich durch den Zwang der langwierigen Ge<lb break="no" type="d"/>
+wohnheit das Feuer noch nicht gar in euren Oe<lb break="no" type="d"/>
+fen erloschen / sonder noch vnter eurer alten bau<lb break="no" type="d"/>
+fälligen Hütten sich zu weilen die <persName type="myth">Venus</persName> noch<lb/>
+reuspelt; Jst es Sach daß ihr durch euren fast<lb/>
+gantzen Lebens Wandel nur nach Gewinn vnd<lb/>
+<seg rend="antiqua">Interesse</seg> gebuhlt / vnd die guldene Zeit dem un<lb break="no" type="d"/>
+ruhigen Mammon vergunt / daß euch bereits<lb/>
+noch Müntz Klang in den Ohren erschallt / vnd<lb/>
+nach dem Geldsack lieber als den Opfferstock se<lb break="no" type="d"/>
+het / so ist es ein Zeichen / daß euch die übele Ge<lb break="no" type="d"/>
+wohnheit allzustarck hab eingezäunt / vnd über<lb/>
+diesen Zaun alters halber kümmerlich könt sprin<lb break="no" type="d"/>
+gen; Sehet aber ein Mittel / wordurch euch ü<lb break="no" type="d"/>
+ber die lang genaschte Welt=büssen der Magen<lb/>
+ein Eckel vnd Grausen fast: dieses Mittel ist die<lb/>
+<seg type="footer"><fw place="bot_center" type="pageNum">B 4</fw></seg>
+<fw place="bot_right" type="catch">Tod=</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0018.jpg" xml:id="n0018" n="S. 18"/>
+<seg type="header"><fw n="18" place="top_center" type="pageNum">18.</fw></seg>
+<rs type="death" subtype="misc">Todten=Bruderschafft</rs> / in die ihr ohnfehlbar zu<lb/>
+kommen fest gedencken werdet; Den Jungen<lb/>
+ist der <rs type="death" subtype="figu">Tod</rs> auff den Rucken / den Alten aber<lb/>
+vor den Augen / vnd neigt euch dessenthalben die<lb/>
+Natur <choice><sic>indem</sic><corr cert="high">in dem</corr></choice> Alter den Kopff / damit er soll die<lb/>
+Erd anschauen vnd erwegen / daß jhr bald wer<lb break="no" type="d"/>
+det zu Erden werden.</p>
+<p rend="indent">Anno <seg rend="antiqua"><date>1225</date>.</seg> <persName type="hist">Conradus</persName> ein Gottseeliger<lb/>
+<rs type="profession" subtype="cleric" key="card">Cardinal</rs> aus dem Orden des H. <persName type="hist">Bernardi</persName> / wa<lb break="no" type="d"/>
+re von <rs type="profession" subtype="cleric" key="pont"><persName type="hist">Honorio dem dritten</persName></rs> / als ein Päbstli<lb break="no" type="d"/>
+cher Gesandter geschickt worden nacher <placeName type="city" subtype="dire" key="main">Mayntz</placeName><lb/>
+wegen erheblichen Kirchen Geschäfften. Die<lb break="no" type="d"/>
+ser <rs type="profession" subtype="cleric" key="card">Cardinal</rs> ware eines so heiligen Lebens / daß<lb/>
+seine Finger / mit denen er gewöhnlich die Hei<lb break="no" type="d"/>
+lige Hostia in dem Meß=Opffer berührte / nächt<lb break="no" type="d"/>
+licher Weil glantzten / wie die brennende Liech<lb break="no" type="d"/>
+ter. Dieser so gerechte Mann / schreibt <rs type="profession" subtype="scientist" key="_scie" key2="sour"><persName type="hist">Spon<lb break="no" type="d"/>
+danus</persName></rs> / wie er in das <rs type="death" subtype="misc">Sterbstündlein</rs> kommen /<lb/>
+hatte inniglich geseufftzet / <foreign xml:lang="la"><seg rend="antiqua">O utinam! O uti<lb break="no" type="s"/>
+nam!</seg></foreign> O wolte GOtt! wolte GOtt / ich wä<lb break="no" type="d"/>
+re in meinem Closter geblieben / vnd vnterdessen<lb/>
+mit andern die Schüssel in der Kuchel abgewa<lb break="no" type="d"/>
+schen / vnd mich in Clösterlicher <seg rend="antiqua">Observanz</seg> ge<lb break="no" type="d"/>
+übt / als daß ich jetzt als ein <rs type="profession" subtype="cleric" key="card">Cardinal</rs> <rs type="death" subtype="even">stirb</rs>. Tau<lb break="no" type="d"/>
+sendterley gute Wünsch erheben sich bey den<lb/>
+<rs type="death" subtype="misc"><choice><sic>S<supplied reason="missing">t</supplied>erbenden</sic><corr cert="high">Sterbenden</corr></choice></rs>; vnd bilde mir ohngezweifflet ein /<lb/>
+du alter Tadel werdest nicht weniger in deinem<lb/>
+<rs type="death" subtype="misc">Todt bett</rs> mit Claffterlangen Wüntschen umb<lb break="no" type="d"/>
+<fw place="bot_right" type="catch">gehen /</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0019.jpg" xml:id="n0019" n="S. 19"/>
+<seg type="header"><fw n="19" place="top_center" type="pageNum">19.</fw></seg>
+gehen / wann du wie Wind so geschwind wirst<lb/>
+sehen die verloffne Zeit / wann dir schon allbereits<lb/>
+werden die Ohren klingen / als citire man dich<lb/>
+zum Gericht / von so viel Million tausend Au<lb break="no" type="d"/>
+genblick Rechenschafft zu geben; wann du wirst<lb/>
+sehen / daß all deine der Welt angewendte Ar<lb break="no" type="d"/>
+beit fruchtloß ablauffe / vnd man dir bald nichts<lb/>
+anders werde mitlassen / als etlich Ellen halb ver<lb break="no" type="d"/>
+moderte Leinwath / vnd einen schlechten höltzer<lb break="no" type="d"/>
+nen Schlaffpeltz / verstehe eine sechs Schuh lan<lb break="no" type="d"/>
+ge <rs type="death" subtype="misc">Todtentruhen</rs>: da / da / wird dich das Hertz<lb/>
+ängstigen / da wirst du lauter <foreign xml:lang="la"><seg rend="antiqua">Vocativos</seg></foreign> aus<lb/>
+dem Mund schnauffen / O / O / O / hätte ich<lb/>
+nur den halben Theil meines Lebens GOtt ge<lb break="no" type="d"/>
+schenckt / so würde ich anjetzo ein Belohnung zu<lb/>
+gewarten haben! O hätt ich die Mutter GOt<lb break="no" type="d"/>
+tes / vnd alle Heilige besser verehrt / so würden sie<lb/>
+mir anjetzo bey dieser bedrangten Zeit beystehen!<lb/>
+jetzt verläst mich die Welt / keinen Schatz hab<lb/>
+ich mir im Himmel gesamblet / vnd die Welt<lb/>
+bezahlt mich auch mit dem Nichts / O GOtt!<lb/>
+O hätt ich! Dergleiche Wünsch werden in der<lb/>
+Menge aus deinem Herzen steigen: siehe aber<lb/>
+mein Alter / laß dirs gesagt seyn / was du allda<lb/>
+dir wüntschen wirst / daß du gethan hättest / das<lb/>
+thue anjetzo / weil dir GOTT noch ein kleine<lb/>
+Zeit vergönnt; diese übrige Täg wende also an /<lb/>
+daß du wieder in etwas ersetzest / was du so viel<lb/>
+<seg type="footer"><fw place="bot_center" type="pageNum">B 5</fw></seg>
+<fw place="bot_right" type="catch">Jahr</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0020.jpg" xml:id="n0020" n="S. 20"/>
+<seg type="header"><fw n="20" place="top_center" type="pageNum">20.</fw></seg>
+Jahr hero vernachlässiget; Alter bilde dirs nichts<lb/>
+anders ein / <rs type="death" subtype="acti">als der <rs type="death" subtype="figu">Tod</rs> stehe / sitze / lige / gehe<lb/>
+mit dir / vnd bey dir</rs> / vnd greiffe mit deinen zitte<lb break="no" type="d"/>
+renden Händen in die Schüssel / dann es muß<lb/>
+<rs type="death" subtype="even">Gestorben</rs> seyn hülfft nichts <choice><sic>darfür</sic><corr cert="high">darfür.</corr></choice> Für die<lb/>
+Schwindsucht wächst ein <choice><sic>Kräul</sic><corr cert="high">Kräutl</corr></choice> / für die Dürr<lb break="no" type="d"/>
+sucht wächst ein Kräutl / für die Lungel=Sucht<lb/>
+wächst ein Kräutl / für die Wassersucht wächst<lb/>
+ein <choice><sic>Kräul</sic><corr cert="high">Kräutl</corr></choice> / für die Gelbsucht wächst ein Kräutl /<lb/>
+aber für die <rs type="death" subtype="misc">Sterbsucht</rs> nicht / nicht / nicht nicht.<lb/>
+Bereittet euch demnach ihr Alte gar bald / ja jetzt<lb/>
+gleich / vnd augenblicklich; man leut euch schon<lb/>
+in die <rs type="death" subtype="misc">Todten=Bruderschafft</rs>. Kheuts euch fort /<lb/>
+fein geschwind ihr alte Gecken; thut euch nicht<lb/>
+viel unnöthig umbschauen / den Stab in die<lb/>
+Hand: <foreign xml:lang="it"><seg rend="antiqua">à Dio.</seg></foreign> Fort; setzt noch einmahl die<lb/>
+Brilln auff / vnd läst mir zu guter Letzt nachfol<lb break="no" type="d"/>
+gende <rs type="death" subtype="misc">Grabschrifft</rs> zu einer Gnad.</p>
+<div ana="verse">
+<div type="compTitle">
+<head><seg rend="bold"><rs type="death" subtype="misc">Grabschrifft</rs> der Alten.</seg></head>
+</div>
+<lg><l>Krampel / Kruppel / Krimpel=Wahr /</l>
+<l>Liegt allerley hierunter /</l>
+<l>Steltzen=Krücken paar vnd paar /</l>
+<l>Du glaubst nicht was für Plunder.</l>
+<l>Wir haben lange Jahr erreicht /</l>
+<l>Von <choice><sic>Schimelpelweiß</sic><corr cert="high">Schimpelweiß</corr></choice> Parocken /</l>
+<l>Das G’sicht war gantz vnd gar erbleicht /</l>
+<l>Die Wangen gleich den Secken.</l>
+<l>Der matte Leib das Trampel Thier /</l>
+<fw place="bot_right" type="catch">Thätt</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0021.jpg" xml:id="n0021" n="S. 21"/>
+<seg type="header"><fw n="21" place="top_center" type="pageNum">21.</fw></seg>
+<l>Thätt nichts als Husten / <choice><sic>Pfpausen</sic><corr cert="high">Pfnausen</corr></choice> /</l>
+<l>Die Nasen gleich dem Schleiffer G’schier /</l>
+<l>Pfui deixl / es macht ein Grausen.</l>
+<l>Das Helffenbein nicht mehr im Mund /</l>
+<l>Das Maul ein leere taschen /</l>
+<l>Wir brauchten offt drey gantzer Stund</l>
+<l>Ein Bröckel Brodt zu naschen.</l>
+<l>Das matte Haupt / der Zitter=Kopff</l>
+<l>Thät immer den Tact geben.</l>
+<l>Es zeigte gnug der klobne Topff /</l>
+<rs type="death" subtype="acti"><l>Zum la / mi / fa / gehts Leben.</l>
+<l>Und dannoch wie der <rs type="death" subtype="attr">bissig</rs> <rs type="death" subtype="figu">Todt</rs> /</l>
+<l>Nach vns offt thätte schnappen.</l></rs>
+<l>Da wolten wir bald hi / bald hoth /</l>
+<l>Er soll vns nicht ertappen.</l>
+<l>Nit geren / nit gern / nit geren dann</l>
+<l>Liessen wir vnser Leben /</l>
+<l>Es war nicht umb den <rs type="death" subtype="even">Todt</rs> zu thun /</l>
+<l>Sondern Reche’nschafft zu geben.</l></lg>
+</div>
+</div>
+<div type="chapter" n="Tod | Vornehme und Reiche">
+<div type="compTitle">
+<head type="main"><cit><foreign xml:lang="la"><seg rend="antiqua"><quote>O <rs type="death" subtype="figu">Mors</rs>! quàm amara est memoria tua,<lb/>
+homini pacem habenti in substantiis su<lb break="no" type="s"/>
+is.</quote> <bibl>Eccles. 41.</bibl></seg></foreign></cit></head>
+<head>Alle / alle <rs type="death" subtype="even_a">müssen in die <rs type="death" subtype="misc">Todten=Bru<lb break="no" type="d"/>
+derschafft</rs></rs> / auch die Vornehmen<lb/>
+vnd Reichen.</head>
+</div>
+<p><seg rend="initialCapital">ES</seg> ist ein Stadt in <placeName type="coun" subtype="dire" key="ital">Jtalien</placeName> / in welcher al<lb break="no" type="d"/>
+le Früchten müssen die Mauth abstatten /<lb/>
+ausgenommen die Granat=Aepffel; diese<lb/>
+seynd gäntzlich Mauthfrey / aus Ursachen / weil<lb/>
+<fw place="bot_right" type="catch">sie</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0022.jpg" xml:id="n0022" n="S. 22"/>
+<seg type="header"><fw n="22" place="top_center" type="pageNum">22.</fw></seg>
+sie über sich ein Cron tragen / die ihnen die gün<lb break="no" type="d"/>
+stige Natur selbsten auffgesetzt. Aber bey dem<lb/>
+<rs type="death" subtype="attr">unersättlichen</rs> <rs type="death" subtype="figu"><choice><sic>Todt</sic><corr cert="high">Todt ist</corr></choice></rs> nichts frey / auch nicht die<lb/>
+gecrönte Häupter: <rs type="death" subtype="acti">vnd schafft er diese so wohl in<lb/>
+die <rs type="death" subtype="misc">Todten=Bruderschafft</rs> als gemeine Baurn<lb break="no" type="d"/>
+burst vnnd Bettler Gesindt</rs>: alle müssen die<lb/>
+Mauth ablegen; Es ist zur Zeit des Fünfften<lb/>
+Römischen Käysers und teutschen <persName type="hist">Hannibal</persName> ein<lb/>
+<rs type="profession" subtype="scientist" key="_scie" key2="habi">Buch</rs> im Truck verfertiget worden / worinnen<lb/>
+gewisse Schatzungen begriffen / die so lang und<lb/>
+viel <foreign xml:lang="la"><seg rend="antiqua">Valor</seg></foreign> hatten / biß das heilige <foreign xml:lang="la"><seg rend="antiqua">Concilium</seg></foreign> zu<lb/>
+<placeName type="city" subtype="dire" key="tren">Trident</placeName> anderst schliesset. Diß <rs type="profession" subtype="scientist" key="_scie" key2="habi">Buch</rs> sambt den<lb/>
+Jnnhalt hatte den Namen <seg rend="antiqua"><foreign xml:lang="la">Interim</foreign>,</seg> Unterdes<lb break="no" type="d"/>
+sen. Jhr grosse Herrn / mächtige Herrn / reiche<lb/>
+Herrn / tragt in aller Warheit den Titul <foreign xml:lang="la"><seg rend="antiqua">Interim</seg></foreign><lb/>
+auff dem Rucken. Unterdessen bieget euch män<lb break="no" type="d"/>
+niglich die Knie. Unterdessen bettet man fast<lb/>
+ewr Glück an; aber all ewr Standt halt kein<lb/>
+Bestand / und wehret alles nur unterdessen /<lb/>
+<rs type="death" subtype="acti">dann der <rs type="death" subtype="figu">Todt</rs> als ein <rs type="death" subtype="attr">unpartheyischer</rs> <rs type="death" subtype="figu_alt">Holtzha<lb break="no" type="d"/>
+cker</rs> / wirfft so bald um einen hohen Cederbaum /<lb/>
+als einen gemeinen Holtz=Apffel=Baum;</rs> <rs type="death" subtype="acti">der<lb/>
+<rs type="death" subtype="figu">Todt</rs> als ein <rs type="death" subtype="attr">verschmitzter</rs> <rs type="game" subtype="player"><rs type="game" subtype="term"><rs type="death" subtype="figu_alt">Spieler</rs></rs></rs> stillt so bald<lb/>
+den König als das Untermantel;</rs> <rs type="death" subtype="acti">der <rs type="death" subtype="figu">Todt</rs> hat<lb/>
+aus unartiger Grobheit keinen Unterschied / vnd<lb/>
+gielt ihm gleich / arm und reich;</rs> Wann die müssi<lb break="no" type="d"/>
+ge Leuth die kostbahre Zeit offt wohlffeyl versil<lb break="no" type="d"/>
+bern / pflegen sie mehrmalen sich mit dem <rs type="game" subtype="name" aac_part="I"><rs type="game" subtype="term" aac_part="I">Kögel</rs></rs><lb break="no" type="d"/>
+<fw place="bot_right" type="catch">spiel</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0023.jpg" xml:id="n0023" n="S. 23"/>
+<seg type="header"><fw n="23" place="top_center" type="pageNum">23.</fw></seg>
+<rs type="game" subtype="name" aac_part="F"><rs type="game" subtype="term" aac_part="F">spil</rs></rs> erlustigen / wann sie dann würcklich <rs type="game" subtype="term_">im Spiel<lb/>
+begriffen</rs> / so stehet jederzeit der <rs type="game" subtype="requisite">König</rs> in der Mit<lb break="no" type="d"/>
+ten / mit großer jedoch höltzener Repudation:<lb/>
+<rs type="death" subtype="acti">wann aber das <rs type="game" subtype="term">Spiel</rs> sich gäntzlich geendet hat /<lb/>
+alsdann nimbt der <rs type="death" subtype="figu_alt"><rs type="game" subtype="player">Auffsetzer</rs></rs> die <rs type="game" subtype="requisite">Kögel</rs> / wirfft sie<lb/>
+in einen finstern abgelegenen Winckel / auch den<lb/>
+<rs type="game" subtype="requisite">König</rs> ohne Discretion / er lige unten oder oben;</rs><lb/>
+Jn diesem <rs type="game" subtype="term">Welt=Spiel</rs> / habt ihr König und<lb/>
+grosse Herrn absonderliche Ehr und Respect / und<lb/>
+scheinet / als seyet ihr dem Glück über den Sack<lb/>
+kommen / und euch nach Wohlgefallen versehen;<lb/>
+<rs type="death" subtype="acti">es ist aber euer vermaschkertes Leben ein blosses<lb/>
+<rs type="game" subtype="term">Spiel</rs> / so dem der <rs type="death" subtype="figu">Todt</rs> ein End macht / wirfft<lb/>
+man euch sambt andern unter die Erd / und macht<lb/>
+man keinem nichts besonders / auch den <rs type="profession" subtype="cleric" key="pont">Römische̅<lb/>
+Statthalteren</rs> Christi</rs>. Das hab ich in dem <foreign xml:lang="la">Ja<lb break="no" type="d"/>
+nuario</foreign> erfahren / sagt <rs type="profession" subtype="cleric" key="pont">Pabst <seg rend="antiqua"><persName type="hist">Marcellus</persName>.</seg></rs> <choice><sic>Daß</sic><corr cert="high">Das</corr></choice><lb/>
+hab ich in dem <foreign xml:lang="la">Februario</foreign> erfahren / sagt <rs type="profession" subtype="cleric" key="pont">Pabst<lb/>
+<persName type="hist"><seg rend="antiqua">Felix</seg> der dritte</persName></rs>. Das hab ich in dem <foreign xml:lang="la">Martio</foreign>
+er<lb break="no" type="d"/>
+fahren / sagt <rs type="profession" subtype="cleric" key="pont">Pabst <seg rend="antiqua"><persName type="hist">Eugenius</persName>.</seg></rs> Das hab ich in<lb/>
+dem April erfahren / sagt <rs type="profession" subtype="cleric" key="pont">Pabst <persName type="hist"><seg rend="antiqua">Alexander</seg> der<lb/>
+Sechste</persName></rs>. Das hab ich in dem May erfahren / sagt<lb/>
+<rs type="profession" subtype="cleric" key="pont">Pabst <persName type="hist"><seg rend="antiqua">Gregorius</seg> <choice><sic>ver</sic><corr cert="high">der</corr></choice> Vierdte</persName></rs>: Das hab ich in<lb/>
+dem <foreign xml:lang="la">Junio</foreign> erfahren / sagt <rs type="profession" subtype="cleric" key="pont">Pabst <persName type="hist">Victor der Drit<lb break="no" type="d"/>
+te</persName></rs>: Das hab ich in dem Julio erfahren / sagt <rs type="profession" subtype="cleric" key="pont">Pabst<lb/>
+<persName type="hist">Adrianus der Anderte</persName></rs>: Das hab ich in dem <foreign xml:lang="la">Au<lb break="no" type="d"/>
+gusto</foreign> erfahren / sagt <rs type="profession" subtype="cleric" key="pont">Pabst <persName type="hist">Nicolaus der Dritte</persName></rs>:<lb/>
+Das hab ich in dem September erfahren / sagt<lb/>
+<fw place="bot_right" type="catch">Pabst</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0024.jpg" xml:id="n0024" n="S. 24"/>
+<seg type="header"><fw n="24" place="top_center" type="pageNum">24.</fw></seg>
+<rs type="profession" subtype="cleric" key="pont">Pabst <persName type="hist">Benedictus der Vierzehende</persName></rs>: Das hab ich<lb/>
+in dem October erfahren / sagt <rs type="profession" subtype="cleric" key="pont"><persName type="hist">Lucius der Drit<lb break="no" type="d"/>
+te</persName></rs>: Das hab ich in dem November erfahren / sagt<lb/>
+<rs type="profession" subtype="cleric" key="pont">Pabst <persName type="hist">Paulus der Dritte</persName></rs>: Das hab ich im De<lb break="no" type="d"/>
+cember erfahren / sagt <rs type="profession" subtype="cleric" key="pont">Pabst <persName type="hist">Pius der Vierdte</persName></rs>:<lb/>
+und man einem wie allen andern kein besonders<lb/>
+gemacht. Der heilige <persName type="hist">Petrus Damianus</persName> schriebe<lb/>
+einsmals zu dem <rs type="profession" subtype="cleric" key="pont">R. Pabst <persName type="hist">Alexandrum</persName></rs> diese<lb/>
+Wort: Du hast einest eine Frag an mich gelan<lb break="no" type="d"/>
+gen lassen: was mich beduncke die Ursach zu seyn /<lb/>
+daß der Römische <rs type="profession" subtype="cleric" key="pont">Pabst</rs> niemal lang lebe / son<lb break="no" type="d"/>
+der innerhalb kurtzer Frist <rs type="death" subtype="even_a">dahin gehe</rs> und <rs type="death" subtype="even">sterbe</rs> /<lb/>
+also das nach dem heiligen Apostel <persName type="bibl">Petro</persName> (der bey<lb/>
+fünff und zwantzig Jahr auf diesem Stul geses<lb break="no" type="d"/>
+sen) keiner mehr aus allen Römischen <rs type="profession" subtype="cleric" key="pont">Päbsten</rs> re<lb break="no" type="d"/>
+gieret habe? ja zu diesen jetzigen Zeiten / wird<lb/>
+kaum einer auf diesen Thron erhebt / der das Ziel<lb/>
+von vier oder fünff Jahren überschreitet: Wel<lb break="no" type="d"/>
+ches / da wirs zu Gemüth führen / ein recht wun<lb break="no" type="d"/>
+derliches Ding ist. Aber wisse dessen alles die rech<lb break="no" type="d"/>
+te Ursach: darumb hat solches die Ordnung deß<lb/>
+Göttlichen Gerichts gewölt / und angeordnet /<lb/>
+dem Menschlichen Geschlecht eine Forcht einzu<lb break="no" type="d"/>
+jagen deß <rs type="death" subtype="even">Todts</rs> / und zu erweisen / wie alle Glory<lb/>
+und Herrligkeit dieses zeitlichen Lebens (so gar<lb/>
+nichts) billich zu verachten / und mit Füssen zu<lb/>
+tretten seye; Dann auch / damit jeder / wann er<lb/>
+siehet oder höret / daß der Vornemste aus den<lb/>
+<fw place="bot_right" type="catch">Men=</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0025.jpg" xml:id="n0025" n="S. 25"/>
+<seg type="header"><fw n="25" place="top_center" type="pageNum">25.</fw></seg>
+Menschen so bald und behend dahin gehet / und<lb/>
+<rs type="death" subtype="even">stirbt</rs> / darob ertatterte und auffgemundert wer<lb break="no" type="d"/>
+de / sich in Obacht zu nehmen / und zu warten auff<lb/>
+sein letztes Stündlein; und also der Baum deß<lb/>
+Menschlichen Geschlechts / in Ansehung daß sein<lb/>
+Gipffel so leichtlich über den Hauffen gefallen /<lb/>
+und da liege / durch den Wind der Forcht erschüt<lb break="no" type="d"/>
+telt / an allen seinen Aesten und Zweigen <choice><sic>anhehe</sic><corr cert="high">anhebe</corr></choice><lb/>
+zu zittern und fippern.</p>
+<p rend="indent">Die Bawleuth nennen den obern Theil deß<lb/>
+Tachs den Fürsten. Nun wird man wohl beob<lb break="no" type="d"/>
+achten / daß der Sturmwind so wohl dem Für<lb break="no" type="d"/>
+sten versetzt / als den untern Theil deß Tachs;<lb/>
+Fast gleich Sitten hat der <rs type="death" subtype="attr">freventliche</rs> <rs type="death" subtype="figu">Todt</rs> an<lb/>
+sich; <rs type="death" subtype="acti">er tast nicht allein an krumpe Bettler / und<lb/>
+schmierbiges Leyer=Gesindel / sondern auch hohe<lb/>
+Fürsten und Herren</rs>: alle / alle müssen in die Bru<lb break="no" type="d"/>
+derschafft: alle / alle müssen bey ihm <rs type="death" subtype="even_a">durch die<lb/>
+Klingen springen</rs>: alle / alle. <persName type="hist">Attila</persName> mit etlich<lb/>
+viertzig König in <placeName type="coun" subtype="dire" key="hung">Ungarn</placeName> / <persName type="hist">Caracus</persName> mit fünff und<lb/>
+zwantzig König in <placeName type="coun" subtype="dire" key="pola">Pohlen</placeName> / <persName type="hist"><choice><sic><seg rend="antiqua">U</seg>ratislaus</sic><corr cert="high">Vratislaus</corr></choice></persName> mit drey<lb/>
+und dreyssig König in <placeName type="coun" subtype="dire" key="bohe">Böhmen</placeName> / <persName type="hist">Brito</persName> mit etlich<lb/>
+fünfftzig König in <placeName type="coun" subtype="dire" key="brit">Britannien</placeName> / <persName type="hist">Pharamundus</persName><lb/>
+mit etlich <seg rend="antiqua">60</seg>. König in <placeName type="coun" subtype="dire" key="fran">Franckreich</placeName> / <persName type="hist">Carolus<lb/>
+Magnus</persName> mit neun und fünfftig Käyser in Occi<lb break="no" type="d"/>
+dent / haben sich alle müssen schmücken / und <rs type="death" subtype="even_a">ge<lb break="no" type="d"/>
+hen über diese Brücken</rs> / und den <rs type="death" subtype="figu">Todt</rs> tragen<lb/>
+auf dem Rucken / und sich dessen Gewalt nicht<lb/>
+können entzucken.</p>
+<fw place="bot_right" type="catch">Ohne</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0026.jpg" xml:id="n0026" n="S. 26"/>
+<seg type="header"><fw n="26" place="top_center" type="pageNum">26.</fw></seg>
+<div ana="verse">
+<lg><l>Ohne Unterschied / ohne Erbarmen</l>
+<l>Begegnet es Reichen und Armen /</l>
+<l>Das Leben fließt <choice><sic>oh<supplied reason="missing">n</supplied>e</sic><corr cert="high">ohne</corr></choice> Bestand /</l>
+<l>Gleich wie in der Reiß=Uhr der Sand.</l></lg>
+</div>
+<p rend="indent">Viel grosse Hannsen haben bey sich selbst ge<lb break="no" type="d"/>
+waltige Calender gemacht / viel vorgenommen<lb/>
+und geschlossen / haben offt den andern Tag nicht<lb/>
+erlebt / sondern seynd blötzlich <rs type="death" subtype="even_c">hingeraufft wor<lb break="no" type="d"/>
+den</rs> / wie arme Spätzel von dem Sperber / wie<lb/>
+die Lämbel von dem Wolff wie die Reysende von<lb/>
+den <rs type="death" subtype="misc">Mördern</rs>; Also daß sie nicht reden / noch ei<lb break="no" type="d"/>
+niges Testament aufrichten / nicht ein einiges<lb/>
+Wort lallen können: wie dann viel gegen Abend<lb/>
+frisch und gesund zu Ruhe sich begeben / den Mor<lb break="no" type="d"/>
+gen nicht erreichet; andere zum Tisch gesessen /<lb/>
+niemer aufgestanden; andere da sie Hochzeit ge<lb break="no" type="d"/>
+halten / seynd in ihrer Hochzeitlichen Schlaff=<lb break="no"/>
+Kammer gähling <rs type="death" subtype="even_c">hingerissen worden</rs> / also daß<lb/>
+ihnen die Kleyder / so sie für den Hochzeitlichen<lb/>
+Ehrentag machen lassen / für ihr Leichbegängnuß<lb/>
+dienen müssen. Allen ist der <rs type="death" subtype="even">Todt</rs> gewiß / den<lb/>
+mehristen kombt er unverhofft.</p>
+<p rend="indent">Welcher dann euch hohe Häupter / und reiche<lb/>
+Leuthe glückseelig achtet / der muß nicht wissen /<lb/>
+daß all euer Würde Reichthum auf Sand ge<lb break="no" type="d"/>
+bauet / ihr aber alle dem Schatten an der Wand<lb/>
+befreundt: und kan ein schönes Glas nicht so bald<lb/>
+in Scherben gehen / wie euer starcker Leib. Un<lb break="no" type="d"/>
+<fw place="bot_right" type="catch">gereim=</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0027.jpg" xml:id="n0027" n="S. 27"/>
+<seg type="header"><fw n="27" place="top_center" type="pageNum">27.</fw></seg>
+gereimte Tumshirn seynd jene Philisteer gewest /<lb/>
+welche dem <persName type="myth">Dagon</persName> / nachdem er schon zu Boden<lb/>
+gefallen / Händ und Füß zertrimmert / gleich wol<lb/>
+noch verehrt und angebetet. Aber nicht weniger<lb/>
+<rs type="profession" subtype="foolery" key="_fool">Thorheit</rs> zeigen alle die jenige / so noch etwas hal<lb break="no" type="d"/>
+ten auf das menschliche Leben / nach dem sie doch<lb/>
+durch tausenderley <choice><sic>Erfasrnuß</sic><corr cert="high">Erfahrnuß</corr></choice> wissen / wie wurm<lb break="no" type="d"/>
+stichig / Baufällig / Krafftloß / unbeständig und<lb/>
+flüchtig dasselbige seye.</p>
+<p rend="indent">Weiß hat es angestellt der Weltkündige<lb/>
+Käyser <persName type="hist">Carolus der Fünffte</persName> / deme schier die gan<lb break="no" type="d"/>
+tze Welt sich zu untergeben nicht weigerte / und<lb/>
+sein Glory und höchster Namen / auch den gan<lb break="no" type="d"/>
+tzen Erdboden durch wandert / gleichwol erinner<lb break="no" type="d"/>
+te er sich einer Menschheit / in dem er etlich Jahr<lb/>
+vor seinen <rs type="death" subtype="even">Todt</rs> allzeit eine <rs type="death" subtype="misc">Todten=Truhen</rs> mit<lb/>
+sich führte / ob dero öfftern Anblick er das <rs type="death" subtype="even">Ster<lb break="no" type="d"/>
+ben</rs> betracht / und derentwegen sein Leben also an<lb break="no" type="d"/>
+gestellt / daß er zu <rs type="death" subtype="even">sterben</rs> sich nicht gescheuet. So<lb/>
+seys dann ihr reiche und hochmögende Menschen /<lb/>
+wann ihr schon phantasirt / als habe GOtt zu<lb/>
+eur Leibern einen besondern Laim genommen / so<lb/>
+müst ihr bekennen / daß auch derselbe nicht be<lb break="no" type="d"/>
+ständig / und müst ihr eben die Straß / so allen ge<lb break="no" type="d"/>
+mein / nemblich <rs type="death" subtype="even"><seg rend="spaced">STERBEN</seg></rs> / <rs type="death" subtype="even">sterben</rs>: und<lb/>
+werd ihr nichts mit euch tragen als das Gute / so<lb/>
+ihr gethan / un̅ das Böse so ihr gewürckt. Schaut<lb/>
+ein wenig wie folgende <rs type="death" subtype="misc">Grabschrifft</rs> lautet.</p>
+<seg type="footer"><fw place="bot_center" type="pageNum">C</fw></seg><fw place="bot_right" type="catch">Grab</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0028.jpg" xml:id="n0028" n="S. 28"/>
+<seg type="header"><fw n="28" place="top_center" type="pageNum">28.</fw></seg>
+<div ana="verse">
+<div type="compTitle">
+<head><seg rend="bold"><rs type="death" subtype="misc">Grabschrifft</rs> der Reichen.</seg></head>
+</div>
+<lg><l><seg rend="initialCapital">DEr</seg> <rs type="death" subtype="figu">Todt</rs> macht nit ein Unterschied /</l>
+<l>Jhm ist Veit wie der Veitl /</l>
+<l>Jch armer Gsel / muß meine Stell /</l>
+<l>Verlassen sambt dem Beutel.</l>
+<l>Nichts halff mein Nam / nichts hoher Stamb</l>
+<l>Und Adeliche Wappen.</l>
+<l>Starck / Jung und Reich / nimbt er zugleich /</l>
+<l>Den <rs type="profession" subtype="scientist" key="_scie">Doctor</rs> mit dem Lappen.</l>
+<l>Ach / Ach / Ach / Ach / ein bittere Sach /</l>
+<l>Wann Reich zugleich /</l>
+<l>Muß <rs type="death" subtype="even">sterben</rs> /</l>
+<l>Und verderben.</l>
+<l>Hab erst mein Nest / erbaut so vest /</l>
+<l>Thät kaum darinn erwarmen /</l>
+<l>Da klopfft gleich an der <rs type="death" subtype="attr">dürre</rs> <rs type="death" subtype="figu_alt">Mann</rs> /</l>
+<l>Und macht ein grossen Larmen.</l>
+<l>Jch klag / ich schreye / was dann das seye /</l>
+<l>Soll sich doch höfflich zeigen /</l>
+<l>Da wird er toll der <rs type="death" subtype="attr">grobe</rs> <rs type="death" subtype="figu_alt">Knoll</rs></l>
+<l>Und zeigte mir die Feigen.</l>
+<l>Ach / Ach / Ach / Ach / ein bittere Sach /</l>
+<l>Wann Reich zugleich</l>
+<l>Muß <rs type="death" subtype="even">sterben</rs> /</l>
+<l>Und verderben.</l>
+<l>O <rs type="death" subtype="figu">Todt</rs> noch wart / ich <rs type="death" subtype="even">stirb</rs> gar hart /</l>
+<l>Und laß mich noch passiren /</l>
+<l>Nimb hin das Geld / wanns dir gefällt /</l>
+<l>Will ich doch gern spendiren;</l>
+<l>Nimb den Gschmuck / sambt dem Goldstuck /</l>
+<l>Eröffne alle Küsten /</l>
+<l>Kombts umb und umb / key mich nichts drumb /</l>
+<fw place="bot_right" type="catch">Thue</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0029.jpg" xml:id="n0029" n="S. 29"/>
+<seg type="header"><fw n="29" place="top_center" type="pageNum">29.</fw></seg>
+<l>Thue mir nurs Leben fristen.</l>
+<l>Ach / Ach / Ach / Ach / ein bittere Sach /</l>
+<l>Wann Reich zugleich</l>
+<l>Muß sich entfärben /</l>
+<l>Und <rs type="death" subtype="even">sterben</rs>.</l>
+<l>Was für ein Zahl / ligt im Spittal /</l>
+<l><rs type="death" subtype="acti" aac_part="I">Der Gschwer <choice><sic>vpll</sic><corr cert="high">voll</corr></choice> und der Presten /</rs></l>
+<l><rs type="death" subtype="acti" aac_part="M">Seynd schwach und matt / der Schmertzen satt /</rs></l>
+<l><rs type="death" subtype="acti" aac_part="F">Der <rs type="death" subtype="figu">Todt</rs> thut sie nur trösten.</rs></l>
+<l>So geh dann hin / such dort dein Gewinn /</l>
+<l>Sie warten mit Verlangen /</l>
+<l>Jch leb noch gut / laß mir mein Muth /</l>
+<l>Du wirst mich noch wol fangen.</l>
+<l>Ach / Ach / Ach / Ach / ein bittere Sach /</l>
+<l>Wann Reich zugleich /</l>
+<l>Muß wie der Scherben /</l>
+<l>Verderben.</l>
+<l>Nichts hilfft Schmiral / noch Capital /</l>
+<l>Noch mit Gold g’füllte Rantzen.</l>
+<l>Du must nur fort / mit einem Wort /</l>
+<l>Fein hübsch den Kerauß tantzen.</l>
+<l>Ach! Hauß und Platz / sambt allem Schatz /</l>
+<l>Muß ich anjetz verlassen.</l>
+<l>Die <rs type="death" subtype="misc">Gruben</rs> hier / ist mein Quartier /</l>
+<l>Jhr <rs type="game" subtype="term_">spihlt</rs> / und <rs type="game" subtype="jargon">ich muß passen</rs>.</l>
+<l>Ach / ach / ach / ach / ein bittere Sach /</l>
+<l>Wann reich zugleich /</l>
+<l>Nichts kan erwerben /</l>
+<l>Sonder <rs type="death" subtype="even">sterben</rs>.</l></lg>
+</div>
+<milestone rend="undefined" type="separator"/>
+</div>
+<seg type="footer"><fw place="bot_center" type="pageNum">C 2</fw></seg><fw place="bot_right" type="catch"><seg rend="antiqua">Quis</seg></fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0030.jpg" xml:id="n0030" n="S. 30"/>
+<seg type="header"><fw n="30" place="top_center" type="pageNum">30.</fw></seg>
+<div type="chapter" n="Tod | Gelehrte und Berühmte">
+<div type="compTitle">
+<head type="main"><cit><foreign xml:lang="la"><seg rend="antiqua"><quote><seg rend="initialCapital">Quis</seg> est homo, qui vivet, &amp; non<lb/>
+videbit <rs type="death" subtype="even">mortem</rs>?</quote> <bibl><seg rend="initialCapital">Psal.</seg> 88.</bibl></seg></foreign></cit></head>
+<head>Alle / alle <rs type="death" subtype="even_a">müssen in die <rs type="death" subtype="misc">Tod<lb break="no" type="d"/>
+ten=Bruderschafft</rs></rs> / auch die grosse<lb/>
+<rs type="profession" subtype="scientist" key="_scie"><foreign xml:lang="la"><seg rend="antiqua">Doctores</seg></foreign></rs> und berühmte Künstler.</head>
+</div>
+<p><choice><orig><seg rend="initialCapital">SJehest</seg></orig><reg>SIehest</reg></choice> du / disen <rs type="death" subtype="misc">Todten=Kopff</rs>? deme<lb/>
+die Parochen sambt der Haut abgezogen<lb/>
+ist / und nunmehr nichts / als ein kaler<lb/>
+Schedel / in welchem an statt der Augen / zwey<lb/>
+tieffe Gruben / wie zwey ausgeholte Nußscha<lb break="no" type="d"/>
+len; an statt deß Munds / ein schändliches Gün<lb break="no" type="d"/>
+maul / in dem etlich geschelte Zähn / wie die halb<lb break="no" type="d"/>
+gefaulte Pallisaten / bey einem eingefallenen<lb/>
+Stadt=Thor; an statt der Ohren / zwey offne<lb/>
+Rützen / wo die übergeblibene Hirn=Grüllen<lb/>
+ein= und ausmarschiren: Wessen glaubst du seye<lb/>
+dieser Kopff geweßt? Er ist geweßt das jenige<lb/>
+Haubt <rs type="profession" subtype="scientist" key="_scie" key2="pers"><persName type="bibl">Salomonis</persName></rs> / wo alle <rs type="profession" subtype="science" key="scie_asso">Weisheit</rs> der<lb/>
+Welt logirte; <rs type="profession" subtype="scientist" key="_scie" key2="pers"><persName type="bibl">Salomon</persName></rs> ist er geweßt: jetzt ist<lb/>
+aus einem <rs type="profession" subtype="scientist" key="_scie" key2="pers"><persName type="bibl">Salomon</persName></rs> ein Kalerman / und fast<lb/>
+gar nichts. Auch diser hat <rs type="death" subtype="even_a">müssen in die <rs type="death" subtype="misc">Tod<lb break="no" type="d"/>
+ten=Bruderschafft</rs></rs> / und hat ihn hiervon all sein<lb/>
+<rs type="profession" subtype="science" key="scie_asso">Weißheit</rs> nicht retten können. <rs type="profession" subtype="scientist" key="_scie" key2="pers"><persName type="hist">Aristoteles</persName></rs> hat<lb/>
+<seg rend="antiqua">400.</seg> <rs type="profession" subtype="scientist" key="_scie" key2="habi">Bücher</rs> zusammen <choice><sic>geschribrn</sic><corr cert="high">geschriben</corr></choice>. <rs type="profession" subtype="scientist" key="_scie" key2="pers"><persName type="hist">Theophra<lb break="no" type="d"/>
+stes</persName></rs> hat <seg rend="antiqua">300.</seg> <rs type="profession" subtype="scientist" key="_scie" key2="habi">Bücher</rs> zusammen getragen. <rs type="profession" subtype="scientist" key="_scie" aac_part="I" key2="pers"><persName type="hist" aac_part="I">Ap</persName></rs><lb break="no" type="d"/>
+<fw place="bot_right" type="catch">pollo=</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0031.jpg" xml:id="n0031" n="S. 31"/>
+<seg type="header"><fw n="31" place="top_center" type="pageNum">31.</fw></seg>
+<rs type="profession" subtype="scientist" key="_scie" aac_part="F" key2="pers"><persName type="hist" aac_part="F">pollodorus</persName></rs> hat <seg rend="antiqua">500.</seg> <rs type="profession" subtype="scientist" key="_scie" key2="habi">Bücher</rs> mit eigner Hand<lb/>
+zusammen gefaßt. <rs type="profession" subtype="scientist" key="_scie" key2="pers"><persName type="hist">Chrysippus Solensis</persName></rs>. <seg rend="antiqua">700.</seg><lb/>
+<rs type="profession" subtype="scientist" key="_scie" key2="pers"><persName type="hist">Aristarchus Alexandrinus</persName></rs> <seg rend="antiqua">2000.</seg> <rs type="profession" subtype="scientist" key="_scie" key2="pers"><persName type="hist">M=Varro</persName></rs><lb/>
+über <seg rend="antiqua">5000.</seg> <rs type="profession" subtype="scientist" key="_scie" key2="pers"><persName type="hist">Didomus Alexand.</persName></rs> <seg rend="antiqua">3500.</seg> Und<lb/>
+dannoch alle diese samt ihrer <rs type="profession" subtype="science" key="_scie">Wissenschafft</rs> ha<lb break="no" type="d"/>
+ben müssen / müssen / ja müssen unter die Erden;<lb/>
+O eytle <rs type="profession" subtype="science" key="_scie">Wissenschafft</rs>! Vil aus euch vergafften<lb/>
+sich an dem Himmels=Lauff / zehlen alle Tritt der<lb/>
+Sonnen / mercken / daß ob schon dieselbe ein so<lb/>
+grossen Leib hat / und <seg rend="antiqua">166.</seg> mahl grösser als der<lb/>
+Erdboden / dannoch so schnell lauffe / daß sie alle<lb/>
+Stund zehenmal hundert tausend / hundert und<lb/>
+fünffzig tausend teutsche Meil postiret; Es wä<lb break="no" type="d"/>
+re euch aber heylsamer / an der Sonnen euch zu<lb/>
+spieglen / daß gleich wie dieselbe untergehet / und<lb/>
+wieder auff / also werdet ihr einmal (wißt nicht<lb/>
+wann) <rs type="death" subtype="even_a">durch den zeitlichen <rs type="death" subtype="even">Todt</rs> vntergehen</rs> vn<lb break="no" type="d"/>
+ter die Erden / vnd erst am Jüngsten Tag wieder<lb/>
+auffgehen.</p>
+<p rend="indent">O <rs type="profession" subtype="science" key="_scie" key2="attr">auffblasne</rs> <rs type="profession" subtype="science" key="_scie">Wissenschafft</rs>! viel aus euch<lb/>
+<rs type="profession" subtype="scientist" key="_scie" key2="habi_">matten ihr <rs type="profession" subtype="science" key="scie_asso">Hirn</rs> ab</rs> / in <rs type="profession" subtype="scientist" key="_scie" key2="habi_"><rs type="profession" subtype="science" key="scie_asso" key2="attr">Nachforschung</rs></rs> aller Ey<lb break="no" type="d"/>
+genschafften der Kräuter; wie dienlich dieselbige<lb/>
+seyn / die Presten von dem Menschlichen Leib ab<lb break="no" type="d"/>
+zuwenden. Jhr kriecht gar mit euren Gedan<lb break="no" type="d"/>
+cken vnter die Erd / vnd grabet hervor alle Wur<lb break="no" type="d"/>
+tzen vnd Metallien / zwingt dieselbe zu Pulver<lb/>
+vnd Wasser; O! wie rathsamer wäre es / wann<lb/>
+ihr zu weilen euere Gedancken vnter die Erd wur<lb break="no" type="d"/>
+<seg type="footer"><fw place="bot_center" type="pageNum">C 3</fw></seg>
+<fw place="bot_right" type="catch">det</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0032.jpg" xml:id="n0032" n="S. 32"/>
+<seg type="header"><fw n="32" place="top_center" type="pageNum">32.</fw></seg>
+det senden / in Erwegung daß selbige einmahl<lb/>
+(wißt nicht ob heut oder morgen) ein Ort wird<lb/>
+<choice><sic>se<supplied reason="missing">y</supplied>n</sic><corr cert="high">seyn</corr></choice> zur Faulung ewres kripplischen Leibs? Die<lb/>
+Seele aber wo? wie?</p>
+<p rend="indent">O <rs type="profession" subtype="science" key="_scie" key2="attr">muthwillige</rs> <rs type="profession" subtype="science" key="_scie">Wissenschafft</rs>! es treibt euch<lb/>
+der <rs type="profession" subtype="science" key="scie_asso">Fürwitz</rs> so weit / daß ihr gar nachsucht / wo der<lb/>
+Himmel die Schneeflocken ausstäubt? wo die<lb/>
+Winde ihr Tafelstuben haben? Auch sucht ihr<lb/>
+gar die Schmitten / wo die zornige Wolcken ihre<lb/>
+Donner=Keyl schmieden; Es wäre aber euch weit<lb/>
+ersprießlicher / wan̅ ihr euch vor Augen stellte das<lb/>
+trübe Angesicht deß Göttlichen Richters / den<lb/>
+Donner=Keyl seines erschrecklichen Urtheils / wel<lb break="no" type="d"/>
+ches er über euch wird fällen / bald / vielleicht noch<lb/>
+in einer halben viertel Stund? Gedenckt nur<lb/>
+ihr <rs type="profession" subtype="scientist" key="_scie" key2="attr">hochweise</rs> <rs type="profession" subtype="scientist" key="_scie">Män̅er</rs> / daß alle <rs type="profession" subtype="science" key="_scie" key2="attr">weltliche</rs> <rs type="profession" subtype="science" key="_scie">Wissen<lb break="no" type="d"/>
+schafft</rs> ein schwacher Erden=Dunst sey / so zwar<lb/>
+sich in etwas empor schwinget / aber bald wider<lb/>
+den Ruckweg / in die Erden nimbt; Ewer gröste<lb/>
+vnd beste <rs type="profession" subtype="science" key="scie_asso">Weißheit</rs> ist / wissen / daß ihr nichts<lb/>
+wisset; und wissen / daß der <rs type="death" subtype="even">Todt</rs> gewiß / und<lb/>
+nicht wissen / wann? Nicht weniger ihr grosse<lb/>
+Künstler / befleißt euch Tag vnd Nacht / wie ihr<lb/>
+möget ewren Namen verewigen / vnd allen Nach<lb break="no" type="d"/>
+kömblingen einen Trutz bieten; Müßt wissen /<lb/>
+daß euch auch deß <rs type="death" subtype="figu">Todts</rs> seine wohlgeschliffene<lb/>
+Sensen nicht verschonet: <seg rend="antiqua"><persName type="hist">Mutianus</persName>, <persName type="hist">Albanus</persName>,<lb/>
+<persName type="hist">Monteluous</persName>, <persName type="hist">Garbus</persName>, <persName type="hist">Baroccus</persName>, <persName type="hist">Donatellus</persName>,</seg><lb/>
+<fw place="bot_right" type="catch"><seg rend="antiqua">Vasol-</seg></fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0033.jpg" xml:id="n0033" n="S. 33"/>
+<seg type="header"><fw n="33" place="top_center" type="pageNum">33.</fw></seg>
+<seg rend="antiqua"><persName type="hist">Vasoldus</persName>, <persName type="hist">Zambellus</persName>, <persName type="hist">Zuccarus</persName>, <persName type="hist">Mochus</persName>,<lb/>
+<persName type="hist">Berninus</persName>, <persName type="hist">Michaël Angelus</persName>, &amp;c.</seg> Lauter welt<lb break="no" type="d"/>
+berühmte Künstler / Mahler / vnd Bildhawer /<lb/>
+haben in der Statt <placeName type="city" subtype="dire" key="rome">Rom</placeName> solche Wunderstück<lb/>
+verfertiget / daß sie der Natur fast ein Eintrag<lb/>
+gethan / vnd dero Pembsel schier die Ewigkeit ver<lb break="no" type="d"/>
+dienet; Aber / O lari / fari! wo seynd alle diese<lb/>
+anderst / als vnter der Erden? ihre kunstreiche<lb/>
+Händ seynd außgedorte Knoppern / so schwach /<lb/>
+daß auch das geringste Würml sie übermächti<lb break="no" type="d"/>
+gen thut; euere aber der Ewigkeit gewidmete<lb/>
+Kunststück werden am Jüngsten Tag euch der<lb/>
+<rs type="profession" subtype="foolery" key="_fool">Thorheit</rs> überweisen / wann sie vom verzehrenden<lb/>
+Feuer werden in Aschen gelegt werden; Jene<lb/>
+Künstler / so die Bildnus deß <persName type="myth">Herculis</persName> in dem<lb/>
+Römischen Capitolio / die Bildnus der <persName type="hist">Cleopa<lb break="no" type="d"/>
+tr<seg rend="antiqua">æ</seg></persName> in dem Vaticanischen Palast / die Bildnus<lb/>
+der erdichten <persName type="myth">Floræ</persName> in dem Farnessischen Palast /<lb/>
+die Bildnus der Griechischen <persName type="myth">Venus</persName> / deß ge<lb break="no" type="d"/>
+flügleten <persName type="myth">Mercurii</persName> / deß grossen <persName type="hist">Constantini</persName> zu<lb/>
+<placeName type="city" subtype="dire" key="rome">Rom</placeName> / fast wunderthätig verfertiget / wünschen<lb/>
+jetzt vnter der Erd / sie hätten an statt derselben<lb/>
+die Bildnus deß <rs type="death" subtype="even">Todts</rs> in ihren Hertzen besser<lb/>
+vorgestellt / sich zu demselben gewissenhaffter be<lb break="no" type="d"/>
+raith / und fein weißlich erweget / daß alles zer<lb break="no" type="d"/>
+gänglich; zergänglich das Leben / vnd mit dem<lb break="no" type="d"/>
+selben alles: allein beständig die Ewigkeit. O<lb/>
+Ewigkeit! Es hat der Allmächtige GOtt den<lb/>
+<seg type="footer"><fw place="bot_center" type="pageNum">C 4</fw></seg>
+<fw place="bot_right" type="catch">Enoch</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0034.jpg" xml:id="n0034" n="S. 34"/>
+<seg type="header"><fw n="34" place="top_center" type="pageNum">34.</fw></seg>
+<persName type="bibl">Enoch</persName> in das irdische Paradeyß überlogirt / da<lb break="no" type="d"/>
+mit er vor dem Jüngsten Tag wiederumb soll<lb/>
+kommen / vnd die verdambte <rs type="profession" subtype="science" key="scie_asso">Lehr</rs> deß Antichristi<lb/>
+vernichtigen / sein Mitprediger soll seyn <persName type="bibl">Elias</persName>.<lb/>
+Aber O gütigster Gott! wann doch dein Gött<lb break="no" type="d"/>
+licher Will also weißlich beschlossen / daß diese<lb/>
+zwey nicht sollen <rs type="death" subtype="even">sterben</rs> vor der Ankunfft deß<lb/>
+Antichrist / warumb hast du sie unterdessen nicht<lb/>
+der Welt gelassen? sie hätten ja mit ihren evffe<lb break="no" type="d"/>
+rigen Predigen den grösten Nutzen geschafft?<lb/>
+darumb: wann diese zwey noch solten auf dem<lb/>
+Erdboden mit vnd neben vns seyn / so thäte man<lb break="no" type="d"/>
+cher muthwilliger Mensch ihm <rs type="profession" subtype="foolery" key="_fool" key2="attr">thorrecht</rs> einbil<lb break="no" type="d"/>
+den / können diese zwey so lang leben / warum ich<lb/>
+auch nicht? der auch nicht? jener auch nicht?<lb/>
+Hoffe demnach jeder ein langes Leben; Damit<lb/>
+dann GOtt die Gedächtnuß deß <rs type="death" subtype="figu">Todts</rs> bey den<lb/>
+Menschen liesse / hat er ihnen diese zwey aus den<lb/>
+Augen geraumbt / zum Zeigen es soll ihme keiner<lb/>
+lange Jahr freventlich einbilden.</p>
+<p rend="indent">Habt ihrs vernommen / ihr <rs type="profession" subtype="scientist" key="_scie" key2="attr">hochwitzige</rs> vnd<lb/>
+Kunstreiche <rs type="profession" subtype="scientist" key="_scie">Leuth</rs>? lange Täg habt ihr euch<lb/>
+nicht zu machen / vielleicht ist heut die Stund<lb/>
+gesetzt / an dero ihr müsset vor GOttes Gericht;<lb/>
+bildet euch nur vor / euer Leben seye eine Copey<lb/>
+von dem Sodomitischen Apffel; dann vieler<lb/>
+<rs type="profession" subtype="scientist" key="lang">Scribenten</rs> Außsag ist / als stincke es noch in der<lb/>
+gantzen Gegend der Stadt <placeName type="city" subtype="dire" key="sodo">Sodoma</placeName> vnd <placeName type="city" subtype="dire" key="gomo" aac_part="I">Go</placeName><lb break="no" type="d"/>
+<fw place="bot_right" type="catch">morra</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0035.jpg" xml:id="n0035" n="S. 35"/>
+<seg type="header"><fw n="35" place="top_center" type="pageNum">35.</fw></seg>
+<placeName type="city" subtype="dire" key="gomo" aac_part="F">morra</placeName> von der Feuersbrunst; auch wachsen auff<lb/>
+den heutigen Tag alldort Aepffel / welche auß<lb break="no" type="d"/>
+wendig das beste Ansehen haben / innwendig aber<lb/>
+seynd sie mit lauter Staub vnd Aschen angefühlt:<lb/>
+Also scheint ewer Leben äusserlich / als noch frisch<lb/>
+vnd frölich / wann ihr aber nach der rechten Spuhr<lb/>
+gehet / so werdet ihr antreffen die Fußpfaden der<lb/>
+Eitelkeit / vnd bald abnehmen / daß Staub vnd<lb/>
+Aschen darunter verhüllt / vnd ewer <seg rend="spaced">ALLES</seg><lb/>
+bald in das <choice><orig><seg rend="spaced">NJCHTS</seg></orig><reg>NICHTS</reg></choice> verwandlet werde.<lb/>
+<persName type="bibl">Aman</persName> hat ihm nichts wenigers eingebildt / daß<lb/>
+er so bald solt <rs type="death" subtype="even">sterben</rs>; <persName type="bibl">Absolon</persName> hat ihm gar nicht<lb/>
+traumen lassen / daß er solt so bald <rs type="death" subtype="even">sterben</rs>; die<lb/>
+Kinder deß <persName type="bibl">Jobs</persName> haben ihnen nicht eingebildt /<lb/>
+daß sie so bald vnd elend solten <rs type="death" subtype="even">sterben</rs> / <persName type="bibl">Heli</persName> hat<lb/>
+ihm nicht eingebildt / daß er solte so bald <rs type="death" subtype="even">sterben</rs> /<lb/>
+vnd auff solche Weiß: die schöne <persName type="bibl">Jezabell</persName> / hat<lb/>
+gar nicht daran gedencket / daß sie solt so ohnver<lb break="no" type="d"/>
+hofft <rs type="death" subtype="even">sterben</rs>. Der <rs type="death" subtype="even">Tod</rs> ist also gewiß / und un<lb break="no" type="d"/>
+gewiß: Gewiß / daß er kommen wird / ungewiß /<lb/>
+wann er kommen wird. Euch <rs type="profession" subtype="scientist" key="_scie">Hochweise</rs> / <rs type="profession" subtype="scientist" key="_scie">Hoch=<lb/>
+und Wohlgelehrte</rs> / Beste und Kunstreiche Her<lb break="no" type="d"/>
+ren / ist der <rs type="death" subtype="even">Tod</rs> gewiß / wann aber? nicht ge<lb break="no" type="d"/>
+wiß: so erwartet ihn dann alle Stund vnd Au<lb break="no" type="d"/>
+genblick / vielleicht jetzt / vielleicht jetzt / diß wird<lb/>
+euch bringen die Gewißheit der Seeligkeit;<lb/>
+Laßt euch nicht verdriessen zu lesen folgende<lb/>
+<rs type="death" subtype="misc">Grabschrifft</rs>:</p>
+<seg type="footer"><fw place="bot_center" type="pageNum">C 5</fw></seg><fw place="bot_right" type="catch">Dem</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0036.jpg" xml:id="n0036" n="S. 36"/>
+<seg type="header"><fw n="36" place="top_center" type="pageNum">36.</fw></seg>
+<div ana="verse">
+<lg><l>Dem Fleisch gemeß / ist dein Proceß /</l>
+<l>Mit Alten / Jung und zarten /</l>
+<l>All freye Künst / sonst hoch erwünscht /</l>
+<l>Kein anders End erwarten.</l>
+<l>Jst ihm ein Ding / hält alles ring /</l>
+<l><rs type="profession" subtype="scientist" key="_scie">Gelehrt</rs> / und <rs type="profession" subtype="foolery" key="fool">Jdiothen</rs> /</l>
+<l>Er tantzt und springt / zieht auf und zwingt /</l>
+<l>Muß alles nacher trotten /</l>
+<l>Köndt ihr durch Griff / List / Ränck und Schlüff /</l>
+<l>Ewer Leben länger fristen /</l>
+<l>Jhr die da Recht / und Unbild secht /</l>
+<l>Als Richter / ihr <rs type="profession" subtype="scientist" key="juri">Juristen</rs> /</l>
+<l>Der <rs type="profession" subtype="scientist" key="_scie" key2="parl">appellirt</rs> / und <rs type="profession" subtype="scientist" key="_scie" key2="parl">judicirt</rs> /</l>
+<l>Seynd gleicher Aengsten beyde /</l>
+<l>Barmhertzigkeit / ein jeder schreyt /</l>
+<l>Eh streng das Urthl scheide.</l>
+<l>Auch ist vmbsonst / die <rs type="profession" subtype="science" key="math">Rechenkunst</rs> /</l>
+<l>Was wirst damit erlangen?</l>
+<l>Willst raithen was / so raithe das /</l>
+<l>Wie viel du Sünd begangen.</l>
+<l>Damit du dort / die Werck und Wort /</l>
+<l>Wohl mögest verantworten /</l>
+<l><rs type="profession" subtype="scientist" key="_scie" key2="parl">Specificirs</rs> / und <rs type="profession" subtype="scientist" key="_scie" key2="parl">resumirs</rs> /</l>
+<l>Man kan auch rechnen dorten.</l>
+<l>Jhr Künstler werth / die Meer und Erd /</l>
+<l>Nach eurem Wohn ermesset /</l>
+<l>Ein <rs type="death" subtype="misc">Todten=Grab</rs> / euch messet ab /</l>
+<l>Nicht eurer selbst vergesset.</l>
+<l>Auch ihr nicht lang / scheucht <rs type="death" subtype="misc">Todts=Betrang</rs> /</l>
+<l>All <rs type="profession" subtype="scientist" key="lang">Redner</rs> und <rs type="profession" subtype="scientist" key="lang">Poeten</rs> /</l>
+<l>Fort ohn Respect / hat ihm Affect /</l>
+<l>Noch keiner vil erbetten.</l>
+<l>Die Mahler stoltz / Maur / Tuch und Holz /</l>
+<l>Bekleyden schier mit Leben /</l>
+<fw place="bot_right" type="catch">Was</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0037.jpg" xml:id="n0037" n="S. 37"/>
+<seg type="header"><fw n="37" place="top_center" type="pageNum">37.</fw></seg>
+<l>Was wird gericht / nach Angesicht /</l>
+<l><persName type="myth">Apollis</persName> Hand nachstreben?</l>
+<l>Laßt den <rs type="game" subtype="fraud">Betrug</rs> / am Vogl=Flug /</l>
+<l>Euch gnug seyn jetzt / vnd weichet /</l>
+<l>Betriegt forthin / keins Menschen Sinn /</l>
+<l>Nur <rs type="death" subtype="misc">Todtenfarb</rs> anstreichet.</l>
+<l>Jhr die dem Lauff / wol mercket auf /</l>
+<l>Am Himmel hin und wieder /</l>
+<l>Laßt endlich seyn / den Sternen=Schein /</l>
+<l>Und sehet fur euch nider.</l>
+<l>Ein Grühlein tieff (ihr habt kein Brieff /</l>
+<l>Geschicht auch euch was allen)</l>
+<l>Habt vor euch ihr / so seht wol für /</l>
+<l>G’wiß werdet ihr drein fallen.</l>
+<l>Für dein Ruin / die <rs type="profession" subtype="science" key="medi">Medicin</rs> /</l>
+<l>Sol man zwar wol erwöhlen /</l>
+<l>Doch ist der Brauch / und <rs type="death" subtype="even">sterben</rs> auch</l>
+<l>All Meister und Gesellen.</l>
+<l>Es helff / gesetzt / wirst heut ergetzt /</l>
+<l>Starck wider / gleich eim Piffl /</l>
+<l>Must doch einmal / zur alten Zahl /</l>
+<l>Der <rs type="death" subtype="figu">Todt</rs> hat tausend Griffl /</l>
+<l>Sieh dich nur vmb / bald wird ein Trumb</l>
+<l>Unfehlbar an dich springen /</l>
+<l>Das Zeughauß voll / mit Rohr / Pistol /</l>
+<l>Schmidt alle Tag noch Klingen.</l>
+<l>Und ist kein Stärck; kein Macht / kein Werck</l>
+<l>So starck / der <rs type="death" subtype="figu">Todt</rs> ist stärcker:</l>
+<l>Auch wer entfliecht / der Gfahr / dem Liecht /</l>
+<l>Flieht in ein <rs type="death" subtype="misc">Todten=Kercker</rs>.</l>
+<l><seg rend="antiqua">Magnificenz,</seg> auch <seg rend="antiqua">Excellenz,</seg></l>
+<l>Und all dergleichen <rs type="profession" subtype="scientist" key="_scie" key2="habi">Tittl</rs> /</l>
+<fw place="bot_right" type="catch">Jhr</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0038.jpg" xml:id="n0038" n="S. 38"/>
+<seg type="header"><fw n="38" place="top_center" type="pageNum">38</fw></seg>
+<l>Jhr Herrlichkeit / noch ihr <rs type="profession" subtype="science" key="scie_asso">Weißheit</rs></l>
+<l>Seynd für den <rs type="death" subtype="figu">Todt</rs> ein Mittl.</l>
+<l>Müßt alle dran / was lauffen kan /</l>
+<l>Nembt gschwind die <rs type="profession" subtype="scientist" key="_scie" key2="habi">Doctors=Kappen</rs> /</l>
+<l>Wanns gehn verdrüßt / daß ihr sonst müßt /</l>
+<l>So reit aufs Schusters Rappen.</l>
+<l>Und wißt ihr was? die <placeName type="stre" subtype="dire" key="vien">Schuler=Straß</placeName></l>
+<l>Zu <placeName type="city" subtype="dire" key="vien">Wienn</placeName> seynd ihr offt gangen /</l>
+<l>Vil <rs type="profession" subtype="scientist" key="_scie" key2="parl">disputirt</rs> / halb <rs type="profession" subtype="scientist" key="_scie" key2="parl">phantasirt</rs> /</l>
+<l>Das heißt Lateinisch prangen.</l>
+<l><foreign xml:lang="la"><seg rend="antiqua">Nunc præsto sum, silentium!</seg></foreign></l>
+<l>Was wöllt ihr weiters haben?</l>
+<l>Zeig ohne Scheu / daß nicht weit seh</l>
+<l>Die <placeName type="stre" subtype="dire" key="vien">Schuler=Straß</placeName> vom <placeName type="stre" subtype="dire" key="vien">Graben</placeName>.</l></lg>
+</div>
+</div>
+<div type="chapter">
+<div type="compTitle" n="Tod | Geistliche und Gott Geweihte">
+<head type="main"><cit><foreign xml:lang="la"><seg rend="antiqua"><quote><seg rend="initialCapital">Beati</seg> <rs type="death" subtype="corp"><seg rend="initialCapital">Mortui</seg></rs>, qui in <seg rend="initialCapital">Domino</seg> <rs type="death" subtype="even">mo<lb break="no" type="s"/>
+riuntur</rs>.</quote> <bibl><seg rend="initialCapital">Apoc.</seg> 14.</bibl></seg></foreign></cit></head>
+<head>Alle / alle <rs type="death" subtype="even_a">müssen in die <rs type="death" subtype="misc">Tod<lb break="no" type="d"/>
+ten=Bruderschafft</rs></rs> / auch die <rs type="profession" subtype="cleric" key="_cler">Geist<lb break="no" type="d"/>
+liche</rs> vnd Gott geweyhte Personen.</head>
+</div>
+<p><seg rend="initialCapital">JHr</seg> Heiligkeit / Jhr <rs type="profession" subtype="cleric" key="_cler">Eminenz</rs> / Jhr <rs type="profession" subtype="cleric" key="bish">Bi<lb break="no" type="d"/>
+schöffliche Gnaden</rs> / Jhr <rs type="profession" subtype="cleric" key="_cler">Hochwürden</rs> /<lb/>
+Jhr Ehrwürden / Herr <rs type="profession" subtype="cleric" key="prie">Pfarrer</rs> / Herr<lb/>
+<rs type="profession" subtype="cleric" key="chap">Caplan</rs> / <milestone rend="blEtc" type="symbol"/> Jhr werd ebenmässig citiret in die<lb/>
+<rs type="death" subtype="misc">Todten=Bruderschafft</rs> / <rs type="death" subtype="acti">dißfahls vergißt der <rs type="death" subtype="attr">ohn<lb break="no" type="d"/>
+glimpffliche</rs> <rs type="death" subtype="figu">Todt</rs> alle Reverenz / und gibt einen<lb/>
+<rs type="death" subtype="attr">ohngeschliffenen</rs> <rs type="death" subtype="figu_alt">Schnitter</rs> ab</rs>.</p>
+<fw place="bot_right" type="catch">Da</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0039.jpg" xml:id="n0039" n="S. 39"/>
+<seg type="header"><fw n="39" place="top_center" type="pageNum">39.</fw></seg>
+<div ana="verse">
+<lg><rs type="death" subtype="acti"><l>Da kompt ein <rs type="death" subtype="figu_alt">Schnitter</rs> der heißt der <rs type="death" subtype="figu">Todt</rs>:</l>
+<l>Hat Gwalt vom grossen GOTT /</l>
+<l>Jetzt wetzt er das Messer /</l>
+<l>Es geht schon vil besser:</l>
+<l>Bald wird er drein schneiden /</l>
+<l>Wir müssens nur leyden /</l>
+<l>Hüt dich schöns Blümelein.</l></rs></lg>
+</div>
+<p rend="indent">Des Schnitters Art ist / alles mit der Sen<lb break="no" type="d"/>
+sen vmbzumähen / was in Wiesen vnd Feldern<lb/>
+wachset; Es ist ein Kräutel und Blümel / dassel<lb break="no" type="d"/>
+big trifft man häuffig an in allen Gärten / auff<lb/>
+allen Wiesen / absonderlich bei denen Zäun und<lb/>
+Höcken: dieses wird sonst von <persName type="hist">Dioscoride</persName> genannt<lb/>
+<seg rend="antiqua">Sonchiles,</seg> von <seg rend="antiqua"><persName type="hist">Apule</persName> Aspidejon;</seg> allerley der<lb break="no" type="d"/>
+gleichen seltzame Namen hat es / forderst bey de<lb break="no" type="d"/>
+nen Teutschen; dieselbige heissens <choice><sic>Pfaffenbalt</sic><corr cert="high">Pfaffenblat</corr></choice> /<lb/>
+Münchkopf: Erstlich seynd dise Blümlein Dot<lb break="no" type="d"/>
+terfarb / wie die schöne Sonn / so bald sie aber recht<lb/>
+zeitigen / so werden haarichte und runde wollene<lb/>
+Köpff darauß / die fliegen gleich ab / so sie von dem<lb/>
+Wind bewegt werden / vnd alsdann sehens auß<lb/>
+wie die Münchköpff / <milestone rend="blEtc" type="symbol"/> Diese schneiden bey heis<lb break="no" type="d"/>
+ser Sommerzeit die Schnitter in der Menge ab:<lb/>
+<rs type="death" subtype="acti">Eben deßgleichen thut der <rs type="death" subtype="attr">unpartheyische</rs> <rs type="death" subtype="figu">Todt</rs> /<lb/>
+vnd verschont im geringsten auch nit deren <rs type="profession" subtype="cleric" key="_cler">Geist<lb break="no" type="d"/>
+lichen</rs> / dieser sonst in viel Dingen privilegirten<lb/>
+Blümlein.</rs></p>
+<p><choice><sic>Das</sic><corr cert="high">Daß</corr></choice> <persName type="bibl"><seg rend="antiqua">Oza</seg></persName> nur die geweyhete Archen / aus gu<lb break="no" type="d"/>
+ter Meynung angerührt / mußte er alsbald auff<lb/>
+<fw place="bot_right" type="catch">das</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0040.jpg" xml:id="n0040" n="S. 40"/>
+<seg type="header"><fw n="40" place="top_center" type="pageNum">40.</fw></seg>
+das strengste gestrafft werden / da er doch diesel<lb break="no" type="d"/>
+be nur wolte halten / damit sie nicht fallet: <rs type="death" subtype="acti">vnd der<lb/>
+<rs type="death" subtype="figu">Todt</rs> würfft so vil geweyhte Archen zu Boden /<lb/>
+vnd gehet ihm alles hin?</rs> Was dann? Alles was<lb/>
+das Leben empfindt / ist ihme schon zinßbar /<lb/>
+und hat sich von diser allgemeinen Contribution<lb/>
+kein Stand / auch der <rs type="profession" subtype="cleric" key="_cler">Geistliche</rs> / nicht <choice><sic>schrau<supplied>=</supplied></sic><corr cert="high">schrau=</corr></choice><lb break="no"/>
+fen; müssen also alle <rs type="death" subtype="even">sterben</rs> / und macht man<lb/>
+keinem nichts besonders. <rs type="death" subtype="acti">Ein <rs type="death" subtype="attr">wunderbarer</rs><lb/>
+<rs type="death" subtype="figu_alt"><foreign xml:lang="la"><seg rend="antiqua">Grammaticus</seg></foreign></rs> ist der <rs type="death" subtype="figu">Todt</rs> / den <foreign xml:lang="la"><seg rend="antiqua">Nominativum</seg></foreign><lb/>
+vergonnt er Hohen= und Vornehmen Stands=<lb break="no"/>
+Persohnen / den <foreign xml:lang="la"><seg rend="antiqua">Genitivum</seg></foreign> laßt er den Ehe<lb break="no" type="d"/>
+leuten / den <foreign xml:lang="la"><seg rend="antiqua">Dativum</seg></foreign> gibt er den freygebigen<lb/>
+Herren und <choice><sic>Franen</sic><corr cert="high">Frauen</corr></choice> / den <foreign xml:lang="la"><seg rend="antiqua">Accusativum</seg></foreign> legt er<lb/>
+auf die Schrane zu den Richtern / den <foreign xml:lang="la"><seg rend="antiqua">Vocati<lb break="no" type="s"/>
+vum</seg></foreign> erlaubet er den Bettlern / den <foreign xml:lang="la"><seg rend="antiqua">Ablativum</seg></foreign><lb/>
+aber behalt er vor sich / und bestehet sein völliges<lb/>
+Ambt im Weckraumen</rs>: <rs type="death" subtype="acti">Er nimbt den König<lb break="no" type="d"/>
+reichen ihre König / er nimbt den Provinzien ih<lb break="no" type="d"/>
+re Lands=Fürsten / er nimbt den Bistthumbern ih<lb break="no" type="d"/>
+re <rs type="profession" subtype="cleric" key="bish">Bischöffe</rs> / er nimbt den Clöstern ihre <rs type="profession" subtype="cleric" key="_cler">Geist<lb break="no" type="d"/>
+liche</rs> / vnd ob schon alle Jungfrau Clöster allen<lb/>
+Eintritt der Männer hoch verbiethen / so laßt<lb/>
+doch dieser <rs type="death" subtype="figu_alt">Rippen=Kramer</rs> seine Dücke nicht /<lb/>
+sondern schleicht auch in solche privilegirte Clau<lb break="no" type="d"/>
+suren.</rs></p>
+<p rend="indent">Dannenhero ihr <rs type="profession" subtype="cleric" key="_cler">Geistliche</rs> / und GOTT<lb/>
+geweyhte Geschöpff / macht euch alle Augenblick<lb/>
+<fw place="bot_right" type="catch">fer=</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0041.jpg" xml:id="n0041" n="S. 41"/>
+<seg type="header"><fw n="41" place="top_center" type="pageNum">41.</fw></seg>
+fertig; der Vntergang ewers Lebens ist gewiß /<lb/>
+wie er aber seyn wird / ist nicht bekannt. <rs type="death" subtype="acti">Der<lb/>
+<rs type="death" subtype="figu">Todt</rs> verdienet dißfalls den Titul <seg rend="antiqua"><foreign xml:lang="la">Allemodi</foreign>,</seg><lb/>
+inmassen / er tausenderley Weis hat / dem armen<lb/>
+Menschen das Leben zu zwacken.</rs> <persName type="hist"><seg rend="antiqua">Aristobulus</seg></persName><lb/>
+<rs type="death" subtype="even">stirbt</rs> im Bad / das hat er nicht gemeint; <persName type="hist"><seg rend="antiqua">Julia<lb break="no" type="s"/>
+nus</seg></persName> <rs type="death" subtype="even">stirbt</rs> im Läger / das hat er nicht gemeint;<lb/>
+<persName type="hist"><seg rend="antiqua">Carolus Magnus</seg></persName> <rs type="death" subtype="even">stirbt</rs> auff der Jagt / das hat<lb/>
+er nicht gemeint; <persName type="hist"><seg rend="antiqua">Julius Cæsar</seg></persName> <rs type="death" subtype="even">stirbt</rs> im Raht /<lb/>
+das hat er nicht gemeint; <persName type="hist"><seg rend="antiqua">Ericus</seg></persName> <rs type="death" subtype="even">stirbt</rs> durch die<lb/>
+Händ seiner Mutter / das hat er nicht gemeint;<lb/>
+<persName type="hist"><seg rend="antiqua">Alborinus</seg></persName> <rs type="death" subtype="even">stirbt</rs> durch die Händ seines Weibs /<lb/>
+das hat er nicht gemeint; <persName type="hist"><seg rend="antiqua">Bajazethes</seg></persName> <rs type="death" subtype="even">stirbt</rs><lb/>
+durch die Hand seines Kinds / das hat er nicht ge<lb break="no" type="d"/>
+meint; <persName type="hist"><seg rend="antiqua">Mustapha</seg></persName> <rs type="death" subtype="even">stirbt</rs> durch die Hand seines<lb/>
+Vatters / das hat er nit gemeint; <persName type="hist"><seg rend="antiqua">Ephæstion<lb/>
+Tarquinius</seg></persName> <rs type="death" subtype="even">stirbt</rs> an einer Fischgraten / das hat<lb/>
+er nicht gemeint; <persName type="hist"><seg rend="antiqua">Sophocles</seg></persName> <rs type="death" subtype="even">stirbt</rs> an einem<lb/>
+Weinkörnle / das hat er nicht gemeint; <persName type="hist"><seg rend="antiqua">Fabius</seg></persName><lb/>
+Römischer Rahts=Herr <rs type="death" subtype="even">stirbt</rs> an einem Härl /<lb/>
+das hat er nicht gemeint: Vnd du / der du solches<lb/>
+liesest / wirst vielleicht <rs type="death" subtype="even">sterben</rs> / wo du nicht mei<lb break="no" type="d"/>
+nest; wirst <rs type="death" subtype="even">sterben</rs> / wann du nicht meinst / <rs type="death" subtype="acti">dann<lb/>
+der <rs type="death" subtype="figu">Tod</rs> alle Tag newe Fünd erdichtet / dem<lb/>
+Menschen sein Leben zu stürmen / vnd richtet sich<lb/>
+so gar nicht nach deiner Meinung;</rs> Auch ihr<lb/>
+<rs type="profession" subtype="cleric" key="_cler">Geistliche</rs> nicht nach Ewer Meinung / vnd mes<lb break="no" type="d"/>
+set nur dißfalls euch nicht mehrer Freyheit zu / als<lb/>
+andere.</p>
+<fw place="bot_right" type="catch">Seyd</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0042.jpg" xml:id="n0042" n="S. 42"/>
+<seg type="header"><fw n="42" place="top_center" type="pageNum">42.</fw></seg>
+<p rend="indent">Seyd demnach alle Augenblick in Sorgen /<lb/>
+daß dieser <rs type="death" subtype="figu_alt">Dieb</rs> einsteigen werde / und beraitet<lb/>
+euch für das genawe Vrtheil GOttes.</p>
+<p rend="indent"><persName type="hist"><seg rend="antiqua">Antonius Cirneus</seg></persName> ein <rs type="profession" subtype="cleric" key="capu">Capuciner</rs> aus <placeName type="coun" subtype="dire" key="cors">Cor<lb break="no" type="d"/>
+sica</placeName> eines wunderthätigen heiligen Lebens / er<lb/>
+tragte stets an seinem Leib die härtiste <seg rend="antiqua">Cilicia,</seg> er<lb/>
+aß viel Jahr nichts / als dreymal in der Wochen<lb/>
+Wasser vnd Brodt / vnd dieses in wenige Vntzen<lb/>
+ausgetheilt; Er schlaffte bey der Nacht auf einem<lb/>
+harten Bret nur drey Stund / die überige fünff<lb/>
+Stund thät er sich aneinander gaißlen / vnd ga<lb break="no" type="d"/>
+be ihm alle Nacht <seg rend="antiqua">6666.</seg> Streich / zu ehren aller<lb/>
+Gaiselstreich / die der HErr <persName type="bibl">JEsus</persName> an seinem<lb/>
+gebenedeytisten Leib empfangen: Diesen wun<lb break="no" type="d"/>
+derbarlichen Lebens=Wandel führte er über <seg rend="antiqua">35</seg>.<lb/>
+Jahr: würckte mit dem heiligen Creutz=Zaichen<lb/>
+viel Wunderwerck / <milestone rend="blEtc" type="symbol"/> Wie dieser heilige vnd<lb/>
+Gottselige Mann in das <rs type="death" subtype="misc">Todtbeth</rs> kommen /<lb/>
+vnd mit vnbeschreiblichen Eyfer die heil. Sacra<lb break="no" type="d"/>
+menten empfangen / fangt an er Händ vnd Füs<lb break="no" type="d"/>
+sen zu zittern; da er dessen Vrsach befragt wurde /<lb/>
+gabe er diese entsetzliche Antwort: <foreign xml:lang="la"><seg rend="antiqua">Non novus<lb/>
+hic mihi timor est, DEI enim Judicia expa<lb break="no" type="s"/>
+vesco, &amp;c.</seg></foreign> Euch sagt er / laßt nicht frembd vor<lb break="no" type="d"/>
+kommen disen meinen Schrecken; ich bereite mich<lb/>
+schon so viel Jahr zum <rs type="death" subtype="even">Tod</rs> / hab mir allzeit ge<lb break="no" type="d"/>
+forchten / vnd förcht mir noch vor dem Göttli<lb break="no" type="d"/>
+chen Richter; ist auch also in dieser heiligen Forcht<lb/>
+<fw place="bot_right" type="catch">ge=</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0043.jpg" xml:id="n0043" n="S. 43"/>
+<seg type="header"><fw n="43" place="top_center" type="pageNum">43.</fw></seg>
+<rs type="death" subtype="even">gestorben</rs>. <foreign xml:lang="la"><seg rend="antiqua"><bibl><rs type="profession" subtype="scientist" key="_scie" key2="sour"><persName type="hist">Zach. Bover.</persName></rs></bibl> in Anno <date>1540</date>.</seg></foreign> Hat<lb/>
+ihme dieser gottseelige Diener GOttes geforch<lb break="no" type="d"/>
+ten vor dem strengen Göttlichen Richter / in dem<lb/>
+er sich doch Tag vnd Nacht darzu bereit hat / wie<lb/>
+soll vns dann nicht ein Entsatzung anstossen we<lb break="no" type="d"/>
+gen deß genauen Richters / die wir selten / oder<lb/>
+gar nicht vns zu diesem Hintritt richten? O al<lb break="no" type="d"/>
+lerliebste Menschen / stellt euch den <rs type="death" subtype="even">Todt</rs> vor Au<lb break="no" type="d"/>
+gen / vnd nach dem <rs type="death" subtype="even">Tod</rs> das vnfehlbare Ge<lb break="no" type="d"/>
+richt.</p>
+<p rend="indent">Jhr forderst GOtt gewidmete <rs type="profession" subtype="cleric" key="_cler">Geistliche</rs> /<lb/>
+vergeßt nicht / daß euch die <rs type="death" subtype="misc">Todten=Bruderschafft</rs><lb/>
+gewißlich erwarte / <rs type="death" subtype="even">sterben</rs> ist euch gewiß: <foreign xml:lang="it"><seg rend="antiqua">é veró</seg></foreign>?<lb/>
+gewiß / gewiß; vnnd wird von euch der strenge<lb/>
+GOTT grössere Rechenschafft fordern / als<lb/>
+von <choice><sic>andrrn</sic><corr cert="high">andern</corr></choice> / weil er euch das Beste / so er hat /<lb/>
+anvertrauet. O wie recht sagt der <rs type="profession" subtype="scientist" key="lang">Poet</rs>:</p>
+<div ana="verse">
+<lg><foreign xml:lang="la"><seg rend="antiqua"><l>Cum fæx, cum fimus, cum res vilissima simus,</l>
+<l>Unde superbimus? nescimus, quando <rs type="death" subtype="even">perimus</rs>.</l></seg></foreign></lg>
+</div>
+</div>
+<div>
+<div type="compTitle">
+<head>Glimpfflicher Discurs der <rs type="profession" subtype="cleric" key="_cler">Geistlichen</rs><lb/>
+mit dem <rs type="death" subtype="attr">schnarchenden</rs> <rs type="death" subtype="figu">Todt</rs>.</head>
+</div>
+<div ana="verse">
+<lg><l><seg rend="initialCapital">GEhören</seg> wir zum <rs type="death" subtype="misc">Todten=Hauß</rs> /</l>
+<l>Seynd wir dann nicht befreyt?</l>
+<l>Es scheint gar ein ungleicher Kauff /</l>
+<l>Mit Welt= vnd Geistlichkeit.</l></lg>
+<seg type="footer"><fw place="bot_center" type="pageNum">D</fw></seg><fw place="bot_right" type="catch">Todt.</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0044.jpg" xml:id="n0044" n="S. 44"/>
+<seg type="header"><fw n="44" place="top_center" type="pageNum">44.</fw></seg>
+<lg><l><rs type="death" subtype="figu">Todt</rs>.</l>
+<l>Geschwind fort; mein Ort / ist ewer Pfort /</l>
+<l>Da müßt ihr all anlenden /</l>
+<l>Brevier alhier bringt kein Bleschier</l>
+<l>Das Gsatz laßt sich nicht wenden.</l></lg>
+<lg><l><rs type="profession" subtype="cleric" key="_cler">Geistliche</rs>.</l>
+<l>Wir seynd so nützlich auff der Welt /</l>
+<l>Wie Hirten bey den Schaffen /</l>
+<l>Die Heerd wird gwiß seyn übel bestellt /</l>
+<l>So die Hirten werden schlaffen.</l></lg>
+<lg><l><rs type="death" subtype="figu">Todt</rs>.</l>
+<l>Kein Zäher / kein Blär der Schaaf ich hör /</l>
+<l>Acht nicht den Nam ehrwürdig /</l>
+<l>Macht Platz / was schadts? gmein ist das Gsatz /</l>
+<l>Fort / seyt ihr noch nicht fertig.</l></lg>
+<lg><l><rs type="profession" subtype="cleric" key="_cler">Geistliche</rs>.</l>
+<l>Ach nein / es gehöre gar vil darzu /</l>
+<l>Wann man wil seelig scheiden /</l>
+<l>Man braucht mehr als ein neus paar Schuh /</l>
+<l>GOtt hat ein gnaue Kreiden.</l></lg>
+<lg><l><rs type="death" subtype="figu">Todt</rs>.</l>
+<l>Macht Lufft der <rs type="death" subtype="misc">Grufft</rs> / schlagt dreyn das pufft /</l>
+<l>Der <rs type="profession" subtype="cleric" key="prie">Pater</rs> muß hinunter:</l>
+<l>Hinab ins <rs type="death" subtype="misc">Grab</rs> / seyn muß schabab /</l>
+<l>Laß dirs nicht seyn ein Wunder.</l></lg>
+<fw place="bot_right" type="catch">Geist=</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0045.jpg" xml:id="n0045" n="S. 45"/>
+<seg type="header"><fw n="45" place="top_center" type="pageNum">45.</fw></seg>
+<lg><l><rs type="profession" subtype="cleric" key="_cler">Geistliche</rs>.</l>
+<l>Es ist ein Mütterl von achtzig Jahr</l>
+<l>Das wolt ich noch gern trösten /</l>
+<l>Soll ich ehe fort / als sie / fürwar</l>
+<l>Das glangt vns nicht zum Besten.</l></lg>
+<lg><l><rs type="death" subtype="figu">Todt</rs>.</l>
+<l>Mein Kind / fein gschwind / sey nicht so blind /</l>
+<l>Sey doch nicht so verdrossen:</l>
+<l>Sey still mit Will / gemein ist das Ziel /</l>
+<l>Weck mit alt Weiber <rs type="game" subtype="term">Possen</rs>.</l></lg>
+<lg><l><rs type="profession" subtype="cleric" key="_cler">Geistliche</rs>.</l>
+<l>Seynd noch so vil die meine Lehr</l>
+<l>Gern hörten in der Predig /</l>
+<l>Könnt ich noch manchen Sünder schwer /</l>
+<l>Von Lastern machen ledig.</l></lg>
+<lg><l><rs type="death" subtype="figu">Todt</rs>.</l>
+<l>Acht nit dein Bitt / du ghörst in Schnitt /</l>
+<l>Was frag ich nach deim Plodern /</l>
+<l>Kein Trost mehr kost / beym Schlappermost /</l>
+<l>Jch thue dich herauß fodern.</l></lg>
+<lg><l><rs type="profession" subtype="cleric" key="_cler">Geistliche</rs>.</l>
+<l>So seys / wanns anderst nicht kan seyn /</l>
+<l>Jch <rs type="death" subtype="even">stirb</rs> nun mit Gedult /</l>
+<l><rs type="death" subtype="even">Stirb</rs> in den Händen <persName type="bibl">JEsu</persName> mein /</l>
+<l>Den <rs type="death" subtype="even">Todt</rs> hab ich verschuld.</l></lg>
+<seg type="footer"><fw place="bot_center" type="pageNum">D 2</fw></seg><fw place="bot_right" type="catch">O Todt</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0046.jpg" xml:id="n0046" n="S. 46"/>
+<seg type="header"><fw n="46" place="top_center" type="pageNum">46.</fw></seg>
+<lg><l>O <rs type="death" subtype="figu">Todt</rs> so komm / findst nicht mehr Zwang /</l>
+<l>Findst mich nicht mehr so schwürig /</l>
+<l>Jch tracht dahin wo kein Abgang /</l>
+<l>Nach GOtt bin ich begierig.</l>
+<l>Jch denck ja freylich offt zu ruck /</l>
+<l>Betracht es immer baß /</l>
+<l>Daß wir hie gehn ein schmale Bruck /</l>
+<l>Ein unbekandte Straß.</l>
+<l>Vns allen / stehest bevor /</l>
+<l>Vnd gar ein schmale Brucken /</l>
+<l>Ein ieder tragt in dem <foreign xml:lang="la">Valor</foreign> /</l>
+<l>Die Werck auff seinem Rucken.</l>
+<l>Gleich wol ich mich zum <rs type="death" subtype="even">Todt</rs> bequem /</l>
+<l>Zu <rs type="death" subtype="even">sterben</rs> hab kein Schewen /</l>
+<l>GOtt zahlt im obern <placeName type="city" subtype="dire" key="jeru">Jerusalem</placeName>.</l>
+<l>Mein Buß vnd all mein Reuen.</l>
+<l>Bin ich doch mir nichts böß bewußt /</l>
+<l>Kan mich auch nichts entsinnen.</l>
+<l>Wer also lebt / der <rs type="death" subtype="even">stirbt</rs> mit Lust /</l>
+<l>Mit Freuden scheidt von hinnen.</l></lg>
+</div>
+<p rend="indent">Die Kinder <placeName type="coun" subtype="dire" key="isra">Jsrael</placeName> haben das wohlgeschmack<lb break="no" type="d"/>
+te Manna oder Himmelbrodt gessen; der alte<lb/>
+<persName type="bibl">Jsaac</persName> hat an statt des Wildbräts ein Kitzel gessen;<lb/>
+der <persName type="bibl">Chan</persName> hat Linsen gessen / der Prophet <persName type="bibl">Daniel</persName><lb/>
+hat aus den Händen deß <persName type="bibl">Habacucs</persName> ein Koch<lb/>
+gessen: Aber eigentlich ist ein Speiß / die wird<lb/>
+allen vorgesetzet / vnd diese ist ein Muß: ein jeder<lb/>
+<fw place="bot_right" type="catch">Muß</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0047.jpg" xml:id="n0047" n="S. 47"/>
+<seg type="header"><fw n="47" place="top_center" type="pageNum">47.</fw></seg>
+Muß <rs type="death" subtype="even">sterben</rs> / ein jeder Muß in die <rs type="death" subtype="misc">Todten<lb break="no" type="d"/>
+Bruderschafft</rs> / da hilfft kein reden vnd retten<lb/>
+darfür. Dieses Gesatz wehret schon <date><seg rend="antiqua">3650.</seg> Jahr<lb/>
+vor der Geburt Christi</date> / nach der Geburt vnsers<lb/>
+Heylands wehret es schon <seg rend="antiqua"><date>1680</date>.</seg> Jahr / vnd wird<lb/>
+noch nicht aufhören / biß die Welt aufhöret;<lb/>
+<persName type="hist">Nemord</persName> ist der erste König in der Babilonischen<lb/>
+Monarchi gewesen / nunmehr ist von ihm vnd<lb/>
+allen seinigen nichts als Staub vnd Aschen üb<lb break="no" type="d"/>
+rig; <persName type="hist">Darius</persName> ist der erste König in der Persischen<lb/>
+Monarchi gewest / nun ist nichts mehr von ihm /<lb/>
+vnd allen den seinigen übrig / als daß sie gewest<lb/>
+seyn / vnd nicht mehr seyn: in der Griechischen<lb/>
+Monarchi ist <persName type="hist">Alexander der Grosse</persName> der erste Kö<lb break="no" type="d"/>
+nig gewest / jetzt aber er / sambt allen den seinigen<lb/>
+seynd verwelckt wie das Graß / vnd find man noch<lb/>
+mit harter Müh etliche dürre Beiner von ihnen.<lb/>
+<persName type="hist">Augustus</persName> / als der erste Käyser hat die Röm. Mo<lb break="no" type="d"/>
+narchi gehüt / welche annoch stehet / vnd durch je<lb break="no" type="d"/>
+nes Thier mit zehen Hörner / so der Prophet <persName type="bibl">Da<lb break="no" type="d"/>
+niel</persName> gesehen / vorgebildet worden / so aber auch zu<lb/>
+seiner Zeit die Hörner abstossen wird / vnd ein<lb/>
+End nehmen: auch hat bereits der Allmächtige<lb/>
+GOtt / der sich in dem Evangelio einem Bawrs<lb break="no" type="d"/>
+mann vergleicht / die Sichel in den Händen / al<lb break="no" type="d"/>
+lem Ansehen nach / können so viel Jahr vnd Zeiten<lb/>
+nicht mehr verstreichen / daß er nicht den allge<lb break="no" type="d"/>
+meinen Schnitt wird anfangen / vnd alle Men<lb break="no" type="d"/>
+<seg type="footer"><fw place="bot_center" type="pageNum">D 3</fw></seg>
+<fw place="bot_right" type="catch">schen</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0048.jpg" xml:id="n0048" n="S. 48"/>
+<seg type="header"><fw n="48" place="top_center" type="pageNum">48.</fw></seg>
+schen ruffen in die Ewigkeit; etliche in die glück<lb break="no" type="d"/>
+seelige / viel (O GOTT) in die unglückseelige!</p>
+<p rend="indent">Alle gegenwärtige vnterzeichnete seynd nun in<lb/>
+der Ewigkeit / vnd weilen GOttes Vrtheil gar<lb/>
+genaw vnd scharpff seyn / also frommer Christ<lb/>
+vergiß ihrer nicht in deinem Gebet; sie reden dich<lb/>
+also an:</p>
+<div ana="verse">
+<lg><l>Was du bist / wir eben auch waren /</l>
+<l>Was wir seynd / das wirst du erfahren /</l>
+<l>Das ist ein täglich und stündliche Sach /</l>
+<l>Komt bald ihr Brüder vnd Schwester hernach.</l></lg>
+</div>
+<milestone rend="undefined" type="separator"/>
+</div>
+<fw place="bot_right" type="catch">Ver=</fw>
+</body>
+<back>
+<pb facs="Abraham-Todten_Bruderschaft_s0001.jpg" xml:id="s0001" n="Register [S. 1]"/>
+<milestone rend="high" type="hr"/>
+<div type="index" n="Verzeichnis verstorbener Mitglieder">
+<div type="compTitle">
+<head><seg rend="bold">Verzeichnus</seg></head>
+</div>
+<p>Aller der jenigen Herren Brüdern /<lb/>
+Frauen und Jungfrauen Schwestern<lb/>
+welche auß der Hochlöblichen <rs type="death" subtype="misc"><choice><sic>Todten=Bruder<lb break="no" type="d"/>
+derschafft</sic><corr cert="high">Todten-Bruderschafft</corr></choice></rs> / bey denen Ehrwurdigen <seg rend="antiqua">P. P.</seg> <rs type="profession" subtype="cleric" key="augu">Augusti<lb break="no" type="d"/>
+nern Barfüssern</rs> alhier in <placeName type="city" subtype="dire" key="vien">Wienn</placeName> vom Monat <date>Nov.<lb/>
+deß 1679</date>. biß den <date>letzten Octob. deß <seg rend="antiqua">1680</seg></date>.<lb/>
+Jahrs / in GOTT seelig<lb/>
+verschieden.</p>
+<table><row><cell>
+<seg rend="antiqua">1</seg>.
+</cell><cell>
+Der Hochwürdigste Furst und<lb/>
+Herr / Herr <rs type="profession" subtype="scientist" key="_scie" key2="pers"><rs type="profession" subtype="cleric" key="bish"><persName type="hist">Wilderich</persName></rs> / deß Heil. Röm. Reichs<lb/>
+Fürst / vnd <rs type="profession" subtype="cleric" key="bish">Bischoff</rs> zu <placeName type="city" subtype="dire" key="vien">Wienn</placeName> / der Röm. Kays.<lb/>
+Maj. würcklich geheimer Rath / Thum=Probst<lb/>
+zu <placeName type="city" subtype="dire" key="spey">Speyer</placeName></rs> / der Ertz= vnd Hohen=Stifftern<lb/>
+<placeName type="city" subtype="dire" key="main">Mayntz</placeName> / vnd <placeName type="city" subtype="dire" key="würz">Würtzburg</placeName> / <seg rend="antiqua"><foreign xml:lang="la">Capitularis</foreign>,</seg> <rs type="death" subtype="even">starb</rs><lb/>
+zu <placeName type="city" subtype="dire" key="vien">Wienn</placeName> den <date><seg rend="antiqua">4</seg>. Septemb. <seg rend="antiqua">1680</seg></date>.
+</cell></row>
+<row><cell cols="2">
+Anno <date>1679</date>.
+</cell></row>
+<row><cell cols="2">
+<seg rend="antiqua"><foreign xml:lang="la"><seg rend="spaced">NOVEMBER</seg></foreign>.</seg>
+</cell></row>
+<row><cell>
+<seg rend="antiqua">2</seg>.
+</cell><cell>
+Der Kunstreiche Herr <persName type="hist">Michael Stadler</persName> / bey<lb/>
+St. <persName type="hist">Stephan</persName> in der Thum=Kirchen / und <seg rend="antiqua">PP</seg>.<lb/>
+<rs type="profession" subtype="cleric" key="augu">Augustinern Barfüssern</rs> geweßter Capell=Mei<lb break="no" type="d"/>
+ster / den <seg rend="antiqua">1</seg>. Dito.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">3</seg>.
+</cell><cell>
+Die Wohl=Edel Gestrenge Frau <persName type="hist">Maria Lucia<lb/>
+Tittmanningerin / geborne von Mangen</persName>. <seg rend="antiqua">1</seg>.
+</cell></row></table>
+<seg type="footer"><fw place="bot_center" type="pageNum">D 4</fw></seg><fw place="bot_right" type="catch"><seg rend="antiqua">4.</seg> Der</fw>
+<pb facs="Abraham-Todten_Bruderschaft_s0002.jpg" xml:id="s0002" n="Register [S. 2]"/>
+<table><row><cell>
+<seg rend="antiqua">4</seg>.
+</cell><cell>
+Der Wohl=Edle Gestrenge vnd <rs type="profession" subtype="scientist" key="_scie" key2="attr">Hochgelehrte</rs><lb/>
+Herr / <rs type="profession" subtype="scientist" key="_scie" key2="pers"><persName type="hist">Christophorus Tittmanninger</persName></rs> / <seg rend="antiqua">J. U. D.</seg><lb/>
+den <seg rend="antiqua">1</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">5</seg>.
+</cell><cell>
+Der Wohl=Edle Herr / <persName type="hist">Heinricus Schröffl</persName> /<lb/>
+Kauffmann zu <placeName type="city" subtype="dire" key="vien">Wienn</placeName> / den <seg rend="antiqua">2</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">6</seg>.
+</cell><cell>
+Herr <persName type="hist">Petrus Praun</persName> / Kayserl. Hättschier / <seg rend="antiqua">2</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">7</seg>.
+</cell><cell>
+Herr <persName type="hist">Bernhardus Schütz</persName> / Burg. Korbma<lb break="no" type="d"/>
+cher / den <seg rend="antiqua">2</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">8</seg>.
+</cell><cell>
+Frau <persName type="hist">Catharina Barbara Haarin</persName> / den <seg rend="antiqua">5</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">9</seg>.
+</cell><cell>
+Die edle Frau <persName type="hist">Juliana Catharina Dellin</persName> /<lb/>
+den <seg rend="antiqua">6</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">10</seg>.
+</cell><cell>
+Frau <persName type="hist">Maria Elisabetha Zornin / geborne Bü<lb break="no" type="d"/>
+ringerin</persName> / den <seg rend="antiqua">7</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">11</seg>.
+</cell><cell>
+Der Ehrwürdige in GOtt Geistliche <seg rend="antiqua">P. <persName type="hist"><choice><sic>Augu<lb break="no" type="s"/>
+gustinus</sic><corr cert="high">Augustinus</corr></choice> à S. Monica</persName></seg> <rs type="profession" subtype="cleric" key="augu">Augustiner Barfüsser</rs> /<lb/>
+den <seg rend="antiqua">9</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">12</seg>.
+</cell><cell>
+Die Frau <persName type="hist">Barbara Königin</persName> / Burg. Schuste<lb break="no" type="d"/>
+rin / den <seg rend="antiqua">19</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">13</seg>.
+</cell><cell>
+Der Ehrwürdige in GOtt Geistl. <seg rend="antiqua">P. <persName type="hist">Gregorius<lb/>
+à S. Joanne</persName></seg> <rs type="profession" subtype="cleric" key="augu">Augustiner Barfüsser</rs> / den <seg rend="antiqua">21</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">14</seg>.
+</cell><cell>
+Der Wohl=Edel Gestrenge Herr <persName type="hist">Magnus<lb/>
+Schmutz</persName> / <seg rend="antiqua">J. U. D.</seg> deß Kayserl. Stadt=Ge<lb break="no" type="d"/>
+richts Beysitzer / vnd diser Hochlöblichen Bru<lb break="no" type="d"/>
+derschafft
+<seg rend="antiqua"><foreign xml:lang="la">Consultor</foreign>.</seg> den <seg rend="antiqua">23</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">15</seg>.
+</cell><cell>
+Der Wohl=Edl vnd Gestrenge Herr <persName type="hist">Johan<lb break="no" type="d"/>
+nes Wicht</persName> / deß Jnnern Stadt=Raths alhier /<lb/>
+den <seg rend="antiqua">24</seg>.
+</cell></row>
+<row><cell>
+<choice><sic><seg rend="antiqua">16</seg></sic><corr cert="high">16.</corr></choice>
+</cell><cell>
+Der Wohl=Edle Gestrenge Herr <persName type="hist">Johann Fe<lb break="no" type="d"/>
+lix Sances</persName> / Jhro Röm. Kays. Hoff=Capell<lb break="no" type="d"/>
+meister / den <seg rend="antiqua">25</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">17</seg>.
+</cell><cell>
+Der Wohl=Edel Gestrenge Herr <persName type="hist">Franciscus<lb/>
+Karnneiger</persName> / Graff=Wirtenbergischer Regent /<lb/>
+den <seg rend="antiqua">26</seg>.
+</cell></row></table>
+<fw place="bot_right" type="catch"><seg rend="antiqua">18.</seg> Frau</fw>
+<pb facs="Abraham-Todten_Bruderschaft_s0003.jpg" xml:id="s0003" n="Register [S. 3]"/>
+<table><row><cell>
+<seg rend="antiqua">18</seg>.
+</cell><cell>
+Frau <persName type="hist">Christina <choice><sic>Baümgärtnerin</sic><corr cert="high">Bäumgärtnerin</corr></choice></persName> / Burg=Kauff<lb break="no" type="d"/>
+männin /
+</cell></row>
+<row><cell cols="2">
+<seg rend="antiqua"><foreign xml:lang="la"><seg rend="spaced">DECEMBER</seg></foreign>.</seg>
+</cell></row>
+<row><cell>
+<seg rend="antiqua">19</seg>.
+</cell><cell>
+Frau <persName type="hist">Ottilia Lautnerin</persName> / den <seg rend="antiqua">1</seg>. Dito.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">20</seg>.
+</cell><cell>
+Herr <persName type="hist">Godefridus Aloysius Hebauer</persName> / Kayserl.<lb/>
+Musicus / den <seg rend="antiqua">14</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">21</seg>.
+</cell><cell>
+Frau <persName type="hist">Susanna Lieberin</persName> / den <seg rend="antiqua">24</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">22.</seg>
+</cell><cell>
+Die Wohl=Edle Geborne Frau <persName type="hist">Susanna Sa<lb break="no" type="d"/>
+bina Häimin / von Heiling=Thal / geborne<lb/>
+Lerbmannin</persName> / den <seg rend="antiqua">27</seg>.
+</cell></row>
+<row><cell cols="2">
+<seg rend="antiqua">Anno</seg> <date><seg rend="antiqua">1680</seg></date>.
+</cell></row>
+<row><cell cols="2">
+<seg rend="antiqua"><foreign xml:lang="la"><seg rend="spaced">JANUARIUS</seg></foreign>.</seg>
+</cell></row>
+<row><cell>
+<seg rend="antiqua">23</seg>.
+</cell><cell>
+Die Wohl=Edle Gestrenge Frau <persName type="hist">Rosina Hol<lb break="no" type="d"/>
+lerin</persName> / den <seg rend="antiqua">15</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">24</seg>.
+</cell><cell>
+Die Frau <persName type="hist">Barbara Sabina Schambergerin</persName> /<lb/>
+den <seg rend="antiqua">28</seg>.
+</cell></row>
+<row><cell cols="2">
+<seg rend="antiqua"><foreign xml:lang="la"><seg rend="spaced">FEBRUARIUS</seg></foreign>.</seg>
+</cell></row>
+<row><cell>
+<seg rend="antiqua">25</seg>.
+</cell><cell>
+Die Ehrwürdige in GOtt Geistliche Jungfrau<lb/>
+<seg rend="antiqua"><persName type="hist"><foreign xml:lang="la">Benedicta ab humilitate Christi</foreign></persName>,</seg> Chor=<lb break="no"/>
+Schwester in der Königin Closter / den <seg rend="antiqua">12</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">26</seg>.
+</cell><cell>
+Die Wohl=Edle Gestrenge Frau <persName type="hist">Eleonora<lb/>
+Grunbachin</persName> / den <seg rend="antiqua">18</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">27</seg>.
+</cell><cell>
+Die Wohl=Edle Gestrenge Frau <persName type="hist">Lucia Bu<lb break="no" type="d"/>
+cherin</persName> / Hoff=Meisterin bey St. <persName type="hist">Lorentz</persName> / den <seg rend="antiqua">19</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">28</seg>.
+</cell><cell>
+Herr <persName type="hist">Jacob Stein=Kellner</persName> / Kays. Hoff=Kell<lb break="no" type="d"/>
+ner / den <seg rend="antiqua">28</seg>.
+</cell></row>
+<row><cell cols="2">
+<seg rend="antiqua"><foreign xml:lang="la"><seg rend="spaced">MARTIUS</seg></foreign>.</seg>
+</cell></row>
+<row><cell>
+<seg rend="antiqua">29</seg>.
+</cell><cell>
+Frau <persName type="hist">Anna Catharina von <choice><sic>Pfrnnden=Stein</sic><corr cert="high">Pfrunden=Stein</corr></choice></persName> /<lb/>
+den <seg rend="antiqua">12</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">30</seg>.
+</cell><cell>
+Frau <persName type="hist">Felicitas Veit=Hauserin</persName> / den <seg rend="antiqua">15</seg>.
+</cell></row></table>
+<fw place="bot_right" type="catch"><seg rend="antiqua">31.</seg> Der</fw>
+<pb facs="Abraham-Todten_Bruderschaft_s0004.jpg" xml:id="s0004" n="Register [S. 4]"/>
+<table><row><cell>
+<seg rend="antiqua">31</seg>.
+</cell><cell>
+Der Ehrwürdige in Gott Geistliche <seg rend="antiqua">P. <persName type="hist">Jose<lb break="no" type="s"/>
+phus <foreign xml:lang="la">ab Annunciatione</foreign> B. M. V.</persName></seg> <rs type="profession" subtype="cleric" key="augu">Augustiner<lb/>
+Barfüsser</rs> / den <seg rend="antiqua">15</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">32</seg>.
+</cell><cell>
+Herr <persName type="hist">Andreas Lofler</persName> / den <seg rend="antiqua">25</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">33</seg>.
+</cell><cell>
+Frau <persName type="hist">Johanna Königin</persName> / den <seg rend="antiqua">30</seg>.
+</cell></row>
+<row><cell cols="2">
+<foreign xml:lang="la"><seg rend="antiqua"><seg rend="spaced">APRILIS</seg></seg></foreign> vnd <seg rend="antiqua"><foreign xml:lang="la"><seg rend="spaced">MAJUS</seg></foreign>,</seg><lb/>
+<seg rend="antiqua">vaci</seg>ren.<lb/>
+<seg rend="antiqua"><foreign xml:lang="la"><seg rend="spaced">JUNIUS</seg></foreign>.</seg>
+</cell></row>
+<row><cell>
+<seg rend="antiqua">34</seg>.
+</cell><cell>
+Die Wohl=Edle Gebohrne Gestrenge Frau<lb/>
+<persName type="hist">Anna Brigitta Müllerin</persName> / Hoff=Cammer=<lb break="no"/>
+Führerin / der Löblichen <rs type="death" subtype="misc">Todten=Bruderschafft</rs><lb/>
+Gutthäterin / den 16.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">35</seg>.
+</cell><cell>
+Die Wohl=Edle Gestrenge Frau <persName type="hist">Johanna<lb/>
+Bayr=Huberin von Hueb / geborne Kreßlin<lb/>
+von Geraltenberg</persName> / den <seg rend="antiqua">16</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">36</seg>.
+</cell><cell>
+Der Andächtige in GOtt Geistliche <seg rend="antiqua">Fr. <persName type="hist">Ada<lb break="no" type="s"/>
+mus à S. Cruce</persName>,</seg> <rs type="profession" subtype="cleric" key="augu">Augustiner Barfüsser</rs> / 17.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">37</seg>.
+</cell><cell>
+Der Ehrwürdige in GOtt Geistliche <seg rend="antiqua">P. <persName type="hist">Wen<lb break="no" type="s"/>
+ceslaus à S. Augustino</persName>,</seg> <rs type="profession" subtype="cleric" key="augu">Augustiner Bar<lb break="no" type="d"/>
+füsser</rs> / <seg rend="antiqua">den 19</seg>.
+</cell></row>
+<row><cell cols="2">
+<seg rend="antiqua"><foreign xml:lang="la"><seg rend="spaced">JULIUS</seg></foreign>.</seg>
+</cell></row>
+<row><cell>
+<seg rend="antiqua">38</seg>.
+</cell><cell>
+Der Ehrwürdige in GOtt Geistliche <seg rend="antiqua">P. <persName type="hist">Va<lb break="no" type="s"/>
+lentinus à S. Elisabetha</persName>,</seg> <rs type="profession" subtype="cleric" key="augu">Augustiner Bar<lb break="no" type="d"/>
+füsser</rs> / den <seg rend="antiqua">5</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">39</seg>.
+</cell><cell>
+Der Ehrwürdige in GOtt Geistliche <seg rend="antiqua">P. <persName type="hist">Cle<lb break="no" type="s"/>
+mens à S. Elzeario</persName>,</seg> <rs type="profession" subtype="cleric" key="augu">Augustiner Barfüsser</rs> / den <seg rend="antiqua">7</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">40</seg>.
+</cell><cell>
+Herr <persName type="hist">Thomas Capeller</persName> / den <seg rend="antiqua">8</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">41</seg>.
+</cell><cell>
+Herr <persName type="hist">Johannes Heiser</persName> Kauffmann / den <seg rend="antiqua">11</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">42</seg>.
+</cell><cell>
+Der Ehrwürdige in Gott Geistliche <seg rend="antiqua">P. <persName type="hist">Ladis<lb break="no" type="s"/>
+laus à S. Peregrina</persName>,</seg> <rs type="profession" subtype="cleric" key="augu">Augustiner Barfüsser</rs> / Auß<lb break="no" type="d"/>
+gesetzter zu <placeName type="city" subtype="dire" key="prag">Prag</placeName> / den <seg rend="antiqua">15</seg>.
+</cell></row></table>
+<fw place="bot_right" type="catch"><seg rend="antiqua">43.</seg> Der</fw>
+<pb facs="Abraham-Todten_Bruderschaft_s0005.jpg" xml:id="s0005" n="Register [S. 5]"/>
+<table><row><cell>
+<seg rend="antiqua">43</seg>.
+</cell><cell>
+Der Ehrwürdige in GOtt Geistliche <seg rend="antiqua">P. <persName type="hist">Ægidius<lb/>
+à S. Leopoldo</persName>,</seg> <rs type="profession" subtype="cleric" key="augu">Augustiner Barfüsser</rs> / den <seg rend="antiqua">17</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">44</seg>.
+</cell><cell>
+Der Wohl=Ehrwürdige in GOtt Geistliche<lb/>
+Herr <persName type="hist">Jacobus Ferdinandus Schneeweiß</persName> / <seg rend="antiqua"><foreign xml:lang="la">Canon.<lb/>
+Regul. S. <persName type="hist">Augustini</persName></foreign>,</seg> zu <placeName type="vill" subtype="dire" key="hert">Hertzogburg</placeName> / und <foreign xml:lang="la"><seg rend="antiqua">Vi<lb break="no" type="s"/>
+carius</seg></foreign> zu <placeName type="vill" subtype="dire" key="reid">Reidling</placeName> / den <seg rend="antiqua">23</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">45</seg>.
+</cell><cell>
+Der Wohl=Edle <rs type="profession" subtype="scientist" key="rtheo" key2="attr">Hochgelehrte</rs> Herr <rs type="profession" subtype="scientist" key="_scie" key2="pers"><rs type="profession" subtype="cleric" key="bish"><persName type="hist">Francis<lb break="no" type="d"/>
+cus Dötz von Dötz=Kirchen</persName></rs> / der <rs type="profession" subtype="scientist" key="rtheo">heiligen Schrifft<lb/>
+Doctor</rs> / und der <choice><sic>Käyserlichin</sic><corr cert="high">Käyserlichen</corr></choice> Jägerey <rs type="profession" subtype="cleric" key="chap">Capellan</rs></rs> /<lb/>
+den <seg rend="antiqua">25</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">46</seg>.
+</cell><cell>
+Herr <persName type="hist">Willhelmus Ostermayr</persName> / Reichs=Concepist /<lb/>
+den <seg rend="antiqua">25</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">47</seg>.
+</cell><cell>
+Die Hoch= und Wohl=Gebohrne Freyle <persName type="hist">Su<lb break="no" type="d"/>
+sanna Felicitas Löblin</persName> / Freyin / den <seg rend="antiqua">27</seg>.
+</cell></row>
+<row><cell cols="2">
+<seg rend="antiqua"><foreign xml:lang="la"><seg rend="spaced">AUGUSTUS</seg></foreign>.</seg>
+</cell></row>
+<row><cell>
+<seg rend="antiqua">48</seg>.
+</cell><cell>
+Der Wohl=Edel Gebohrne Herr Herr <persName type="hist">Ferdi<lb break="no" type="d"/>
+nandus Franciscus Landtsperg von Pinger=Hoff</persName> /<lb/>
+der Röm. Käys. Mayst. Rath / und Regent der<lb/>
+N. L. Regierung / den <seg rend="antiqua">15</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">49</seg>.
+</cell><cell>
+Der Wohl=Edl Gestrenge Herr <seg rend="antiqua"><persName type="hist">Josephus à<lb/>
+Zwanger</persName>,</seg> Burger=Meister zu <placeName type="city" subtype="dire" key="pass">Passau</placeName> / den <seg rend="antiqua">20</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">50</seg>.
+</cell><cell>
+Die Wohl=Edl Gebohrne Frau Frau <persName type="hist">Helena<lb/>
+Freyin von Schwartzen=Horn / geborne von Veld<lb break="no" type="d"/>
+tegg</persName> / den <seg rend="antiqua">26</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">51</seg>.
+</cell><cell>
+Der Ehrwürdige in GOtt Geistliche <seg rend="antiqua">P. <persName type="hist">Augu<lb break="no" type="s"/>
+stinus à S. Nativitate B. M. Virg.</persName></seg> <rs type="profession" subtype="cleric" key="augu">Augustiner<lb/>
+Barfüsser</rs> / den <seg rend="antiqua">26</seg>.
+</cell></row>
+<row><cell cols="2">
+<seg rend="antiqua"><foreign xml:lang="la"><seg rend="spaced">SEPTEMBER</seg></foreign>.</seg>
+</cell></row>
+<row><cell>
+<seg rend="antiqua">52</seg>.
+</cell><cell>
+Der Ehrwürdige in GOtt Geistliche <seg rend="antiqua">P. <persName type="hist">Rudol<lb break="no" type="s"/>
+phus à S. Anna</persName>,</seg> <rs type="profession" subtype="cleric" key="augu">Augustiner Barfüsser</rs> / Außge<lb break="no" type="d"/>
+setzter zu <placeName type="vill" subtype="dire" key="chot">Chotovin</placeName> in <placeName type="coun" subtype="dire" key="bohe">Böhmen</placeName> / den 14.
+</cell></row></table>
+<fw place="bot_right" type="catch"><seg rend="antiqua">53.</seg> Der</fw>
+<pb facs="Abraham-Todten_Bruderschaft_s0006.jpg" xml:id="s0006" n="Register [S. 6]"/>
+<table><row><cell>
+<seg rend="antiqua">53</seg>.
+</cell><cell>
+Der Ehrwürdige in GOtt Geistliche <seg rend="antiqua">P. <persName type="hist">Richar<lb break="no" type="s"/>
+dus à S. Petro</persName>,</seg> <rs type="profession" subtype="cleric" key="augu">Augustiner Barfüsser</rs> / den <seg rend="antiqua">27</seg>.
+</cell></row>
+<row><cell cols="2">
+<seg rend="antiqua"><foreign xml:lang="la"><seg rend="spaced">OCTOBER</seg></foreign>.</seg>
+</cell></row>
+<row><cell>
+<seg rend="antiqua">54</seg>.
+</cell><cell>
+Frau <persName type="hist">Catharina Scarfin</persName> / den <seg rend="antiqua">1</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">55</seg>.
+</cell><cell>
+Der Ehrwürdige in GOtt Geistliche <seg rend="antiqua">P. <persName type="hist">Severi<lb break="no" type="s"/>
+nus à S. Regina</persName>,</seg> <rs type="profession" subtype="cleric" key="augu">Augustiner <choice><sic>Barfüsserr</sic><corr cert="high">Barfüsser</corr></choice></rs> Außge<lb break="no" type="d"/>
+setzter zu <placeName type="city" subtype="dire" key="graz">Grätz</placeName> / den <seg rend="antiqua">2</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">56</seg>.
+</cell><cell>
+Der Andächtige in GOtt Geistliche <seg rend="antiqua">Fr. <persName type="hist">Acha<lb break="no" type="s"/>
+tius à S. Alexio</persName>,</seg> <rs type="profession" subtype="cleric" key="augu">Augustiner Barfüsser</rs> / den <seg rend="antiqua">13</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">57</seg>.
+</cell><cell>
+Die Wohl=Edl Gebohrne Frau <persName type="hist">Anna Susan<lb break="no" type="d"/>
+na Edle Frau von Pazzo auff Herteneck / gebohrne<lb/>
+Greylin von Rosenstock</persName> / den <seg rend="antiqua">14</seg>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">58</seg>.
+</cell><cell>Die Wohl=Edl und Gestrenge Frau <persName type="hist">Eva Bar<lb break="no" type="d"/>
+bara Rechbergerin gebohrne Bamblin</persName> / den <seg rend="antiqua">11</seg>.
+</cell></row>
+<row><cell cols="2">
+<seg rend="antiqua"><foreign xml:lang="la"><seg rend="spaced">EXTRA TEMPUS</seg></foreign>.</seg>
+</cell></row>
+<row><cell>
+<choice><sic><seg rend="antiqua">56</seg></sic><corr cert="high">59</corr></choice>.
+</cell><cell>
+Jhro Excellentz der Hoch= und Wohl=Gebor<lb break="no" type="d"/>
+ne Herr <persName type="hist">Johannes Maximilianus Graff von<lb/>
+Herberstein</persName> / <milestone rend="blEtc" type="symbol"/> der Römischen Käyserl. Majestät<lb/>
+würcklich Geheimer Rath / Cammer / und dero<lb/>
+J. O. Länder Geheimer Raths=<seg rend="antiqua">Director</seg>.</cell></row>
+<row><cell>
+<seg rend="antiqua">60</seg>.
+</cell><cell>
+Frau <persName type="hist">Magdalena Hönigin</persName> / Burgerliche Gold=<lb break="no"/>
+Schmidin.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">61</seg>.
+</cell><cell>
+Der Andächtige in GOtt Geistliche <seg rend="antiqua">Fr. <persName type="hist">Baltha<lb break="no" type="s"/>
+sar à S. Paulo</persName>,</seg> <rs type="profession" subtype="cleric" key="augu">Augustiner Barfüsser</rs>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">62</seg>.
+</cell><cell>
+Herr <persName type="hist">Carolus Müller</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">63</seg>.
+</cell><cell>
+Frau <persName type="hist">Anna Müllerin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">64</seg>.
+</cell><cell>
+<persName type="hist">Barbara Saumerin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">65</seg>.
+</cell><cell>
+Der Wohl=Ehrwürdige in GOtt Geistliche<lb/>
+Herr <persName type="hist">Christianus Hürterer</persName> / Pfarr=Herr zu <placeName type="vill" subtype="dire" key="penz">Pen<lb break="no" type="d"/>
+tzing</placeName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">66</seg>.
+</cell><cell>
+Der Edle Herr <persName type="hist">Christophorus Partasato</persName>.
+</cell></row></table>
+<fw place="bot_right" type="catch"><seg rend="antiqua">97.</seg> Frau</fw>
+<pb facs="Abraham-Todten_Bruderschaft_s0007.jpg" xml:id="s0007" n="Register [S. 7]"/>
+<table><row><cell>
+<seg rend="antiqua">67</seg>.
+</cell><cell>
+Frau <persName type="hist">Juliana Lachesin</persName> / Gold=Schmidin.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">68.</seg>
+</cell><cell>
+Herr <persName type="hist">Vitus Auer</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">69.</seg>
+</cell><cell>
+Frau <persName type="hist">Magdalena Auerin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">70.</seg>
+</cell><cell>
+Frau <persName type="hist">Catharina Wüchtlein</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">71.</seg>
+</cell><cell>
+Frau <persName type="hist">Maria Dötzin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">72.</seg>
+</cell><cell>
+<persName type="hist">Rosina Oberdorfferin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">73.</seg>
+</cell><cell>
+Herr <persName type="hist">Nicolaus Bonviol</persName> / Wax=Kertzler.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">74.</seg>
+</cell><cell>
+Frau <persName type="hist">Susanna Hanigin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">75.</seg>
+</cell><cell>
+Frau <persName type="hist">Magdalena Mündlin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">76</seg>.
+</cell><cell>
+Herr <persName type="hist">Georgius Söllner</persName> / der <placeName type="city" subtype="dire" key="vien">Wienn=Statt</placeName><lb/>
+Steur=Diener.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">77.</seg>
+</cell><cell>
+Frau <persName type="hist">Anna Söllnerin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">78.</seg>
+</cell><cell>
+<persName type="hist">Johannes Dobler</persName> / Maurer.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">79.</seg>
+</cell><cell>
+<persName type="hist">Anna Catharina Doblerin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">80.</seg>
+</cell><cell>
+Herr <persName type="hist">Jacob Sallätl</persName> / Regierungs Haitzer.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">81.</seg>
+</cell><cell>
+Frau <persName type="hist">Anna Sallätlin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">82.</seg>
+</cell><cell>
+<persName type="hist">Johannes Jacobus Sallätl</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">83.</seg>
+</cell><cell>
+<persName type="hist">Maria Catharina Sallätlin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">84.</seg>
+</cell><cell>
+<persName type="hist">Johannes Melchior Ebner</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">85</seg>.
+</cell><cell>
+<persName type="hist">Franciscus Paur</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">86.</seg>
+</cell><cell>
+<persName type="hist">Maria Weissin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">87.</seg>
+</cell><cell>
+Die Wohl=Edel Gestrenge Freylein <persName type="hist">Cordula<lb/>
+von Blabenstain</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">88</seg>.
+</cell><cell>
+Herr <persName type="hist">Johannes Pirnköpffer</persName> / Burgerl. Schuster.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">89.</seg>
+</cell><cell>
+Jungfrau <persName type="hist">Barbara Scheüerin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">90</seg>.
+</cell><cell>
+Jungfrau <persName type="hist">Anna Maria Scheüerin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">91</seg>.
+</cell><cell>
+Jungfrau <persName type="hist">Rosina Scheüerin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">92</seg>.
+</cell><cell>
+Jungfrau <persName type="hist">Anna Martterin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">93.</seg>
+</cell><cell>
+Jungfrau <persName type="hist">Anna Barbara de Crorin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">94.</seg>
+</cell><cell>
+Frau <persName type="hist">Anna Maria Oberleutnerin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">95.</seg>
+</cell><cell>
+Die Edle Frau <persName type="hist">Maria Cordula Kraussin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">96</seg>.
+</cell><cell>
+<persName type="hist">Maria Meyrin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">97.</seg>
+</cell><cell>
+<persName type="hist">Johannes Jacobus Wenceslaus Pfrundt</persName>
+</cell></row></table>
+<fw place="bot_right" type="catch"><seg rend="antiqua">98.</seg> Ju=</fw>
+<pb facs="Abraham-Todten_Bruderschaft_s0008.jpg" xml:id="s0008" n="Register [S. 8]"/>
+<table><row><cell>
+<seg rend="antiqua">98.</seg>
+</cell><cell>
+<persName type="hist">Justina Wintergrienin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">99</seg>.
+</cell><cell>
+Herr <persName type="hist">Johannes Maximilianus Preutl</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">100.</seg>
+</cell><cell>
+Die Wohl=Edle Freylein <persName type="hist">Maximiliana von<lb/>
+Willibrolin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">101</seg>.
+</cell><cell>
+Frau <persName type="hist"><choice><sic>Mauria</sic><corr cert="high">Maria</corr></choice> Juliana Paulin / geborne Oster<lb break="no" type="d"/>
+mayrin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">102.</seg>
+</cell><cell>
+Herr <persName type="hist">Johannes Zähn</persName> / <seg rend="antiqua"><rs type="profession" subtype="scientist" key="juri"><foreign xml:lang="la">Notarius Publicus</foreign></rs>.</seg>
+</cell></row>
+<row><cell>
+<seg rend="antiqua">103</seg>.
+</cell><cell>
+Frau <persName type="hist">Elisabetha Constantia Kernin</persName> / Organi<lb break="no" type="d"/>
+stin zum Schotten.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">104.</seg>
+</cell><cell>
+<persName type="hist">Anna Jacoba Preymütgerin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">105</seg>.
+</cell><cell>
+Herr <persName type="hist">Fridrich Knoblauch</persName> / Kayserl. Trabant.<lb/>
+</cell></row>
+	<row><cell>
+<seg rend="antiqua">106</seg>.
+</cell><cell>
+<persName type="hist">Maria Hertelhofferin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">107.</seg>
+</cell><cell>
+Herr <persName type="hist">Balthauser Simon Satter</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">108.</seg>
+</cell><cell>
+Frau <persName type="hist">Anna Margaretha Schreyerin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">109.</seg>
+</cell><cell>
+Herr <persName type="hist">Nicolaus Todtschütz</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">110</seg>.
+</cell><cell>
+Herr <persName type="hist">Burchardus Trautsamb</persName> / Handelsmann<lb/>
+in <placeName type="vill" subtype="dire" key="berg">Berg=Stätten</placeName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">111.</seg>
+</cell><cell>
+Frau <persName type="hist">Maria Euphrosina Oesterreicherin /<lb/>
+geborne Schmidin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">112.</seg>
+</cell><cell>
+Der Edle und Gestrenge Herr <persName type="hist">Georgius Acha<lb break="no" type="d"/>
+tius Dornhoffer</persName> / Fürbieter bey der N. O. Lands=<lb break="no"/>
+Cantzley.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">113.</seg>
+</cell><cell>
+<persName type="hist">Maria Elisabetha Pergerin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">114</seg>.
+</cell><cell>
+<persName type="hist">Barbara Götzin</persName>.
+</cell></row>
+<row><cell>
+<seg rend="antiqua">115</seg>.
+</cell><cell>
+<persName type="hist">Anna Catharina Zünin</persName>.
+</cell></row></table>
+</div>
+<p><seg rend="spaced">ENDE</seg>.</p>
+<pb facs="Abraham-Todten_Bruderschaft_s0009.jpg" xml:id="s0009" n="Leerseite"/>
+<pb facs="Abraham-Todten_Bruderschaft_s0010.jpg" xml:id="s0010" n="Leerseite"/>
+<pb facs="Abraham-Todten_Bruderschaft_s0011.jpg" xml:id="s0011" n="Leerseite"/>
+<pb facs="Abraham-Todten_Bruderschaft_s0012.jpg" xml:id="s0012" n="Leerseite"/>
+<pb facs="Abraham-Todten_Bruderschaft_s0013.jpg" xml:id="s0013" n="h. fliegendes Vorsatzblatt recto"/>
+<pb facs="Abraham-Todten_Bruderschaft_s0014.jpg" xml:id="s0014" n="h. fliegendes Vorsatzblatt verso"/>
+<pb facs="Abraham-Todten_Bruderschaft_s0015.jpg" xml:id="s0015" n="h. Umschlag recto"/>
+<pb facs="Abraham-Todten_Bruderschaft_s0016.jpg" xml:id="s0016" n="h. Umschlag verso"/>
+</back>
+</text>
+</TEI>
