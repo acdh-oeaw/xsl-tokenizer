@@ -295,7 +295,6 @@
 		</tei:seg>
 	</xsl:template>
 
-	<!-- text node that contains whitespace -->
 	<xsl:template match="text()[not(matches(.,'^\s+$'))]" mode="makeWTags" priority="1">
 		<xsl:choose>
 			<xsl:when test="some $x in ancestor::* satisfies not(icltt:textvalue($x))">
@@ -341,6 +340,7 @@
 											<xsl:value-of select="$toks[1]"/>
 										</tei:w>
 									</xsl:when>
+									<!-- TODO test for part="M" -->
 									<xsl:otherwise>
 										<tei:w>
 											<xsl:value-of select="$toks[1]"/>
@@ -420,12 +420,12 @@
 											<xsl:choose>
 												<xsl:when
 												test="icltt:following(.) instance of element()">
-												<xsl:element name="{name(icltt:following(.))}"
+												<!--<xsl:element name="{name(icltt:following(.))}"
 												namespace="{namespace-uri(icltt:following(.))}">
 												<xsl:copy-of select="icltt:following(.)/@*"/>
-												<xsl:attribute name="isCopy">true</xsl:attribute>
-												<xsl:copy-of select="$toks[last()]/node()"/>
-												</xsl:element>
+												<xsl:attribute name="isCopy">true</xsl:attribute>-->
+												<tei:w part="M"><xsl:copy-of select="$toks[last()]/node()"/></tei:w>
+												<!--</xsl:element>-->
 												</xsl:when>
 												<xsl:otherwise>
 												<tei:w part="I">
