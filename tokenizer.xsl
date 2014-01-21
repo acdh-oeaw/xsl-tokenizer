@@ -41,6 +41,7 @@
 					<!-- abbreviations -->
 					<!--<xsl:when test="some $x in $abbrList satisfies $x=.">-->
 					<xsl:when test="$useAbbrList and key('abbrList',.,$abbrList)">
+						<xsl:message>Used Abbr List for token "<xsl:value-of select="."/>"</xsl:message>
 						<tei:w>
 							<xsl:value-of select="."/>
 						</tei:w>
