@@ -81,7 +81,7 @@
 											</xsl:matching-substring>
 											<xsl:non-matching-substring>
 												<!-- everything else -->
-												<xsl:analyze-string select="." regex="\p{{P}}">
+												<xsl:analyze-string select="." regex="{$punctCharPattern}">
 												<xsl:matching-substring>
 												<tei:pc>
 												<xsl:value-of select="."/>
