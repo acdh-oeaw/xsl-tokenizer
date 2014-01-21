@@ -3,16 +3,18 @@
     <parameters>
         <param key="makeNoNamespaceVersion" value="true"/>
         <param key="purgeWhitespace" value="false()"/>
-        <param key="pathToTokenizer" value="file:/C:/Users/aac/apa-utils/tokenizer/tokenizer.xsl"/>
-        <param key="pathToWrapper" value="file:/C:/Users/aac/apa-utils/tokenizer/wrap.xsl"/>
+        <param key="pathToTokenizer" value="tokenizer.xsl"/>
+        <param key="pathToWrapper" value="wrap.xsl"/>
+        <param key="useAbbrList" value="false" as="xs:boolean"/>
     </parameters>
     <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
     <!-- tags to be ignored by the wrapper/tokenizer. this means that their content won't be tokenized, but they will be copied as-are. This does not mean necessarily that these do not constitute token boundaries.--> 
     <ignore>
         <expression>tei:fw</expression>
         <expression>tei:pb</expression>
-        <expression>tei:seg[@type=('header','footer')]</expression>
+        <expression>tei:seg[@type='header' or @type='footer']</expression>
         <expression>tei:milestone</expression>
+        <expression>tei:corr</expression>
     </ignore>
     <!-- 
         in word-tags do not mark token boundaries. the preceding partial token (i.e. one that does *not* end with a blank) and the following partial token (i.e. one that does not start with a blank) will be wrapped by an <w>-tag, including the in-word token.
@@ -20,5 +22,6 @@
     <in-word-tags>
         <expression>tei:lb[@break='no']</expression>
         <expression>tei:seg</expression>
+        <expression>tei:supplied</expression>
     </in-word-tags>
 </textvalue>
