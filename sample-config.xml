@@ -3,7 +3,7 @@
     <parameters>
         <param key="makeNoNamespaceVersion" value="true"/>
         <param key="purgeWhitespace" value="false()"/>
-        <param key="pathToTokenizer" value="lib-toks.xsl"/>
+        <param key="pathToTokenizerLib" value="lib-toks.xsl"/>
         <param key="pathToBoundaryLib" value="lib-bdr.xsl"/>
         <param key="useAbbrList" value="false" as="xs:boolean"/>
         <param key="punctCharPattern" value="[\p{P}-[\-]]"/>
