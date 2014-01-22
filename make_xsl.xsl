@@ -18,7 +18,8 @@
         select="if(exists(root()//param[@key='pathToBoundaryLib'])) then xs:string(root()//param[@key='pathToBoundaryLib']/data(@value)) else ''"/>
     <xsl:param name="punctCharPattern" as="xs:string"
         select="if(exists(root()//param[@key='punctCharPattern'])) then xs:string(root()//param[@key='punctCharPattern']/data(@value)) else '\p{P}'"/>
-
+    <xsl:param name="user-supplied-abbreviation-list"
+        select="if(exists(root()//abbreviations)) then root()//abbreviations else ()" as="element(abbreviations)*"/>
 
     <xsl:template match="/">
         <!-- parameter stylesheet -->
@@ -33,14 +34,21 @@
                         <xsl:attribute name="name">
                             <xsl:value-of select="@key"/>
                         </xsl:attribute>
-                        <xsl:if test="@as">
+                        <if test="@as">
                             <xsl:attribute name="as">
                                 <xsl:value-of select="@as"/>
                             </xsl:attribute>
-                        </xsl:if>
+                        </if>
                         <xsl:value-of select="@value"/>
                     </xsl:element>
                 </for-each>
+                <if test="exists($user-supplied-abbreviation-list)">
+                    <xsl:element name="xsl:param">
+                        <xsl:attribute name="name">user-supplied-abbreviation-list</xsl:attribute>
+                        <xsl:attribute name="as">item()*</xsl:attribute>
+                        <sequence select="$user-supplied-abbreviation-list"/>
+                    </xsl:element>
+                </if>
             </xsl:element>
         </xsl:result-document>
 

@@ -136,4 +136,9 @@ bracht worden / vnd wird das Ort genennt:<lb/>
 <seg rend="antiqua"><foreign xml:lang="la">Capo Santo</foreign>,</seg> allwo noch auff heuntigen Tag<lb/>
 dise Erd nur die Leiber der Frembden behaltet /<lb/>
 der Jnwohner aber gleich wider außwirfft.</p>
+<!-- "&c" muss ein Token sein, wenn als abbreviations/abbr im Parameter-file definiert -->
+<p rend="indent">Wann der Geist kein Scheühen tragt ob<lb/>
+dem H. Creutz=Zeichen / an dem süssesten Na<lb break="no" type="d"/>
+men <persName type="bibl">JESU</persName> vnd <persName type="bibl">Maria</persName> / H. <seg rend="antiqua">Reliqui</seg>en /<lb/>
+Weyhwasser / <foreign xml:lang="la"><seg rend="antiqua">Agnus <seg rend="smallCaps">Dei</seg> &amp;c.</seg></foreign></p>
 </TEI>
