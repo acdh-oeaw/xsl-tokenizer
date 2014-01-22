@@ -3,9 +3,10 @@
     <parameters>
         <param key="makeNoNamespaceVersion" value="true"/>
         <param key="purgeWhitespace" value="false()"/>
-        <param key="pathToTokenizer" value="tokenizer.xsl"/>
-        <param key="pathToWrapper" value="wrap.xsl"/>
+        <param key="pathToTokenizer" value="lib-toks.xsl"/>
+        <param key="pathToBoundaryLib" value="lib-bdr.xsl"/>
         <param key="useAbbrList" value="false" as="xs:boolean"/>
+        <param key="punctCharPattern" value="[\p{P}-[\-]]"/>
     </parameters>
     <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
     <!-- tags to be ignored by the wrapper/tokenizer. this means that their content won't be tokenized, but they will be copied as-are. This does not mean necessarily that these do not constitute token boundaries.--> 
