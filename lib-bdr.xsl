@@ -7,7 +7,9 @@
 		<xd:desc>
 			<xd:p><xd:b>Created on:</xd:b> Dec 5, 2013</xd:p>
 			<xd:p><xd:b>Author:</xd:b> aac</xd:p>
-			<xd:p>Library for detecting word/token boundaries. Markup is generally taken to be 'inline' markup which possibly , i.e. only presence / absence of whitespace and puctuation is taken into account. </xd:p>
+			<xd:p>Library for detecting word/token boundaries. Markup is generally taken to be
+				'inline' markup which possibly , i.e. only presence / absence of whitespace and
+				puctuation is taken into account. </xd:p>
 		</xd:desc>
 	</xd:doc>
 	<xsl:output indent="no" method="xml"/>
@@ -137,7 +139,20 @@
 			<xsl:otherwise>
 				<xsl:choose>
 					<xsl:when test="icltt:is-in-word-tag($node)">
-						<xsl:sequence select="false()"/>
+						<xsl:variable as="item()*" name="toks">
+							<xsl:call-template name="tokenize">
+								<xsl:with-param name="node" select="$node"/>
+								<xsl:with-param name="purgeWhitespace" select="false()"/>
+							</xsl:call-template>
+						</xsl:variable>
+						<xsl:choose>
+							<xsl:when test="$toks[1]/self::tei:seg[@type='whitespace'] or $toks[1]/self::tei:pc">
+								<xsl:sequence select="true()"/>
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:sequence select="false()"/>
+							</xsl:otherwise>
+						</xsl:choose>
 					</xsl:when>
 					<xsl:when test="not($preceding)">
 						<xsl:choose>
@@ -340,7 +355,12 @@
 											<xsl:value-of select="$toks[1]"/>
 										</tei:w>
 									</xsl:when>
-									<!-- TODO test for part="M" -->
+									<xsl:when
+										test="not(icltt:ends-token(.)) and not(icltt:starts-token(.))">
+										<tei:w part="M">
+											<xsl:value-of select="$toks[1]"/>
+										</tei:w>
+									</xsl:when>
 									<xsl:otherwise>
 										<tei:w>
 											<xsl:value-of select="$toks[1]"/>
@@ -418,19 +438,34 @@
 										</xsl:when>
 										<xsl:otherwise>
 											<xsl:choose>
-												<xsl:when
-												test="icltt:following(.) instance of element()">
-												<!--<xsl:element name="{name(icltt:following(.))}"
-												namespace="{namespace-uri(icltt:following(.))}">
-												<xsl:copy-of select="icltt:following(.)/@*"/>
-												<xsl:attribute name="isCopy">true</xsl:attribute>-->
-												<tei:w part="M"><xsl:copy-of select="$toks[last()]/node()"/></tei:w>
-												<!--</xsl:element>-->
+												<xsl:when test="icltt:following(.) instance of element()">
+													<xsl:choose>
+														<xsl:when test="icltt:starts-token(.) and icltt:ends-token(.)">
+															<tei:w>
+																<xsl:copy-of select="$toks[last()]/node()"/>
+															</tei:w>
+														</xsl:when>
+														<xsl:when test="icltt:starts-token(.) and not(icltt:ends-token(.))">
+															<tei:w part="I">
+																<xsl:copy-of select="$toks[last()]/node()"/>
+															</tei:w>
+														</xsl:when>
+														<xsl:when test="not(icltt:starts-token(.)) and icltt:ends-token(.)">
+															<tei:w part="F">
+																<xsl:copy-of select="$toks[last()]/node()"/>
+															</tei:w>
+														</xsl:when>
+														<xsl:otherwise>
+															<tei:w part="M">
+																<xsl:copy-of select="$toks[last()]/node()"/>
+															</tei:w>
+														</xsl:otherwise>
+													</xsl:choose>
 												</xsl:when>
 												<xsl:otherwise>
-												<tei:w part="I">
-												<xsl:copy-of select="$toks[last()]/node()"/>
-												</tei:w>
+													<tei:w part="I">
+														<xsl:copy-of select="$toks[last()]/node()"/>
+													</tei:w>
 												</xsl:otherwise>
 											</xsl:choose>
 										</xsl:otherwise>
