@@ -51,6 +51,12 @@
                 </if>
             </xsl:element>
         </xsl:result-document>
+        
+        <xsl:if test="exists(//postProcessing)">
+            <xsl:result-document href="postTokenization.xsl">
+                <xsl:copy-of select="//postProcessing/xsl:stylesheet"/>
+            </xsl:result-document>
+        </xsl:if>
 
         <!-- main stylesheet -->
         <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
@@ -75,6 +81,11 @@
             <element name="xsl:import">
                 <attribute name="href">parameters.xsl</attribute>
             </element>
+            <xsl:if test="exists(//postProcessing)">
+                <element name="xsl:import">
+                    <attribute name="href">postTokenization.xsl</attribute>
+                </element>    
+            </xsl:if>
             <text>&#10;&#10;</text>
 
             <element name="xsl:output">
@@ -94,21 +105,19 @@
                         <attribute name="mode">makeWTags</attribute>
                     </element>
                 </element>
-                <comment>
-                    <element name="xsl:variable">
-                        <attribute name="name">tokenized</attribute>
+                <xsl:choose>
+                    <xsl:when test="exists(//postProcessing)">
                         <element name="xsl:apply-templates">
-                            <attribute name="select">$wrapped</attribute>
-                            <attribute name="mode">tokenize</attribute>
+                            <attribute name="select">$wTagsAdded</attribute>
+                            <attribute name="mode">postProcess</attribute>
                         </element>
-                    </element>
-                    <element name="xsl:sequence">
-                        <attribute name="select">$tokenized</attribute>
-                    </element>
-                </comment>
-                <element name="xsl:sequence">
-                    <attribute name="select">$wTagsAdded</attribute>
-                </element>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <element name="xsl:sequence">
+                            <attribute name="select">$wTagsAdded</attribute>
+                        </element>
+                    </xsl:otherwise>
+                </xsl:choose>
             </element>
 
             <text>&#10;&#10;</text>
