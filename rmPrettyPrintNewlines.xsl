@@ -45,4 +45,8 @@
         <xsl:value-of select="replace(.,'^&#x0A;','')"/>
     </xsl:template>
     
+    <xsl:template match="text()[matches(.,'^\n{2,}$')]">
+        <xsl:value-of select="'&#10;'"/>
+    </xsl:template>
+    
 </xsl:stylesheet>
