@@ -6,7 +6,7 @@
         <param key="pathToTokenizerLib" value="lib-toks.xsl"/>
         <param key="pathToBoundaryLib" value="lib-bdr.xsl"/>
         <param key="useAbbrList" value="true" as="xs:boolean"/>
-        <param key="punctCharPattern" value="[\p{P}-[\-‚]]"/>
+        <param key="punctCharPattern" value="[\p{P}-[‘’\-‚]]"/>
         <param key="abbrLexURI"
             value="http://www.linguistics.ruhr-uni-bochum.de/~dipper/software/abbrev.lex"/>
     </parameters>
@@ -24,13 +24,70 @@
             </xsl:template>
 
             <xsl:template
-                match="tei:w[matches(.,'^‚.+') and not(preceding-sibling::*[1]/self::lb[@break='no'])]" mode="postProcess">
-                <!--<xsl:message select="."/>-->
-                <tei:pc>‚</tei:pc>
-                <tei:w>
-                    <xsl:value-of select="substring-after(.,'‚')"/>
-                </tei:w>
+                match="tei:w[matches(.,'^[‚‘].+') and not(preceding-sibling::*[1]/self::lb[@break='no'])]" mode="postProcess">
+                <xsl:analyze-string select="." regex="^[‚‘]">
+                    <xsl:matching-substring>
+                        <tei:pc><xsl:value-of select="."/></tei:pc>
+                    </xsl:matching-substring>
+                    <xsl:non-matching-substring>
+                        <tei:w><xsl:value-of select="."/></tei:w>
+                    </xsl:non-matching-substring>
+                </xsl:analyze-string>
             </xsl:template>
+            
+            
+            <!-- **** AUSNAHME #2 **** -->
+            <!-- In Mercks Wien, Z. 9117 ist ein Leerzeichen in einem sic ('Ca pelle'), das aber d. Token nicht trennen soll... -->
+            <!--    
+        <choice aac_com="ww; laut ww Caipellen, in unserem Orig.Ca?pellen">
+            <sic>Ca pel<lb break="no" type="d"/>len</sic>
+            <corr cert="high">Capellen</corr>
+        </choice>
+    
+    soll als <w>Ca pellen</w> tokenisiert werden...
+    -->
+            <xsl:template match="tei:w[parent::sic and .= 'Ca' and following-sibling::node()[1]/self::tei:seg[@type='whitespace'] and following-sibling::node()[2]/self::tei:w[. = 'pel']]" mode="postProcess">
+                <xsl:message select="."/>
+                <xsl:copy>
+                    <xsl:copy-of select="@*"/>
+                    <xsl:value-of select="concat(.,string-join(following-sibling::node()[position() le 2],''))"/>
+                </xsl:copy>
+            </xsl:template>
+            
+            <xsl:template match="tei:seg[@type='whitespace'][preceding-sibling::node()[1]/self::tei:w[. eq 'Ca']][following-sibling::node()[1]/self::tei:w[.='pel']]" mode="postProcess"/>
+            
+            <xsl:template match="tei:w[.='pel'][preceding-sibling::node()[2]/self::tei:w[. eq 'Ca']][preceding-sibling::node()[1]/self::tei:seg[@type='whitespace']]" mode="postProcess"/>
+            
+            
+            <!-- **** Ausnahme #3 **** -->
+            <!-- und der gleiche Fall in der gleichen Zeile noch einmal -->
+            <xsl:template match="tei:w[.='GOttes=D'][following-sibling::node()[1]/self::tei:seg[@type='whitespace']][following-sibling::node()[2]/self::tei:w[.='enst']]" mode="postProcess">
+                <xsl:message select="."/>
+                <xsl:copy>
+                    <xsl:copy-of select="@*"/>
+                    <xsl:value-of select="concat(.,string-join(following-sibling::node()[position() le 2],''))"/>
+                </xsl:copy>
+            </xsl:template>
+            
+            <xsl:template match="tei:seg[@type='whitespace'][preceding-sibling::node()[1]/self::tei:w[.='GOttes=D']][following-sibling::node()[1]/self::tei:w[.='enst']]" mode="postProcess"/>
+            <xsl:template match="tei:w[. = 'enst'][preceding-sibling::node()[1]/self::tei:seg[@type='whitespace']][preceding-sibling::node()[2]/self::tei:w[.='GOttes=D']]" mode="postProcess"/>
+            
+            
+            
+            
+            
+            <!-- **** Ausnahme #4 **** -->
+            <!-- auch 2 Token, die als 1 tokenisiert sind ... "auff hört" in Z. 9431 -->
+            <xsl:template match="tei:w[. = 'auff'][following-sibling::node()[1]/self::tei:seg[@type='whitespace']][following-sibling::node()[2]/self::tei:w[.='hört']]" mode="postProcess">
+                <xsl:message select="."/>
+                <xsl:copy>
+                    <xsl:copy-of select="@*"/>
+                    <xsl:value-of select="concat(.,string-join(following-sibling::node()[position() le 2],''))"/>
+                </xsl:copy>
+            </xsl:template>
+            <xsl:template match="tei:seg[@type='whitespace'][preceding-sibling::node()[1]/self::tei:w[. eq 'auff']][following-sibling::node()[1]/self::tei:w[.='hört']]" mode="postProcess"/>
+            <xsl:template match="tei:w[.='hört'][preceding-sibling::node()[2]/self::tei:w[. eq 'auff']][preceding-sibling::node()[1]/self::tei:seg[@type='whitespace']]" mode="postProcess"/>
+            
         </xsl:stylesheet>
     </postProcessing>
     <abbreviations>
@@ -54,5 +111,7 @@
         <expression>tei:lb[@break='no']</expression>
         <expression>tei:seg</expression>
         <expression>tei:supplied</expression>
+        <expression>tei:choice</expression>
+        <expression>tei:placeName</expression>
     </in-word-tags>
 </config>
