@@ -66,10 +66,10 @@
 			<xsl:apply-templates mode="textvalue" select="$node"/>
 		</xsl:variable>
 		<xsl:choose>
-			<xsl:when test="string-join($val,'')!=''">
+			<xsl:when test="replace(string-join($val,''),'\n','')!=''">
 				<xsl:value-of select="$val"/>
 			</xsl:when>
-			<xsl:when test="not(empty($val)) and $node/self::* and icltt:is-in-word-tag($node)">
+			<xsl:when test="not(empty($val/replace(.,'\n',''))) and $node/self::* and icltt:is-in-word-tag($node)">
 				<xsl:sequence select="true()"/>
 			</xsl:when>
 			<!--<xsl:when test="$node/self::* and icltt:is-in-word-tag($node)">
