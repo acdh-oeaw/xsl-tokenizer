@@ -31,8 +31,16 @@
     <xsl:template match="text()"/>
 
     <xsl:template match="tei:w[@part='I']">
-        <xsl:variable name="final" select="(following::tei:w[@part = 'F'])[1]"/>
-        <xsl:variable name="middle" select="following::tei:w[@part = 'M'][some $x in following::tei:w[@part='F'] satisfies $x/@xml:id eq $final/@xml:id]"/>
+        <xsl:variable name="initial" select="." as="element(tei:w)"/>
+        <xsl:variable name="following-finals" select="following::tei:w[@part = 'F']" as="element(tei:w)+"/>
+        
+        <!-- TODO this could be optimized with a recursive function and signals -->
+        <xsl:variable name="final" select="for $f in following::tei:w[@part = 'F'] return 
+            if (count($f/preceding::tei:w[@part='I'])-count($f/preceding::tei:w[@part='F'])=count($initial/preceding::tei:w[@part='I'])+1) 
+            then $f 
+            else ()"/>
+        
+        <xsl:variable name="middle" select="following::tei:w[@part = 'M'][some $x in following::tei:w[@part='F'] satisfies $x/@xml:id = $final/@xml:id]" as="element(tei:w)*"/>
         <xsl:message>*initial*</xsl:message>
         <xsl:message select="."/>
         <xsl:if test="exists($middle)">

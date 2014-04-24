@@ -86,6 +86,15 @@
 		<xsl:param as="element()" name="tag"/>
 		<xsl:apply-templates mode="is-in-word-tag" select="$tag"/>
 	</xsl:function>
+	
+	<xsl:template as="xs:boolean" match="*" mode="is-floating-block">
+		<xsl:sequence select="false()"/>
+	</xsl:template>
+	
+	<xsl:function as="xs:boolean" name="icltt:is-floating-block">
+		<xsl:param as="element()" name="tag"/>
+		<xsl:apply-templates mode="is-floating-block" select="$tag"/>
+	</xsl:function>
 
 	<xsl:function as="xs:boolean" name="icltt:starts-token">
 		<xsl:param as="node()" name="node"/>
@@ -312,7 +321,7 @@
 
 	<xsl:template match="text()[not(matches(.,'^\s+$'))]" mode="makeWTags" priority="1">
 		<xsl:choose>
-			<xsl:when test="some $x in ancestor::* satisfies not(icltt:textvalue($x))">
+			<xsl:when test="some $x in ancestor::* satisfies (not(icltt:textvalue($x)) and not(icltt:is-floating-block($x)))">
 				<xsl:copy-of select="."/>
 			</xsl:when>
 			<xsl:otherwise>

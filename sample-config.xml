@@ -49,7 +49,8 @@
             <xsl:template match="tei:w[parent::sic and .= 'Ca' and following-sibling::node()[1]/self::tei:seg[@type='whitespace'] and following-sibling::node()[2]/self::tei:w[. = 'pel']]" mode="postProcess">
                 <xsl:message select="."/>
                 <xsl:copy>
-                    <xsl:copy-of select="@*"/>
+                    <xsl:copy-of select="@* except @part"/>
+                    <xsl:attribute name="part">I</xsl:attribute>
                     <xsl:value-of select="concat(.,string-join(following-sibling::node()[position() le 2],''))"/>
                 </xsl:copy>
             </xsl:template>
@@ -88,6 +89,77 @@
             <xsl:template match="tei:seg[@type='whitespace'][preceding-sibling::node()[1]/self::tei:w[. eq 'auff']][following-sibling::node()[1]/self::tei:w[.='hört']]" mode="postProcess"/>
             <xsl:template match="tei:w[.='hört'][preceding-sibling::node()[2]/self::tei:w[. eq 'auff']][preceding-sibling::node()[1]/self::tei:seg[@type='whitespace']]" mode="postProcess"/>
             
+            <!-- Ausnahme #5: Mercks Wien, Z. 10715 -->
+            <!-- Token "ley/de" geht über <table/> hinaus. -->
+            <xsl:template match="tei:w[.='de'][preceding-sibling::node()[1]/self::table[. is root()/TEI/text[1]/body[1]/div[14]/p[6]/table[1]]]" mode="postProcess">
+                <xsl:message>Ausnahme #5</xsl:message>
+                <xsl:message select="."/>
+                <xsl:copy>
+                    <xsl:attribute name="part">F</xsl:attribute>
+                    <xsl:copy-of select="node()"/>
+                </xsl:copy>
+            </xsl:template>
+            
+            <!-- Ausnahme #6: Mercks Wien, Z. 9459 -->
+            <xsl:template match="tei:w[. = '‘'][@part='I'][following-sibling::node()[1]/self::seg[. is root()/TEI/text[1]/body[1]/div[12]/p[9]/seg[1]]]" mode="postProcess">
+                <xsl:message>Ausnahme #6 (template 1/2)</xsl:message>
+                <xsl:message select="."/>
+                <!-- part="I" löschen -->
+                <xsl:copy>
+                    <xsl:copy-of select="@* except @part"/>
+                    <xsl:copy-of select="node()"/>
+                </xsl:copy>
+            </xsl:template>
+            <xsl:template match="tei:w[. = 'Tu'][@part='F'][ancestor::seg[. is root()/TEI/text[1]/body[1]/div[12]/p[9]/seg[1]]]" mode="postProcess">
+                <!-- part="F" löschen -->
+                <xsl:message>Ausnahme #6 (template 2/2)</xsl:message>
+                <xsl:message select="."/>
+                <xsl:copy>
+                    <xsl:copy-of select="@* except @part"/>
+                    <xsl:copy-of select="node()"/>
+                </xsl:copy>
+            </xsl:template>
+            
+            <!-- Ausnahme #7 -->
+            <xsl:template match="tei:w[. = '‘'][@part='I'][following-sibling::node()[1]/self::seg[. is root()/TEI/text[1]/body[1]/div[12]/p[8]/seg[1]]]" mode="postProcess">
+                <xsl:message>Ausnahme #7 (template 1/2)</xsl:message>
+                <xsl:message select="."/>
+                <!-- part="I" löschen -->
+                <xsl:copy>
+                    <xsl:copy-of select="@* except @part"/>
+                    <xsl:copy-of select="node()"/>
+                </xsl:copy>
+            </xsl:template>
+            <xsl:template match="tei:w[. = 'Augustinus'][@part='F'][ancestor::seg[. is root()/TEI/text[1]/body[1]/div[12]/p[8]/seg[1]]]" mode="postProcess">
+                <!-- part="F" löschen -->
+                <xsl:message>Ausnahme #7 (template 2/2)</xsl:message>
+                <xsl:message select="."/>
+                <xsl:copy>
+                    <xsl:copy-of select="@* except @part"/>
+                    <xsl:copy-of select="node()"/>
+                </xsl:copy>
+            </xsl:template>
+            
+            <!-- Ausnahme #8 -->
+            <xsl:template match="tei:w[. = '‘'][@part='I'][following-sibling::node()[1]/self::seg[. is root()/TEI/text[1]/body[1]/div[10]/p[24]/seg[3]]]" mode="postProcess">
+                <xsl:message>Ausnahme #8 (template 1/2)</xsl:message>
+                <xsl:message select="."/>
+                <!-- part="I" löschen -->
+                <xsl:copy>
+                    <xsl:copy-of select="@* except @part"/>
+                    <xsl:copy-of select="node()"/>
+                </xsl:copy>
+            </xsl:template>
+            <xsl:template match="tei:w[. = 'Bernhardus'][@part='F'][ancestor::seg[. is root()/TEI/text[1]/body[1]/div[10]/p[24]/seg[3]]]" mode="postProcess">
+                <!-- part="F" löschen -->
+                <xsl:message>Ausnahme #8 (template 2/2)</xsl:message>
+                <xsl:message select="."/>
+                <xsl:copy>
+                    <xsl:copy-of select="@* except @part"/>
+                    <xsl:copy-of select="node()"/>
+                </xsl:copy>
+            </xsl:template>
+            
         </xsl:stylesheet>
     </postProcessing>
     <abbreviations>
@@ -114,4 +186,31 @@
         <expression>tei:choice</expression>
         <expression>tei:placeName</expression>
     </in-word-tags>
+    <!-- floating blocks are chunks of text that are not part of the 
+     main text flow (e.g. figures) and to be tokenized for themselves. For example:
+        <p>
+            <w>This</w>
+            <w>can</w>
+            <w>get</w>
+            <w part="I">some</w>
+            <lb/>
+            <pb/>
+            <figure>
+                <graphic>...</graphic>
+                <caption>
+                    <w part="I">Fig</w>
+                    <lb/>
+                    <w part="F">ure</w>
+                    <w>1</w>
+                </caption>
+            </figure>
+            <w part="F">what</w>
+            <w>complicated</w>
+            <w>.</w>
+        </p>
+        
+     CAVEAT This implies that a floating block does not begin or end with a partial token, so that the preceding tag <w part="I"> can be unambiguosly connected to the next <w>-tag with part="F" -->
+    <floating-blocks>
+        <expression>tei:figure</expression>
+    </floating-blocks>
 </config>

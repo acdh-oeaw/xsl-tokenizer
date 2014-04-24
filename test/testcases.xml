@@ -141,4 +141,94 @@ der Jnwohner aber gleich wider außwirfft.</p>
 dem H. Creutz=Zeichen / an dem süssesten Na<lb break="no" type="d"/>
 men <persName type="bibl">JESU</persName> vnd <persName type="bibl">Maria</persName> / H. <seg rend="antiqua">Reliqui</seg>en /<lb/>
 Weyhwasser / <foreign xml:lang="la"><seg rend="antiqua">Agnus <seg rend="smallCaps">Dei</seg> &amp;c.</seg></foreign></p>
+<!-- "schraufen" (Z. 156f) muss ein Tag sein. -->
+<p><choice><sic>Das</sic><corr cert="high">Daß</corr></choice> <persName type="bibl"><seg rend="antiqua">Oza</seg></persName> nur die geweyhete Archen / aus gu<lb break="no" type="d"/>
+ter Meynung angerührt / mußte er alsbald auff<lb/>
+<fw place="bot_right" type="catch">das</fw>
+<pb facs="Abraham-Todten_Bruderschaft_n0040.jpg" xml:id="n0040" n="S. 40"/>
+<seg type="header"><fw n="40" place="top_center" type="pageNum">40.</fw></seg>
+das strengste gestrafft werden / da er doch diesel<lb break="no" type="d"/>
+be nur wolte halten / damit sie nicht fallet: <rs type="death" subtype="acti">vnd der<lb/>
+<rs type="death" subtype="figu">Todt</rs> würfft so vil geweyhte Archen zu Boden /<lb/>
+vnd gehet ihm alles hin?</rs> Was dann? Alles was<lb/>
+das Leben empfindt / ist ihme schon zinßbar /<lb/>
+und hat sich von diser allgemeinen Contribution<lb/>
+kein Stand / auch der <rs type="profession" subtype="cleric" key="_cler">Geistliche</rs> / nicht <choice><sic>schrau</sic><corr cert="high">schrau</corr></choice><lb break="no" type="d"/>
+fen; müssen also alle <rs type="death" subtype="even">sterben</rs> / und macht man<lb/>
+keinem nichts besonders. <rs type="death" subtype="acti">Ein <rs type="death" subtype="attr">wunderbarer</rs><lb/>
+<rs type="death" subtype="figu_alt"><foreign xml:lang="la"><seg rend="antiqua">Grammaticus</seg></foreign></rs> ist der <rs type="death" subtype="figu">Todt</rs> / den <foreign xml:lang="la"><seg rend="antiqua">Nominativum</seg></foreign><lb/>
+vergonnt er Hohen= und Vornehmen Stands=<lb break="no"/>
+Persohnen / den <foreign xml:lang="la"><seg rend="antiqua">Genitivum</seg></foreign> laßt er den Ehe<lb break="no" type="d"/>
+leuten / den <foreign xml:lang="la"><seg rend="antiqua">Dativum</seg></foreign> gibt er den freygebigen<lb/>
+Herren und <choice><sic>Franen</sic><corr cert="high">Frauen</corr></choice> / den <foreign xml:lang="la"><seg rend="antiqua">Accusativum</seg></foreign> legt er<lb/>
+auf die Schrane zu den Richtern / den <foreign xml:lang="la"><seg rend="antiqua">Vocati<lb break="no" type="s"/>
+vum</seg></foreign> erlaubet er den Bettlern / den <foreign xml:lang="la"><seg rend="antiqua">Ablativum</seg></foreign><lb/>
+aber behalt er vor sich / und bestehet sein völliges<lb/>
+Ambt im Weckraumen</rs>: <rs type="death" subtype="acti">Er nimbt den König<lb break="no" type="d"/>
+reichen ihre König / er nimbt den Provinzien ih<lb break="no" type="d"/>
+re Lands=Fürsten / er nimbt den Bistthumbern ih<lb break="no" type="d"/>
+re <rs type="profession" subtype="cleric" key="bish">Bischöffe</rs> / er nimbt den Clöstern ihre <rs type="profession" subtype="cleric" key="_cler">Geist<lb break="no" type="d"/>
+liche</rs> / vnd ob schon alle Jungfrau Clöster allen<lb/>
+Eintritt der Männer hoch verbiethen / so laßt<lb/>
+doch dieser <rs type="death" subtype="figu_alt">Rippen=Kramer</rs> seine Dücke nicht /<lb/>
+sondern schleicht auch in solche privilegirte Clau<lb break="no" type="d"/>
+suren.</rs></p>
+<!-- "R." in Z 178 darf nicht part=F sein -->
+<lg><seg rend="antiqua"><l>R. P. <persName type="hist"><rs type="profession" subtype="cleric" key="carm">Maximinus</rs> â S. Simone Stock</persName>,</l>
+<l>R. P. <persName type="hist"><rs type="profession" subtype="cleric" key="carm">Anselmus</rs> â S. Pelagia</persName>,</l></seg>
+<seg type="footer"><fw place="bot_center" type="pageNum">Z 3</fw></seg>
+<fw place="bot_right" type="catch"><seg rend="antiqua">R. P.</seg></fw>
+<pb facs="Abraham-Mercks_Wienn_n0358.jpg" xml:id="n0358" n="S. 358"/>
+<seg type="header"><fw n="358" place="top_center" type="pageNum"><milestone rend="flower" type="symbol"/> (358) <milestone rend="flower" type="symbol"/></fw></seg>
+<milestone rend="line" type="hr"/>
+<seg rend="antiqua"><l>R. P. <persName type="hist"><rs type="profession" subtype="cleric" key="carm">Casparus</rs> â S. Angelo Custode</persName>,</l>
+<l>R. P. <persName type="hist"><rs type="profession" subtype="cleric" key="carm">Raphael</rs> â S. Mathæo</persName>,</l>
+<l>R. P. <persName type="hist"><rs type="profession" subtype="cleric" key="carm">Mathæus</rs> â S. Francisco</persName>.</l></seg></lg>
+<!-- Z. 199/200 muss ein TOken sein.  -->
+<p rend="indent">Demnach spricht der Heil. <seg rend="antiqua"><persName type="hist">Joan<lb break="no" type="s"/>
+nes</persName>,</seg> hab ich viel tausend vnd tau<lb break="no" type="d"/>
+send Außerwöhlte GOttes in dem<lb/>
+Himmel gesehen auß dem Jsraeliti<lb break="no" type="d"/>
+schen Volck; Uber das / <seg rend="antiqua"><foreign xml:lang="la">Post hæc vi<lb break="no" type="s"/>
+di turbam magnam, quam dinume<lb break="no" type="s"/>
+rare nemo poterat, ex omnibus Gen<lb break="no" type="s"/>
+‘tibus &amp; tribubus &amp; populis</foreign></seg>: So<lb/>
+‘hab ich auch ein solche Schaar Volck<lb/>
+‘in der Glory wahr genommen / das<lb/>
+‘selbige keinem müglich zuzehlen / auß<lb/>
+‘allen Geschlechtern / Völckern / Zunff<lb break="no" type="d"/>
+‘ten vnd allerley Ständen: ohne al<lb break="no" type="d"/>
+len Zweiffel hat diser Him̅lische Chro<lb break="no" type="d"/>
+nist auch gesehen in der Glory viel<lb/>
+<fw place="bot_right" type="catch">Solda=</fw>
+<pb facs="Abraham-Mercks_Wienn_n0265.jpg" xml:id="n0265" n="S. 265"/>
+<seg type="header"><fw n="265" place="top_center" type="pageNum"><milestone rend="flower" type="symbol"/> (265) <milestone rend="flower" type="symbol"/></fw></seg>
+<milestone rend="line" type="hr"/>
+Soldaten / vnd nit allein lauter solche /<lb/>
+die von der Chartausen / sondern auch<lb/>
+viel / die von der Chartaunen kommen /<lb/>
+nicht lauter solche / die in den Zellen /<lb/>
+sondern auch viel / die vnter den Zel<lb break="no" type="d"/>
+ten gewohnt / nicht allein lauter sol<lb break="no" type="d"/>
+che / die sich auff den Chorall / son<lb break="no" type="d"/>
+der auch viel / die sich <choice aac_com="ww"><sic>anff</sic><corr cert="high">auff</corr></choice> das Arse<lb break="no" type="d"/>
+nall verstanden.</p>
+<!-- Z. 216: Schüssel muss als <w part="I">Schüs</w><w part="F">sel</w>
+     tokenisiert werden, der Text innerhalb von <figure> davon separat. 
+-->
+<p>... ben ein Spißlein Endten / samt einer Schüs<lb break="no" type="d"/>
+<fw place="bot_right" type="catch">sel</fw>
+<pb facs="Abraham-Todten_Capelle_n0048_a.jpg" xml:id="n0048_a" n="Abb."/>
+<figure>
+<cit><foreign xml:lang="la"><seg rend="antiqua"><quote>O <rs type="death" subtype="figu">mors</rs>, quam amara est me<lb break="no" type="d"/>
+moria tua!</quote><lb/>
+<bibl>Eccl. c. 41. v. 1.</bibl></seg></foreign></cit><lb/>
+<lg ana="verse"><l>O wie bitter komts ihn an,</l>
+<l>wan̅ da <rs type="death" subtype="even">stirbt</rs> ein reicher Mann.</l></lg><lb/>
+</figure>
+<pb facs="Abraham-Todten_Capelle_n0048_b.jpg" xml:id="n0048_b" n="Leerseite"/>
+<pb facs="Abraham-Todten_Capelle_n0049.jpg" xml:id="n0049" n="S. 49"/>
+<seg type="header"><fw place="top_center"><milestone rend="flower" type="symbol"/> <milestone rend="flower" type="symbol"/> <milestone rend="flower" type="symbol"/></fw><fw n="49" place="top_right" type="pageNum">49</fw></seg>
+<milestone rend="line" type="hr"/>
+sel voll Lamms=Nierlein / an statt ...</p>
 </TEI>
