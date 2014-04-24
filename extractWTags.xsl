@@ -10,11 +10,23 @@
             <xd:p/>
         </xd:desc>
     </xd:doc>
+    <xsl:param name="namespaced" as="xs:boolean">0</xsl:param>
+    
     <xsl:template match="/*">
-        <xsl:copy>
-            <xsl:copy-of select="@*"/>
-            <xsl:apply-templates/>
-        </xsl:copy>
+        <xsl:choose>
+            <xsl:when test="$namespaced">
+                <xsl:copy>
+                    <xsl:copy-of select="@*"/>
+                    <xsl:apply-templates/>
+                </xsl:copy>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:element name="{local-name(.)}" namespace="">
+                    <xsl:copy-of select="@*"/>
+                    <xsl:apply-templates/>
+                </xsl:element>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="text()"/>
 
@@ -30,21 +42,30 @@
         <xsl:message select="'*final*'"/>
         <xsl:message select="$final"/>
         <xsl:message>-----------</xsl:message>
-        <xsl:copy>
+        <xsl:element name="w" namespace="{if($namespaced) then 'http://www.tei-c.org/ns/1.0' else ''}">
             <xsl:copy-of select="@* except @part"/>
             <xsl:value-of select="concat(.,string-join(($middle,$final),''))"/>
-        </xsl:copy>
+        </xsl:element>
     </xsl:template>
     
     <xsl:template match="tei:w[not(@part)]">
-        <xsl:copy-of select="."/>
+        <xsl:if test="$namespaced">
+            <xsl:copy-of select="."/>
+        </xsl:if>
+        <xsl:if test="not($namespaced)">
+            <xsl:element name="w" namespace="">
+                <xsl:if test="*">
+                    <xsl:message>ACHTUNG w-tag "<xsl:value-of select="."/>" (ID <xsl:value-of select="@xml:id"/>) hat Kind-Element(e) <xsl:value-of select="string-join(for $x in * return concat('''',local-name($x),''''),', ')"/>.</xsl:message>
+                </xsl:if>
+                <xsl:copy-of select="@*|text()"/>
+            </xsl:element>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="tei:pc" exclude-result-prefixes="#all">
-        <tei:w>
-            <xsl:copy-of select="@xml:id"/>
-            <xsl:value-of select="."/>
-        </tei:w>
+        <xsl:element name="w" namespace="{if ($namespaced) then 'http://www.tei-c.org/ns/1.0' else ''}">
+            <xsl:copy-of select="@*|text()|node()"/>
+        </xsl:element>
     </xsl:template>
     
     <xsl:template match="*">
