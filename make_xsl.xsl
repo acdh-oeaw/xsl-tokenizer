@@ -144,19 +144,41 @@
                     </element>
                 </element>
                 <text>&#10;&#10;</text>
+                
+                <!-- template for is-ignored  resolving -->
+                <element name="xsl:template">
+                    <attribute name="match" select="."/>
+                    <attribute name="mode">is-ignored</attribute>
+                    <attribute name="as">xs:boolean</attribute>
+                    <element name="xsl:sequence">
+                        <attribute name="select">true()</attribute>
+                    </element>
+                </element>
+                <text>&#10;&#10;</text>
 
                 <xsl:if test="xs:boolean($makeNoNamespaceVersion)">
+                    <xsl:variable name="pattern">
+                        <value-of
+                            select="concat('(',string-join(root()//namespace/concat(@prefix,':'),'|'),')')"
+                        />
+                    </xsl:variable>
                     <!-- template for textvalue resolving -->
                     <element name="xsl:template">
                         <attribute name="match">
-                            <xsl:variable name="pattern">
-                                <value-of
-                                    select="concat('(',string-join(root()//namespace/concat(@prefix,':'),'|'),')')"
-                                />
-                            </xsl:variable>
                             <xsl:value-of select="replace(.,$pattern,'')"/>
                         </attribute>
                         <attribute name="mode">textvalue</attribute>
+                    </element>
+                    <text>&#10;&#10;</text>
+                    
+                    <!-- template for is-ignored resolving -->
+                    <element name="xsl:template">
+                        <attribute name="match" select="."/>
+                        <attribute name="mode">is-ignored</attribute>
+                        <attribute name="as">xs:boolean</attribute>
+                        <element name="xsl:sequence">
+                            <attribute name="select">true()</attribute>
+                        </element>
                     </element>
                     <text>&#10;&#10;</text>
 
