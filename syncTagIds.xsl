@@ -27,6 +27,11 @@
             <xsl:when test="not(exists($new-ids/*))">
                 <xsl:message>Document at <xsl:value-of select="$path-to-doc-with-new-ids"/> empty or not available.</xsl:message>
             </xsl:when>
+            <xsl:when test="count(($new-ids//tei:w,$new-ids//w)) != count((//tei:w,//w))">
+                <xsl:message>Unequal length of files:</xsl:message>
+                <xsl:message><xsl:value-of select="count(($new-ids//tei:w,$new-ids//w))"/> w-tags at <xsl:value-of select="$path-to-doc-with-new-ids"/></xsl:message>
+                <xsl:message><xsl:value-of select="count((//tei:pc,//tei:w,//w))"/> w-tags at input document.</xsl:message>
+            </xsl:when>
             <xsl:otherwise>
                 <xsl:copy>
                     <xsl:copy-of select="@*"/>
