@@ -157,11 +157,7 @@
                 <text>&#10;&#10;</text>
 
                 <xsl:if test="xs:boolean($makeNoNamespaceVersion)">
-                    <xsl:variable name="pattern">
-                        <value-of
-                            select="concat('(',string-join(root()//namespace/concat(@prefix,':'),'|'),')')"
-                        />
-                    </xsl:variable>
+                    <xsl:variable name="pattern" select="concat('(',string-join(root()//namespace/concat(@prefix,':'),'|'),')')"/>
                     <!-- template for textvalue resolving -->
                     <element name="xsl:template">
                         <attribute name="match">
@@ -173,7 +169,7 @@
                     
                     <!-- template for is-ignored resolving -->
                     <element name="xsl:template">
-                        <attribute name="match" select="."/>
+                        <attribute name="match"><xsl:value-of select="replace(.,$pattern,'')"/></attribute>
                         <attribute name="mode">is-ignored</attribute>
                         <attribute name="as">xs:boolean</attribute>
                         <element name="xsl:sequence">
