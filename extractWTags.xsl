@@ -22,7 +22,7 @@
     
     
     <xsl:template match="/*">
-        <xsl:result-document href="tokensMerged-debug.xml">
+        <xsl:result-document href="wtags-report.xml">
             <debug xmlns:tei="http://www.tei-c.org/ns/1.0">
                 <info>
                     <w-tags-total><xsl:value-of select="count($tokensMerged//tei:w)"/></w-tags-total>
@@ -30,7 +30,27 @@
                     <final-tags><xsl:value-of select="count($tokensMerged//tei:w[@part='F'])"/></final-tags>
                     <midde-tags><xsl:value-of select="count($tokensMerged//tei:w[@part='M'])"/></midde-tags>
                 </info>
-                <xsl:sequence select="$tokensMerged"/>
+                <report>
+                    <watchme>
+                        <xsl:for-each select="//tei:w[@part='I' and not(following-sibling::*[1]/@part = ('M','F'))]">
+                            <initials>
+                                <xsl:sequence select="(.,following-sibling::*[1])"/>
+                            </initials>
+                        </xsl:for-each>
+                        <xsl:for-each select="//tei:w[@part='F' and following-sibling::*[1]/@part != 'M']">
+                            <finals>
+                                <xsl:sequence select="(.,following-sibling::*[1])"/>
+                            </finals>
+                        </xsl:for-each>
+                    </watchme>
+                    <errors>
+                        <xsl:sequence select="$tokensMerged//tei:seg[not(tei:w/@part='I')]"/>
+                        <xsl:sequence select="$tokensMerged//tei:seg[not(tei:w/@part='F')]"/>
+                    </errors>
+                </report>
+                <tokens>
+                    <xsl:sequence select="$tokensMerged"/>
+                </tokens>
             </debug>
         </xsl:result-document>
         <xsl:choose>
@@ -52,53 +72,9 @@
 
     <xsl:template match="tei:w[@part='I']">
         <xsl:variable name="id" select="@xml:id"/>
-        <!--<xsl:variable name="initial" select="." as="element(tei:w)"/>
-        
-        <!-\- TODO this could be optimized with a recursive function and signals -\->
-        <!-\-<xsl:variable name="final" select="following::tei:w[@part = 'F'][some $i in preceding::tei:w[@part='I'] satisfies $i/following::tei:w[@part='I'][1]/position() lt $i/following::tei:w[@part='F'][1]/position()]"/>-\->
-        <xsl:variable name="finalPosition" select="
-            if (not(following::tei:w[@part='I'])) 
-            then 1 
-            else count(following::tei:w[@part='F'])-count(following::tei:w[@part='I'])+1" as="xs:integer"/>
-        <xsl:variable name="final" select="following::tei:w[@part='F'][$finalPosition]"/>
-        <xsl:message>$finalPosition <xsl:value-of select="$finalPosition"/></xsl:message>
-        
-        <!-\-<xsl:variable name="middle" select="
-            if ($finalPosition eq 1) 
-            then following::tei:w[@part = 'M'][some $x in following::tei:w[@part='F'] satisfies $x/@xml:id = $final/@xml:id]
-            else ()" as="element(tei:w)*"/>-\->
-        <xsl:variable name="middle" as="element(tei:w)*" select="$final/preceding::tei:w[@part='M'][preceding::tei:w[@part='I'][position() eq $finalPosition] is $initial]"/>
-        <xsl:variable name="middle" as="element(tei:w)*">
-            <xsl:for-each select="$final/preceding::tei:w[@part='M']">
-                <xsl:variable name="initialPosition" select="
-                    if(count(preceding::tei:w[@part='I'])=1) 
-                    then 1
-                    else "></xsl:variable>
-            </xsl:for-each>
-        </xsl:variable>
-        <xsl:message>*initial*</xsl:message>
-        <xsl:message select="."/>
-        <xsl:if test="exists($middle)">
-            <xsl:message select="'*middle*'"/>
-            <xsl:message select="string-join($middle,'')"/>
-        </xsl:if>
-        <xsl:message select="'*final*'"/>
-        <xsl:message select="$final"/>
-        <xsl:message>-\-\-\-\-\-\-\-\-\-\-</xsl:message>-->
         <xsl:variable name="parts" select="$tokensMerged[tei:w/@xml:id=$id]/tei:w" as="element(tei:w)*"/>
-        <xsl:message>*** partial token tei:w @xml:id='<xsl:value-of select="$id"/>' ***</xsl:message>
-        <xsl:message select="text()"/>
-        <xsl:if test="$parts[@part='M']">
-<!--            <xsl:message> * middle *</xsl:message>-->
-            <xsl:message select="string-join($parts[@part='M']/text(),'')"/>
-        </xsl:if>
-        <!--<xsl:message> ** final **</xsl:message>-->
-        <xsl:message select="$parts[@part='F']/text()"/>
-        <xsl:message/>
-        
         <xsl:element name="w" namespace="{if($namespaced) then 'http://www.tei-c.org/ns/1.0' else ''}">
             <xsl:copy-of select="@* except @part"/>
-            <!--<xsl:value-of select="concat(.,string-join(($middle,$final),''))"/>-->
             <xsl:value-of select="string-join($parts/text(),'')"/>
         </xsl:element>
     </xsl:template>
