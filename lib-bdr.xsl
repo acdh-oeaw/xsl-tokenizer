@@ -410,7 +410,9 @@
 											</xsl:when>
 											<xsl:otherwise>
 												<xsl:element name="{name($toks[1])}">
-												<xsl:attribute name="part">F</xsl:attribute>
+													<xsl:if test="$toks[1] instance of element(tei:w)">
+														<xsl:attribute name="part">F</xsl:attribute>
+													</xsl:if>
 												<xsl:value-of select="$toks[1]"/>
 												</xsl:element>
 											</xsl:otherwise>
@@ -424,7 +426,9 @@
 								<xsl:choose>
 									<xsl:when test="not(icltt:starts-token(.))">
 										<xsl:element name="{name($toks[1])}">
-											<xsl:attribute name="part">F</xsl:attribute>
+											<xsl:if test="$toks[1] instance of element(tei:w)">
+												<xsl:attribute name="part">F</xsl:attribute>
+											</xsl:if>
 											<xsl:value-of select="$toks[1]"/>
 										</xsl:element>
 										<xsl:copy-of
