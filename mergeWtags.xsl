@@ -23,12 +23,22 @@
     <xsl:variable name="enriched-tokens-doc" as="item()" select="doc($enriched-tokens-doc-path)"/>
     
     <xsl:template match="/">
-        <xsl:if test="not(exists($enriched-tokens-doc))">
-            <xsl:message>Document at <xsl:value-of select="$enriched-tokens-doc-path"/> is not
-                available. Transformation will output the source document.</xsl:message>
-        </xsl:if>
-        <xsl:message select="count($enriched-tokens-doc//(w|tei:w))"/>
-        <xsl:apply-templates/>
+        <xsl:choose>
+            <xsl:when test="not(exists($enriched-tokens-doc))">
+                <xsl:message>Document at <xsl:value-of select="$enriched-tokens-doc-path"/> is not available.</xsl:message>
+            </xsl:when>
+            <xsl:when test="not($enriched-tokens-doc//(tei:w|w))">
+                <xsl:message>Document at <xsl:value-of select="$enriched-tokens-doc-path"/> does not contain w-tags.</xsl:message>
+            </xsl:when>
+            <xsl:when test="count($enriched-tokens-doc//(tei:w|w)) != count((//tei:pc,//tei:w[not(@part) or @part='I'],//w[not(@part) or @part='I']))">
+                <xsl:message>Unequal length of files:</xsl:message>
+                <xsl:message><xsl:value-of select="count($enriched-tokens-doc//(tei:w|w))"/> w-tags at <xsl:value-of select="$enriched-tokens-doc-path"/></xsl:message>
+                <xsl:message><xsl:value-of select="count((//tei:pc,//tei:w[not(@part) or @part='I'],//w[not(@part) or @part='I']))"/> w-tags at input document.</xsl:message>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="node() | @*">
@@ -37,7 +47,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match="tei:w|tei:pc">
+    <xsl:template match="tei:w[@part='I' or not(@part)]|tei:pc">
         <xsl:variable name="matching-w" select="key('tags',@xml:id,$enriched-tokens-doc)" as="element()?"/>
         <xsl:if test="empty($matching-w)">
             <xsl:message>Beware: no matching w-tag in vertical for Tag <xsl:value-of select="local-name(.)"/> ("<xsl:value-of select="."/>") with xml:id <xsl:value-of select="@xml:id"/>.</xsl:message>
