@@ -42,13 +42,13 @@
                         <xsl:value-of select="@value"/>
                     </xsl:element>
                 </for-each>
-                <if test="exists($user-supplied-abbreviation-list)">
-                    <xsl:element name="xsl:param">
-                        <xsl:attribute name="name">user-supplied-abbreviation-list</xsl:attribute>
-                        <xsl:attribute name="as">item()*</xsl:attribute>
-                        <sequence select="$user-supplied-abbreviation-list"/>
-                    </xsl:element>
-                </if>
+                
+                <xsl:element name="xsl:param">
+                    <xsl:attribute name="name">user-supplied-abbreviation-list</xsl:attribute>
+                    <xsl:attribute name="as">item()*</xsl:attribute>
+                    <sequence select="$user-supplied-abbreviation-list"/>
+                </xsl:element>
+                
             </xsl:element>
         </xsl:result-document>
         
