@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet exclude-result-prefixes="xs tei" version="2.0"
+<xsl:stylesheet exclude-result-prefixes="xs tei xtoks" version="2.0"
+	xmlns:xtoks="http://acdh.oeaw.ac.at/xtoks"
 	xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns="http://www.tei-c.org/ns/1.0"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="xml" indent="no"/>
 
+	<xsl:function name="xtoks:escape-for-regex">
+	<xsl:param name="string" as="xs:string"/>
+	<xsl:analyze-string select="$string" regex="([\.\[\]\(\)\^\$]\\)">
+		<xsl:matching-substring>
+			<xsl:value-of select="concat('\',.)"/>
+		</xsl:matching-substring>
+		<xsl:non-matching-substring>
+			<xsl:value-of select="."/>
+		</xsl:non-matching-substring>
+	</xsl:analyze-string>
+</xsl:function>
 
 	<xsl:variable name="abbrList" as="item()*">
 		<xsl:choose>
 			<xsl:when test="$user-supplied-abbreviation-list">
+				<xsl:message>Using user-supplied abbreviation list</xsl:message>
 				<xsl:sequence select="$user-supplied-abbreviation-list//abbr"/>
 			</xsl:when>
 			<xsl:otherwise>
@@ -17,7 +30,14 @@
 					<xsl:matching-substring/>
 					<xsl:non-matching-substring>
 						<abbr>
-							<xsl:value-of select="normalize-space(.)"/>
+							<xsl:choose>
+								<xsl:when test="contains(.,'&#x9;')">
+									<xsl:value-of select="xtoks:escape-for-regex(normalize-space(substring-before(.,'&#x9;')))"/>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:value-of select="xtoks:escape-for-regex(normalize-space(.))"/>
+								</xsl:otherwise>
+							</xsl:choose>
 						</abbr>
 					</xsl:non-matching-substring>
 				</xsl:analyze-string>
@@ -44,11 +64,11 @@
 				</xsl:choose>
 			</xsl:matching-substring>
 			<xsl:non-matching-substring>
+				<xsl:variable name="token" select="."/>
 				<xsl:choose>
 					<!-- abbreviations -->
-					<xsl:when test="some $x in $abbrList satisfies matches(.,$x) and $useAbbrList">
-						<xsl:variable name="token" select="."/>
-						<xsl:variable name="abbreviation" select="$abbrList[contains($token,.)]"/>
+					<xsl:when test="exists($abbrList[matches($token,concat('^',.,'$'))]) and $useAbbrList">		
+						<xsl:variable name="abbreviation" select="$abbrList[matches($token,concat('^',.,'$'))]"/>
 						<xsl:analyze-string select="." regex="{$abbreviation}">
 							<xsl:matching-substring>
 								<tei:w><xsl:value-of select="."/></tei:w>
