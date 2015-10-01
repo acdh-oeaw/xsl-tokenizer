@@ -13,7 +13,8 @@
 		</xd:desc>
 	</xd:doc>
 	<xsl:output indent="no" method="xml"/>
-
+	
+	
 	<xsl:function name="icltt:splits-token">
 		<xsl:param as="node()?" name="node"/>
 		<xsl:choose>
@@ -34,9 +35,15 @@
 
 	<xsl:function name="icltt:preceding">
 		<xsl:param as="node()?" name="node"/>
-		<xsl:choose>
-			<xsl:when test="exists($node/preceding-sibling::node()[icltt:textvalue(.)])">
-				<xsl:sequence select="$node/preceding-sibling::node()[icltt:textvalue(.)][1]"/>
+		<xsl:variable name="siblings" select="$node/preceding-sibling::node()[icltt:textvalue(.)]"/>
+		<xsl:choose> 
+			<xsl:when test="exists($siblings)">
+				<xsl:sequence select="$siblings[last()]"/>
+			</xsl:when>
+			<xsl:when test="some $x in $floatingblocks//node() satisfies $x is $node">
+				<xsl:variable name="floatingblock" select="$floatingblocks[some $n in descendant::node() satisfies $n is $node]"/>
+				<xsl:variable name="prec" select="$node/ancestor::node()[some $x in ancestor::* satisfies $x is $floatingblock][icltt:textvalue(.)][exists(preceding-sibling::node()[icltt:textvalue(.)])][1]/preceding-sibling::node()[icltt:textvalue(.)][1]"/>
+				<xsl:sequence select="$prec"/>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:sequence
@@ -48,9 +55,14 @@
 
 	<xsl:function name="icltt:following">
 		<xsl:param as="node()?" name="node"/>
+		<xsl:variable name="siblings" select="$node/following-sibling::node()[icltt:textvalue(.)]"/>
 		<xsl:choose>
-			<xsl:when test="exists($node/following-sibling::node()[icltt:textvalue(.)])">
-				<xsl:sequence select="$node/following-sibling::node()[icltt:textvalue(.)][1]"/>
+			<xsl:when test="exists($siblings)">
+				<xsl:sequence select="$siblings[1]"/>
+			</xsl:when>
+			<xsl:when test="some $x in $floatingblocks//node() satisfies $x is $node">
+				<xsl:variable name="floatingblock" select="$floatingblocks[some $n in descendant::node() satisfies $n is $node]"/>
+				<xsl:sequence select="$node/ancestor::node()[some $x in ancestor::* satisfies $x is $floatingblock][icltt:textvalue(.)][exists(following-sibling::node()[icltt:textvalue(.)])][1]/following-sibling::node()[icltt:textvalue(.)][1]"/>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:sequence
@@ -69,9 +81,9 @@
 			<xsl:when test="replace(string-join($val,''),'\n','')!=''">
 				<xsl:value-of select="$val"/>
 			</xsl:when>
-			<xsl:when test="not(empty($val/replace(.,'\n',''))) and $node/self::* and icltt:is-in-word-tag($node)">
+			<!--<xsl:when test="not(empty($val/replace(.,'\n',''))) and $node/self::* and icltt:is-in-word-tag($node)">
 				<xsl:sequence select="true()"/>
-			</xsl:when>
+			</xsl:when>-->
 			<!--<xsl:when test="$node/self::* and icltt:is-in-word-tag($node)">
                 <xsl:sequence select="true()"/>
             </xsl:when>-->
@@ -114,16 +126,15 @@
 		<xsl:param as="node()" name="node"/>
 		<xsl:param as="xs:boolean" name="isLookAhead"/>
 		<xsl:variable name="preceding" select="icltt:preceding($node)"/>
-
+		<xsl:variable as="item()*" name="toks">
+			<xsl:call-template name="tokenize">
+				<xsl:with-param name="node" select="$node"/>
+				<xsl:with-param name="purgeWhitespace" select="false()"/>
+			</xsl:call-template>
+		</xsl:variable>
 		<xsl:choose>
 			<!-- node = text() -->
 			<xsl:when test="$node instance of text()">
-				<xsl:variable as="item()*" name="toks">
-					<xsl:call-template name="tokenize">
-						<xsl:with-param name="node" select="$node"/>
-						<xsl:with-param name="purgeWhitespace" select="false()"/>
-					</xsl:call-template>
-				</xsl:variable>
 				<xsl:choose>
 					<xsl:when
 						test="$toks[1]/self::tei:seg[@type='whitespace'] or $toks[1]/self::tei:pc">
@@ -137,8 +148,7 @@
 							<xsl:otherwise>
 								<xsl:choose>
 									<xsl:when test="exists($preceding)">
-										<xsl:sequence select="icltt:ends-token($preceding, true())"
-										/>
+										<xsl:sequence select="icltt:ends-token($preceding, true())"/>
 									</xsl:when>
 									<!--<xsl:when test="exists($node/parent::*)">
 										<xsl:sequence select="icltt:starts-token($node/parent::*)"/>
@@ -157,12 +167,6 @@
 			<xsl:otherwise>
 				<xsl:choose>
 					<xsl:when test="icltt:is-in-word-tag($node)">
-						<xsl:variable as="item()*" name="toks">
-							<xsl:call-template name="tokenize">
-								<xsl:with-param name="node" select="$node"/>
-								<xsl:with-param name="purgeWhitespace" select="false()"/>
-							</xsl:call-template>
-						</xsl:variable>
 						<xsl:choose>
 							<xsl:when test="$toks[1]/self::tei:seg[@type='whitespace'] or $toks[1]/self::tei:pc">
 								<xsl:sequence select="true()"/>
@@ -213,16 +217,15 @@
 		<xsl:param as="node()" name="node"/>
 		<xsl:param as="xs:boolean" name="isLookBehind"/>
 		<xsl:variable name="following" select="icltt:following($node)"/>
-
+		<xsl:variable as="item()*" name="toks">
+			<xsl:call-template name="tokenize">
+				<xsl:with-param name="node" select="$node"/>
+				<xsl:with-param name="purgeWhitespace" select="false()"/>
+			</xsl:call-template>
+		</xsl:variable>
 		<xsl:choose>
 			<!-- node = text() -->
 			<xsl:when test="$node instance of text()">
-				<xsl:variable as="item()*" name="toks">
-					<xsl:call-template name="tokenize">
-						<xsl:with-param name="node" select="$node"/>
-						<xsl:with-param name="purgeWhitespace" select="false()"/>
-					</xsl:call-template>
-				</xsl:variable>
 				<xsl:choose>
 					<xsl:when
 						test="$toks[last()]/self::tei:seg[@type='whitespace'] or $toks[last()]/self::tei:pc">
@@ -249,6 +252,9 @@
 				<xsl:choose>
 					<xsl:when test="$isLookBehind">
 						<xsl:choose>
+							<xsl:when test="$toks[last()]/self::*[self::tei:seg[@type='whitespace'] or self::tei:pc]">
+								<xsl:sequence select="true()"/>
+							</xsl:when>
 							<xsl:when test="icltt:is-in-word-tag($node)">
 								<xsl:sequence select="false()"/>
 							</xsl:when>
@@ -329,8 +335,13 @@
 	</xsl:template>
 
 	<xsl:template match="text()[not(matches(.,'^\s+$'))]" mode="makeWTags" priority="1">
+		<xsl:param name="in-floating-block" tunnel="yes"/>
+		<xsl:param name="is-ignored" tunnel="yes"/>
 		<xsl:choose>
-			<xsl:when test="some $x in ancestor::* satisfies icltt:is-ignored($x)">
+			<!--<xsl:when test="some $x in ancestor::* satisfies icltt:is-ignored($x)">
+				<xsl:copy-of select="."/>
+			</xsl:when>-->
+			<xsl:when test="$is-ignored">
 				<xsl:copy-of select="."/>
 			</xsl:when>
 			<xsl:otherwise>
@@ -343,7 +354,6 @@
 				<xsl:variable name="preceding" select="icltt:preceding(.)"/>
 
 				<xsl:variable name="following" select="icltt:following(.)"/>
-
 				<!-- TOKEN BEFORE FIRST BLANK-->
 				<xsl:choose>
 					<xsl:when test="icltt:starts-token(.) and icltt:ends-token(.)">
@@ -363,7 +373,10 @@
 								<xsl:choose>
 									<xsl:when
 										test="icltt:starts-token(.) and not(icltt:ends-token(.))">
-										<tei:w part="I">
+										<tei:w>
+											<xsl:if test="not(exists($following)) and icltt:is-in-word-tag(parent::*) or exists($following)">
+												<xsl:attribute name="part">I</xsl:attribute>
+											</xsl:if>
 											<xsl:value-of select="$toks[1]"/>
 										</tei:w>
 									</xsl:when>
@@ -456,7 +469,16 @@
 								<xsl:when test="icltt:is-in-word-tag(parent::*)">
 									<xsl:choose>
 										<xsl:when test="icltt:starts-token(parent::*)">
-											<xsl:copy-of select="$toks[last()]"/>
+											<xsl:choose>
+												<xsl:when test="icltt:starts-token($following,true())">
+													<xsl:copy-of select="$toks[last()]"/>
+												</xsl:when>
+												<xsl:otherwise>
+													<tei:w part="I">
+														<xsl:copy-of select="$toks[last()]/node()"/>
+													</tei:w>
+												</xsl:otherwise>
+											</xsl:choose>
 										</xsl:when>
 										<xsl:otherwise>
 											<xsl:choose>

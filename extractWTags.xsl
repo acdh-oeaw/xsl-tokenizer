@@ -12,7 +12,10 @@
     </xd:doc>
     
     <xsl:include href="lib-mergeToks.xsl"/>
+    <!-- put w-elements into TEI-namespace or not ? -->
     <xsl:param name="namespaced" as="xs:boolean">0</xsl:param>
+    
+    <xsl:param name="revision" select="@revision"/>
     
     <xsl:variable name="tokensMerged" as="element(tei:seg)*">
         <xsl:call-template name="mergeTokens">
@@ -23,29 +26,31 @@
     
     <xsl:template match="/*">
         <xsl:result-document href="wtags-report.xml">
-            <debug xmlns:tei="http://www.tei-c.org/ns/1.0">
+            <debug xmlns:tei="http://www.tei-c.org/ns/1.0" lastrun="{current-dateTime()}">
                 <info>
-                    <w-tags-total><xsl:value-of select="count($tokensMerged//tei:w)"/></w-tags-total>
-                    <initial-w-tags><xsl:value-of select="count($tokensMerged//tei:w[@part='I'])"/></initial-w-tags>
-                    <final-tags><xsl:value-of select="count($tokensMerged//tei:w[@part='F'])"/></final-tags>
-                    <midde-tags><xsl:value-of select="count($tokensMerged//tei:w[@part='M'])"/></midde-tags>
+                    <source>
+                        <w-tags-total><xsl:value-of select="count(//tei:w)"/></w-tags-total>
+                        <initial-w-tags><xsl:value-of select="count(//tei:w[@part='I'])"/></initial-w-tags>
+                        <final-tags><xsl:value-of select="count(//tei:w[@part='F'])"/></final-tags>
+                        <midde-tags><xsl:value-of select="count(//tei:w[@part='M'])"/></midde-tags>
+                    </source>
+                    <merged>
+                        <w-tags-total><xsl:value-of select="count($tokensMerged//tei:w)"/></w-tags-total>
+                        <initial-w-tags><xsl:value-of select="count($tokensMerged//tei:w[@part='I'])"/></initial-w-tags>
+                        <final-tags><xsl:value-of select="count($tokensMerged//tei:w[@part='F'])"/></final-tags>
+                        <midde-tags><xsl:value-of select="count($tokensMerged//tei:w[@part='M'])"/></midde-tags>
+                    </merged>
                 </info>
                 <report>
                     <watchme>
-                        <xsl:for-each select="//tei:w[@part='I' and not(following-sibling::*[1]/@part = ('M','F'))]">
+                        <xsl:for-each select="//tei:w[@part='I' and not(following-sibling::*[1][descendant-or-self::tei:w/@part = ('M','F')])]">
                             <initials>
                                 <xsl:sequence select="(.,following-sibling::*[1])"/>
                             </initials>
                         </xsl:for-each>
-                        <xsl:for-each select="//tei:w[@part='F' and following-sibling::*[1]/@part != 'M']">
-                            <finals>
-                                <xsl:sequence select="(.,following-sibling::*[1])"/>
-                            </finals>
-                        </xsl:for-each>
                     </watchme>
                     <errors>
-                        <xsl:sequence select="$tokensMerged//tei:seg[not(tei:w/@part='I')]"/>
-                        <xsl:sequence select="$tokensMerged//tei:seg[not(tei:w/@part='F')]"/>
+                        <xsl:sequence select="$tokensMerged/self::tei:seg[not(exists(tei:w[@part='I']) or exists(tei:w[@part='F']))]"/>
                     </errors>
                 </report>
                 <tokens>
@@ -56,12 +61,15 @@
         <xsl:choose>
             <xsl:when test="$namespaced">
                 <xsl:copy>
+                    <xsl:attribute name="last-update" select="current-dateTime()"/>
                     <xsl:copy-of select="@*"/>
                     <xsl:apply-templates/>
                 </xsl:copy>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:element name="{local-name(.)}" namespace="">
+                    <xsl:attribute name="last-tokenized" select="current-dateTime()"/>
+                    <xsl:attribute name="revision" select="$revision"/>
                     <xsl:copy-of select="@*"/>
                     <xsl:apply-templates/>
                 </xsl:element>

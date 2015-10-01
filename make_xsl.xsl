@@ -94,7 +94,42 @@
                 <attribute name="omit-xml-declaration">yes</attribute>
             </element>
             <text>&#10;&#10;</text>
-
+            
+            <element name="xsl:variable">
+                <attribute name="name">floatingblocks</attribute>
+                <attribute name="select">
+                    <xsl:for-each select="//expression[ancestor::floating-blocks]">
+                        <xsl:if test="position() > 1">
+                            <xsl:text>|</xsl:text>
+                        </xsl:if>
+                        <xsl:value-of select="concat('//',.)"/>
+                        <xsl:if test="$makeNoNamespaceVersion">
+                            <xsl:variable name="pattern" select="concat('(',string-join(root()//namespace/concat(@prefix,':'),'|'),')')"/>
+                            <xsl:text>|</xsl:text>
+                            <xsl:value-of select="concat('//',replace(.,$pattern,''))"/>
+                        </xsl:if>
+                    </xsl:for-each>
+                </attribute>
+            </element>
+            
+            <element name="key">
+                <attribute name="name">floatingblocksdescendants-by-node-id</attribute>
+                <attribute name="match">
+                    <xsl:for-each select="//expression[ancestor::floating-blocks]">
+                        <xsl:if test="position() > 1">
+                            <xsl:text>|</xsl:text>
+                        </xsl:if>
+                        <xsl:value-of select="concat('//',.)"/>
+                        <xsl:if test="$makeNoNamespaceVersion">
+                            <xsl:variable name="pattern" select="concat('(',string-join(root()//namespace/concat(@prefix,':'),'|'),')')"/>
+                            <xsl:text>|</xsl:text>
+                            <xsl:value-of select="concat('//',replace(.,$pattern,''))"/>
+                        </xsl:if>
+                    </xsl:for-each>
+                </attribute>
+                <attribute name="use">descendant-or-self::*/generate-id(.)</attribute>
+            </element>
+            
             <element name="xsl:template">
                 <attribute name="match">/</attribute>
                 <attribute name="mode">#default</attribute>
@@ -127,6 +162,7 @@
                 <element name="xsl:template">
                     <attribute name="match" select="."/>
                     <attribute name="mode">textvalue</attribute>
+                    <attribute name="priority">1</attribute>
                 </element>
                 <text>&#10;&#10;</text>
 
@@ -145,6 +181,21 @@
                 </element>
                 <text>&#10;&#10;</text>
                 
+                <element name="xsl:template">
+                    <attribute name="match" select="."/>
+                    <attribute name="mode">makeWTags</attribute>
+                    <attribute name="priority">1</attribute>
+                    <element name="xsl:next-match">
+                        <element name="xsl:with-param">
+                            <attribute name="tunnel">yes</attribute>
+                            <attribute name="name">is-ignored</attribute>
+                            <attribute name="as">xs:boolean</attribute>
+                            <attribute name="select">true()</attribute>
+                        </element>
+                    </element>
+                </element>
+                <text>&#10;&#10;</text>
+                
                 <!-- template for is-ignored  resolving -->
                 <element name="xsl:template">
                     <attribute name="match" select="."/>
@@ -158,36 +209,47 @@
 
                 <xsl:if test="xs:boolean($makeNoNamespaceVersion)">
                     <xsl:variable name="pattern" select="concat('(',string-join(root()//namespace/concat(@prefix,':'),'|'),')')"/>
+                    <xsl:variable name="match" select="replace(.,$pattern,'')"/>
                     <!-- template for textvalue resolving -->
                     <element name="xsl:template">
-                        <attribute name="match">
-                            <xsl:value-of select="replace(.,$pattern,'')"/>
-                        </attribute>
+                        <attribute name="match" select="$match"/>
                         <attribute name="mode">textvalue</attribute>
+                        <attribute name="priority">1</attribute>
                     </element>
                     <text>&#10;&#10;</text>
                     
                     <!-- template for is-ignored resolving -->
                     <element name="xsl:template">
-                        <attribute name="match"><xsl:value-of select="replace(.,$pattern,'')"/></attribute>
+                        <attribute name="match" select="$match"/>
                         <attribute name="mode">is-ignored</attribute>
                         <attribute name="as">xs:boolean</attribute>
                         <element name="xsl:sequence">
                             <attribute name="select">true()</attribute>
                         </element>
                     </element>
+                    
                     <text>&#10;&#10;</text>
+                    
+                    <element name="xsl:template">
+                        <attribute name="match" select="$match"/>
+                        <attribute name="mode">makeWTags</attribute>
+                        <attribute name="priority">1</attribute>
+                        <element name="xsl:next-match">
+                            <element name="xsl:with-param">
+                                <attribute name="tunnel">yes</attribute>
+                                <attribute name="name">is-ignored</attribute>
+                                <attribute name="as">xs:boolean</attribute>
+                                <attribute name="select">true()</attribute>
+                            </element>
+                        </element>
+                    </element>
+                    <text>&#10;&#10;</text>
+                    
+                    
 
                     <!-- templates for tokenization -->
                     <element name="xsl:template">
-                        <attribute name="match">
-                            <xsl:variable name="pattern">
-                                <value-of
-                                    select="concat('(',string-join(root()//namespace/concat(@prefix,':'),'|'),')')"
-                                />
-                            </xsl:variable>
-                            <xsl:value-of select="replace(.,$pattern,'')"/>
-                        </attribute>
+                        <attribute name="match" select="$match"/>
                         <attribute name="mode">tokenize</attribute>
                         <attribute name="priority">1</attribute>
                         <element name="xsl:copy-of">
@@ -229,6 +291,36 @@
                     <text>&#10;&#10;</text>
 
                 </xsl:if>
+                
+                <element name="xsl:template">
+                    <attribute name="match" select="."/>
+                    <attribute name="mode">textvalue</attribute>
+                    <attribute name="priority">1</attribute>
+                    <element name="value-of">
+                        <attribute name="select">.</attribute>
+                    </element>
+                </element>
+                <text>&#10;&#10;</text>
+                
+                <xsl:if test="xs:boolean($makeNoNamespaceVersion)">
+                    <element name="xsl:template">
+                        <attribute name="match">
+                            <xsl:variable name="pattern">
+                                <value-of
+                                    select="concat('(',string-join(root()//namespace/concat(@prefix,':'),'|'),')')"
+                                />
+                            </xsl:variable>
+                            <xsl:value-of select="replace(.,$pattern,'')"/>
+                        </attribute>
+                        <attribute name="mode">textvalue</attribute>
+                        <attribute name="priority">1</attribute>
+                        <element name="value-of">
+                            <attribute name="select">.</attribute>
+                        </element>
+                    </element>
+                    <text>&#10;&#10;</text>
+                    
+                </xsl:if>
             </xsl:for-each>
             
             <xsl:for-each select="//expression[ancestor::floating-blocks]">
@@ -240,6 +332,7 @@
                 <element name="xsl:template">
                     <attribute name="match" select="."/>
                     <attribute name="mode">textvalue</attribute>
+                    <attribute name="priority">1</attribute>
                 </element>
                 <text>&#10;&#10;</text>
                 
@@ -253,6 +346,21 @@
                 </element>
                 <text>&#10;&#10;</text>
                 
+                <element name="xsl:template">
+                    <attribute name="match" select="."/>
+                    <attribute name="mode">makeWTags</attribute>
+                    <element name="xsl:next-match">
+                        <element name="xsl:with-param">
+                            <attribute name="name">in-floating-block</attribute>
+                            <attribute name="select">true()</attribute>
+                            <attribute name="as">xs:boolean</attribute>
+                            <attribute name="tunnel">yes</attribute>
+                        </element>
+                    </element>
+                </element>
+                
+                <text>&#10;&#10;</text>
+                
                 <xsl:if test="xs:boolean($makeNoNamespaceVersion)">
                     <xsl:variable name="pattern">
                         <value-of
@@ -264,6 +372,7 @@
                     <element name="xsl:template">
                         <attribute name="match" select="$match"/>
                         <attribute name="mode">textvalue</attribute>
+                        <attribute name="priority">1</attribute>
                     </element>
                     <text>&#10;&#10;</text>
                     
@@ -276,8 +385,32 @@
                         </element>
                     </element>
                     <text>&#10;&#10;</text>
+                    
+                    <element name="xsl:template">
+                        <attribute name="match" select="$match"/>
+                        <attribute name="mode">makeWTags</attribute>
+                        <element name="xsl:next-match">
+                            <element name="xsl:with-param">
+                                <attribute name="name">in-floating-block</attribute>
+                                <attribute name="select">true()</attribute>
+                                <attribute name="as">xs:boolean</attribute>
+                                <attribute name="tunnel">yes</attribute>
+                            </element>
+                        </element>
+                    </element>
+                    
+                    
+                    <text>&#10;&#10;</text>
+                    
                 </xsl:if>
             </xsl:for-each>
+
+
+            <element name="xsl:template">
+                <attribute name="match">*[not(node)]</attribute>
+                <attribute name="mode">textvalue</attribute>
+                <element name="xsl:text">&#160;</element>
+            </element>
         </xsl:element>
 
     </xsl:template>
