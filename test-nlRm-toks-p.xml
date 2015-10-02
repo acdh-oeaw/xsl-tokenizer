@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--2015-10-02T10:46:50.856+02:00-->
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>
+            <w xml:id="d4e18">Das</w>
+            <seg type="ws" xml:id="d4e20"> </seg>
+            <fw type="catch">Kustode</fw>
+            <pb/>
+            <fw>Kolumnentitel</fw>
+            <w xml:id="d4e27">ist</w>
+            <seg type="ws" xml:id="d4e29"> </seg>
+            <w xml:id="d4e31">die</w>
+            <seg type="ws" xml:id="d4e33"> </seg>
+            <w xml:id="d4e35" part="I" next="#d4e38">Über</w>
+            <hi>
+               <w xml:id="d4e38" part="M" prev="#d4e35" next="#d4e41">schr</w>
+            </hi>
+            <w xml:id="d4e41" part="F" prev="#d4e38">ift</w>
+            <pc xml:id="d4e43">.</pc>
+         </head>
+         <p>
+            <w xml:id="d4e46">Mit</w>
+            <seg type="ws" xml:id="d4e48"> </seg>
+            <w xml:id="d4e50">oder</w>
+            <seg type="ws" xml:id="d4e52"> </seg>
+            <w xml:id="d4e54">ohne</w>
+            <seg type="ws" xml:id="d4e56"> </seg>
+            <w xml:id="d4e58" part="I" next="#d4e61">Zeilen</w>
+            <lb type="s" break="no"/>
+            <w xml:id="d4e61" part="F" prev="#d4e58">umbrüchen</w>
+         </p>
+         <p>
+            <w xml:id="d4e64">Ein</w>
+            <seg type="ws" xml:id="d4e66"> </seg>
+            <hi>
+               <w xml:id="d4e69">kleiner</w>
+               <seg type="ws" xml:id="d4e71"> </seg>
+            </hi>
+            <w xml:id="d4e73">Absatz</w>
+            <pc xml:id="d4e75">.</pc>
+         </p>
+         <p>
+            <w xml:id="d4e78">Some</w>
+            <seg type="ws" xml:id="d4e80"> </seg>
+            <lb/>
+            <w xml:id="d4e83">quite</w>
+            <lb/>
+            <w xml:id="d4e86">longtext</w>
+            <lb/>
+            <w xml:id="d4e89">here</w>
+            <pc xml:id="d4e91">.</pc>
+         </p>
+         <p>
+            <w xml:id="d4e94">Hier</w>
+            <seg type="ws" xml:id="d4e96"> </seg>
+            <w xml:id="d4e98">ein</w>
+            <seg type="ws" xml:id="d4e100"> </seg>
+            <w xml:id="d4e102">paar</w>
+            <seg type="ws" xml:id="d4e104"> </seg>
+            <w xml:id="d4e106" part="I" next="#d4e109">in</w>
+            <hi>
+               <w xml:id="d4e109" part="M" prev="#d4e106" next="#d4e111">li</w>
+            </hi>
+            <w xml:id="d4e111" part="F" prev="#d4e109">ne</w>
+            <pc xml:id="d4e113">-</pc>
+            <seg>
+               <w xml:id="d4e116">Elemente</w>
+            </seg>
+            <pc xml:id="d4e119">.</pc>
+         </p>
+         <p>
+            <w xml:id="d4e122">Und</w>
+            <seg type="ws" xml:id="d4e124"> </seg>
+            <hi>
+               <w xml:id="d4e127">kleine</w>
+               <seg type="ws" xml:id="d4e129"> </seg>
+               <w xml:id="d4e131">Abkürzungen</w>
+            </hi>
+            <pc xml:id="d4e133">:</pc>
+            <seg type="ws" xml:id="d4e135"> </seg>
+            <w xml:id="d4e137">Am</w>
+            <seg type="ws" xml:id="d4e139"> </seg>
+            <hi>
+               <w xml:id="d4e142" part="I" next="#d4e144">Haupt</w>
+            </hi>
+            <w xml:id="d4e144" part="F" prev="#d4e142">bhf</w>
+            <pc xml:id="d4e146">.</pc>
+            <seg type="ws" xml:id="d4e148"> </seg>
+            <w xml:id="d4e151">fährt</w>
+            <seg type="ws" xml:id="d4e153"> </seg>
+            <hi>
+               <w xml:id="d4e156">man</w>
+            </hi>
+            <seg type="ws" xml:id="d4e158"> </seg>
+            <w xml:id="d4e160">von</w>
+            <seg type="ws" xml:id="d4e162"> </seg>
+            <hi>
+               <w xml:id="d4e165"
+                  toks-after="1"
+                  toks-before="0"
+                  part="I"
+                  next="">O</w>
+               <pc xml:id="d4e167">-</pc>
+            </hi>
+            <w xml:id="d4e169"
+               toks-after="1"
+               toks-before="0"
+               part="I"
+               next="">W</w>
+            <pc xml:id="d4e171">.</pc>
+         </p>
+         <p>
+            <w xml:id="d4e174">Und</w>
+            <seg type="ws" xml:id="d4e176"> </seg>
+            <w xml:id="d4e178">da</w>
+            <seg type="ws" xml:id="d4e180"> </seg>
+            <w xml:id="d4e182">noch</w>
+            <seg type="ws" xml:id="d4e184"> </seg>
+            <w xml:id="d4e186">einer</w>
+            <pc xml:id="d4e188">,</pc>
+            <seg type="ws" xml:id="d4e190"> </seg>
+            <lb/>
+            <w xml:id="d4e193">der</w>
+            <seg type="ws" xml:id="d4e196"> </seg>
+            <w xml:id="d4e198">von</w>
+            <seg type="ws" xml:id="d4e200"> </seg>
+            <w xml:id="d4e202">einer</w>
+            <seg type="ws" xml:id="d4e204"> </seg>
+            <lb/>
+            <w xml:id="d4e207" part="I" next="#d4e247">Gra</w>
+            <lb break="no"/>
+            <figure>
+               <p>
+                  <w xml:id="d4e212">Das</w>
+                  <seg type="ws" xml:id="d4e214"> </seg>
+                  <w xml:id="d4e216">ist</w>
+                  <seg type="ws" xml:id="d4e218"> </seg>
+                  <w xml:id="d4e220">ein</w>
+                  <seg type="ws" xml:id="d4e222"> </seg>
+                  <w xml:id="d4e224">Text</w>
+                  <pc xml:id="d4e226">,</pc>
+                  <seg type="ws" xml:id="d4e228"> </seg>
+                  <w xml:id="d4e230">der</w>
+                  <seg type="ws" xml:id="d4e232"> </seg>
+                  <w xml:id="d4e235">tokenisiert</w>
+                  <seg type="ws" xml:id="d4e237"> </seg>
+                  <w xml:id="d4e239">werden</w>
+                  <seg type="ws" xml:id="d4e241"> </seg>
+                  <w xml:id="d4e243">soll</w>
+                  <pc xml:id="d4e245">.</pc>
+               </p>
+            </figure>
+            <w xml:id="d4e247" part="F" prev="#d4e207">fik</w>
+            <seg type="ws" xml:id="d4e249"> </seg>
+            <w xml:id="d4e252">unterbrochen</w>
+            <seg type="ws" xml:id="d4e254"> </seg>
+            <w xml:id="d4e256">wird</w>
+            <pc xml:id="d4e258">.</pc>
+         </p>
+         <p>
+            <w xml:id="d4e261">Fußnoten</w>
+            <seg type="ws" xml:id="d4e263"> </seg>
+            <w xml:id="d4e265">sind</w>
+            <seg type="ws" xml:id="d4e267"> </seg>
+            <w xml:id="d4e269">gemein</w>
+            <seg type="ws" xml:id="d4e271"> </seg>
+            <w xml:id="d4e273">und</w>
+            <seg type="ws" xml:id="d4e275"> </seg>
+            <w xml:id="d4e277">sollen</w>
+            <seg type="ws" xml:id="d4e279"> </seg>
+            <w xml:id="d4e281">nicht</w>
+            <note place="below">Wirklich nicht!!</note>
+            <seg type="ws" xml:id="d4e286"> </seg>
+            <w xml:id="d4e288">tokenisiert</w>
+            <seg type="ws" xml:id="d4e290"> </seg>
+            <w xml:id="d4e292" part="I" next="#d4e295">w</w>
+            <hi>
+               <w xml:id="d4e295" part="M" prev="#d4e292" next="#d4e297">er</w>
+            </hi>
+            <w xml:id="d4e297" part="F" prev="#d4e295">den</w>
+            <pc xml:id="d4e299">.</pc>
+         </p>
+      </body>
+   </text>
+</TEI>
