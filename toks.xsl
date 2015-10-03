@@ -4,7 +4,7 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0" exclude-result-prefixes="xs tei xtoks"
     xmlns="http://www.tei-c.org/ns/1.0" version="2.0">
     
-    <xsl:include href="classify.xsl"/>
+     <xsl:include href="toks-lib.xsl"/>
 
     <xsl:template match="/">
         <xsl:apply-templates/>

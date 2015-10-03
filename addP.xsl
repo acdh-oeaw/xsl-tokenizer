@@ -14,7 +14,7 @@
     
     <xsl:param name="debug" select="false()"/>
     <xsl:param name="debug-out" select="()"/>
-    <xsl:include href="classify.xsl"/>
+    <xsl:include href="toks-lib.xsl"/>
     
     <!-- convert dictionary to a sequence of tei:seg elements -->
     <xsl:param name="path-to-lexicon">lexicon.txt</xsl:param>
