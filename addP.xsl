@@ -12,7 +12,8 @@
     <xsl:key name="collapsed-token-by-id" match="xtoks:token" use="substring-after(@corresp,'#')"/>
     <xsl:key name="lex-entry-by-part" match="tei:seg" use="(tei:w|tei:pc|tei:seg[@type = 'ws'])/normalize-space(.)"></xsl:key>
     
-    
+    <xsl:param name="debug" select="false()"/>
+    <xsl:param name="debug-out" select="()"/>
     <xsl:include href="classify.xsl"/>
     
     <!-- convert dictionary to a sequence of tei:seg elements -->
@@ -38,7 +39,7 @@
     
     
     
-    <xsl:template match="node() | @*" mode="add-ids rmIgnores add-parts rmInlines rmAuxAttrs collapseParts applyLex addRefsToLexApplied expandCollapsed">
+    <xsl:template match="node() | @*" mode="add-ids rmIgnores add-parts rmInlines rmAuxAttrs collapseParts applyLex addRefsToLexApplied expandCollapsed addNext">
         <xsl:copy>
             <xsl:apply-templates select="node() | @*" mode="#current"/>
         </xsl:copy>
@@ -89,18 +90,28 @@
             <xsl:apply-templates select="$lexAppliedRefsAdded" mode="expandCollapsed"/>
         </xsl:variable>
         
+        <xsl:variable name="nextAdded" as="node()*">
+            <xsl:apply-templates select="$collapsedExpanded" mode="addNext"/>
+        </xsl:variable>
+        
         <xsl:variable name="pAttrsAdded" as="node()*">
             <xsl:apply-templates select="$ids-added" mode="add-parts">
                 <xsl:with-param name="pAttrsAdded" tunnel="yes" as="document-node()">
                     <xsl:document>
-                        <xsl:sequence select="$collapsedExpanded[not(self::processing-instruction())]"/>
+                        <xsl:sequence select="$nextAdded[not(self::processing-instruction())]"/>
                     </xsl:document>
                 </xsl:with-param>
             </xsl:apply-templates>
         </xsl:variable>
         
-        <xsl:apply-templates select="$pAttrsAdded" mode="rmAuxAttrs"/>
-<!--        <xsl:sequence select="$collapsedExpanded"/>-->
+        <xsl:choose>
+            <xsl:when test="$debug">
+                <xsl:sequence select="$debug-out"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates select="$pAttrsAdded" mode="rmAuxAttrs"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
     <xsl:template match="*" mode="add-ids" priority="1">
@@ -161,27 +172,31 @@
     <xsl:template match="tei:*[key('lex-entry-by-part',normalize-space(.),$lexToks)]" mode="applyLex" priority="1">
         <xsl:variable name="token" select="." as="element()"/>
         <xsl:variable name="segCandidates" select="key('lex-entry-by-part',normalize-space(.),$lexToks)" as="node()*"/>
-        <xsl:variable name="preceding" select="preceding::*[self::tei:w or self::tei:pc or self::tei:seg[@type = 'ws']]" as="item()*"/>
-        <xsl:variable name="following" select="following::*[self::tei:w or self::tei:pc or self::tei:seg[@type = 'ws']]" as="item()*"/>
-        <!--<xsl:message>===================</xsl:message>
+        <xsl:variable name="preceding" select="preceding::*[self::tei:w or self::tei:pc or self::tei:seg[@type = 'ws']][not(ancestor::xtoks:collapsed)]" as="item()*"/>
+        <xsl:variable name="following" select="following::*[self::tei:w or self::tei:pc or self::tei:seg[@type = 'ws']][not(ancestor::xtoks:collapsed)]" as="item()*"/>
+        <xsl:if test="$debug">
+            <xsl:message>===================</xsl:message>
         <xsl:message><xsl:copy-of select="."/></xsl:message>
-        <xsl:message>Identified <xsl:value-of select="count($segCandidates)"/> candidates.</xsl:message>-->
+        <xsl:message>Identified <xsl:value-of select="count($segCandidates)"/> candidates.</xsl:message>
+        </xsl:if>
         <xsl:variable name="lex-entries" as="item()*">
             <xsl:for-each select="$segCandidates">
-<!--                <xsl:message>   candidate "<xsl:value-of select="."/>"</xsl:message>-->
                 <!-- number of tokens in the lexicon entry -->
                 <xsl:variable name="totalToks" select="count(*)"/>
                 <!-- position of the current token in the lexicon-token -->
                 <xsl:variable name="pos" select="count(*[. = $token]/preceding-sibling::*)+1" as="xs:integer"/>
                 <xsl:variable name="toks-after" select="if ($totalToks = $pos) then 0 else xs:integer($totalToks) - xs:integer($pos)"/>
                 <xsl:variable name="toks-before" select="xs:integer($pos) - 1"/>
-<!--                <xsl:message>total toks / before / after : <xsl:value-of select="$totalToks"/> / <xsl:value-of select="$toks-before"/> / <xsl:value-of select="$toks-after"/></xsl:message>-->
                 <xsl:variable name="next" select="$following[position() le $toks-after]" as="item()*"/>
                 <xsl:variable name="prev" select="reverse(reverse($preceding)[position() le $toks-before])" as="item()*"/>
-<!--                <xsl:message>prev / next : <xsl:value-of select="string-join($prev,'')"/> / <xsl:value-of select="string-join($next,'')"/></xsl:message>-->
                 <xsl:variable name="lex-entry" select="data(.)"/>
                 <xsl:variable name="parts-joined" select="string-join(($prev/data(.), $token/data(.), $next/data(.)),'')"/>
-                <!--<xsl:message>$parts-joined: <xsl:value-of select="$parts-joined"/></xsl:message>-->
+                <xsl:if test="$debug">
+                    <xsl:message>   candidate "<xsl:value-of select="."/>"</xsl:message>
+                    <xsl:message>total toks / before / after : <xsl:value-of select="$totalToks"/> / <xsl:value-of select="$toks-before"/> / <xsl:value-of select="$toks-after"/></xsl:message>
+                    <xsl:message>prev / next : <xsl:value-of select="string-join($prev,'')"/> / <xsl:value-of select="string-join($next,'')"/></xsl:message>
+                    <xsl:message>$parts-joined: <xsl:value-of select="$parts-joined"/></xsl:message>
+                </xsl:if>
                 <xsl:if test="$parts-joined = $lex-entry">
                     <entry id="{@xml:id}">
                         <position><xsl:value-of select="$pos"/></position>
@@ -351,15 +366,14 @@
                 <xsl:call-template name="splitCollapsed">
                     <xsl:with-param name="parts" select="$parts[position() gt 1]"/>
                     <xsl:with-param name="results" as="item()*">
+                        <xsl:variable name="parts1-id" select="($parts[1]/@orig-id,$parts/parent::*/@collapsed-id)[1]"/>
                         <xsl:sequence select="$results"/>
                         <xsl:element name="{name($parts[1])}" namespace="{namespace-uri($parts[1])}">
-                            <xsl:attribute name="xml:id">
-                                <xsl:value-of select="($parts[1]/@orig-id,$parts/parent::*/@collapsed-id)[1]"/>
-                            </xsl:attribute>
+                            <xsl:attribute name="xml:id" select="$parts1-id"/>
                             <xsl:attribute name="part">
                                 <xsl:choose>
-                                    <xsl:when test="count($results) = 0">I</xsl:when>
-                                    <xsl:when test="string-join(($results,$parts[1]),'') = $lex-entry">F</xsl:when>
+                                    <xsl:when test="count($results) = 0 and starts-with($lex-entry,string-join(($results,$parts[1]),''))">I</xsl:when>
+                                    <xsl:when test="ends-with($lex-entry,string-join(($results,$parts[1]),''))">F</xsl:when>
                                     <xsl:otherwise>M</xsl:otherwise>
                                 </xsl:choose>
                             </xsl:attribute>
@@ -378,6 +392,7 @@
     </xsl:template>
     
     <xsl:template match="tei:*[substring-after(@prev,'#') = root(.)//xtoks:collapsed/@collapsed-id]/@prev" mode="expandCollapsed" priority="1">
+        <xsl:param name="partsTagged" tunnel="yes"/>
         <xsl:variable name="collapsed-id" select="substring-after(.,'#')"/>
         <xsl:variable name="origElts" select="root()//xtoks:collapsed[@collapsed-id = $collapsed-id]/*" as="node()*"/>
         <xsl:variable name="collapsed-elt" select="root()//tei:w[@xml:id = $collapsed-id]" as="item()*"/>
@@ -414,6 +429,22 @@
                 <xsl:copy-of select="."/>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template match="*[@part != 'F' and not(@next)]" mode="addNext" priority="1">
+        <xsl:copy>
+            <xsl:copy-of select="@*"/>
+            <xsl:attribute name="next">#<xsl:value-of select="following::*[substring-after(@prev,'#') = current()/@xml:id]/@xml:id"/></xsl:attribute>
+            <xsl:copy-of select="node()"/>
+        </xsl:copy>
+    </xsl:template>
+    
+    <xsl:template match="*[@part != 'I' and not(@prev)]" mode="addNext" priority="1">
+        <xsl:copy>
+            <xsl:copy-of select="@*"/>
+            <xsl:attribute name="prev">#<xsl:value-of select="preceding::*[substring-after(@next,'#') = current()/@xml:id]/@xml:id"/></xsl:attribute>
+            <xsl:copy-of select="node()"/>
+        </xsl:copy>
     </xsl:template>
     
 </xsl:stylesheet>

@@ -15,7 +15,7 @@
         <xsl:apply-templates/>
     </xsl:template>
     
-    <xsl:template match="tei:p | tei:head">
+    <xsl:template match="tei:p | tei:head" priority="1">
         <xsl:value-of select="concat('&lt;',local-name(.),'&gt;&#10;')"/>
         <xsl:apply-templates/>
         <xsl:value-of select="concat('&lt;/',local-name(.),'&gt;&#10;')"/>
