@@ -3,7 +3,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns="http://www.tei-c.org/ns/1.0"
     xmlns:xtoks="http://acdh.oeaw.ac.at/xtoks" exclude-result-prefixes="#all" version="2.0">
 
-    <xsl:include href="params.xsl"/>
+    <xsl:include href="default-params.xsl"/>
 
     <xsl:template match="node()" mode="is-copy-node is-ignore-node is-inline-node is-floating-node">
         <xsl:sequence select="false()"/>
