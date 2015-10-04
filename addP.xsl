@@ -60,10 +60,14 @@
             <xsl:apply-templates mode="add-ids"/>
         </xsl:variable>
         <xsl:variable name="ignoresRmd" as="node()*">
-            <xsl:apply-templates mode="rmIgnores" select="$ids-added"/>
+            <xsl:apply-templates mode="rmIgnores" select="$ids-added"/>            
+        </xsl:variable>
+        <xsl:variable name="floats" as="node()*">
+            <xsl:sequence select="$ids-added//*[@mode = 'float']"/>
         </xsl:variable>
         <xsl:variable name="inlinesRmd" as="node()*">
             <xsl:apply-templates select="$ignoresRmd" mode="rmInlines"/>
+            <xsl:apply-templates select="$floats" mode="rmInlines"/>
         </xsl:variable>
         <xsl:variable name="partsTagged" as="node()*">
             <xsl:apply-templates select="$inlinesRmd" mode="tag-parts"/>
