@@ -30,7 +30,7 @@ text<lb/>here.</p>
          <p>Und <hi>kleine Abkürzungen</hi>: Am <hi>Haupt</hi>bhf. fährt <hi>man</hi> von <hi>O-</hi>W.</p>
          <p>Und da noch einer, <lb/>
             der von einer <lb/>
-Gra<lb break="no"/><figure><p>Das ist ein Text, der tokenisiert werden soll.</p></figure>fik unterbrochen wird.</p>
+Gra<lb break="no"/><figure><p>Das ist ein Text<lb break="no"/>baustein, der tokenisiert werden soll.</p></figure>fik unterbrochen wird.</p>
          <p>Fußnoten sind gemein und sollen nicht<note place="below">Wirklich nicht!!</note> tokenisiert w<hi>er</hi>den.</p>
       </body>
   </text>

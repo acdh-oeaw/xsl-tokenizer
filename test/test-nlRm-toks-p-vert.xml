@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <ab>
+            <w xml:id="d4e18">Das</w>
+            <seg type="ws" xml:id="d4e20"> </seg>
+            <w xml:id="d4e27">ist</w>
+            <seg type="ws" xml:id="d4e29"> </seg>
+            <w xml:id="d4e31">die</w>
+            <seg type="ws" xml:id="d4e33"> </seg>
+            <w xml:id="d4e35">Überschrift</w>
+            <pc xml:id="d4e43">.</pc>
+            <w xml:id="d4e46">Mit</w>
+            <seg type="ws" xml:id="d4e48"> </seg>
+            <w xml:id="d4e50">oder</w>
+            <seg type="ws" xml:id="d4e52"> </seg>
+            <w xml:id="d4e54">ohne</w>
+            <seg type="ws" xml:id="d4e56"> </seg>
+            <w xml:id="d4e58">Zeilenumbrüchen</w>
+            <w xml:id="d4e64">Ein</w>
+            <seg type="ws" xml:id="d4e66"> </seg>
+            <w xml:id="d4e69">kleiner</w>
+            <seg type="ws" xml:id="d4e71"> </seg>
+            <w xml:id="d4e73">Absatz</w>
+            <pc xml:id="d4e75">.</pc>
+            <w xml:id="d4e78">Some</w>
+            <seg type="ws" xml:id="d4e80"> </seg>
+            <w xml:id="d4e83">quite</w>
+            <w xml:id="d4e86">longtext</w>
+            <w xml:id="d4e89">here</w>
+            <pc xml:id="d4e91">.</pc>
+            <w xml:id="d4e94">Hier</w>
+            <seg type="ws" xml:id="d4e96"> </seg>
+            <w xml:id="d4e98">ein</w>
+            <seg type="ws" xml:id="d4e100"> </seg>
+            <w xml:id="d4e102">paar</w>
+            <seg type="ws" xml:id="d4e104"> </seg>
+            <w xml:id="d4e106">inline-Elemente</w>
+            <pc xml:id="d4e116">.</pc>
+            <w xml:id="d4e120">ACDH-OEAW</w>
+            <w xml:id="d4e131">Und</w>
+            <seg type="ws" xml:id="d4e133"> </seg>
+            <w xml:id="d4e136">kleine</w>
+            <seg type="ws" xml:id="d4e138"> </seg>
+            <w xml:id="d4e140">Abkürzungen</w>
+            <pc xml:id="d4e142">:</pc>
+            <seg type="ws" xml:id="d4e144"> </seg>
+            <w xml:id="d4e146">Am</w>
+            <seg type="ws" xml:id="d4e148"> </seg>
+            <w xml:id="d4e151">Hauptbhf.</w>
+            <seg type="ws" xml:id="d4e157"> </seg>
+            <w xml:id="d4e160">fährt</w>
+            <seg type="ws" xml:id="d4e162"> </seg>
+            <w xml:id="d4e165">man</w>
+            <seg type="ws" xml:id="d4e167"> </seg>
+            <w xml:id="d4e169">von</w>
+            <seg type="ws" xml:id="d4e171"> </seg>
+            <w xml:id="d4e174">O-W</w>
+            <pc xml:id="d4e178">.</pc>
+            <w xml:id="d4e181">Und</w>
+            <seg type="ws" xml:id="d4e183"> </seg>
+            <w xml:id="d4e185">da</w>
+            <seg type="ws" xml:id="d4e187"> </seg>
+            <w xml:id="d4e189">noch</w>
+            <seg type="ws" xml:id="d4e191"> </seg>
+            <w xml:id="d4e193">einer</w>
+            <pc xml:id="d4e195">,</pc>
+            <seg type="ws" xml:id="d4e197"> </seg>
+            <w xml:id="d4e200">der</w>
+            <seg type="ws" xml:id="d4e203"> </seg>
+            <w xml:id="d4e205">von</w>
+            <seg type="ws" xml:id="d4e207"> </seg>
+            <w xml:id="d4e209">einer</w>
+            <seg type="ws" xml:id="d4e211"> </seg>
+            <w xml:id="d4e214">Grafik</w>
+            <w xml:id="d4e219">Das</w>
+            <seg type="ws" xml:id="d4e221"> </seg>
+            <w xml:id="d4e223">ist</w>
+            <seg type="ws" xml:id="d4e225"> </seg>
+            <w xml:id="d4e227">ein</w>
+            <seg type="ws" xml:id="d4e229"> </seg>
+            <w xml:id="d4e231">Textbaustein</w>
+            <pc xml:id="d4e236">,</pc>
+            <seg type="ws" xml:id="d4e238"> </seg>
+            <w xml:id="d4e241">der</w>
+            <seg type="ws" xml:id="d4e243"> </seg>
+            <w xml:id="d4e245">tokenisiert</w>
+            <seg type="ws" xml:id="d4e247"> </seg>
+            <w xml:id="d4e249">werden</w>
+            <seg type="ws" xml:id="d4e251"> </seg>
+            <w xml:id="d4e253">soll</w>
+            <pc xml:id="d4e255">.</pc>
+            <seg type="ws" xml:id="d4e259"> </seg>
+            <w xml:id="d4e262">unterbrochen</w>
+            <seg type="ws" xml:id="d4e264"> </seg>
+            <w xml:id="d4e266">wird</w>
+            <pc xml:id="d4e268">.</pc>
+            <w xml:id="d4e271">Fußnoten</w>
+            <seg type="ws" xml:id="d4e273"> </seg>
+            <w xml:id="d4e275">sind</w>
+            <seg type="ws" xml:id="d4e277"> </seg>
+            <w xml:id="d4e279">gemein</w>
+            <seg type="ws" xml:id="d4e281"> </seg>
+            <w xml:id="d4e283">und</w>
+            <seg type="ws" xml:id="d4e285"> </seg>
+            <w xml:id="d4e287">sollen</w>
+            <seg type="ws" xml:id="d4e289"> </seg>
+            <w xml:id="d4e291">nicht</w>
+            <seg type="ws" xml:id="d4e296"> </seg>
+            <w xml:id="d4e298">tokenisiert</w>
+            <seg type="ws" xml:id="d4e300"> </seg>
+            <w xml:id="d4e302">werden</w>
+            <pc xml:id="d4e309">.</pc>
+         </ab>
+      </body>
+   </text>
+</TEI>
