@@ -15,10 +15,7 @@
     <xsl:param name="debug" select="false()"/>
     <xsl:param name="debug-out" select="()"/>
     <xsl:include href="toks-lib.xsl"/>
-    
-    <!-- convert dictionary to a sequence of tei:seg elements -->
-    <xsl:param name="path-to-lexicon">lexicon.txt</xsl:param>
-    
+
     <xsl:variable name="lexicon" as="xs:string*">
         <xsl:for-each select="tokenize(unparsed-text($path-to-lexicon),'\n')">
             <xsl:value-of select="normalize-space(.)"/>
