@@ -6,7 +6,7 @@
     exclude-result-prefixes="xs tei"
     version="2.0">
     
-    <xsl:output indent="yes"></xsl:output>
+    <xsl:output indent="yes"/>
     
     <xsl:key name="token-by-id" match="tei:w|tei:pc|tei:seg[@type = 'ws']" use="@xml:id"/>
     <xsl:key name="collapsed-token-by-id" match="xtoks:token" use="substring-after(@corresp,'#')"/>
@@ -26,7 +26,8 @@
         <xsl:document>
             <lexicon>
                 <xsl:for-each select="$lexicon">
-                    <seg xml:id="entry_{position()}" xmlns="http://www.tei-c.org/ns/1.0">
+                    <seg xmlns="http://www.tei-c.org/ns/1.0">
+                        <xsl:attribute name="xml:id" select="concat('entry_',position())"/>
                         <xsl:call-template name="tokenize-text"/>
                     </seg>
                 </xsl:for-each>
