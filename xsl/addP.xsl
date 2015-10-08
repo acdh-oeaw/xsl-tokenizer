@@ -16,24 +16,6 @@
     <xsl:param name="debug-out" select="()"/>
     <xsl:include href="toks-lib.xsl"/>
 
-    <xsl:variable name="lexicon" as="xs:string*">
-        <xsl:for-each select="tokenize(unparsed-text($path-to-lexicon),'\n')">
-            <xsl:value-of select="normalize-space(.)"/>
-        </xsl:for-each>
-    </xsl:variable>
-    
-    <xsl:variable name="lexToks" as="document-node()">
-        <xsl:document>
-            <lexicon>
-                <xsl:for-each select="$lexicon">
-                    <seg xmlns="http://www.tei-c.org/ns/1.0">
-                        <xsl:attribute name="xml:id" select="concat('entry_',position())"/>
-                        <xsl:call-template name="tokenize-text"/>
-                    </seg>
-                </xsl:for-each>
-            </lexicon>
-        </xsl:document>
-    </xsl:variable>
     
     
     
