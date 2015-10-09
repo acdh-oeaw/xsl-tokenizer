@@ -1,0 +1,1245 @@
+<?xml version="1.0" encoding="UTF-8"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="l43">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Cousinéry to Eckhel, 2.12.1795</title>
+            <author>
+               <persName key="per:p3">Cousinéry, Èsprit-Marie</persName>
+            </author>
+         </titleStmt>
+         <publicationStmt>
+            <p>test</p>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc xml:id="m1">
+               <msIdentifier>
+                  <idno>Vienna, Kunsthistorisches Museum, Münzkabinett, Archiv V, 56</idno>
+               </msIdentifier>
+            </msDesc>
+            <msDesc xml:id="m2">
+               <msIdentifier>
+                  <idno>Vienna, Kunsthistorisches Museum, Münzkabinett, Archiv V, 47.2</idno>
+               </msIdentifier>
+               <physDesc>
+                  <objectDesc>
+                     <supportDesc>
+                        <extent>3</extent>
+                     </supportDesc>
+                  </objectDesc>
+                  <sealDesc>
+                     <seal>
+                        <decoNote>no</decoNote>
+                     </seal>
+                  </sealDesc>
+                  <accMat>
+                     <list type="objectsSent">
+                        <item>documents ‒ list of coins published by Sestini in 1790; drawings of coins. coins ‒ 1 forgery of Vitellius from the mint of Sardis; 6 coins of Erythrae; RPC 1, 2463.</item>
+                     </list>
+                  </accMat>
+               </physDesc>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <creation>
+            <origDate>
+               <date when="1795-12-02">2.12.1795</date>
+            </origDate>
+            <origPlace>
+               <settlement type="city">
+                  <placeName key="pla:p34">Smyrna</placeName>
+               </settlement>
+            </origPlace>
+         </creation>
+         <particDesc>
+            <listPerson xml:id="personsMentioned">
+               <head>Persons mentioned</head>
+               <person>
+                  <persName key="per:14">Osman Bey </persName>
+               </person>
+               <person>
+                  <persName key="per:16">Sestini, Domenico</persName>
+               </person>
+               <person>
+                  <persName key="per:56">Zimmermann, Gothard Woldemar</persName>
+               </person>
+            </listPerson>
+            <person role="sender">
+               <persName key="per:3">Cousinéry, Èsprit-Marie</persName>
+            </person>
+            <person role="recepient">
+               <persName key="per:1">Eckhel, Joseph Hilarius</persName>
+            </person>
+         </particDesc>
+         <abstract xml:lang="en" xml:id="a1">
+            <p>Comments on the catalogue of coins from the Osman Bey collection. Cousinéry discusses Sestini’s approach to publishing coins and points out a few mistakes. Remarks on the authenticity of a coin showing the head of Cicero owned by Cousinéry. He sends an Osman Bey forgery of Vitellius, six coins of Erythrae and a specimen of Augustus from the mint of Smyrnae. He corrects a coin attribution given in a previous letter, and asks for Eckhel’s advice on a coin of Antonius and Clepatra and one of Antiochus IV.</p>
+         </abstract>
+         <abstract xml:lang="en" xml:id="a2"><p>A coin catalogue was bound at the end of the letters sent by Cousinéry, hence has its own archival reference (Vienna, KHM, MK Archiv V, 56), but it originally belonged to this letter (Vienna, KHM, MK Archiv V, 47b) and it is here presented as its attachment. It draws upon the list of coins published by Sestini from the Osman Bey collection (Sestini 1789‒1806, vol. 4, pp. 86‒133) and later acquired by Cousinéry. It is divided into three parts: 1) (nos 1‒29) coins identified by Cousinéry as forgeries (mostly tooled specimens), 2) (nos 30‒56) coins that Cousinery believes are genuine, and 3) (57‒64) specimens that were part of the renegade’s collection when Sestini viewed them, but were sold before Cousinéry made his purchase, and therefore are missing from his collection. For each piece Cousinéry copies the description given by Sestini, with the numbers before each entry referring to the ones used in the publication, and sometimes adds comments and remarks. The pages in the document were numbered by the author from page 2 to 18, but there is a gap in the numbering between pages 5 and 6: missing page numbers were added in brackets. It was also decided to number the coins described (in brackets), in order to facilitate references.
+            </p><p>It is likely that one of the forgeries (f. 2v, no. 13) is the same piece published by Klose (Klose 1997, p. 261, no. 2), today in the Munich coin cabinet. Since Cousinéry sold his first collection to King of Bavaria in 1811 (Bergasse 1932, and Williams 2012, p. 30), it is highly probable that the rest of the forgeries ended up in Munich as well.</p>
+         </abstract>
+         <langUsage>
+            <language ident="fr">French</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change when="2015-06-02T11:29:23.823+02:00">created</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body xml:lang="fr">
+         <opener>
+            <pb n="1r" facs="Cousinery_an_Eckhel/Doc-047b_01.jpg"/>
+            <anchor xml:id="a-cousinery-484"/> <dateline>a <rs key="pla:pl34" type="place">Smyrne </rs>le 2 Decembre 1795 <lb/></dateline><salute>Monsieur <lb/></salute>
+         </opener>
+         <p>
+            <add type="auctorial">15)</add> J’ay laissé passer un courrier sans avoir l’honneur de vous écrire, <lb/>diverses occupations m’ayant empeché de terminer le catalogue que <lb/>vous m’avés demandé, j’ay vu a regret qu’il y auroit forcement lacune <lb/>de ma part &amp; impatience de la votre. Les soins &amp; l’exactitude que j’ay <lb/>mis à faire cequi m’a paru vous interesser, me serviront d’excuse.</p>
+         <p>Divers motifs m’ont determiné a acompagner ce catalogue<anchor xml:id="a-cousinery-485"/> d’une <lb/>lettre particuliere. 1.<hi rend="superscript">o</hi> mes liaisons avec <rs key="per:pe16" type="person">M<ex>onsieur</ex> Sestini</rs> pendant son sejour <lb/>au Levant. 2 La restitution de trois medailles mal décrites par cet <lb/>auteur. Qui sont <rs key="coi:c44" type="coin">Claude &amp; Agrippine</rs> qu’il prend pour Trajan &amp; Plotine<anchor xml:id="a-cousinery-486"/> 
+            <lb/>
+            <rs key="coi:c74" type="coin">la medaille <rs key="pla:pl79" type="place">d’Euromus</rs>
+            </rs>qu’il donne a Eumenia,<anchor xml:id="a-cousinery-487"/> 
+            <rs key="coi:c49" type="coin">celle de <rs key="pla:pl230" type="place">Mossina</rs>
+            </rs> 
+            <lb/>qui selon lui est de <rs key="pla:pl80" type="place">Mostene</rs>.<anchor xml:id="a-cousinery-488"/> &amp; <rs key="coi:c34" type="coin">celle de <rs key="pla:pl111" type="place">Magnesie</rs>
+            </rs> qu’il attribue a <rs key="pla:pl138" type="place">Samos</rs>.<anchor xml:id="a-cousinery-489"/> 
+            <lb/>
+            <add type="auctorial">16)</add> Comme je ne puis sçavoir le dégré de publicité que vous pouvés <lb/>donner au catalogue que vous avés souhaité d’avoir de ma part, je suis <lb/>bien aise de le faire suivre de ma justification, pour ce qui regarde <lb/>personnellement <rs key="per:pe16" type="person">M<ex>onsieur</ex> Sestini</rs> qui trop credule n’a pas laisse que de bien <lb/>meriter des lettres en publiant des découvertes interessantes pour la <lb/>numismatique. Je desire qu’il sache les raisons que j’ay eues de <lb/>dénoncer les erreurs dans les quelles il est tombé, &amp; de plus qu’il connoisse <lb/>les titres qu j’ay pour le prouver jusqu’a entiere conviction. <rs key="per:pe16" type="person">M<ex>onsieur</ex> 
+               <lb/>Sestini</rs> a été plusieurs fois mon hote &amp; je lui dois beaucoup pour <lb/>les lumieres qu’il a rependues sur mes études, &amp; pour les soins qu’il m’a <lb/>accordés à la rédaction de mon premier catalogue.<anchor xml:id="a-cousinery-490"/> Je vous prie donc <lb/>Monsieur d’agreer cette lettre que je vous annonce pour le courrier <lb/>prochain, vous ne serés pas faché d’y trouver les preuves de ces <lb/>restitutions. Tous mes materiaux sont prets. &amp; par le prochain courrier <lb/>j’expedierai cette lettre avec les dessins des medailles, en vous priant <lb/>si mes observations vous paroissent justes, d’en faire l’usage <lb/>
+            <pb n="1v" facs="Cousinery_an_Eckhel/Doc-047b_02.jpg"/>qui vous paroitra pouvoir remplir les vues que je vous ai <lb/>indiquées.</p>
+         <p>
+            <add type="auctorial">17)</add> Il me tarde d’avoir <rs key="boo:b55 boo:b56 boo:b57 boo:b58 boo:b59 boo:b60" type="book">votre ouvrage</rs>,<anchor xml:id="a-cousinery-491"/> c’est une ruche abondante <lb/>fruit du travail d’une seule abeille, j’en gouterai le miel <lb/>chaque jour avec delice, &amp; je ne crairai avoir bien commencé mes <lb/>etudes que lorsqu’il sera en mon pouvoir. Les compliments que <lb/>vous recevés du grand nombre de connoisseurs, annonce combien <lb/>vous aves reussi a completer ceque d’autres n’avoient fait qu’efleurer <lb/>ou traiter imparfaitement. Je ne puis vous dissimuler que j’ay <lb/>appris avec peine que vous faisies mention<anchor xml:id="a-cousinery-492"/> d’une medaille de <lb/>
+            <rs key="pla:pl111" type="place">Magnesie</rs> representant la tete de Ciceron que vous regardies comme <lb/>fausse,<anchor xml:id="a-cousinery-493"/> je ne scais si comme l’assure <rs key="per:pe16" type="person">M<ex>onsieur</ex> Sestini</rs> il s’agit de la mienne <lb/>mais je puis vous assurer que je l’ai eue longtems avant que <rs key="per:pe14" type="person">M<ex>onsieur</ex> 
+               <lb/>O<ex>sman</ex> B<ex>ey</ex>
+            </rs>
+            <anchor xml:id="a-cousinery-494"/> vint dans ce pays, que le feu <rs key="per:pe56" type="person">docteur Zimerman</rs>
+            <anchor xml:id="a-cousinery-495"/> mon amy ‒ <lb/>l’acheta lui même à <rs key="pla:pl111" type="place">Magnesie</rs>, &amp; me la donna avec d’autres sans <lb/>la connoitre. Ce ne fut que quelques années après que feuilletant <lb/>
+            <rs key="boo:b116" type="book">l’ouvrage de Pedrusi</rs>
+            <anchor xml:id="a-cousinery-496"/> j’y vis la meme medaille qui me fit connoitre <lb/>la mienne. La legende est un peu fruste &amp; difficile pour un novice <lb/>mais un connoisseur la lit sans taloner. La tete est parfaite <lb/>d’une grande ressemblance, le cuivre est fin, &amp; n’a ni dans le <lb/>contour, ni dans les legendes aucune marque de fausseté. Du reste <lb/>vous pouvés bien penser que je suis aussi rigoreux pour mes <lb/>medailles que pour celles des autres, que je ne suis le champion <lb/>de mon Ciceron que parce qu’on m’a dit que vous l’avés attaqué &amp; <lb/>que je puis dire avec lui et de lui<anchor xml:id="a-cousinery-497"/> 
+            <hi rend="underlined(single)">avere te, certe scio</hi>.<anchor xml:id="a-cousinery-498"/>
+         </p>
+         <p>
+            <add type="auctorial">18)</add> Vous trouveres dans ce paquet <rs key="coi:c113" type="coin">une medaille</rs> de la fabrique d’<rs key="per:pe14" type="person">Osman <lb/>Bey</rs>.<anchor xml:id="a-cousinery-499"/> Le pretendu Vitellius,<anchor xml:id="a-cousinery-500"/> c’est la seule medaille fausse que j’aye trouvee <lb/>double, elle vous donnera une idée du genre de falsification qui a mis <lb/>
+            <pb n="2r" facs="Cousinery_an_Eckhel/Doc-047b_03.jpg"/>
+            <rs key="per:pe16" type="person">M<ex>onsieur</ex> Sestini</rs> dans les excès de la credulité. Je dirai seulement pour le <lb/>justifier que la medaille de Vitellius qu’il a vue n’est pas celle que je vous <lb/>envois, &amp; qu’elle mieux travaillée.</p>
+         <p>
+            <add type="auctorial">19)</add> Vous trouveres aussi 6 medailles de la <rs key="pla:pl81" type="place">ville d’Erythrae</rs> qui vous feront plaisir <lb/>soit par la conservation soit par les noms de magistrats. J’ay joint a les 7 <lb/>medailles, <rs key="coi:c51" type="coin">celle d’Auguste</rs> frapée a <rs key="pla:pl34" type="place">Smyrne </rs>avec le nom d’Hermocles au revers.<anchor xml:id="a-cousinery-501"/> Je <lb/>vous en enverrai d’autres par le prochain courrier. Souffrés que pour cette fois je ne <lb/>mette pas de prix a ces medailles. Vous noterés ceque je vous envois &amp; lorsque vous <lb/>jugerés que notre troq est balancé, vous aurés la complaisance de m’en prevenir. Je <lb/>vous ai prie de me donner quelques instructions générales sur le prix des medailles grecques <lb/>parceque je serai vraisemblablement acheteur toute ma vie &amp; que refusant souvent <lb/>des medailles doubles à cause de leur cherté, je pourrois en faire achat pour les trocs à <lb/>venir. J’ay refusé il y a quelques jours un medaillon d’argent d’Hadrien KOINON BYTHINIAC <lb/>ou pour mieux dire COM. BYT. temple au revers.<anchor xml:id="a-cousinery-502"/> Cette piece est evaluée dans <rs key="boo:b114" type="book">Beauvais </rs>à <lb/>2 Louis,<anchor xml:id="a-cousinery-503"/> je ne l’ai pas achetée ne sachant pas si elle vaut reellement cette somme. <lb/>En général, les medaillons d’argent frapés dans l’Asie sont rares a l’exception des <lb/>cystophores de <rs type="place" key="pla:pl77">Pergame</rs>.</p>
+         <p>
+            <add type="auctorial">20)</add> Vous aurés eu un trait de mon ignorance en voyant le dessein du prétendu <lb/>
+            <rs key="coi:c20" type="coin">Pausanias</rs>.<anchor xml:id="a-cousinery-504"/> En revoyant cette medaille, j’ay verifié que c’est <rs key="coi:c43" type="coin">un Cassandre</rs> du moins <lb/>par la place des lettres :::ΣANΔPOY.<anchor xml:id="a-cousinery-505"/> Ce ne peut etre un Asander. Il n’en est pas <lb/>moins vrai que la medaille est tres extraordinaire &amp; qu’elle annonce un coin <lb/>asiatique. Je joins ici deux autres desseins calqués sur deux medailles que <lb/>je voudrois bien tirer de la classe des incertaines.<anchor xml:id="a-cousinery-506"/> Vous m’obligerés si vous <lb/>voules m’en dire votre avis. Celle d’Antoine &amp; de Cleopatre m’est parvenue <lb/>des cotes de la Silicie<anchor xml:id="a-cousinery-507"/> avec une autre de <rs key="pla:pl224" type="place">Celenderis</rs> d’Antiochus IV. Cette medaille <lb/>est inédite. Ne penseriés vous pas qu’elle a eté frapée a <rs key="pla:pl225" type="place">Anazarbe</rs>. On pourroit <lb/>prendre les deux lettres qui sont entre les deux tetes pour les initiales du nom <lb/>de cette ville puisqu’il ne paroit pas que les initiales du nom du triumvir dut <lb/>etre repété. Quant aux deux lettres qui sont derriere la tete de Cleopatre elles <lb/>ne sont pas hors de doute. La lettre K me paroit tres distincte, &amp; au lieu de <lb/>signifier KΛЄOΠATPA, elle pourroit avoir ete employée pour Ciliciae. Je <lb/>ne scais s’il y en a de pareille dans quelque cabinet. J’ay dessine de <lb/>mon mieux la proue de navire, que j’ay prise longtems pour un osselet <lb/>que l’on remarque sur des medailles d’<rs key="pla:pl82" type="place">Aspendus</rs> &amp; sur d’autres. Je suis <lb/>persuadé que ce dessein vous fera plaisir,<anchor xml:id="a-cousinery-508"/> cette med<ex>ai</ex>lle<anchor xml:id="a-cousinery-509"/> est de bonne conservation a la <lb/>legende prez qui depasse le flan. Quant a la seconde je ne la trouve pas parmi <lb/>les medailles consulaires.</p>
+         <p>J’ay l’honneur d’être avec un respectueux attachement</p>
+         <closer>Monsieur <lb/>Votre tres humble &amp; tres obeissant <lb/>serviteur Cousinery l’ainé. <lb/>
+         </closer>
+        <pb n="2v" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-047b_04.jpg"/>
+      </body>
+      <back>
+         <div decls="#m2 #a2" type="attachment">
+            <pb n="1" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_01.jpg"/>      
+            <p>
+               <anchor xml:id="a-cousinery-510"/><hi rend="bold">Catalogue</hi>
+            </p>
+            <p>Des medailles publiées par <rs key="per:pe16" type="person">M<ex>onsieur</ex> l’Abbe Sestini</rs> dans <lb/>son ouvrage intitulé <rs key="boo:b147" type="book">
+                  <hi rend="underlined(single)">Lettere numismatiche</hi>
+               </rs>
+               <anchor xml:id="a-cousinery-511"/> avec <lb/>les corrections &amp; observations qu’elles exigent, divisé <lb/>en quatre parties. (A) <lb/>La premiere comprend les fausses <lb/>La seconde les legitimes <lb/>La troisieme celles qui manquent.</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">1.</hi>
+               <hi rend="bold superscript">iere</hi>
+               <hi rend="bold"> Partie</hi>
+            </p>
+            <p rend="aligned(center)">
+               <hi rend="bold">EVROPA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <hi rend="bold">ITALIA</hi>
+            </p>
+            <p rend="aligned(center)">SALANTINI</p>
+            <p n="1"><anchor xml:id="a-cousinery-512"/> 1 <rs key="coi:c110" type="coin">Caput Palladis galeatum <lb/>ΣAΛAN (duae postremae littere colligate) TINΩN Noctua <lb/>diotae insistens</rs>
+            </p>
+            <p rend="aligned(right)">Æ 3</p>
+            <p>N<ex>o</ex>ta La retractation de <rs key="boo:b26" type="book">Pellerin </rs>au sujet de cette <lb/>medaille est juste.<anchor xml:id="a-cousinery-513"/>
+            </p>
+            <p rend="aligned(center)">
+               <hi rend="bold">THRACIA</hi>
+            </p>
+            <p>
+               <hi rend="bold italic">Diadumenianus</hi>
+               <anchor xml:id="a-cousinery-514"/>
+            </p>
+            <p n="2"><anchor xml:id="a-cousinery-515"/> 1 M OΠEΛ…NOC KAI Caput nudum <lb/>AΠOΛΛΩNIHTEωN ЄN ΠONTω Templum quatuor <lb/>columnarum</p>
+            <p rend="class(Listenabsatz)">(A) Il est sous entendu qu’il ne s’agit que de celles <lb/>du cabinet d’<rs key="per:pe14" type="person">Osman Bey</rs>
+               <anchor xml:id="a-cousinery-516"/> qui sont entrées dans la <lb/>collection d’<rs key="per:pe3" type="person">Esp<ex>ri</ex>t M<ex>ar</ex>ie<hi rend="superscript"> </hi>Cousinery </rs>ancien consul de F<ex>ran</ex>ce a <rs key="pla:pl32" type="place">Salon<ex>i</ex>que</rs>
+            </p>
+            <pb n="2" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_02.jpg"/>
+            <p rend="aligned(center)">
+               <hi rend="bold">PAEONIA</hi>
+            </p>
+            <p n="3"><anchor xml:id="a-cousinery-517"/> 1. Caput muliebre <lb/>NYΣA EN ΠAIΩ Mercurius nudus gradiens ad d<ex>extra</ex>m demissa <lb/>d<ex>ex</ex>tra crumenam cum strophio s<ex>inistr</ex>a caduceum.</p>
+            <p rend="aligned(right)">Æ 2</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">MACEDONIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl83" type="place">STOBI</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Domitia.</hi>
+            </p>
+            <p n="4"><anchor xml:id="a-cousinery-518"/> 1. DOMITIA AVGVSTA Hujus caput <lb/>MVNNICI (sic) STOB Templum 4 col<ex>umnar</ex>um</p>
+            <p rend="aligned(right)">Æ 3.</p>
+            <p>N<ex>o</ex>ta La legende du coté de la tete est seulement refaite <lb/>le revers l’est entierement. (A)</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">THESSALIA</hi>
+            </p>
+            <p>
+               <hi rend="bold italic">Domitianus</hi>
+            </p>
+            <p n="5"><anchor xml:id="a-cousinery-519"/> 1. ΔOMITIANON KAIΣAPA ΘEΣAΛON Caput Domitiani <lb/>laureatum ante quod aquila et sceptrum</p>
+            <p>ΔOMITIAN ΣEBAΣTHN Caput Augustae ante quod sceptrum <lb/>et aquila</p>
+            <p rend="aligned(right)">Æ 3</p>
+            <p>N<ex>o</ex>ta Cette medaille est refaite sur une de celles a deux <lb/>tetes frapées dans l’Asie mineure en l’honneur <lb/>de <rs key="pla:pl159" type="place">Rome</rs> &amp; du Senat</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">PELOPONESVS</hi>
+            </p>
+            <p rend="aligned(center)">TALETES</p>
+            <p>
+               <hi rend="bold italic">M</hi>
+               <ex>arc</ex>
+               <hi rend="bold italic">us Antonius</hi>
+            </p>
+            <p n="6"><anchor xml:id="a-cousinery-520"/> 1 M ANTONIOC AYTOK OIΩNICT TRIΩN ANΔP. Caput <lb/>M<ex>arci</ex> Antonii nudum <lb/>ΛOΓΓOCTAΛHTΩN Tripus
+            </p>
+            <p rend="aligned(right)">Æ 1</p>
+            <p>(A) Toutes les medailles dont il s’agit dans cette 1<hi rend="superscript">re</hi> 
+               <lb/>partie sont refaites au burin &amp; non autrement</p>
+            <pb n="3" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_03.jpg"/>
+            <p rend="aligned(center)">
+               <hi rend="bold">ASIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <hi rend="bold">BOSPHORVS CIM</hi>
+               <ex>MERI</ex>
+               <hi rend="bold">US</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl84" type="place">PHANAGORIA</rs>
+            </p>
+            <p n="7"><anchor xml:id="a-cousinery-521"/> 1 Caput dei Panos barbatum <lb/>ΦANA Arcus &amp; sagita</p>
+            <p rend="aligned(right)">Æ 3</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">BITHYNIA ~</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl85" type="place">NICAEA</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Annia Faustina</hi>
+            </p>
+            <p n="8"><anchor xml:id="a-cousinery-522"/> 1 ANNIA ΦAYC… Hujus caput <lb/>NIKAIΩN Tria signa militaria</p>
+            <p rend="aligned(right)">Æ 3.</p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl86" type="place">PRVSA ad Olimpum</rs>
+            </p>
+            <p>*........<anchor xml:id="a-cousinery-523"/>
+            </p>
+            <p rend="aligned(center)">
+               <hi rend="bold">TROAS</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl87" type="place">ILIVM</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Vitellius</hi>
+            </p>
+            <p n="9"><anchor xml:id="a-cousinery-524"/> 1. Λ OYITHΛΛIOΣ KAI ΓEP Caput laureatum <lb/>IΛIEΩN ΣKAMANΔPOΣ Fluvius decumbens.</p>
+            <p rend="aligned(right)">Æ 3.</p>
+            <p>N<ex>o</ex>ta Cette medaille est refaite sur <rs key="coi:c111" type="coin">une autonome de <lb/>
+                  <rs key="pla:pl34" type="place">Smyrne</rs>
+               </rs> decrite dans <rs key="boo:b71" type="book">le catalogue du Cabinet de <rs type="place" key="pla:pl23">Viene</rs></rs> 
+               <lb/>au n<hi rend="superscript">o</hi> 6<anchor xml:id="a-cousinery-525"/> on lit sur la meme de mon cabinet ΦPONTEINOY <lb/>ANΘY elle est commune.<anchor xml:id="a-cousinery-526"/>
+            </p>
+            <p rend="aligned(center)">
+               <hi rend="bold">AEOLIS</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl69" type="place">TEMNVS</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Aemilianus</hi>
+            </p>
+            <p n="10"><anchor xml:id="a-cousinery-527"/> 2. AYT AIM AIMIΛIANOC Caput laureatum <lb/>THMNЄITΩN Hercules bibax</p>
+            <p>N<ex>o</ex>ta La legende de cette medaille est refaite sur <rs key="coi:c112" type="coin">celle <lb/>de Gordien</rs> de la meme ville le revers n’à pas été <lb/>touché.<anchor xml:id="a-cousinery-528"/>
+            </p>
+            <pb n="4" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_04.jpg"/>
+            <p rend="aligned(center)">
+               <hi rend="bold">IONIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl76" type="place">EPHESVS</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Nero et Messalina</hi>
+            </p>
+            <p n="11"><anchor xml:id="a-cousinery-529"/> 3 NEPΩN MESSAΛIN... Harum capita adversa <lb/>EΦEΣIΩN Diana Ephesia</p>
+            <p rend="aligned(right)">Æ 3.</p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl81" type="place">EPYTHRAE</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Aquilia Severa</hi>
+            </p>
+            <p n="12"><anchor xml:id="a-cousinery-530"/> 1 IOY AKIΛIA CЄOYЄPA... Hujus caput <lb/>ЄΠI CTP AVP NЄIKONOC B EPYΘPAIΩN Dea stans in templo <lb/>4 columnarum</p>
+            <p>N<ex>o</ex>ta Le nom de Niconus se trouve sur une medaille <lb/>de Trajan de la meme ville.<anchor xml:id="a-cousinery-531"/>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl90" type="place">MILETVS</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Domitia et Domitianus</hi>
+            </p>
+            <p n="13"><anchor xml:id="a-cousinery-532"/> 1 ΔOMITIA CЄBACTH AYT KAI ΔOMITIANOC CЄB Capita <lb/>Domitiae &amp; Domitiani adv. Domitiani laureatum. <lb/>MIΛHCIΩN Apollo nudus stans</p>
+            <p rend="aligned(right)">Æ 3</p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl34" type="place">SMYPNA</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Julia Titi</hi>
+            </p>
+            <p n="14"><anchor xml:id="a-cousinery-533"/> 2 IOYΛIA ΣEBA Hujus caput. <lb/>ΠEPΓAMHN CMYP OMONOIA Cybele sedens ante quam <lb/>Aesculapius stans</p>
+            <p rend="aligned(right)">Æ M</p>
+            <p>N<ex>o</ex>ta Refaite sur <rs key="coi:c299" type="coin">une medaille de Caracalla</rs> 
+               <lb/>frapée a <rs key="pla:pl32" type="place">Smyrne</rs>.<anchor xml:id="a-cousinery-534"/>
+            </p>
+            <p>
+               <hi rend="bold italic">Elagabalus &amp; Annia Faustina</hi>
+            </p>
+            <p n="15"><anchor xml:id="a-cousinery-535"/> 3 AYT K M … CЄB ANNIA ΦAYCTINA CЄB Horum capita <lb/>adversa <lb/>CMYPNAIΩN Hercules bibax</p>
+            <p rend="aligned(right)">Æ 2</p>
+            <p>N<ex>o</ex>ta Refaite sur <rs key="coi:c299" type="coin">une medaille a deux tetes de <rs key="pla:pl34" type="place">Smyrne</rs>
+               </rs> 
+               <lb/>
+               <hi rend="underlined(single)">capita Liviae</hi> &amp; <hi rend="underlined(single)">Senatus</hi>
+               <anchor xml:id="a-cousinery-536"/> que <rs key="boo:b31" type="book">Hunter </rs>place parmi <lb/>les autonomes<anchor xml:id="a-cousinery-537"/>
+            </p>
+            <pb n="5" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_05.jpg"/>
+            <p>
+               <hi rend="bold italic">Annia Faustina</hi>
+            </p>
+            <p n="16"><anchor xml:id="a-cousinery-538"/> 4 ANNIA ΦAYCTЄINA Hujus caput <lb/>CMYPNAIΩN Γ NEΩKOPΩN Hercules bibax</p>
+            <p rend="aligned(right)">Æ 3</p>
+            <p>N<ex>o</ex>ta Refaite sur <rs key="coi:c311" type="coin">une medaille de Julie <lb/>Mamee</rs>.<anchor xml:id="a-cousinery-539"/>
+            </p>
+            <p>
+               <hi rend="bold italic">Aquilia Severa</hi>
+            </p>
+            <p n="17"><anchor xml:id="a-cousinery-540"/> 5 IOYΛ AKY CЄOYHPA C Hujus caput <lb/>CMYPNAIΩN Γ NЄΩKOPΩN Hercules bibax</p>
+            <p rend="aligned(right)">Æ 3.</p>
+            <p>
+               <hi rend="bold italic">Hostilianus</hi>
+            </p>
+            <p n="18"><anchor xml:id="a-cousinery-541"/> 6 <rs key="coi:c312" type="coin">Γ OYAΛ OCTIΛIAN KYINΘ Caput laureatum <lb/>CMYPN OMONOIA ΘYATЄIP N Є ΦIΛHTOY .. CIKOY</rs> Amazon <lb/>
+               <rs key="pla:pl34" type="place">Smyrnensis</rs> &amp; mulier genius urbis dextras jungunt.</p>
+            <p rend="aligned(right)">Æ 1</p>
+            <p>N<ex>o</ex>ta Il paroit que cette medaille est refaite sur <lb/>
+               <rs key="coi:c314" type="coin">celle de Valerien</rs> sur laquelle on lit le nom <lb/>de Philitus Epicus.<anchor xml:id="a-cousinery-542"/>
+            </p>
+            <p rend="aligned(center)">
+               <hi rend="bold">CARIA</hi>
+            </p>
+            <p rend="aligned(center)">CYON.</p>
+            <p n="19"><anchor xml:id="a-cousinery-543"/> 1 Equus dimidius <lb/>KYI Pharetra et pedum</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">LIDIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl92" type="place">HIΠAEΠA</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Elagabalus</hi>
+            </p>
+            <p n="20"><anchor xml:id="a-cousinery-544"/> 1 ANTONEINOC C Caput laureatum <lb/>YΠAIΠHNΩN Templum quatuor columnarum in qua <lb/>dea velata stans.</p>
+            <pb n="5a" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_05a.jpg"/>
+            <p rend="aligned(center)">
+               <rs key="pla:pl93" type="place">SARDES</rs>.</p>
+            <p>
+               <hi rend="bold italic">Vitellius</hi>
+            </p>
+            <p n="21"><anchor xml:id="a-cousinery-545"/> 2 Λ OYITEΛΛIOΣ ΓE Hujus caput cum pelle leonis <lb/>ad collum <lb/>ΣAPΔIANΩN Omphale nuda stans d<ex>extra</ex> aquilam s<ex>inistr</ex>a ramum <lb/>omnia intra lauream</p>
+            <p rend="aligned(right)">Æ 3</p>
+            <p>N<ex>o</ex>ta Dans la medaille que je decris on lit bien <lb/>distinctement Λ OYITEΛΛIOΣ KΓE. La tete que <lb/>est tres maltraitée par le burin ou le frotement <lb/>ne montre plus de traces des griphes du <rs type="place" key="pla:pl120">Lyon</rs> <lb/>nouées sous le col. Il pourroit se faire que <rs type="book" key="boo:b147">M<ex>onsieur</ex> 
+               <lb/>Sestini</rs> en eut decrit une autre egalement fausse <lb/>cette medaille est refaite sur <rs key="coi:c113" type="coin">une autonome</rs> 
+               <lb/>trés commune de la ville de <rs key="pla:pl93" type="place">Sardes</rs>.<anchor xml:id="a-cousinery-546"/>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl94" type="place">THYATIPA</rs>
+               <anchor xml:id="a-cousinery-547"/>
+            </p>
+            <p>
+               <hi rend="bold italic">Messalina</hi>
+            </p>
+            <p n="22"><anchor xml:id="a-cousinery-548"/> 2 ΣTAT MEΣΣAΛ… Hujus caput <lb/>ΘYATЄIPHNΩN Bipennis</p>
+            <p rend="aligned(right)">Æ 3.</p>
+            <p>
+               <hi rend="bold italic">Julia Titi</hi>
+            </p>
+            <p n="23"><anchor xml:id="a-cousinery-549"/> 3 IOYΛIA ΣEBAΣTH Hujus caput <lb/>Eadem epigraphe Tripus</p>
+            <p rend="aligned(right)">Æ 3.</p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl95" type="place">TRALLES</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Caius &amp; Lucius</hi>
+            </p>
+            <p n="24"> ‒ ΓAIOΣ KAIΣAP Caput Caii nudum <lb/>ΛEYKIOΣ KAIΣAPEΩN Caput Lucii nudum ex museo <rs type="person" key="per:pe14">O<ex>sman</ex> B<ex>ey</ex></rs>
+               <anchor xml:id="a-cousinery-550"/>
+            </p>
+            <p>N<ex>o</ex>ta Cette medaille est citée au 4.<hi rend="superscript">me</hi> tome lettre IV <lb/>p<ex>a</ex>ge 64<anchor xml:id="a-cousinery-551"/> elle est refaite sur <rs key="coi:c300" type="coin">une medaille de <rs key="pla:pl32" type="place">Salonique</rs> 
+                  <lb/>de Jules C<ex>aes</ex>ar &amp; d’Auguste</rs>.<anchor xml:id="a-cousinery-552"/> J’en avois envoyé une <lb/>pareille à feu <rs key="per:pe56" type="person">Zimerman</rs>
+               <anchor xml:id="a-cousinery-553"/> qui l’avoit cedée au <rs key="per:pe14" type="person">Bey</rs>
+               <anchor xml:id="a-cousinery-554"/> 
+               <lb/>elle etoit un peu fruste.</p>
+            <pb n="6" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_06.jpg"/>
+            <p rend="aligned(center)">
+               <hi rend="bold">GALATIA</hi>
+            </p>
+            <p rend="aligned(center)">KOINON ΓAΛATIAC</p>
+            <p>
+               <hi rend="bold italic">Poppaea</hi>
+            </p>
+            <p n="25"><anchor xml:id="a-cousinery-555"/> 1 <rs key="coi:c315" type="coin">ΠOΠΠAIA<anchor xml:id="a-cousinery-556"/> CЄBACTH</rs> Hujus caput  <lb/>KOINON ΓAΛATIAC Templum 4 columnarum</p>
+            <p rend="aligned(right)">Æ 3</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">ISAVRIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl96" type="place">SIEDRA</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Valerianus sen</hi>
+               <ex>i</ex>
+               <hi rend="bold italic">or</hi>
+            </p>
+            <p n="26"><anchor xml:id="a-cousinery-557"/> 1 AYT KAI ΠOΛIK BAΛЄPIANOC Caput laureatum ante <lb/>quod IA <lb/>CЄMNHC ENΔOΞATЄPAC CYЄΔPЄΩN intrea lauream</p>
+            <p rend="aligned(right)">Æ 2</p>
+            <p>N<ex>o</ex>ta Il y faute d’impression on lit sur cette medaille <lb/>ЄNΔOΞOTЄPAC. La legend des deux cotés est <lb/>refaite sur une moyen bronze d’Eliogabale <lb/>dont la tete est intacte.</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">SIRIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl97" type="place">ANTIOXIA</rs>
+            </p>
+            <p n="27"><anchor xml:id="a-cousinery-558"/> 1 IMP M OTHO CAES AVG Caput laureatum cum <lb/>signo incuso in collo CA id est CAESAPEA AVGVSTA. <lb/>SC intra lauream</p>
+            <p rend="aligned(right)">Æ f. M</p>
+            <p>N<ex>o</ex>ta Cette medaille est de Neron les cheveux du toupet <lb/>sont racourcis au burin, &amp; il n’y a que la moitie <lb/>de la legende de refaite c’est‒a‒dire IMP M OTHO. J’ay <lb/>une tres belle medaille de cet empereur plus grande que <lb/>celle dont il sagit avec le SC<anchor xml:id="a-cousinery-559"/> qui suffiroit pour prouver <lb/>
+            </p>
+            <pb n="7" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_07.jpg"/>
+            <p>la faussete de celle d’<rs key="per:pe14" type="person">O<ex>sman</ex> B<ex>ey</ex>
+               </rs>
+               <anchor xml:id="a-cousinery-560"/> si on ne reconnoissoit <lb/>bien clairement la main de l’ouvrier qui a pris <lb/>tant de peine pour blesser la verité.</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">COMMAGENE</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl98" type="place">CAESAREA GERMANIKA</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Pescennius niger</hi>
+            </p>
+            <p n="28"><anchor xml:id="a-cousinery-561"/> 1 AYT KAIC ΠЄCK NIΓPOC ΔIK Caput laureatum <lb/>KICAPЄIAC (sic) ΓЄPMANIKHC serpens erectus in giros <lb/>circumvolutus</p>
+            <p rend="aligned(right)">Æ 2</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">MESOPOTAMIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl99" type="place">EDESSA</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Gordianus Afr</hi>
+               <ex>icanus</ex>
+               <hi rend="bold italic"> Jun</hi>
+               <ex>ior</ex>
+            </p>
+            <p n="29"><anchor xml:id="a-cousinery-562"/> 1 M.A.K.Γ AΦP KAΛOC Caput Gordiani Jun<ex>iori</ex> nudum <lb/>cum signo incuso caput Puppieni laur<ex>eatu</ex>m exibente <lb/>EΔECCA.O.M Caput muliebre turritum</p>
+            <p rend="aligned(right)">Æ 2</p>
+            <p>Numus praestantissimus, ubi &amp;…</p>
+            <p>N<ex>o</ex>ta Cette medaille est de la ville de <rs key="pla:pl226" type="place">Laodicée </rs>elle est <lb/>refaite des deux cotés a l’exception de la tete <lb/>du revers<anchor xml:id="a-cousinery-563"/>
+            </p>
+            <p>N<ex>o</ex>ta Quant aux medailles d’Egipte, j’ay lieu de les <lb/>croire toutes fausses, il y a plus de 40 parmi les <lb/>coules ou retouchees au burin<anchor xml:id="a-cousinery-564"/> 
+               <lb/>J’observerai encore que <rs key="coi:c301" type="coin">la medaille d’Agrippa</rs> 
+               <lb/>citée par le meme auteur au 4 tom Lettre VI p<ex>a</ex>ge 80<anchor xml:id="a-cousinery-565"/> est <lb/>aussi refaite</p>
+            <pb n="8" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_08.jpg"/>
+            <p rend="aligned(center)">
+               <hi rend="bold">II Partie</hi>
+            </p>
+            <p rend="aligned(center)">
+               <hi rend="bold">Medailles legitimes.</hi>
+            </p>
+            <p rend="aligned(center)">
+               <hi rend="bold">BITHYNIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl100" type="place">BITHYNIVM</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Valerianus Seni</hi>
+               <ex>o</ex>
+               <hi rend="bold italic">r</hi>
+            </p>
+            <p n="30"><anchor xml:id="a-cousinery-566"/> 4 <rs key="coi:c57" type="coin">ΠOY ΛIK BAΛЄPIANOC CЄB. Caput laureatum <lb/>BHΘYNIEΩN AΔPIANΩN Jupiter seminudus stans d<ex>ex</ex>tra <lb/>pateram s<ex>inistr</ex>a hastam</rs>
+            </p>
+            <p rend="aligned(right)">Æ 2</p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl85" type="place">NICAEA</rs>
+               <anchor xml:id="a-cousinery-567"/>
+            </p>
+            <p>
+               <hi rend="bold italic">Alexander</hi>
+            </p>
+            <p n="31"><anchor xml:id="a-cousinery-568"/> 
+               <rs key="coi:c56" type="coin">10. M. AYP CЄYH AΛЄΞANΔPOC Caput laureatum, cum <lb/>signo incuso caput Mamaeae exibente</rs>.<anchor xml:id="a-cousinery-569"/> 
+               <lb/>ΠPOYCAЄΩN Neptunus nudus stans s<ex>inis</ex>tro pede scopulo <lb/>superimposito d<ex>extr</ex>a tridentem &amp; delphinum</p>
+            <p rend="aligned(right)">Æ 2</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">IONIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl76" type="place">EPHESVS</rs>.</p>
+            <p>
+               <hi rend="bold italic">Trajanus et Plautina.</hi>
+            </p>
+            <p n="32"><anchor xml:id="a-cousinery-570"/> 4 Sine epigraphe. <rs type="coin" key="coi:c44">Capita jugata Trajani &amp; Plautinae. <lb/>KOYΣINIOΣ ΓPA T̊ Δ̅ Cervus stans</rs> </p>           
+            <p>N<ex>o</ex>ta <rs key="coi:c44" type="coin">cette medaille</rs> est de Claude &amp; d’Agrippine <lb/>voyés ma lettre<anchor xml:id="a-cousinery-571"/>
+            </p>
+            <pb n="9" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_09.jpg"/>
+            <p rend="aligned(center)">
+               <rs key="pla:pl75" type="place">MAGNESIA</rs>
+            </p>
+            <p n="33"><anchor xml:id="a-cousinery-572"/> 1 <rs key="coi:c53" type="coin">AYΛAITHΣ Apollo stolatus stans s<ex>inistr</ex>a lyram <lb/>(ΛEYKOΦPO) CYNH MAΓNHTΩN Diana Leucophrosina cum <lb/>verubus, circa cujus caput Victoria hinc &amp; inde volitans</rs>
+            </p>
+            <p rend="aligned(right)">Æ 1</p>
+            <p>N.B. Confer M <rs key="boo:b31" type="book">Hunt</rs> Tb. XXX fig. II<anchor xml:id="a-cousinery-573"/> sed ibi perperam <lb/>AΔYPOΦPYNH pro ΛEYKOΦPOCYNH</p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl90" type="place">MILETVS</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Geta</hi>
+            </p>
+            <p n="34"><anchor xml:id="a-cousinery-574"/> 1 <rs key="coi:c54" type="coin">Π ΓETAC KAI Caput laureatum <lb/>MIΛHCIΩN Diana velata stans d<ex>extr</ex>a elata s<ex>inistr</ex>a arcum.</rs>
+            </p>
+            <p rend="aligned(right)">Æ 3</p>
+            <p>NB J’ay du decrire autrement cette medaille dans mon <lb/>catalogue. = Isis turrita &amp; velata stans en adverso <lb/>d<ex>extr</ex>a pateram si<ex>nistr</ex>a cornucop<ex>ia</ex>m</p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl102" type="place">PRIENE</rs>
+            </p>
+            <p n="35"><anchor xml:id="a-cousinery-575"/> 2 <rs key="coi:c55" type="coin">Caput Palladis galeatum <lb/>ΠPIHNEΩN Tripus</rs>
+            </p>
+            <p rend="aligned(right)">Æ 3</p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl103" type="place">XIOS insula</rs>
+            </p>
+            <p n="36"><anchor xml:id="a-cousinery-576"/> 1 <rs key="coi:c52" type="coin">Sphinx stans intra quadratum <lb/>Aper marinus alatus.</rs>
+            </p>
+            <p rend="aligned(right)">AV 3</p>
+            <p>N.B. Cette description n’est pas exacte l’animal ailé <lb/>ressemble par sa tete &amp; ses pates a un chien ou a <lb/>une lione la gueule est beante, on ne voit que la <lb/>partie anterieure &amp; a peine reconnoit on les ailes de l’animal <lb/>du reste la medaille est d’un tres beau coin &amp; du genre <lb/>de celles qu’on trouve communement en Lydie.</p>
+            <pb n="10" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_10.jpg"/>
+            <p rend="aligned(center)">
+               <hi rend="bold">CARIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl104" type="place">APHPODISIAS</rs>
+            </p>
+            <p n="37"><anchor xml:id="a-cousinery-577"/> 2 <rs key="coi:c58" type="coin">IЄPA BOYΛH Caput muliebre velatum <lb/>AΦPOΔЄICIЄΩN Jupiter seminudus sedens d<ex>extr</ex>a pateram <lb/>s<ex>inistr</ex>a hastam</rs>
+            </p>
+            <p rend="aligned(right)">Æ 3</p>
+            <p>N.B. Il faut dire = Jupiter semin<ex>u</ex>dus<hi rend="superscript"> </hi>sed<ex>ens</ex> d<ex>extr</ex>a puerulum &amp;c.</p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl105" type="place">CNIDVS</rs>
+            </p>
+            <p n="38"><anchor xml:id="a-cousinery-578"/> 1 <rs key="coi:c49" type="coin">Caput Veneris <lb/>KNIΔIΩN ΠANTAΛ Tripus</rs>
+            </p>
+            <p rend="aligned(right)">Æ</p>
+            <p>N.B. Il faut dire = Caput Dianæ ut in numo <lb/>musei caesarei <rs key="pla:pl23" type="place">Vind<ex>obonens</ex>is</rs>
+               <anchor xml:id="a-cousinery-579"/>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl106" type="place">HERACLEA</rs>
+            </p>
+            <p n="39"><anchor xml:id="a-cousinery-580"/> 1 <rs key="coi:c60" type="coin">Caput imberbe leonis exuviis tectum <lb/>HPA Pegasus</rs>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl107" type="place">NYSA</rs>
+            </p>
+            <p n="40"><anchor xml:id="a-cousinery-581"/> 1 <rs key="coi:c61" type="coin">ΠATEΩOΣ ΣΩNΩN Tripus cui serpens implicitus <lb/>juxta quem Apollo nudus stans s ramum <lb/>NYΣAIΩN Pluto in quadrigis Proserpinam rapiens</rs>
+            </p>
+            <p rend="aligned(right)">Æ</p>
+            <p>NB. Il faut lire ΣΩXΩN<anchor xml:id="a-cousinery-582"/>
+            </p>
+            <p>
+               <hi rend="bold italic">M</hi>
+               <ex>arcus</ex>
+               <hi rend="bold italic"> Aurelius <lb/>
+               </hi></p>
+               <p n="41"><anchor xml:id="a-cousinery-583"/> 2 <rs key="coi:c303" type="coin">M AYP OYHPOC KAICAP Caput nudum <lb/>NYCAIΩN ΠΛOYTOΛOTOC Jupiter sedens d<ex>extr</ex>a Victoriolam s<ex>inistr</ex>a <lb/>hastam</rs>
+            </p>
+            <p>NB Il faut lire ΠΛOYTOΛOΓHC<anchor xml:id="a-cousinery-584"/>
+            </p>
+            <pb n="11" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_11.jpg"/>
+            <p rend="aligned(center)">
+               <rs key="pla:pl108" type="place">MYLASA</rs>
+            </p>
+            <p n="42"><anchor xml:id="a-cousinery-585"/> 1 <rs key="coi:c62" type="coin">Aquila stans <lb/>MYΛAΣEΩN Cancer marinus cum tridente</rs>
+            </p>
+            <p rend="aligned(right)">Æ 3</p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl109" type="place">STRATONCEA</rs>
+            </p>
+            <p n="43"><anchor xml:id="a-cousinery-586"/> 1 <rs key="coi:c63" type="coin">Caput Dianae cujus capiti imminet lunula <lb/>CT. Victoria gradiens d<ex>ex</ex>tra elata scutam s<ex>inistr</ex>a palmae <lb/>ramum pro pedibus supra leo omnia intra <lb/>quadratum</rs>
+            </p>
+            <p rend="aligned(right)">AR 3</p>
+            <p>N.B. Il faut dire = coronam gerens &amp;c = pro <lb/>pedibus altare cui lunula =</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">LIDIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl110" type="place">APOLLONIDEA</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Geta <lb/>
+               </hi></p>
+               <p n="44"><anchor xml:id="a-cousinery-587"/> 1 <rs key="coi:c65" type="coin">Π CЄ ΓЄTAC Caput nudum <lb/>AΠOΛΛONIΔЄΩN Vas frugibus refertum</rs>
+            </p>
+            <p rend="aligned(right)">Æ 3.</p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl111" type="place">MAGNESIA ad Sypilum</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Trajanus</hi> 
+               <lb/></p>
+               <p n="45"><anchor xml:id="a-cousinery-588"/> 2 <rs key="coi:c66" type="coin">AV KAI TPAIANO ΓEPMA Caput laureatum <lb/>(MA)ΓNHTΩN CIΠYΛOY. Cibele stans d<ex>extr</ex>a extensa sinistra <lb/>supra humerum timpanum sustinet pro pedibus <lb/>leo sedens</rs>
+            </p>
+            <p rend="aligned(right)">Æ 2</p>
+            <pb n="12" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_12.jpg"/>
+            <p rend="aligned(center)">
+               <rs key="pla:pl80" type="place">MOSTENE</rs>
+            </p>
+            <p n="46"><anchor xml:id="a-cousinery-589"/> 1 <rs key="coi:c49" type="coin">Caput Cereris velatum retro spica <lb/>MOΣTHNΩN ΛYΔΩN Spica omnia intra coronam <lb/>spiceam</rs>
+            </p>
+            <p rend="aligned(right)">Æ 3.</p>
+            <p>N.B. La vraie leçon est MOΣΣHNΩN ΛYΔΩN <lb/>voyes ma lettre.<anchor xml:id="a-cousinery-590"/>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl95" type="place">TRALLES</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Nero.</hi>
+            </p>
+            <p n="47"><anchor xml:id="a-cousinery-591"/> 10 <rs key="coi:c67" type="coin">NEPωN Caput nudum retro lituus. <lb/>KAIΣAPEΩN Aquila stans.</rs>
+            </p>
+            <p rend="aligned(right)">Æ 4</p>
+            <p>N.B. Ajoutes <hi rend="underlined(single)">super ramum laureum</hi>. Cette medaille <lb/>citée au 4 tome p<ex>ag</ex>e 65<anchor xml:id="a-cousinery-592"/> est d’excellent coin &amp; de <lb/>parfaite conservation, le rameau de laurier n’aura <lb/>pas été appercu a cause du tres petit module de <lb/>la piece</p>
+            <p>
+               <hi rend="bold italic">Lucius Verus</hi> 
+               <lb/></p>
+              <p n="48"><anchor xml:id="a-cousinery-593"/> 1 <rs key="coi:c68" type="coin">AV KAI OYHPOC Caput laureatum <lb/>EΠI CTPA EYAPECTOY TRAΛΛIANΩN Jupiter ex adverso <lb/>in throno sedens d<ex>extr</ex>a Victoriolam s<ex>inistr</ex>a hastam ante <lb/>quem hinc L<ex>ucius</ex> Verus inde M<ex>arcus</ex> Aurelius togati <lb/>stantes.</rs>
+            </p>
+            <p rend="aligned(right)">Æ M. M.</p>
+            <p>N.B. Il faut lire EΠI ΓPA EYAPECTOY &amp;c.<anchor xml:id="a-cousinery-594"/>
+            </p>
+            <pb n="13" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_13.jpg"/>
+            <p>
+               <hi rend="bold italic">Gordianus pius</hi> 
+               <lb/></p>
+               <p n="49"><anchor xml:id="a-cousinery-595"/> 2 <rs key="coi:c69" type="coin">AYT K M ANT ΓOPΔIANOC<anchor xml:id="a-cousinery-596"/> — Caput laureatum <lb/>EΠI AYP. MAYP KPITIOY TPAΛΛIAN. .. ‒ Capita Gordiani <lb/>et Tranquillinae adversa sub efigie solis &amp; lunae <lb/>intermedio astro</rs>
+            </p>
+            <p rend="aligned(right)">Æ 1</p>
+            <p>N.B. Il faut lire = EΠI ΓP. M AYP KPITIOY.<anchor xml:id="a-cousinery-597"/>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl93" type="place">SARDES</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Octavia Neronis <lb/>
+               </hi></p>
+               <p n="50"><anchor xml:id="a-cousinery-598"/> 1 <rs key="coi:c70" type="coin">OKTAYIAN ΘEAN Hujus caput <lb/>ΣAPΔIANΩN EΠI MINΔIΩ Ā T̊ B Isis gradiens s<ex>inistr</ex>a ‒ <lb/>hastam transversam tenet</rs>
+            </p>
+            <p rend="aligned(right)">Æ 3</p>
+            <p>N.B. Il y a faute dans les deux legendes lisés</p>
+            <p>ΘEAN OKTABIAN. Hujus caput ad d<ex>extram</ex> 
+               <lb/>ΣAPΔIANΩN EΠI MINΔIOY <graphic rend="inline" url="media/image8.jpeg"/> T̊ B Isis stolata &amp; <lb/>velata stans a d<ex>extr</ex>is d<ex>extr</ex>a fasciculus spicarum gerens ‒ <lb/>s<ex>inistr</ex>a hastam transversam.</p>
+            <p>J’ay dans ma collection deux autres medailles <lb/>de <rs key="pla:pl93" type="place">Sardes </rs>avec le nom de Mindius l’<rs key="coi:c71" type="coin">une de Neron</rs>
+               <anchor xml:id="a-cousinery-599"/> 
+               <lb/>l’autre d’Agrippine.<anchor xml:id="a-cousinery-600"/> La premiere exprime la qualité <lb/>d’Archonte par le monograme, la 2<hi rend="superscript">de</hi> par les trois <lb/>lettres APX. <rs key="boo:b85" type="book">Pellerin </rs>a lu sur la sienne APX A T̊ B<anchor xml:id="a-cousinery-601"/>
+            </p>
+            <pb n="14" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_14.jpg"/>
+            <p rend="aligned(center)">
+               <rs key="pla:pl94" type="place">THYATIRA</rs>
+            </p>
+            <p n="51"><anchor xml:id="a-cousinery-602"/> 1 <rs key="coi:c71" type="coin">Caput Herculis <lb/>ΘYATЄIPHNΩN Bipennis</rs>
+            </p>
+            <p rend="aligned(right)">Æ 3.</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">PHRIGIA</hi>
+            </p>
+            <p rend="aligned(center)">EYMENIA</p>
+            <p n="52"><anchor xml:id="a-cousinery-603"/> 1 <rs key="coi:c74" type="coin">Jupiter Labradaeus e fronte stans d<ex>extr</ex>a elata bipennem <lb/>s<ex>inistr</ex>a hastam retro cervus.  <lb/>EYMENEωN Aquila e fronte stans.</rs>
+            </p>
+            <p rend="aligned(right)">Æ 3</p>
+            <p>N.B. Il faut lire ЄYPOMЄωN voyés ma lettre.<anchor xml:id="a-cousinery-604"/>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl117" type="place">HIEPAPOLIS</rs>
+            </p>
+            <p n="53"><anchor xml:id="a-cousinery-605"/> 1 <rs key="coi:c73" type="coin">BOYΛH Caput velatum laureatum <lb/>IЄPAΠOΛЄITΩN Victoria gradiens</rs>
+               <anchor xml:id="a-cousinery-606"/>
+            </p>
+            <p rend="aligned(right)">Æ 1</p>
+            <p n="54"><anchor xml:id="a-cousinery-607"/> 2 <rs key="coi:c302" type="coin">AΛIPBHNOC Caput Solis radiatum ante quod <lb/>signum incusum victoriolam vel Genium <lb/>urbis exibens ut videtur <lb/>IЄPAΠOΛЄITΩN NЄΩKOPΩN in ambitu AKTIA intra <lb/>lauream</rs>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl226" type="place">LAODICEA</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Domna <lb/>
+               </hi></p>
+               <p n="55"><anchor xml:id="a-cousinery-608"/> 1 <rs key="coi:c75" type="coin">IOYΛIA ΔOMNA CЄB Hujus caput <lb/>ΛAOΔIKЄΩN NЄΩKOPΩN in area TΠM. Roma <lb/>sedens dext<ex>r</ex>a victoriolam cum trophaeo s<ex>inis</ex>tra</rs>
+            </p>
+            <pb n="15" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_15.jpg"/>
+            <p>hastam humi hinc clypeus inde thorax</p>
+            <p rend="aligned(right)">Æ 1.</p>
+            <p>N.B. La grandeur de la tete non moins que <lb/>le poids de cette medaille doivent la faire <lb/>mettre au rang des medaillons</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">CAPADOCIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl215" type="place">CAESAREA</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Caracalla <lb/>
+               </hi></p>
+               <p n="56"><anchor xml:id="a-cousinery-609"/> 1 <rs key="coi:c76" type="coin">AYT KAI M AYPHΛ ANTΩNINOC Caput laureatum <lb/>MHTPO KAICAPIAC NEΩKO ЄTIH Apollo capite <lb/>radiato seminudus monti Argeo insidens d<ex>extr</ex>a <lb/>ramum</rs>
+            </p>
+            <p rend="aligned(right)">
+               <hi rend="italic">A</hi>P 2</p>
+            <p>N.B. Cette medaille qui est de parfaite <lb/>conservation est d’un coin superieur a tout <lb/>ceque j’ay vu des artistes de ce regne elle <lb/>pese 235 grains<anchor xml:id="a-cousinery-610"/> elle doit figurer parmi les <lb/>medaillons.</p>
+            <pb n="16" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_16.jpg"/>
+            <p rend="aligned(center)">
+               <hi rend="bold">III Partie</hi>
+            </p>
+            <p rend="aligned(center)">
+               <hi rend="bold">Medailles du meme cabinet qui manquent</hi>
+            </p>
+            <p rend="aligned(center)">
+               <hi rend="bold">SARMATIA Europ</hi>
+               <ex>e</ex>
+               <hi rend="bold">a</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl112" type="place">OLBIOPOLIS</rs>
+            </p>
+            <p n="57"><anchor xml:id="a-cousinery-611"/> 1 Caput Iovis<anchor xml:id="a-cousinery-612"/> 
+               <lb/>AΛBIOΠOΛITΩN<anchor xml:id="a-cousinery-613"/> Sceptrum.</p>
+            <p rend="aligned(right)">Æ 3</p>
+            <p>N.B. Cette medaille est certainement refaite. <lb/>J’en juge par l’affectation du faussaire <lb/>a defigurer trop souvent les noms de villes.</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">MYSIA</hi>
+            </p>
+            <p rend="aligned(center)">PROCONESVS. APHON<ex>ne</ex>sus<anchor xml:id="a-cousinery-614"/>
+            </p>
+            <p n="58"><anchor xml:id="a-cousinery-615"/> 1 ΠPOKON AΦONNH Caput Iovis laureatum <lb/>ΠPOKON AΦONNH fulmen alatum</p>
+            <p rend="aligned(right)">Æ 3</p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl77" type="place">PERGAMVS</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Cornelia Supera <lb/>
+               </hi></p>
+               <p n="59"><anchor xml:id="a-cousinery-616"/> 1 ΓN KOP COYΠЄPHN CЄBA Hujus caput <lb/>ΠЄPΓAMHNΩN NЄΩKOPΩN Aesculapius stans d<ex>ex</ex>tra baculo <lb/>innixa</p>
+            <p rend="aligned(right)">Æ 2</p>
+            <pb n="17" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_17.jpg"/>
+            <p rend="aligned(center)">
+               <hi rend="bold">IONIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl76" type="place">EPHESVS</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Agrippa &amp; Julia <lb/>
+               </hi></p>
+               <p n="60"><anchor xml:id="a-cousinery-617"/> 2 M AΓPIΠΠA IOYΛIA Capita M<ex>arci</ex> Agrippae &amp; Juliae <lb/>adversa <lb/>EΦEΣIΩN ΠPOTΩN AΣIAΣ Diana Ephesia cum <lb/>verubus</p>
+            <p rend="aligned(right)">Æ 1</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">CARIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl114" type="place">ANTIOXIA</rs>
+            </p>
+            <p n="61"><anchor xml:id="a-cousinery-618"/> 1 <rs key="coi:c77" type="coin">ΔHMOC ANTIOXЄΩN Caput barbatum et <lb/>diadematum. <lb/>ANTIOXЄΩN Mulier stans d<ex>extr</ex>a spicas cum papav<ex>er</ex>is <lb/>s<ex>inistr</ex>a hastam</rs>
+            </p>
+            <p rend="aligned(right)">Æ 2</p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl115" type="place">ALABANDA</rs>
+            </p>
+            <p n="62"><anchor xml:id="a-cousinery-619"/> 1 <rs key="coi:c304" type="coin">AΛABANΔEΩN Caput muliebre turritum <lb/>AΓPIΠΠINA CEBAC Hujus caput</rs>
+            </p>
+            <p rend="aligned(right)">Æ M</p>
+            <p rend="aligned(center)">
+               <hi rend="bold">LIDIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl116" type="place">DIOSIERON</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Faustina Iun</hi>
+               <ex>ior</ex>
+               <hi rend="bold italic"> 
+                  <lb/>
+               </hi></p>
+               <p n="63"><anchor xml:id="a-cousinery-620"/> 1 <rs key="coi:c305" type="coin">ΦAYCTINA AVΓOYCTA Hujus caput <lb/>ΔIOCIЄPЄITΩN Ceres stans d<ex>extr</ex>a pateram s<ex>inistr</ex>a taedam</rs>
+            </p>
+            <pb n="18" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_18.jpg"/>
+            <p rend="aligned(center)">
+               <hi rend="bold">PHRIGIA</hi>
+            </p>
+            <p rend="aligned(center)">
+               <rs key="pla:pl117" type="place">HIERAPOLIS</rs>
+            </p>
+            <p>
+               <hi rend="bold italic">Elagabalus <lb/>
+               </hi></p>
+               <p n="64"><anchor xml:id="a-cousinery-621"/> 1 M AYP ANTONINOC AVΓOY Caput … <lb/>IЄPAΠOΛЄITΩN Serapis sedens d<ex>extr</ex> extendit supra <lb/>cerberum pro pedibus adstantem, s<ex>inistr</ex>a hastam</p>
+            <p rend="aligned(right)">Æ 2</p>
+            <p rend="aligned(center)">————————</p>
+            <p>J’observerai en terminant ce catalogue que <rs key="per:pe16" type="person">M<ex>onsieur</ex> 
+                  <lb/>L’Abbé Sestini</rs> s’est trompé au sujet d’<rs key="coi:c34" type="coin">une medaille <lb/>autonome </rs>qu’il attribue a <rs key="pla:pl138" type="place">Samos </rs>dans sa lettre <lb/>XII au tom III p. 119. n<hi rend="superscript">o</hi> 13. Cette medaille est de <lb/>
+               <rs key="pla:pl75" type="place">Magnesie du Meandre</rs>.<anchor xml:id="a-cousinery-622"/> Voyés ma lettre.<anchor xml:id="a-cousinery-623"/>
+            </p>
+            <pb n="19" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_19.jpg"/>
+            <gap/>
+            <pb n="20" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_20.jpg"/>
+            <gap/>
+            <pb n="21" facs="../../imgs/Eckhel-Cousinery/Cousinery%20an%20Eckhel/Doc-056_21.jpg"/>     
+         </div>
+         <div type="apparatus">
+            <note place="foot" xml:id="ftn-cousinery-484" type="editorial" target="#a-cousinery-484">
+               <p> No. “b 47.” was added in pen on the upper right corner of the page. No. “14)” was added in red pencil on the right corner of the page. For the numbers later added on the left margin see note <ref type="footnote" target="#ftn431">430</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-485" type="editorial" target="#a-cousinery-485">
+               <p> See attachment (Vienna, KHM, MK Archiv V, 56).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-486" type="editorial" target="#a-cousinery-486">
+               <p> See note <ref type="footnote" target="#ftn476">475</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-487" type="editorial" target="#a-cousinery-487">
+               <p> Sestini 1789‒1806, vol. 4, p. 125. Euromus, Asia, 1<hi rend="superscript">st</hi> century AD ?; SNG Mün, pt. 22, no. 205 (this coin).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-488" type="editorial" target="#a-cousinery-488">
+               <p> Sestini 1789‒1806, vol. 4, p. 121. Mostene, Lydia, 2<hi rend="superscript">nd</hi>‒1<hi rend="superscript">st</hi> century BC; SNG Mün, pt. 23, no. 328 (this coin).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-489" type="editorial" target="#a-cousinery-489">
+               <p> Sestini 1789‒1806, vol. 3, p. 121, no. 13. Magnesia ad Maeandrum, Ionia, c. 400‒350 BC; similar to SNG Kayhan 397.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-490" type="editorial" target="#a-cousinery-490">
+               <p> See note <ref type="footnote" target="#ftn6">5</ref> above. Sestini worked with Cousinéry in Thessaloniki for a few months in the winter of 1791-1792, see Tondo 1990, pp. 120‒121.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-491" type="editorial" target="#a-cousinery-491">
+               <p> The first six volumes of DNV; see letter 20 (Paris, Bibliothèque de l’Arsenal, ms. 5982, f. 16r).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-492" type="editorial" target="#a-cousinery-492">
+               <p> “mention” added above the line.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-493" type="editorial" target="#a-cousinery-493">
+               <p> DNV, vol. 5, pp. 327‒328. See note <ref type="footnote" target="#ftn">315</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-494" type="editorial" target="#a-cousinery-494">
+               <p> See note <ref type="footnote" target="#ftn323">322</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-495" type="editorial" target="#a-cousinery-495">
+               <p> Gotthard Woldemar Zimmermann, a doctor from Livland travelling in Greece and Crete, donated his numismatic collection of about 1,500 pieces to Cousinéry when he was vice consul in Smyrna (1779). This collection also included part of a hoard of coins found in Milet comprising specimens struck by the mint of Heraclea, see Sestini 1796a, pp. 339‒340. On Zimmermann, see the letter addressed by Cousinéry to the director of the coin cabinet in Munich published in Streber 1817, pp. 10‒12; see also von Recke‒Napiersky 1832, pp. 595‒596.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-496" type="editorial" target="#a-cousinery-496">
+               <p> Pedrusi 1721.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-497" type="editorial" target="#a-cousinery-497">
+               <p> “et de lui” added above the line.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-498" type="editorial" target="#a-cousinery-498">
+               <p> Cic. <hi rend="italic">Att</hi>. 4.3.1.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-499" type="editorial" target="#a-cousinery-499">
+               <p> See note <ref type="footnote" target="#ftn323">322</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-500" type="editorial" target="#a-cousinery-500">
+               <p> Sestini 1789‒1806, vol. 4, p. 123. See Eckhel’s remarks on this piece in DNV, Addenda, pp. 54‒55 (ad vol. 6, “p. 319. lin. 2”). The original coin, then tooled to resemble Vitellius, is a 2<hi rend="superscript">nd</hi>‒1<hi rend="superscript">st</hi> century bronze specimen from the mint of Sardis similar to SNG Mün, pt. 23, nos 472‒482.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-501" type="editorial" target="#a-cousinery-501">
+               <p> Smyrna, Asia, Augustus; RPC 1, 2463.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-502" type="editorial" target="#a-cousinery-502">
+               <p> See Metcalf 1980, pp. 130‒135.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-503" type="editorial" target="#a-cousinery-503">
+               <p> Beauvais 1767, p. 120.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-504" type="editorial" target="#a-cousinery-504">
+               <p> See letter 21 (Vienna, KHM, MK Archiv V, 46, f. 2v).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-505" type="editorial" target="#a-cousinery-505">
+               <p> See note <ref type="footnote" target="#ftn454">453</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-506" type="editorial" target="#a-cousinery-506">
+               <p> No longer kept together with this letter.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-507" type="editorial" target="#a-cousinery-507">
+               <p> I. e. “Cilicie”.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-508" type="editorial" target="#a-cousinery-508">
+               <p> The drawings were later lost by Eckhel himself, see letter 26 (Paris, Bibliothèque de l’Arsenal, ms. 5983, f. 18r).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-509" type="editorial" target="#a-cousinery-509">
+               <p> “med.<hi rend="superscript">lle</hi> “added above the line.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-510" type="editorial" target="#a-cousinery-510">
+               <p> No. “56.” was added in pen on the upper right corner of the page.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-511" type="editorial" target="#a-cousinery-511">
+               <p> See note <ref type="footnote" target="#ftn324">323</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-512" type="editorial" target="#a-cousinery-512">
+               <p> Sestini 1789‒1806, vol. 4, pp. 87‒88.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-513" type="editorial" target="#a-cousinery-513">
+               <p> Pellerin 1763, vol. 3, p. 178, pl. 123 no. 16 (Salantini). The whole paragraph describing this piece is crossed out in the copy annotated by Pellerin today in the Paris coin cabinet; a hand written note reads “Cette médaille mal conserve est de la ville de Calacta en Sicile Voyez S. 1. p. 50.” (<hi rend="class(Hyperlink)">http://gallica.bnf.fr/ark:/12148/bpt6k8772064/f314.image</hi>, accessed in September 2013). See also Pellerin 1765b, p. 50. Calacta, Sicily, c. 241‒210 BC; similar to SNG Mün, pt. 5, nos 386‒389. </p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-514" type="editorial" target="#a-cousinery-514">
+               <p> Corrected in place of “Macrinus”.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-515" type="editorial" target="#a-cousinery-515">
+               <p> Sestini 1789‒1806, vol. 4, p. 92; DNV, Addenda, p. 20 (ad vol. 2, “p. 25 col. 1. lin. 7.”).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-516" type="editorial" target="#a-cousinery-516">
+               <p> See note <ref type="footnote" target="#ftn323">322</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-517" type="editorial" target="#a-cousinery-517">
+               <p> Sestini 1789‒1806, vol. 4, p. 97.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-518" type="editorial" target="#a-cousinery-518">
+               <p> Sestini 1789‒1806, vol. 4, p. 98.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-519" type="editorial" target="#a-cousinery-519">
+               <p> See note <ref type="footnote" target="#ftn518">517</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-520" type="editorial" target="#a-cousinery-520">
+               <p> Sestini 1789‒1806, vol. 4, p. 99; DNV, Addenda, p. 28 (ad vol. 2, “p. 286 col. 2. post lin. 2”).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-521" type="editorial" target="#a-cousinery-521">
+               <p> Sestini 1789‒1806, vol. 4, p. 100; DNV, Addenda, p. 30 (ad vol. 2, “p. 339 col. 2. lin. 20.”).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-522" type="editorial" target="#a-cousinery-522">
+               <p> Sestini 1789‒1806, vol. 4, p. 105. Mionnet 1806‒1837, suppl. 5, p. 133 no. 756 citing Sestini; RG, vol. 1.3, p. 471 “non revue”, citing Mionnet.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-523" type="editorial" target="#a-cousinery-523">
+               <p> The meaning of this line is not clear. There are three coins reported for this mint in Sestini 1789‒1806, vol. 4, p. 105, but all of them are marked with an asterisk, meaning that they belong to Ainslie’s collection.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-524" type="editorial" target="#a-cousinery-524">
+               <p> Sestini 1789‒1806, vol. 4, p. 110.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-525" type="editorial" target="#a-cousinery-525">
+               <p> Eckhel 1779, p. 171. See also DNV, Addenda, p. 54 (ad vol. 6, “p. 319. lin. 2.”).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-526" type="editorial" target="#a-cousinery-526">
+               <p> Smyrna, Asia, Domitian; RPC 2, 1014.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-527" type="editorial" target="#a-cousinery-527">
+               <p> Sestini 1789‒1806, vol. 4, p. 112.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-528" type="editorial" target="#a-cousinery-528">
+               <p> Temnus, Asia, Gordianus III; RPC 7, 343.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-529" type="editorial" target="#a-cousinery-529">
+               <p> Sestini 1789‒1806, vol. 4, p. 113.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-530" type="editorial" target="#a-cousinery-530">
+               <p> See note <ref type="footnote" target="#ftn529">528</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-531" type="editorial" target="#a-cousinery-531">
+               <p> AYP NEIKONOΣ is found on coins of the time of Elagabalus (AD 218‒222), see LAGM 2, p. 387 and SNG Glasgow, pt. 1, 1654.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-532" type="editorial" target="#a-cousinery-532">
+               <p> Sestini 1789‒1806, vol. 4, p. 114.This piece is probably the piece today kept in the Munich collection; see Klose 1997, p. 261, no. 2 and RPC 2, p. 177.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-533" type="editorial" target="#a-cousinery-533">
+               <p> Sestini 1789‒1806, vol. 4, p. 115.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-534" type="editorial" target="#a-cousinery-534">
+               <p> Smyrna, Asia, Caracalla, AD 213‒216; Franke ‒ Nollé 1997, p. 211, nos 2158‒2174.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-535" type="editorial" target="#a-cousinery-535">
+               <p> Sestini 1789‒1806, vol. 4, p. 115.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-536" type="editorial" target="#a-cousinery-536">
+               <p> Smyrna, Asia, Tiberius, AD 29‒35; RPC 1, 2469.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-537" type="editorial" target="#a-cousinery-537">
+               <p> Combe 1782, p. 276, no. 15.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-538" type="editorial" target="#a-cousinery-538">
+               <p> Sestini 1789‒1806, vol. 4, p. 115. The coins of Smyrna with the portrait of Annia Faustina are all tooled pieces based on specimens struck for Julia Mamaea; see Klose 1987, p. 296.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-539" type="editorial" target="#a-cousinery-539">
+               <p> Smyrna, Asia, for Julia Mamaea, AD 222‒235; Klose 1987, pp. 301‒303, nos 6‒17.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-540" type="editorial" target="#a-cousinery-540">
+               <p> Sestini 1789‒1806, vol. 4, p. 115. The coins of Smyrna with the portrait of Aquilia Severa are all tooled pieces based on specimens struck for Julia Mamaea; see Klose 1987, p. 296.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-541" type="editorial" target="#a-cousinery-541">
+               <p> Sestini 1789‒1806, vol. 4, p. 115. Homonoia coins of Smyrna and Thyateira with the type Amazon of Smyrna and Tyche shaking hands are issued under Gordian III. Smyrna, Asia, Gordian III; Franke ‒ Nollé 1997, p. 217, nos 2253‒2256 and RPC 7, 333..</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-542" type="editorial" target="#a-cousinery-542">
+               <p> For coins of Valerian with the magistrate Φίλητος Ἳππικος see LAGM 2, p. 868. Smyrna, Asia, Valerian, AD 253‒260; Klose 1987, pp. 314‒315.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-543" type="editorial" target="#a-cousinery-543">
+               <p> Sestini 1789‒1806, vol. 4, p. 118.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-544" type="editorial" target="#a-cousinery-544">
+               <p> Sestini 1789‒1806, vol. 4, p. 121.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-545" type="editorial" target="#a-cousinery-545">
+               <p> Sestini 1789‒1806, vol. 4, p. 123.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-546" type="editorial" target="#a-cousinery-546">
+               <p> See note <ref type="footnote" target="#ftn500">499</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-547" type="editorial" target="#a-cousinery-547">
+               <p> The “Y” is added above the line.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-548" type="editorial" target="#a-cousinery-548">
+               <p> Sestini 1789‒1806, vol. 4, p. 123. See RPC 1, p. 405.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-549" type="editorial" target="#a-cousinery-549">
+               <p> Sestini 1789‒1806, vol. 4, p. 124. Apparently, this is a genuine coin, see RPC 2, 941.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-550" type="editorial" target="#a-cousinery-550">
+               <p> See note <ref type="footnote" target="#ftn323">322</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-551" type="editorial" target="#a-cousinery-551">
+               <p> Sestini 1789‒1806, vol. 4, p. 64. </p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-552" type="editorial" target="#a-cousinery-552">
+               <p> Thessalonica, Macedonia, reign of Augustus, RPC 1, 1555.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-553" type="editorial" target="#a-cousinery-553">
+               <p> See note <ref type="footnote" target="#ftn495">494</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-554" type="editorial" target="#a-cousinery-554">
+               <p> See note <ref type="footnote" target="#ftn323">322</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-555" type="editorial" target="#a-cousinery-555">
+               <p> Sestini 1789‒1806, vol. 4, p. 128. RPC 1, 3564: a forgery from the Munich collection (likely this coin).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-556" type="editorial" target="#a-cousinery-556">
+               <p> The third “Π” of “ΠOΠΠAIA” is added above the line. </p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-557" type="editorial" target="#a-cousinery-557">
+               <p> Sestini 1789‒1806, vol. 4, p. 129.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-558" type="editorial" target="#a-cousinery-558">
+               <p> Sestini 1789‒1806, vol. 4, pp. 129‒130. </p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-559" type="editorial" target="#a-cousinery-559">
+               <p> For coins of Nero from the mint of Antiochia with SC and wreath see RPC 1, pp. 628‒629.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-560" type="editorial" target="#a-cousinery-560">
+               <p> See note <ref type="footnote" target="#ftn323">322</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-561" type="editorial" target="#a-cousinery-561">
+               <p> Sestini 1789‒1806, vol. 4, p. 130. Mionnet 1806‒1837, vol. 5, p. 114, no. 20 “Méd. fausse”. A coin with the same reverse type but slightly different obverse and reverse legends is in the Paris collection (RG 1.2, p. 282, no. 9) and it seems genuine, <hi rend="class(Hyperlink)">http://gallic.bnf.fr/ark:/12148/btv1b85618053/f1.item</hi> (accessed in May 2013).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-562" type="editorial" target="#a-cousinery-562">
+               <p> Sestini 1789‒1806, vol. 4, p. 130.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-563" type="editorial" target="#a-cousinery-563">
+               <p> See DNV, Addenda, p. 45 (ad vol. 3, “p. 501. col. 2. post lin. 35.”).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-564" type="editorial" target="#a-cousinery-564">
+               <p> See DNV, Addenda, p. 48 (ad vol. 4, “p. 97. col. 2. lin. 3.”).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-565" type="editorial" target="#a-cousinery-565">
+               <p> Sestini 1789‒1806, vol. 4, p. 80. Uncertain mint, Augustus; RPC 1, 5420.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-566" type="editorial" target="#a-cousinery-566">
+               <p> Sestini 1789‒1806, vol. 4, p. 102. Bithynium, Bithynia, Valerian I; RG 1.2, p. 278, no. 68.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-567" type="editorial" target="#a-cousinery-567">
+               <p> Evidently mistaken for Prusa ad Olympum. </p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-568" type="editorial" target="#a-cousinery-568">
+               <p> Sestini 1789‒1806, vol. 4, p. 106. Prusa ad Olympum, Bithynia, Severus Alexander; RG 1.4, p. 594, no. 136.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-569" type="editorial" target="#a-cousinery-569">
+               <p> See GIC, p. 145 no. 216.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-570" type="editorial" target="#a-cousinery-570">
+               <p> See note <ref type="footnote" target="#ftn476">475</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-571" type="editorial" target="#a-cousinery-571">
+               <p> Letter 28 (Vienna, KHM, MK Archiv V, 51, p. 3); see also letters 19, 22 and 23 (Vienna, KHM, MK Archiv V, 45, f. 1v; 47a, f. 1v‒2r; 47b, f. 1r).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-572" type="editorial" target="#a-cousinery-572">
+               <p> Sestini 1789‒1806, vol. 4, pp. 113‒114. Magnesia ad Maeandrum, Asia, 1<hi rend="superscript">st</hi> century AD ?; Schultz 1975, p. 55, nos 43‒47; similar to SNG Mün, pt. 20, no. 611.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-573" type="editorial" target="#a-cousinery-573">
+               <p> Incorrect reference; Combe 1782, p. 184, no. 8, pl. 35 no. XI.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-574" type="editorial" target="#a-cousinery-574">
+               <p> Sestini 1789‒1806, vol. 4, p. 114. Miletus, Asia, for Geta Caesar, AD 198‒209; similar to SNG Mün, pt. 20, nos 782‒783.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-575" type="editorial" target="#a-cousinery-575">
+               <p> Sestini 1789‒1806, vol. 4, p. 114. Priene, Ionia, c. 125‒90 BC; Regling 1927, 168‒170; similar to SNG Mün, pt. 20, no. 880. </p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-576" type="editorial" target="#a-cousinery-576">
+               <p> Lesbos, Aeolis, c. 412‒398 BC; similar to SNG Mün, pt. 19, no. 673.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-577" type="editorial" target="#a-cousinery-577">
+               <p> Sestini 1789‒1806, vol. 4, p. 117. Aphrodisias, Asia, c. AD 209‒220; similar to SNG Mün, pt. 22, no. 105. </p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-578" type="editorial" target="#a-cousinery-578">
+               <p> Sestini 1789‒1806, vol. 4, p. 117. Cnidus, Caria, c. 2<hi rend="superscript">nd</hi> century BC; similar to SNG Mün, pt. 22, no. 328.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-579" type="editorial" target="#a-cousinery-579">
+               <p> Eckhel 1779, vol. 1, p. 177, no. 7.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-580" type="editorial" target="#a-cousinery-580">
+               <p> Sestini 1789‒1806, vol. 4, p. 118. Heracleia ad Latmum, Ionia, c. post 190 BC; similar to SNG Mün, pt. 20, no. 448.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-581" type="editorial" target="#a-cousinery-581">
+               <p> Sestini 1789‒1806, vol. 4, p. 118. Nysa, Lydia, c. 1<hi rend="superscript">st</hi> century BC; SNG Mün, pt. 23, no. 351 (this coin).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-582" type="editorial" target="#a-cousinery-582">
+               <p> See DNV, Addenda, p. 33 (ad vol. 2, “p. 586. col. 2. lin. 17.”).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-583" type="editorial" target="#a-cousinery-583">
+               <p> Sestini 1789‒1806, vol. 4, p. 118. Nysa, Asia, Antoninus Pius for Marcus Aurelius caesar, c. AD 144‒161; SNG Mün, pt. 23, no. 368 (this coin); RPC 4 temp. no. 1450, <hi rend="class(Hyperlink)">http://rpc.ashmus.ox.ac.uk/coins/1450</hi>
+                  <hi rend="class(Hyperlink)"/> (accessed in May 2013).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-584" type="editorial" target="#a-cousinery-584">
+               <p> See DNV, Addenda, p. 33 (ad vol. 2, “p. 587. col. 2. lin. 26.”).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-585" type="editorial" target="#a-cousinery-585">
+               <p> Sestini 1789‒1806, vol. 4, p. 118. Mylasa, Caria, late 3<hi rend="superscript">rd</hi> ‒ late 1<hi rend="superscript">st</hi> cent. BC; SNG Mün, pt. 22, no. 346 (this coin).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-586" type="editorial" target="#a-cousinery-586">
+               <p> Sestini 1789‒1806, vol. 4, pp. 118‒119. Stratoniceia, Caria, 1<hi rend="superscript">st</hi> cent. BC; SNG Mün, pt. 22, no. 411 (this coin).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-587" type="editorial" target="#a-cousinery-587">
+               <p> Sestini 1789‒1806, vol. 4, p. 120. Apollonis, Asia, for Geta Caesar, AD 197‒209; SNG Mün, pt. 23, no. 40 (this coin).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-588" type="editorial" target="#a-cousinery-588">
+               <p> Sestini 1789‒1806, vol. 4, p. 121. Magnesia ad Sipylum, Asia, Trajan; similar to SNG Mün, pt. 23, no. 265; RPC 3, 2155.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-589" type="editorial" target="#a-cousinery-589">
+               <p> See note <ref type="footnote" target="#ftn488">487</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-590" type="editorial" target="#a-cousinery-590">
+               <p> Letter 28 (Vienna, KHM, MK Archiv V, 50, p. 6); see also letters 23, 24, 28 (Vienna, KHM, MK Archiv V, 47b, f. 1r; 48, f. 2v, § 24; 51, p. 6). DNV, Addenda, p. 34 (ad vol. 3, “p. 109. col. 1. post lin. 5.”).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-591" type="editorial" target="#a-cousinery-591">
+               <p> Tralles, Asia, Nero; RPC 1, 2658.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-592" type="editorial" target="#a-cousinery-592">
+               <p> Sestini 1789‒1806, vol. 4, p. 65.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-593" type="editorial" target="#a-cousinery-593">
+               <p> Sestini 1789‒1806, vol. 4, p. 122. Tralles, Asia, Lucius Verus; similar to SNG Mün, pt. 23, no. 762; RPC 4 temp. no. 3123, <hi rend="class(Hyperlink)">http://rpc.ashmus.ox.ac.uk/coins/3123/</hi> (accessed in May 2013).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-594" type="editorial" target="#a-cousinery-594">
+               <p> See letter 24 (Vienna, KHM, MK Archiv V, 48, f. 1r). See also DNV, Addenda, p. 35 (ad vol. 3, “p. 126. col. 2. lin. 31.”).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-595" type="editorial" target="#a-cousinery-595">
+               <p> Sestini 1789‒1806, vol. 4, p. 122. Tralles, Asia, Gordian III; SNG Mün, pt. 23, no. 771 (this coin); RPC 7, p. 215 no. 484.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-596" type="editorial" target="#a-cousinery-596">
+               <p> “ANT ΓOPΔIANOC” added above the line in place of “KPITIOY TPAΛΛIAN”, cancelled.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-597" type="editorial" target="#a-cousinery-597">
+               <p> See DNV, Addenda, p. 35 (ad vol. 3, “p. 126. col. 2. lin. 31.”).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-598" type="editorial" target="#a-cousinery-598">
+               <p> Sestini 1789‒1806, vol. 490, p. 122‒123. Sardis, Asia, Nero for Octavia, c. AD 60; RPC 1, 3001.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-599" type="editorial" target="#a-cousinery-599">
+               <p> Sardis, Asia, Nero; SNG Mün, pt. 23, no. 511 (this coin); RPC 1, 3004, 1.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-600" type="editorial" target="#a-cousinery-600">
+               <p> For coins of Agrippina from the mint of Sardis see RPC 1, p. 488.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-601" type="editorial" target="#a-cousinery-601">
+               <p> Pellerin 1765a, p. 33.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-602" type="editorial" target="#a-cousinery-602">
+               <p> Sestini 1789‒1806, vol. 4, p. 123. Thyateira, Asia, early 1<hi rend="superscript">st</hi> century AD; similar to SNG Mün, pt. 23, no. 575; RPC 1, 2379.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-603" type="editorial" target="#a-cousinery-603">
+               <p> See note <ref type="footnote" target="#ftn487">486</ref> above.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-604" type="editorial" target="#a-cousinery-604">
+               <p> Letters 23 and 28 (Vienna, KHM, MK Archiv V, 47b, f. 1r; 51, ff. 3r‒3v).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-605" type="editorial" target="#a-cousinery-605">
+               <p> Sestini 1789‒1806, vol. 4, p. 125. Hierapolis, Asia, 3<hi rend="superscript">rd</hi> century AD; similar to SNG Mün, pt. 24, no. 225.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-606" type="editorial" target="#a-cousinery-606">
+               <p> “AΛIPBHNOC Caput Solis radiatum” cancelled below.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-607" type="editorial" target="#a-cousinery-607">
+               <p> Sestini 1789‒1806, vol. 4, p. 126. Hierapolis, Asia, 3<hi rend="superscript">rd</hi> century AD; SNG Mün, pt. 24, no. 232 (this coin).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-608" type="editorial" target="#a-cousinery-608">
+               <p> Sestini 1789‒1806, vol. 4, p. 126. Laodiceia, Asia, for Julia Domna; similar to SNG Mün, pt. 24, no. 392.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-609" type="editorial" target="#a-cousinery-609">
+               <p> Sestini 1789‒1806, vol. 4, p. 128. Caesarea, Cappadocia, Caracalla, AD 210; see Sydenham 1978, p. 151, no. 476e.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-610" type="editorial" target="#a-cousinery-610">
+               <p> About 15.23 gr; evidently the tridrachm was overweighted.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-611" type="editorial" target="#a-cousinery-611">
+               <p> Sestini 1789‒1806, vol. 4, p. 90.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-612" type="editorial" target="#a-cousinery-612">
+               <p> Cancelled “barbatum”.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-613" type="editorial" target="#a-cousinery-613">
+               <p> Various corrections, originally “OΛBIOΠOΛITЄΩN sagita”.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-614" type="editorial" target="#a-cousinery-614">
+               <p> The “O” of “APHON.<hi rend="superscript">sus</hi>” is added above the line.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-615" type="editorial" target="#a-cousinery-615">
+               <p> Sestini 1789‒1806, vol. 4, p. 109.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-616" type="editorial" target="#a-cousinery-616">
+               <p> Sestini 1789‒1806, vol. 4, p. 109.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-617" type="editorial" target="#a-cousinery-617">
+               <p> Sestini 1789‒1806, vol. 4, p. 112. See Apostolo Zeno, pt. 3, 3969 and RPC 1, p. 434.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-618" type="editorial" target="#a-cousinery-618">
+               <p> Sestini 1789‒1806, vol. 4, p. 117. Antiocheia ad Maeandrum, Asia, AD 138‒192; RPC 4, temp. no. 9718, <hi rend="class(Hyperlink)">http://rpc.ashmus.ox.ac.uk/coins/9718/</hi> (accessed in May 2013).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-619" type="editorial" target="#a-cousinery-619">
+               <p> Sestini 1789‒1806, vol. 4, p. 116, no. 3. Alabanda, Asia, Nero, AD 54‒59; RPC 1, 2823.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-620" type="editorial" target="#a-cousinery-620">
+               <p> Sestini 1789‒1806, vol. 4, p. 120. Dioshieron, Asia, for Faustina II, c. AD 152‒175; cf. RPC 4, temp. no. 1432, <hi rend="class(Hyperlink)">http://rpc.ashmus.ox.ac.uk/coins/1432</hi> (accessed in May 2013).</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-621" type="editorial" target="#a-cousinery-621">
+               <p> Sestini 1789‒1806, vol. 4, p. 126.</p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-622" type="editorial" target="#a-cousinery-622">
+               <p> See note <ref type="footnote" target="#ftn489">488</ref>488 above. </p>
+            </note>
+            <note place="foot" xml:id="ftn-cousinery-623" type="editorial" target="#a-cousinery-623">
+               <p> See letters 19 and 23 (Vienna, KHM, MK Archiv V, 45, f. 1v; 47b, f. 1r). See also Eckhel’s index of Cousinéry’s letters, document 34 (Vienna, KHM, MK Archiv V, 56/2, f. 1v, col. 1).</p>
+            </note>
+         </div>
+      </back>
+   </text>
+</TEI>
