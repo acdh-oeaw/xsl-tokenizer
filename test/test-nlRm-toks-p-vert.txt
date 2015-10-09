@@ -19,15 +19,25 @@ here
 Hier
 ein
 paar
-inline-Elemente
+inline
+-
+Elemente
 .
 ACDH-OEAW
+Ein
+Lexikoneintrag
+mit
+blanks
+A B C
+D
+E
+.
 Und
 kleine
 Abkürzungen
 :
 Am
-Hauptbhf.
+Hauptbhf
 fährt
 man
 von

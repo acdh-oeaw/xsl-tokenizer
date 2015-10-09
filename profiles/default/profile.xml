@@ -7,31 +7,53 @@
     </about>
     <parameters>
         <param key="makeNoNamespaceVersion" value="true()"/>
-        <param key="preserve-ws" value="false()"/>
-        <param key="pc-regex" value="[\p{P}-[‘’\-‚]]"/>
+        <param key="preserve-ws" value="true"/>
+        <param key="pc-regex" value="[\p{P}]"/>
         <param key="ws-regex" value="\s+"/>
-        <param key="path-to-lexicon" value="${profile-home}/lexicon.txt"/>
+        <param key="lexicon">Abk.
+            A B C
+            Hauptbhf.
+            O-W
+            ACDH-OEAW</param>
     </parameters>
-    
     <postProcessing/>
-    
-    <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
-    <!-- tags to be ignored by the wrapper/tokenizer. this means that their content won't be tokenized, but they will be copied as-are. This does not mean necessarily that these do not constitute token boundaries.-->
+    <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace><!-- copy nodes are copied from the source document to the tokenized document as they are (are not tokenized). They constitute token boundaries, i.e. will break words. 
+        When verticalizing the document, the contents of these elements are omitted.
+    -->
+    <copy>
+        <expression>tei:teiHeader</expression>
+    </copy><!-- ignore nodes are "invisible" to the tokenizer, i.e. unlike "copy nodes" they do NOT break tokens but are copied to the tokenized document as they are 
+        When verticalizing the document, the contents of these elements are omitted. -->
     <ignore>
         <expression>tei:fw</expression>
-        <expression>tei:teiHeader</expression>
         <expression>tei:note[@place='below']</expression>
-    </ignore>
-    <!-- 
-        in word-tags do not mark token boundaries. the preceding partial token (i.e. one that does *not* end with a blank) and the following partial token (i.e. one that does not start with a blank) will be wrapped by an <w>-tag, including the in-word token.
+        <expression>tei:emph</expression>
+    </ignore><!-- 
+        in word-tags do not mark token boundaries but are tokenized themselves.
+        the preceding partial token (i.e. one that does *not* end with a blank) and the following partial token (i.e. one that does not start with a blank) will be wrapped by an <w>-tag, including the in-word token.
+        
+        Example:
+        
+        <p>Some words are partially <hi>under</hi>lined.</p>
+        
+        <p>
+            <w>Some</w>
+            <w>words</w>
+            <w>are</w>
+            <w>partially</w>
+            <hi>
+                <w part="I">under</w>
+            </hi>
+            <w part="F">lined</w>
+            <pc>.</pc>
+       </p>
     -->
     <in-word-tags>
         <expression>tei:lb[@break='no']</expression>
         <expression>tei:hi</expression>
         <expression>tei:pb</expression>
         <expression>tei:seg</expression>
-    </in-word-tags>
-    <!-- floating blocks are chunks of text that are not part of the 
+    </in-word-tags><!-- floating blocks are chunks of text that are not part of the 
      main text flow (e.g. figures) and to be tokenized for themselves. For example:
         <p>
             <w>This</w>
@@ -53,9 +75,16 @@
             <w>complicated</w>
             <w>.</w>
         </p>
-        
+     
+     Like "in word tags" they do not break tokens, but  
+     
      CAVEAT This implies that a floating block does not begin or end with a partial token, so that the preceding tag <w part="I"> can be unambiguosly connected to the next <w>-tag with part="F" -->
     <floating-blocks>
         <expression>tei:figure</expression>
     </floating-blocks>
+    <structure>
+        <expression>tei:head</expression>
+        <expression>tei:p</expression>
+        <expression>tei:ab</expression>
+    </structure>
 </profile>

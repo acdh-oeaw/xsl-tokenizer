@@ -1,8 +1,11 @@
-<TEI>
-<!-- "Audienz-Zimmer" (Zeile 46) muss ein Token sein. -->
-<p rend="indent">Laß dir mit glüenden Pfriemen außste<lb break="no" type="d"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI><!-- "Audienz-Zimmer" (Zeile 46) muss ein Token sein. -->
+    <p rend="indent">Laß dir mit glüenden Pfriemen außste<lb break="no" type="d"/>
 chen die Augen / dise gläserne Kuppler; laß dir<lb/>
-mit <choice><sic>glünendem</sic><corr cert="high">glüendem</corr></choice> Messer abschneiden die Nasen /<lb/>
+mit <choice>
+            <sic>glünendem</sic>
+            <corr cert="high">glüendem</corr>
+        </choice> Messer abschneiden die Nasen /<lb/>
 disen pollierten Rauchfang; laß dir mit glü<lb break="no" type="d"/>
 enden Scheeren abschneiden die Ohren / dise<lb/>
 zwey <seg rend="antiqua">Audienz-</seg>Zimmer; laß dir mit glüen<lb break="no" type="d"/>
@@ -18,15 +21,20 @@ schneiden auß der gantzen Haut / auß disem so<lb/>
 häcklichen Uberzug / so ist doch alles dises nur<lb/>
 ein Schatten / mehr nichts als ein Schatten /<lb/>
 weiter nichts als ein Schatten gegen der min<lb break="no" type="d"/>
-desten Pein im Feegfeuer.</p>
-<!-- "registriret" (Zeile 61,62) muss ein Token sein. -->
-<p rend="indent">Jener Religios von deme <seg rend="antiqua"><persName type="hist">Baronius</persName> regi</seg><lb break="no" type="s"/>
-<seg rend="antiqua">stri</seg>ret / hat es genugsam erfahren / daß sich<lb/>
+desten Pein im Feegfeuer.</p><!-- "registriret" (Zeile 61,62) muss ein Token sein. -->
+    <p rend="indent">Jener Religios von deme <seg rend="antiqua">
+            <persName type="hist">Baronius</persName> regi</seg>
+        <lb break="no" type="s"/>
+        <seg rend="antiqua">stri</seg>ret / hat es genugsam erfahren / daß sich<lb/>
 GOtt eines solchen erbarme / der sich auch über<lb/>
-<fw place="bot_right" type="catch">die</fw>
-<pb facs="Abraham-Augustini_feuriges_Hertz_n0033.jpg" xml:id="n0033" n="S. 33"/>
-<seg type="header"><fw n="33" place="top_center" type="pageNum"><milestone rend="flower" type="symbol"/>(33)<milestone rend="flower" type="symbol"/></fw></seg>
-<milestone rend="line" type="hr"/>
+        <fw place="bot_right" type="catch">die</fw>
+        <pb facs="Abraham-Augustini_feuriges_Hertz_n0033.jpg" xml:id="n0033" n="S. 33"/>
+        <seg type="header">
+            <fw n="33" place="top_center" type="pageNum">
+                <milestone rend="flower" type="symbol"/>(33)<milestone rend="flower" type="symbol"/>
+            </fw>
+        </seg>
+        <milestone rend="line" type="hr"/>
 die armen Seelen erbarmet hat / massen diser<lb/>
 nach seinem zeitlichen Hintritt mit vilen andern<lb/>
 Seelen / so gleich dazumahl in derselbigen<lb/>
@@ -42,10 +50,16 @@ Lieb zu den abgestorbenen Christglaubigen /<lb/>
 auch vermittels der Vorbitt der armen See<lb break="no" type="d"/>
 len / ihn verschonet / vnd beynebens anbefohlen /<lb/>
 er solle widerumb zum Leben kehren / vnd noch<lb/>
-genugsame Buß auff der Welt würcken. <bibl><foreign xml:lang="la"><seg rend="antiqua"><persName type="hist">Tom.</persName><lb/>
-9. ad Ann. 716.</seg></foreign></bibl></p>
-<!-- "besagtem" muss ein Token sein (Z. 105f.) -->
-<p rend="indent">Mir hat einer glaubwürdig erzehlt / auß<lb/>
+genugsame Buß auff der Welt würcken. <bibl>
+            <foreign xml:lang="la">
+                <seg rend="antiqua">
+                    <persName type="hist">Tom.</persName>
+                    <lb/>
+9. ad Ann. 716.</seg>
+            </foreign>
+        </bibl>
+    </p><!-- "besagtem" muss ein Token sein (Z. 105f.) -->
+    <p rend="indent">Mir hat einer glaubwürdig erzehlt / auß<lb/>
 einer sehr berühmten Orden / auch mit einem<lb/>
 Schwur bestättiget / so annoch im Leben / vnd<lb/>
 eines guten Wandels: als er bey der Nacht<lb/>
@@ -57,15 +71,24 @@ vor seiner vmbgeblättert / welches er Anfangs<lb/>
 für natürlich gehalten / der Meynung / als wur<lb break="no" type="d"/>
 den die Blätter von einem kleinen Wind be<lb break="no" type="d"/>
 rührt; Nachdeme er aber einist den beiner<lb break="no" type="d"/>
-nen Streicher / als ein <foreign xml:lang="la"><seg rend="antiqua">Signaculum</seg></foreign> in die Bibel<lb/>
-<fw place="bot_right" type="catch">gesteckt /</fw>
-<pb facs="Abraham-Augustini_feuriges_Hertz_n0051.jpg" xml:id="n0051" n="S. 51"/>
-<seg type="header"><fw n="51" place="top_center" type="pageNum"><milestone rend="flower" type="symbol"/>(51)<milestone rend="flower" type="symbol"/></fw></seg>
-<milestone rend="line" type="hr"/>
+nen Streicher / als ein <foreign xml:lang="la">
+            <seg rend="antiqua">Signaculum</seg>
+        </foreign> in die Bibel<lb/>
+        <fw place="bot_right" type="catch">gesteckt /</fw>
+        <pb facs="Abraham-Augustini_feuriges_Hertz_n0051.jpg" xml:id="n0051" n="S. 51"/>
+        <seg type="header">
+            <fw n="51" place="top_center" type="pageNum">
+                <milestone rend="flower" type="symbol"/>(51)<milestone rend="flower" type="symbol"/>
+            </fw>
+        </seg>
+        <milestone rend="line" type="hr"/>
 gesteckt / da hat er wahrgenommen / daß jemand<lb/>
 denselben vnsichtbarer herauß gezogen / vnd in<lb/>
-Gegenwart seiner in ein anders Orth in <choice><sic>b<supplied reason="missing">e</supplied>sag<lb break="no" type="d"/>
-tem</sic><corr cert="high">besagtem</corr></choice> Buch gelegt / welches ihme wie billich / ei<lb break="no" type="d"/>
+Gegenwart seiner in ein anders Orth in <choice>
+            <sic>b<supplied reason="missing">e</supplied>sag<lb break="no" type="d"/>
+tem</sic>
+            <corr cert="high">besagtem</corr>
+        </choice> Buch gelegt / welches ihme wie billich / ei<lb break="no" type="d"/>
 nen Grausen verursacht / weil er sich aber an<lb/>
 dises auch nicht vil kehren wolte / da hat end<lb break="no" type="d"/>
 lich ein vnsichbare Hand widerumb den bei<lb break="no" type="d"/>
@@ -82,34 +105,51 @@ stens darumb / weil auch ein <seg rend="antiqua">NB</seg>. darbey gesetzt<lb/>
 war / welches ihn dann veranlast hat weiter zu<lb/>
 sehen / vnd zu lesen / was dann jene Zeil in sich<lb/>
 halte / so mit dem Creutzel bezeichnet / findt end<lb break="no" type="d"/>
-lich den kurtzen Text deß H. Evangelii: <foreign xml:lang="la"><seg rend="antiqua">Dixit<lb/>
-ad <persName type="bibl">Philippum</persName>, unde ememus panes?</seg></foreign> Er<lb/>
+lich den kurtzen Text deß H. Evangelii: <foreign xml:lang="la">
+            <seg rend="antiqua">Dixit<lb/>
+ad <persName type="bibl">Philippum</persName>, unde ememus panes?</seg>
+        </foreign> Er<lb/>
 sprach zu dem <persName type="bibl">Philipp</persName> / wo werden wir dann<lb/>
-Brod nehmen / <bibl><persName type="bibl"><seg rend="antiqua">Joann.</seg></persName> am <seg rend="antiqua">6.</seg> Capitel</bibl> / dises hat<lb/>
+Brod nehmen / <bibl>
+            <persName type="bibl">
+                <seg rend="antiqua">Joann.</seg>
+            </persName> am <seg rend="antiqua">6.</seg> Capitel</bibl> / dises hat<lb/>
 ihme alsobald die Gedächtnuß bewegt / daß er<lb/>
 nichts anderst gedacht / als daß sein bester<lb/>
-Freund mit Nahmen <persName type="hist">Philipp</persName> / der vor <seg rend="antiqua">14.</seg><lb/>
+Freund mit Nahmen <persName type="hist">Philipp</persName> / der vor <seg rend="antiqua">14.</seg>
+        <lb/>
 Tagen mit Tod abgangen / noch fernere Hülff<lb/>
-<seg type="footer"><fw place="bot_center" type="pageNum">D 2</fw></seg>
-<fw place="bot_right" type="catch">von</fw>
-<pb facs="Abraham-Augustini_feuriges_Hertz_n0052.jpg" xml:id="n0052" n="S. 52"/>
-<seg type="header"><fw n="52" place="top_center" type="pageNum"><milestone rend="flower" type="symbol"/>(52)<milestone rend="flower" type="symbol"/></fw></seg>
-<milestone rend="line" type="hr"/>
+        <seg type="footer">
+            <fw place="bot_center" type="pageNum">D 2</fw>
+        </seg>
+        <fw place="bot_right" type="catch">von</fw>
+        <pb facs="Abraham-Augustini_feuriges_Hertz_n0052.jpg" xml:id="n0052" n="S. 52"/>
+        <seg type="header">
+            <fw n="52" place="top_center" type="pageNum">
+                <milestone rend="flower" type="symbol"/>(52)<milestone rend="flower" type="symbol"/>
+            </fw>
+        </seg>
+        <milestone rend="line" type="hr"/>
 von ihme verlange / vnd forderst ein vnd andere<lb/>
 heilige Meß / in welchen das Brod der En<lb break="no" type="d"/>
 geln auffgesetzet wird / welches auch nach<lb break="no" type="d"/>
 mahls geschehen / worauff er nichts mehr ge<lb break="no" type="d"/>
-spühret.</p>
-<!-- "Iscarioth" (Z. 159f.) muss ein Token sein-->
-<p rend="indent">Die Hohepriester der Juden / seynd so<lb/>
-wohl ja mehrer als der <persName type="bibl"><seg rend="antiqua">Iscarioth</seg></persName> Ursach ge<lb break="no" type="d"/>
+spühret.</p><!-- "Iscarioth" (Z. 159f.) muss ein Token sein-->
+    <p rend="indent">Die Hohepriester der Juden / seynd so<lb/>
+wohl ja mehrer als der <persName type="bibl">
+            <seg rend="antiqua">Iscarioth</seg>
+        </persName> Ursach ge<lb break="no" type="d"/>
 west / an dem bittern Tod deß HErrn <persName type="bibl">JEsu</persName> /<lb/>
 dann kein Tag ware / da sie nicht den Under<lb break="no" type="d"/>
 gang diser Göttlichen Sonnen suchten; Kein<lb/>
-<fw place="bot_right" type="catch">Nacht</fw>
-<pb facs="Abraham-Augustini_feuriges_Hertz_n0095.jpg" xml:id="n0095" n="S. 95"/>
-<seg type="header"><fw n="95" place="top_center" type="pageNum"><milestone rend="flower" type="symbol"/>(95)<milestone rend="flower" type="symbol"/></fw></seg>
-<milestone rend="line" type="hr"/>
+        <fw place="bot_right" type="catch">Nacht</fw>
+        <pb facs="Abraham-Augustini_feuriges_Hertz_n0095.jpg" xml:id="n0095" n="S. 95"/>
+        <seg type="header">
+            <fw n="95" place="top_center" type="pageNum">
+                <milestone rend="flower" type="symbol"/>(95)<milestone rend="flower" type="symbol"/>
+            </fw>
+        </seg>
+        <milestone rend="line" type="hr"/>
 Nacht ware / da sie nicht sich bemühten / dises<lb/>
 Göttliche Liecht außzulöschen; Wie die Wölff<lb/>
 verfolgten sie dises Lamm GOttes; Wie die<lb/>
@@ -119,7 +159,9 @@ fel deß Heyls / biß sie endlich / dise blutgierige<lb/>
 Egel / vnd vnmenschliche Tyger=Gemüther den<lb/>
 Heyland an das Creutz gebracht / vnd folg<lb break="no" type="d"/>
 samb mehrer verschuldet / als der <persName type="bibl">Judas <seg rend="antiqua">Isca<lb break="no" type="s"/>
-rioth</seg></persName><seg rend="antiqua">,</seg> dannoch aber auff der Welt nicht also<lb/>
+rioth</seg>
+        </persName>
+        <seg rend="antiqua">,</seg> dannoch aber auff der Welt nicht also<lb/>
 gestrafft worden / wie er / nicht eines so vnglück<lb break="no" type="d"/>
 seeligen Tods gestorben / wie er / nicht der gan<lb break="no" type="d"/>
 tzen Welt zu Schand vnd Spott worden / wie<lb/>
@@ -129,40 +171,80 @@ sich der Todten angenommen / dann sie vmb je<lb break="no" type="d"/>
 nes Blut=Geld / wormit das höchste Gut ver<lb break="no" type="d"/>
 kaufft worden / einen Acker eingehandelt / der<lb/>
 da zu allen Zeiten soll seyn ein Freudhoff vnd<lb/>
-Begräbnuß der Frembdling; <foreign xml:lang="la"><seg rend="antiqua">In sepulturam<lb/>
-Peregrinorum, <bibl><persName type="bibl">Matth.</persName> 27</bibl></seg>.</foreign> Wie dann von<lb/>
+Begräbnuß der Frembdling; <foreign xml:lang="la">
+            <seg rend="antiqua">In sepulturam<lb/>
+Peregrinorum, <bibl>
+                    <persName type="bibl">Matth.</persName> 27</bibl>
+            </seg>.</foreign> Wie dann von<lb/>
 besagtem Acker sehr vil Erd nach <placeName type="city" subtype="dire" key="rome">Rom</placeName> über<lb break="no" type="d"/>
 bracht worden / vnd wird das Ort genennt:<lb/>
-<seg rend="antiqua"><foreign xml:lang="la">Capo Santo</foreign>,</seg> allwo noch auff heuntigen Tag<lb/>
+        <seg rend="antiqua">
+            <foreign xml:lang="la">Capo Santo</foreign>,</seg> allwo noch auff heuntigen Tag<lb/>
 dise Erd nur die Leiber der Frembden behaltet /<lb/>
-der Jnwohner aber gleich wider außwirfft.</p>
-<!-- "&c" muss ein Token sein, wenn als abbreviations/abbr im Parameter-file definiert -->
-<p rend="indent">Wann der Geist kein Scheühen tragt ob<lb/>
+der Jnwohner aber gleich wider außwirfft.</p><!-- "&c" muss ein Token sein, wenn als abbreviations/abbr im Parameter-file definiert -->
+    <p rend="indent">Wann der Geist kein Scheühen tragt ob<lb/>
 dem H. Creutz=Zeichen / an dem süssesten Na<lb break="no" type="d"/>
 men <persName type="bibl">JESU</persName> vnd <persName type="bibl">Maria</persName> / H. <seg rend="antiqua">Reliqui</seg>en /<lb/>
-Weyhwasser / <foreign xml:lang="la"><seg rend="antiqua">Agnus <seg rend="smallCaps">Dei</seg> &amp;c.</seg></foreign></p>
-<!-- "schraufen" (Z. 156f) muss ein Tag sein. -->
-<p><choice><sic>Das</sic><corr cert="high">Daß</corr></choice> <persName type="bibl"><seg rend="antiqua">Oza</seg></persName> nur die geweyhete Archen / aus gu<lb break="no" type="d"/>
+Weyhwasser / <foreign xml:lang="la">
+            <seg rend="antiqua">Agnus <seg rend="smallCaps">Dei</seg> &amp;c.</seg>
+        </foreign>
+    </p><!-- "schraufen" (Z. 156f) muss ein Tag sein. -->
+    <p>
+        <choice>
+            <sic>Das</sic>
+            <corr cert="high">Daß</corr>
+        </choice>
+        <persName type="bibl">
+            <seg rend="antiqua">Oza</seg>
+        </persName> nur die geweyhete Archen / aus gu<lb break="no" type="d"/>
 ter Meynung angerührt / mußte er alsbald auff<lb/>
-<fw place="bot_right" type="catch">das</fw>
-<pb facs="Abraham-Todten_Bruderschaft_n0040.jpg" xml:id="n0040" n="S. 40"/>
-<seg type="header"><fw n="40" place="top_center" type="pageNum">40.</fw></seg>
+        <fw place="bot_right" type="catch">das</fw>
+        <pb facs="Abraham-Todten_Bruderschaft_n0040.jpg" xml:id="n0040" n="S. 40"/>
+        <seg type="header">
+            <fw n="40" place="top_center" type="pageNum">40.</fw>
+        </seg>
 das strengste gestrafft werden / da er doch diesel<lb break="no" type="d"/>
 be nur wolte halten / damit sie nicht fallet: <rs type="death" subtype="acti">vnd der<lb/>
-<rs type="death" subtype="figu">Todt</rs> würfft so vil geweyhte Archen zu Boden /<lb/>
+            <rs type="death" subtype="figu">Todt</rs> würfft so vil geweyhte Archen zu Boden /<lb/>
 vnd gehet ihm alles hin?</rs> Was dann? Alles was<lb/>
 das Leben empfindt / ist ihme schon zinßbar /<lb/>
 und hat sich von diser allgemeinen Contribution<lb/>
-kein Stand / auch der <rs type="profession" subtype="cleric" key="_cler">Geistliche</rs> / nicht <choice><sic>schrau</sic><corr cert="high">schrau</corr></choice><lb break="no" type="d"/>
+kein Stand / auch der <rs type="profession" subtype="cleric" key="_cler">Geistliche</rs> / nicht <choice>
+            <sic>schrau</sic>
+            <corr cert="high">schrau</corr>
+        </choice>
+        <lb break="no" type="d"/>
 fen; müssen also alle <rs type="death" subtype="even">sterben</rs> / und macht man<lb/>
-keinem nichts besonders. <rs type="death" subtype="acti">Ein <rs type="death" subtype="attr">wunderbarer</rs><lb/>
-<rs type="death" subtype="figu_alt"><foreign xml:lang="la"><seg rend="antiqua">Grammaticus</seg></foreign></rs> ist der <rs type="death" subtype="figu">Todt</rs> / den <foreign xml:lang="la"><seg rend="antiqua">Nominativum</seg></foreign><lb/>
+keinem nichts besonders. <rs type="death" subtype="acti">Ein <rs type="death" subtype="attr">wunderbarer</rs>
+            <lb/>
+            <rs type="death" subtype="figu_alt">
+                <foreign xml:lang="la">
+                    <seg rend="antiqua">Grammaticus</seg>
+                </foreign>
+            </rs> ist der <rs type="death" subtype="figu">Todt</rs> / den <foreign xml:lang="la">
+                <seg rend="antiqua">Nominativum</seg>
+            </foreign>
+            <lb/>
 vergonnt er Hohen= und Vornehmen Stands=<lb break="no"/>
-Persohnen / den <foreign xml:lang="la"><seg rend="antiqua">Genitivum</seg></foreign> laßt er den Ehe<lb break="no" type="d"/>
-leuten / den <foreign xml:lang="la"><seg rend="antiqua">Dativum</seg></foreign> gibt er den freygebigen<lb/>
-Herren und <choice><sic>Franen</sic><corr cert="high">Frauen</corr></choice> / den <foreign xml:lang="la"><seg rend="antiqua">Accusativum</seg></foreign> legt er<lb/>
-auf die Schrane zu den Richtern / den <foreign xml:lang="la"><seg rend="antiqua">Vocati<lb break="no" type="s"/>
-vum</seg></foreign> erlaubet er den Bettlern / den <foreign xml:lang="la"><seg rend="antiqua">Ablativum</seg></foreign><lb/>
+Persohnen / den <foreign xml:lang="la">
+                <seg rend="antiqua">Genitivum</seg>
+            </foreign> laßt er den Ehe<lb break="no" type="d"/>
+leuten / den <foreign xml:lang="la">
+                <seg rend="antiqua">Dativum</seg>
+            </foreign> gibt er den freygebigen<lb/>
+Herren und <choice>
+                <sic>Franen</sic>
+                <corr cert="high">Frauen</corr>
+            </choice> / den <foreign xml:lang="la">
+                <seg rend="antiqua">Accusativum</seg>
+            </foreign> legt er<lb/>
+auf die Schrane zu den Richtern / den <foreign xml:lang="la">
+                <seg rend="antiqua">Vocati<lb break="no" type="s"/>
+vum</seg>
+            </foreign> erlaubet er den Bettlern / den <foreign xml:lang="la">
+                <seg rend="antiqua">Ablativum</seg>
+            </foreign>
+            <lb/>
 aber behalt er vor sich / und bestehet sein völliges<lb/>
 Ambt im Weckraumen</rs>: <rs type="death" subtype="acti">Er nimbt den König<lb break="no" type="d"/>
 reichen ihre König / er nimbt den Provinzien ih<lb break="no" type="d"/>
@@ -172,27 +254,48 @@ liche</rs> / vnd ob schon alle Jungfrau Clöster allen<lb/>
 Eintritt der Männer hoch verbiethen / so laßt<lb/>
 doch dieser <rs type="death" subtype="figu_alt">Rippen=Kramer</rs> seine Dücke nicht /<lb/>
 sondern schleicht auch in solche privilegirte Clau<lb break="no" type="d"/>
-suren.</rs></p>
-<!-- "R." in Z 178 darf nicht part=F sein -->
-<lg><seg rend="antiqua"><l>R. P. <persName type="hist"><rs type="profession" subtype="cleric" key="carm">Maximinus</rs> â S. Simone Stock</persName>,</l>
-<l>R. P. <persName type="hist"><rs type="profession" subtype="cleric" key="carm">Anselmus</rs> â S. Pelagia</persName>,</l></seg>
-<seg type="footer"><fw place="bot_center" type="pageNum">Z 3</fw></seg>
-<fw place="bot_right" type="catch"><seg rend="antiqua">R. P.</seg></fw>
-<pb facs="Abraham-Mercks_Wienn_n0358.jpg" xml:id="n0358" n="S. 358"/>
-<seg type="header"><fw n="358" place="top_center" type="pageNum"><milestone rend="flower" type="symbol"/> (358) <milestone rend="flower" type="symbol"/></fw></seg>
-<milestone rend="line" type="hr"/>
-<seg rend="antiqua"><l>R. P. <persName type="hist"><rs type="profession" subtype="cleric" key="carm">Casparus</rs> â S. Angelo Custode</persName>,</l>
-<l>R. P. <persName type="hist"><rs type="profession" subtype="cleric" key="carm">Raphael</rs> â S. Mathæo</persName>,</l>
-<l>R. P. <persName type="hist"><rs type="profession" subtype="cleric" key="carm">Mathæus</rs> â S. Francisco</persName>.</l></seg></lg>
-<!-- Z. 199/200 muss ein TOken sein.  -->
-<p rend="indent">Demnach spricht der Heil. <seg rend="antiqua"><persName type="hist">Joan<lb break="no" type="s"/>
+suren.</rs>
+    </p><!-- "R." in Z 178 darf nicht part=F sein -->
+    <lg>
+        <seg rend="antiqua">
+            <l>R. P. <persName type="hist">
+                    <rs type="profession" subtype="cleric" key="carm">Maximinus</rs> â S. Simone Stock</persName>,</l>
+            <l>R. P. <persName type="hist">
+                    <rs type="profession" subtype="cleric" key="carm">Anselmus</rs> â S. Pelagia</persName>,</l>
+        </seg>
+        <seg type="footer">
+            <fw place="bot_center" type="pageNum">Z 3</fw>
+        </seg>
+        <fw place="bot_right" type="catch">
+            <seg rend="antiqua">R. P.</seg>
+        </fw>
+        <pb facs="Abraham-Mercks_Wienn_n0358.jpg" xml:id="n0358" n="S. 358"/>
+        <seg type="header">
+            <fw n="358" place="top_center" type="pageNum">
+                <milestone rend="flower" type="symbol"/> (358) <milestone rend="flower" type="symbol"/>
+            </fw>
+        </seg>
+        <milestone rend="line" type="hr"/>
+        <seg rend="antiqua">
+            <l>R. P. <persName type="hist">
+                    <rs type="profession" subtype="cleric" key="carm">Casparus</rs> â S. Angelo Custode</persName>,</l>
+            <l>R. P. <persName type="hist">
+                    <rs type="profession" subtype="cleric" key="carm">Raphael</rs> â S. Mathæo</persName>,</l>
+            <l>R. P. <persName type="hist">
+                    <rs type="profession" subtype="cleric" key="carm">Mathæus</rs> â S. Francisco</persName>.</l>
+        </seg>
+    </lg><!-- Z. 199/200 muss ein TOken sein.  -->
+    <p rend="indent">Demnach spricht der Heil. <seg rend="antiqua">
+            <persName type="hist">Joan<lb break="no" type="s"/>
 nes</persName>,</seg> hab ich viel tausend vnd tau<lb break="no" type="d"/>
 send Außerwöhlte GOttes in dem<lb/>
 Himmel gesehen auß dem Jsraeliti<lb break="no" type="d"/>
-schen Volck; Uber das / <seg rend="antiqua"><foreign xml:lang="la">Post hæc vi<lb break="no" type="s"/>
+schen Volck; Uber das / <seg rend="antiqua">
+            <foreign xml:lang="la">Post hæc vi<lb break="no" type="s"/>
 di turbam magnam, quam dinume<lb break="no" type="s"/>
 rare nemo poterat, ex omnibus Gen<lb break="no" type="s"/>
-‘tibus &amp; tribubus &amp; populis</foreign></seg>: So<lb/>
+‘tibus &amp; tribubus &amp; populis</foreign>
+        </seg>: So<lb/>
 ‘hab ich auch ein solche Schaar Volck<lb/>
 ‘in der Glory wahr genommen / das<lb/>
 ‘selbige keinem müglich zuzehlen / auß<lb/>
@@ -200,10 +303,14 @@ rare nemo poterat, ex omnibus Gen<lb break="no" type="s"/>
 ‘ten vnd allerley Ständen: ohne al<lb break="no" type="d"/>
 len Zweiffel hat diser Him̅lische Chro<lb break="no" type="d"/>
 nist auch gesehen in der Glory viel<lb/>
-<fw place="bot_right" type="catch">Solda=</fw>
-<pb facs="Abraham-Mercks_Wienn_n0265.jpg" xml:id="n0265" n="S. 265"/>
-<seg type="header"><fw n="265" place="top_center" type="pageNum"><milestone rend="flower" type="symbol"/> (265) <milestone rend="flower" type="symbol"/></fw></seg>
-<milestone rend="line" type="hr"/>
+        <fw place="bot_right" type="catch">Solda=</fw>
+        <pb facs="Abraham-Mercks_Wienn_n0265.jpg" xml:id="n0265" n="S. 265"/>
+        <seg type="header">
+            <fw n="265" place="top_center" type="pageNum">
+                <milestone rend="flower" type="symbol"/> (265) <milestone rend="flower" type="symbol"/>
+            </fw>
+        </seg>
+        <milestone rend="line" type="hr"/>
 Soldaten / vnd nit allein lauter solche /<lb/>
 die von der Chartausen / sondern auch<lb/>
 viel / die von der Chartaunen kommen /<lb/>
@@ -211,24 +318,44 @@ nicht lauter solche / die in den Zellen /<lb/>
 sondern auch viel / die vnter den Zel<lb break="no" type="d"/>
 ten gewohnt / nicht allein lauter sol<lb break="no" type="d"/>
 che / die sich auff den Chorall / son<lb break="no" type="d"/>
-der auch viel / die sich <choice aac_com="ww"><sic>anff</sic><corr cert="high">auff</corr></choice> das Arse<lb break="no" type="d"/>
-nall verstanden.</p>
-<!-- Z. 216: Schüssel muss als <w part="I">Schüs</w><w part="F">sel</w>
+der auch viel / die sich <choice aac_com="ww">
+            <sic>anff</sic>
+            <corr cert="high">auff</corr>
+        </choice> das Arse<lb break="no" type="d"/>
+nall verstanden.</p><!-- Z. 216: Schüssel muss als <w part="I">Schüs</w><w part="F">sel</w>
      tokenisiert werden, der Text innerhalb von <figure> davon separat. 
 -->
-<p>... ben ein Spißlein Endten / samt einer Schüs<lb break="no" type="d"/>
-<fw place="bot_right" type="catch">sel</fw>
-<pb facs="Abraham-Todten_Capelle_n0048_a.jpg" xml:id="n0048_a" n="Abb."/>
-<figure>
-<cit><foreign xml:lang="la"><seg rend="antiqua"><quote>O <rs type="death" subtype="figu">mors</rs>, quam amara est me<lb break="no" type="d"/>
-moria tua!</quote><lb/>
-<bibl>Eccl. c. 41. v. 1.</bibl></seg></foreign></cit><lb/>
-<lg ana="verse"><l>O wie bitter komts ihn an,</l>
-<l>wan̅ da <rs type="death" subtype="even">stirbt</rs> ein reicher Mann.</l></lg><lb/>
-</figure>
-<pb facs="Abraham-Todten_Capelle_n0048_b.jpg" xml:id="n0048_b" n="Leerseite"/>
-<pb facs="Abraham-Todten_Capelle_n0049.jpg" xml:id="n0049" n="S. 49"/>
-<seg type="header"><fw place="top_center"><milestone rend="flower" type="symbol"/> <milestone rend="flower" type="symbol"/> <milestone rend="flower" type="symbol"/></fw><fw n="49" place="top_right" type="pageNum">49</fw></seg>
-<milestone rend="line" type="hr"/>
+    <p>... ben ein Spißlein Endten / samt einer Schüs<lb break="no" type="d"/>
+        <fw place="bot_right" type="catch">sel</fw>
+        <pb facs="Abraham-Todten_Capelle_n0048_a.jpg" xml:id="n0048_a" n="Abb."/>
+        <figure>
+            <cit>
+                <foreign xml:lang="la">
+                    <seg rend="antiqua">
+                        <quote>O <rs type="death" subtype="figu">mors</rs>, quam amara est me<lb break="no" type="d"/>
+moria tua!</quote>
+                        <lb/>
+                        <bibl>Eccl. c. 41. v. 1.</bibl>
+                    </seg>
+                </foreign>
+            </cit>
+            <lb/>
+            <lg ana="verse">
+                <l>O wie bitter komts ihn an,</l>
+                <l>wan̅ da <rs type="death" subtype="even">stirbt</rs> ein reicher Mann.</l>
+            </lg>
+            <lb/>
+        </figure>
+        <pb facs="Abraham-Todten_Capelle_n0048_b.jpg" xml:id="n0048_b" n="Leerseite"/>
+        <pb facs="Abraham-Todten_Capelle_n0049.jpg" xml:id="n0049" n="S. 49"/>
+        <seg type="header">
+            <fw place="top_center">
+                <milestone rend="flower" type="symbol"/>
+                <milestone rend="flower" type="symbol"/>
+                <milestone rend="flower" type="symbol"/>
+            </fw>
+            <fw n="49" place="top_right" type="pageNum">49</fw>
+        </seg>
+        <milestone rend="line" type="hr"/>
 sel voll Lamms=Nierlein / an statt ...</p>
 </TEI>
