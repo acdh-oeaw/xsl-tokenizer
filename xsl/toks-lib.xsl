@@ -29,9 +29,7 @@
         <xsl:analyze-string select="." regex="{$ws-regex}">
             <xsl:matching-substring>
                 <xsl:if test="$preserve-ws">
-                    <seg type="ws">
-                        <xsl:value-of select="."/>
-                    </seg>
+                    <seg type="ws" xml:space="preserve"><xsl:value-of select="."/></seg>
                 </xsl:if>
             </xsl:matching-substring>
             <xsl:non-matching-substring>
