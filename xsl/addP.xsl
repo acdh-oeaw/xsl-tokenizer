@@ -290,7 +290,7 @@
                 </xsl:if>
                 <xsl:attribute name="part">
                     <xsl:choose>
-                        <xsl:when test="$in-toks-list/following-sibling::*"><xsl:text>M</xsl:text><xsl:message><xsl:copy-of select="$in-toks-list/following-sibling::*"/></xsl:message></xsl:when>
+                        <xsl:when test="$in-toks-list/following-sibling::*"><xsl:text>M</xsl:text></xsl:when>
                         <xsl:otherwise>F</xsl:otherwise>
                     </xsl:choose>
                 </xsl:attribute>
@@ -409,7 +409,6 @@
     
     <xsl:template match="tei:*[substring-after(@prev,'#') = root(.)//xtoks:collapsed/@collapsed-id]/@prev" mode="expandCollapsed" priority="2">
         <xsl:param name="partsTagged" tunnel="yes"/>
-        <xsl:message>matched</xsl:message>
         <xsl:variable name="collapsed-id" select="substring-after(.,'#')"/>
         <xsl:variable name="origElts" select="root()//xtoks:collapsed[@collapsed-id = $collapsed-id]/*" as="node()*"/>
         <xsl:variable name="collapsed-elt" select="root()//tei:w[@xml:id = $collapsed-id]" as="item()*"/>
