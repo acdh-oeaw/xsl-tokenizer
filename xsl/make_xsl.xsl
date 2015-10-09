@@ -65,26 +65,24 @@
                         <value-of select="xtoks:expand-path(@value)"/>
                     </xsl:element>
                 </for-each>
-                <if test="//param[@key = 'lexicon']">
-                    <variable name="lexicon" select="//param[@key = 'lexicon']"/>
-                    <xsl:element name="xsl:param">
-                        <xsl:attribute name="name">lexToks</xsl:attribute>
-                        <xsl:element name="lexicon" namespace="">
-                            <xsl:for-each select="tokenize($lexicon,'\n+')">
-                                <seg xmlns="http://www.tei-c.org/ns/1.0">
-                                    <xsl:attribute name="xml:id" select="concat('entry_',position())"/>
-                                    <xsl:for-each select="normalize-space(.)">
-                                        <xsl:call-template name="tokenize-text">
-                                            <xsl:with-param name="pc-regex" select="$punctCharPattern"/>
-                                            <xsl:with-param name="ws-regex" select="$ws-regex"/>
-                                            <xsl:with-param name="preserve-ws" select="$preserve-ws"/>
-                                        </xsl:call-template>
-                                    </xsl:for-each>
-                                </seg>
-                            </xsl:for-each>
-                        </xsl:element>
+                <variable name="lexicon" select="//param[@key = 'lexicon']"/>
+                <xsl:element name="xsl:param">
+                    <xsl:attribute name="name">lexToks</xsl:attribute>
+                    <xsl:element name="lexicon" namespace="">
+                        <xsl:for-each select="tokenize($lexicon,'\n+')">
+                            <entry xmlns="http://www.tei-c.org/ns/1.0">
+                                <xsl:attribute name="xml:id" select="concat('entry_',position())"/>
+                                <xsl:for-each select="normalize-space(.)">
+                                    <xsl:call-template name="tokenize-text">
+                                        <xsl:with-param name="pc-regex" select="$punctCharPattern"/>
+                                        <xsl:with-param name="ws-regex" select="$ws-regex"/>
+                                        <xsl:with-param name="preserve-ws" select="$preserve-ws"/>
+                                    </xsl:call-template>
+                                </xsl:for-each>
+                            </entry>
+                        </xsl:for-each>
                     </xsl:element>
-                </if>
+                </xsl:element>
                 <for-each select="//expression[parent::ignore]">
                     <xsl:element name="xsl:template">
                         <xsl:attribute name="match" select="."/>
