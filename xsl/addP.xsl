@@ -44,7 +44,7 @@
                         <xsl:apply-templates select="$partsTagged" mode="collapseParts">
                             <xsl:with-param name="partsTagged" tunnel="yes" as="document-node()">
                                 <xsl:document>
-                                    <xsl:sequence select="$partsTagged[not(self::processing-instruction())]"/>
+                                    <xsl:sequence select="$partsTagged"/>
                                 </xsl:document>
                             </xsl:with-param>
                         </xsl:apply-templates>
@@ -72,6 +72,7 @@
                 <xsl:apply-templates select="$ids-added" mode="addP">
                     <xsl:with-param name="grouped" select="$nextAdded" as="document-node()" tunnel="yes"/>
                 </xsl:apply-templates>
+                
                 
             </xsl:when>
             <xsl:otherwise>
@@ -142,7 +143,7 @@
     </xsl:template>
     
     <xsl:template match="*[not(@mode) or @mode = 'copy']" mode="flatten flattenFloats">
-        <break/><xsl:apply-templates mode="#current"/>
+        <break/><xsl:apply-templates mode="#current"/><break/>
     </xsl:template>
     
     <xsl:template match="*[@mode = 'float']" mode="flatten"/>
@@ -346,7 +347,6 @@
     </xsl:template>
     
     <xsl:template match="tei:*[@xml:id = root()//xtoks:collapsed/@collapsed-id]" mode="expandCollapsed" priority="2">
-        <xsl:message>matched</xsl:message>
         <xsl:variable name="this-id" select="@xml:id"/>
         <xsl:variable name="origElts" select="root()//xtoks:collapsed[@collapsed-id = $this-id]/*" as="node()*"/>
         <xsl:variable name="lex-entry-id" select="@lex-entry-id" as="xs:string*"/>
@@ -374,7 +374,6 @@
         <xsl:param name="parts" as="element()*" required="yes"/>
         <xsl:param name="lex-entry" as="xs:string" tunnel="yes" required="yes"/>
         <xsl:param name="results" as="element()*" required="no"/>
-        <xsl:message>matched</xsl:message>
         <xsl:choose>
             <xsl:when test="count($parts) = 0">
                 <xsl:sequence select="$results"/>
