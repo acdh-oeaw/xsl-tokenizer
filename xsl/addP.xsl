@@ -14,15 +14,6 @@
     <xsl:key name="collapsed-token-by-id" match="xtoks:token" use="substring-after(@corresp,'#')"/>
     <xsl:key name="lex-entry-by-part" match="tei:entry" use="(tei:w|tei:pc|tei:seg[@type = 'ws'])/normalize-space(.)"></xsl:key>
     
-    <xsl:variable name="data" select="data(/)"/>
-    
-    <xsl:variable name="lexToksFiltered" as="item()*">
-        <xsl:if test="not($skipLexicon = 'true')">
-            <xsl:document>
-                <xsl:sequence select="$lexToks//tei:entry[contains(xs:string(/*), .)]"/>
-            </xsl:document>
-        </xsl:if>
-    </xsl:variable>
     
     <xsl:template match="/">
         <xsl:variable name="data" select="data(.)"/>
@@ -46,7 +37,7 @@
         </xsl:variable>
         
         <xsl:choose>
-            <xsl:when test="not($skipLexicon = 'true') and $lexToksFiltered//*">
+            <xsl:when test="$useLexicon = 'true' and $lexToks//*">
                 <xsl:variable name="partsCollapsed" as="node()*">
                     <xsl:document>
                         <xsl:apply-templates select="$partsTagged" mode="collapseParts">
@@ -83,7 +74,7 @@
                     <xsl:with-param name="grouped" select="$nextAdded" as="document-node()" tunnel="yes"/>
                 </xsl:apply-templates>
                 
-<!--                <xsl:sequence select="$lexApplied"></xsl:sequence>-->
+<!--                <xsl:sequence select="$partsTagged"></xsl:sequence>-->
                 
                 
             </xsl:when>
@@ -199,9 +190,9 @@
     
     
     
-    <xsl:template match="tei:seg[@type = 'ws'][key('lex-entry-by-part',normalize-space(.),$lexToksFiltered)]|tei:w[key('lex-entry-by-part',normalize-space(.),$lexToksFiltered)]|tei:pc[key('lex-entry-by-part',normalize-space(.),$lexToksFiltered)]" mode="applyLex" priority="1">
+    <xsl:template match="tei:seg[@type = 'ws'][key('lex-entry-by-part',normalize-space(.),$lexToks)]|tei:w[key('lex-entry-by-part',normalize-space(.),$lexToks)]|tei:pc[key('lex-entry-by-part',normalize-space(.),$lexToks)]" mode="applyLex" priority="1">
         <xsl:variable name="token" select="." as="element()"/>
-        <xsl:variable name="segCandidates" select="key('lex-entry-by-part',normalize-space(.),$lexToksFiltered)" as="node()*"/>
+        <xsl:variable name="segCandidates" select="key('lex-entry-by-part',normalize-space(.),$lexToks)" as="node()*"/>
         <xsl:variable name="preceding" select="preceding::*[self::tei:w or self::tei:pc or self::tei:seg[@type = 'ws']][not(ancestor::xtoks:collapsed)]" as="item()*"/>
         <xsl:variable name="following" select="following::*[self::tei:w or self::tei:pc or self::tei:seg[@type = 'ws']][not(ancestor::xtoks:collapsed)]" as="item()*"/>
         <xsl:if test="$debug='true'">
@@ -240,7 +231,7 @@
         </xsl:variable>
         <xsl:choose>
             <xsl:when test="count($lex-entries) > 0">
-                <!--                <xsl:message>$lex-entry <xsl:value-of select="$lex-entries[1]/@id"/> "<xsl:value-of select="$lexToksFiltered//tei:seg[@xml:id = $lex-entries[1]/@id]"/>"</xsl:message>-->
+                <!--                <xsl:message>$lex-entry <xsl:value-of select="$lex-entries[1]/@id"/> "<xsl:value-of select="$lexToks//tei:seg[@xml:id = $lex-entries[1]/@id]"/>"</xsl:message>-->
                 <xsl:variable name="toks-after" select="$lex-entries[1]//toks-after" as="xs:integer"/>
                 <xsl:variable name="toks-before" select="$lex-entries[1]//toks-before" as="xs:integer"/>
                 <xsl:variable name="next" select="subsequence($following, 1, $toks-after)[1]" as="item()*"/>
@@ -368,7 +359,7 @@
             <xsl:when test="$lex-entry-id">
                 <xsl:call-template name="splitCollapsed">
                     <xsl:with-param name="parts" select="$origElts" as="item()*"/>
-                    <xsl:with-param name="lex-entry" select="$lexToksFiltered//tei:*[@xml:id = $lex-entry-id]" tunnel="yes"/>
+                    <xsl:with-param name="lex-entry" select="$lexToks//tei:*[@xml:id = $lex-entry-id]" tunnel="yes"/>
                 </xsl:call-template>
             </xsl:when>
             <xsl:otherwise>
@@ -431,7 +422,7 @@
                 <xsl:variable name="prevExpanded">
                     <xsl:call-template name="splitCollapsed">
                         <xsl:with-param name="parts" select="$origElts" as="item()*"/>
-                        <xsl:with-param name="lex-entry" select="$lexToksFiltered//tei:*[@xml:id = $collapsed-elt/@lex-entry-id]" tunnel="yes"/>
+                        <xsl:with-param name="lex-entry" select="$lexToks//tei:*[@xml:id = $collapsed-elt/@lex-entry-id]" tunnel="yes"/>
                     </xsl:call-template>
                 </xsl:variable>
                 <xsl:attribute name="prev" select="concat('#',$prevExpanded//*[@xml:id][last()]/@xml:id)"/>
