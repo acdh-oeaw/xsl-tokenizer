@@ -10,6 +10,8 @@
     <xsl:strip-space elements="*"/>
     <xsl:preserve-space elements="tei:seg tei:w tei:pc"/>
     
+    <xsl:key name="tag-by-id" match="tei:*" use="@xml:id"/>
+    
     <xsl:template match="tei:TEI|*[ancestor-or-self::tei:teiHeader]">
         <xsl:copy>
             <xsl:copy-of select="@*"/>
@@ -38,7 +40,7 @@
         <xsl:copy>
             <xsl:copy-of select="@* except (@part|@prev|@next)"/>
             <xsl:value-of select="."/>
-            <xsl:apply-templates select="root()//*[@xml:id = substring-after(current()/@next, '#')]" mode="getTokenContent"/>
+            <xsl:apply-templates select="key('tag-by-id', substring-after(@next, '#'))" mode="getTokenContent"/>
         </xsl:copy>
     </xsl:template>
     
@@ -46,7 +48,7 @@
     
     <xsl:template match="*[@part = ('M', 'F')]" mode="getTokenContent">
         <xsl:value-of select="."/>
-        <xsl:apply-templates select="//*[@xml:id = substring-after(current()/@next, '#')]" mode="getTokenContent"/>
+        <xsl:apply-templates select="key('tag-by-id', substring-after(@next, '#'))" mode="getTokenContent"/>
     </xsl:template>
     
     <xsl:template match="text()[not(parent::tei:w) or not(parent::tei:seg)]" mode="extractTokens"/>
