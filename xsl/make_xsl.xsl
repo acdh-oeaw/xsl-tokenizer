@@ -70,6 +70,7 @@
                     <xsl:attribute name="name">lexToks</xsl:attribute>
                     <xsl:element name="lexicon" namespace="">
                         <xsl:for-each select="tokenize($lexicon,'\n+')">
+                            <xsl:sort select="string-length(.)" order="descending"/>
                             <entry xmlns="http://www.tei-c.org/ns/1.0">
                                 <xsl:attribute name="xml:id" select="concat('entry_',position())"/>
                                 <xsl:for-each select="normalize-space(.)">
