@@ -1,0 +1,100 @@
+<ab>
+<head>
+Das	d3e18
+ist	d3e27
+die	d3e31
+Überschrift	d3e35
+.	d3e43
+</head>
+<p>
+Mit	d3e46
+oder	d3e50
+ohne	d3e54
+Zeilenumbrüchen	d3e58
+</p>
+<p>
+Ein	d3e64
+kleiner	d3e69
+Absatz	d3e73
+.	d3e75
+</p>
+<p>
+Some	d3e78
+quite	d3e83
+longtext	d3e86
+here	d3e89
+.	d3e91
+</p>
+<p>
+Hier	d3e94
+ein	d3e98
+paar	d3e102
+inline	d3e106
+-	d3e113
+Elemente	d3e116
+.	d3e119
+</p>
+<p>
+ACDH-OEAW	d3e123
+</p>
+<p>
+Ein	d3e134
+Lexikoneintrag	d3e138
+mit	d3e142
+blanks	d3e146
+A B C	d3e150
+D	d3e163
+E	d3e167
+.	d3e169
+</p>
+<p>
+Und	d3e172
+kleine	d3e177
+Abkürzungen	d3e181
+:	d3e183
+Am	d3e187
+Hauptbhf.	d3e192
+fährt	d3e201
+man	d3e206
+von	d3e210
+O-W	d3e215
+.	d3e221
+</p>
+<p>
+Und	d3e224
+da	d3e228
+noch	d3e232
+einer	d3e236
+,	d3e238
+der	d3e243
+von	d3e248
+einer	d3e252
+Grafik	d3e257
+<p>
+Das	d3e262
+ist	d3e266
+ein	d3e270
+Textbaustein	d3e274
+,	d3e279
+der	d3e284
+tokenisiert	d3e288
+werden	d3e292
+soll	d3e296
+.	d3e298
+</p>
+unterbrochen	d3e305
+wird	d3e309
+.	d3e311
+</p>
+<p>
+Fußnoten	d3e314
+sind	d3e318
+gemein	d3e322
+und	d3e326
+sollen	d3e330
+nicht	d3e334
+tokenisiert	d3e341
+werden	d3e345
+.	d3e352
+</p>
+</ab>
