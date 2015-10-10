@@ -28,21 +28,21 @@
         <xsl:param name="preserve-ws" required="no" as="xs:boolean" select="true()"/>
         <xsl:analyze-string select="." regex="{$ws-regex}">
             <xsl:matching-substring>
-                <xsl:if test="$preserve-ws">
-                    <seg type="ws" xml:space="preserve"><xsl:value-of select="."/></seg>
-                </xsl:if>
+                <xsl:element name="seg">
+                    <xsl:attribute name="type">ws</xsl:attribute>
+                    <xsl:attribute name="xml:space">preserve</xsl:attribute>
+                    <xsl:value-of select="."/>
+                </xsl:element>
             </xsl:matching-substring>
             <xsl:non-matching-substring>
-                <xsl:analyze-string select="." regex="{$pc-regex}">
-                    <xsl:matching-substring>
-                        <pc>
-                            <xsl:value-of select="."/>
-                        </pc>
-                    </xsl:matching-substring>
+                <!-- ordinals -->
+                <xsl:analyze-string select="." regex="[0-9]+\.">
+                    <xsl:matching-substring><w><xsl:value-of select="."/></w></xsl:matching-substring>
                     <xsl:non-matching-substring>
-                        <w>
-                            <xsl:value-of select="."/>
-                        </w>
+                        <xsl:analyze-string select="." regex="{$pc-regex}">
+                            <xsl:matching-substring><pc><xsl:value-of select="."/></pc></xsl:matching-substring>
+                            <xsl:non-matching-substring><w><xsl:value-of select="."/></w></xsl:non-matching-substring>
+                        </xsl:analyze-string>
                     </xsl:non-matching-substring>
                 </xsl:analyze-string>
             </xsl:non-matching-substring>
