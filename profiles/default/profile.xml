@@ -10,11 +10,14 @@
         <param key="preserve-ws" value="true"/>
         <param key="pc-regex" value="[\p{P}]"/>
         <param key="ws-regex" value="\s+"/>
+        <param key="debug" value="false"/>
+        <param key="useLexicon" value="true"/>
         <param key="lexicon">Abk.
             A B C
             Hauptbhf.
             O-W
-            ACDH-OEAW</param>
+            ACDH-OEAW
+            Blub.blub.</param>
     </parameters>
     <postProcessing/>
     <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace><!-- copy nodes are copied from the source document to the tokenized document as they are (are not tokenized). They constitute token boundaries, i.e. will break words. 
