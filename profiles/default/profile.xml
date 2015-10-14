@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<profile id="default">
+<profile created="2015-10-12T14:09:42.047+02:00" id="default" last-updated="">
     <about>
-        <name>xToks sample profile</name>
+        <name>simple TEI</name>
         <creator>Daniel Schopper</creator>
-        <description>A simple profile for tokenizing TEI documents.</description>
+        <description>A simple profile for tokenizing TEI documents.
+
+</description>
     </about>
     <parameters>
         <param key="makeNoNamespaceVersion" value="true()"/>
@@ -12,82 +14,35 @@
         <param key="ws-regex" value="\s+"/>
         <param key="debug" value="false"/>
         <param key="useLexicon" value="true"/>
-        <param key="lexicon">Abk.
-            A B C
-            Hauptbhf.
-            O-W
-            ACDH-OEAW
-            Blub.blub.</param>
+        <param key="lexicon" xml:space="preserve">Abk.
+A B C
+Hauptbhf.
+O-W
+ACDH-OEAW
+Blub.blub.</param>
     </parameters>
     <postProcessing/>
-    <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace><!-- copy nodes are copied from the source document to the tokenized document as they are (are not tokenized). They constitute token boundaries, i.e. will break words. 
-        When verticalizing the document, the contents of these elements are omitted.
-    -->
+    <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
     <copy>
         <expression>tei:teiHeader</expression>
-    </copy><!-- ignore nodes are "invisible" to the tokenizer, i.e. unlike "copy nodes" they do NOT break tokens but are copied to the tokenized document as they are 
-        When verticalizing the document, the contents of these elements are omitted. -->
+    </copy>
     <ignore>
+        <expression>tei:pb</expression>
         <expression>tei:fw</expression>
         <expression>tei:note[@place='below']</expression>
-        <expression>tei:emph</expression>
-    </ignore><!-- 
-        in word-tags do not mark token boundaries but are tokenized themselves.
-        the preceding partial token (i.e. one that does *not* end with a blank) and the following partial token (i.e. one that does not start with a blank) will be wrapped by an <w>-tag, including the in-word token.
-        
-        Example:
-        
-        <p>Some words are partially <hi>under</hi>lined.</p>
-        
-        <p>
-            <w>Some</w>
-            <w>words</w>
-            <w>are</w>
-            <w>partially</w>
-            <hi>
-                <w part="I">under</w>
-            </hi>
-            <w part="F">lined</w>
-            <pc>.</pc>
-       </p>
-    -->
-    <in-word-tags>
         <expression>tei:lb[@break='no']</expression>
+    </ignore>
+    <in-word-tags>
         <expression>tei:hi</expression>
-        <expression>tei:pb</expression>
+        <expression>tei:emph</expression>
         <expression>tei:seg</expression>
-    </in-word-tags><!-- floating blocks are chunks of text that are not part of the 
-     main text flow (e.g. figures) and to be tokenized for themselves. For example:
-        <p>
-            <w>This</w>
-            <w>can</w>
-            <w>get</w>
-            <w part="I">some</w>
-            <lb/>
-            <pb/>
-            <figure>
-                <graphic>...</graphic>
-                <caption>
-                    <w part="I">Fig</w>
-                    <lb/>
-                    <w part="F">ure</w>
-                    <w>1</w>
-                </caption>
-            </figure>
-            <w part="F">what</w>
-            <w>complicated</w>
-            <w>.</w>
-        </p>
-     
-     Like "in word tags" they do not break tokens, but  
-     
-     CAVEAT This implies that a floating block does not begin or end with a partial token, so that the preceding tag <w part="I"> can be unambiguosly connected to the next <w>-tag with part="F" -->
+    </in-word-tags>
     <floating-blocks>
+        <expression>tei:floatingText</expression>
         <expression>tei:figure</expression>
     </floating-blocks>
     <structure>
-        <expression>tei:head</expression>
-        <expression>tei:p</expression>
-        <expression>tei:ab</expression>
+        
+        
     </structure>
 </profile>
