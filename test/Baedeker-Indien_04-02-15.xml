@@ -4559,7 +4559,7 @@ karten in 1:250000, 1:100000, 1:50000 und 1:20000. Eine brauchbare<lb/>
 </div>
 <milestone rend="hr" type="separator" unit="undetermined"/>
 </front>
-<!--<body>
+<body>
 <pb facs="Baedeker-Indien_n0001.jpg" xml:id="n0001" n="S. 1"/>
 <div type="chapter" n="1. Seefahrt aus Europa nach Indien.">
 <head type="main"><seg type="enum"><seg rend="bold">1.</seg></seg> <seg rend="bold">Seefahrt aus <aac_SELF>Europa</aac_SELF> nach Indien.</seg></head>
@@ -25015,7 +25015,7 @@ oder 100 Kilometer in der Natur = 10 <abbr>Mm.</abbr> auf der Karte. <abbr>D.</a
 <p><abbr>GEOGR.</abbr> ANSTALT VON WAGNER &amp; DEBES, LEIPZIG</p>
 </figure>
 <pb facs="Baedeker-Indien_n0358_b.jpg" xml:id="n0358_b" n="Leerseite"/>
-</body>-->
+</body>
 <back>
 <pb facs="Baedeker-Indien_u0001.jpg" xml:id="u0001" n="h. fliegendes Vorsatzblatt recto"/>
 <pb facs="Baedeker-Indien_u0002.jpg" xml:id="u0002" n="h. fliegendes Vorsatzblatt verso"/>
