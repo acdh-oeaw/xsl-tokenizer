@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <head>
+        <title>Edit Profiles</title>
+        <style type="text/css">
+             .settingsBlock {
+                margin-bottom: 1em;
+                min-height: 20em;
+             }
+             .settingsBlock &gt; table {
+                border-bottom: 1px solid black;
+                margin-bottom: 2em;
+                min-width: 36em;
+                padding: 7px 0;
+             }
+             
+             
+             .helptext &gt; .hook {
+                display: inline;
+             }
+             
+             .helptext &gt; .hook:hover {
+                position: relative;
+             }
+             
+             .helptext &gt; .hook &gt; span {
+                display: none;
+             }
+             
+             .helptext &gt; .hook:hover &gt; span {
+                background: white none repeat scroll 0 0;
+                border: 1px solid black;
+                display: block;
+                font-size: 11pt;
+                font-weight: normal;
+                left: 2em;
+                padding: 8px;
+                position: absolute;
+                top: -1em;
+                min-width: 15em;
+                z-index: 1111;
+             }
+             
+             .xfLabel {
+                margin-right: 16px;
+             }
+        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"/>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <xf:model id="model1">
+            <xf:instance xmlns="" id="vars">
+                <data>
+                    <current-profile-id/>
+                </data>
+            </xf:instance>
+            <xf:instance xmlns="" id="profiles">
+                <profiles/>
+            </xf:instance>
+            <xf:instance xmlns="" id="templates">
+                <data>
+                    <expression/>
+                </data>
+            </xf:instance>
+            <xf:instance xmlns="" id="template">
+                <data>
+                    <profile id="template" created="" last-updated="">
+                        <about>
+                            <name>new profile</name>
+                            <creator>author</creator>
+                            <description>description</description>
+                        </about>
+                        <parameters>
+                            <param key="pc-regex" value="[\p{P}]"/>
+                            <param key="ws-regex" value="\s+"/>
+                            <param key="preserve-ws" value="true"/>
+                            <param key="debug" value="false"/>
+                            <param key="useLexicon" value="true"/>
+                            <param key="lexicon" xml:space="preserve">token 1 
+token 2</param>
+                        </parameters>
+                        <postProcessing/>
+                        <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
+                        <copy/>
+                        <ignore/>
+                        <in-word-tags/>
+                        <floating-blocks/>
+                        <structure/>
+                    </profile>
+                </data>
+            </xf:instance>
+            <xf:instance xmlns="" id="profile">
+                <data>
+                    <profile/>
+                </data>
+            </xf:instance>
+            <xf:submission id="listProfiles" method="get" replace="instance" ref="instance('profiles')" action="http://localhost:8080/exist/restxq/xtoks/profile">
+                <xf:message ev:event="xforms-submit-error" level="ephemeral">an error occured (error type: <xf:output value="event('error-type')"/>; resource-Delete: <xf:output value="event('resource-Delete')"/>; reason: <xf:output value="event('response-reason-phrase')"/>)</xf:message>
+                <xf:message ev:event="xforms-submit-done" level="ephemeral">loaded profiles list</xf:message>
+            </xf:submission>
+            <xf:action ev:event="xforms-ready">
+                <xf:send submission="listProfiles"/>
+            </xf:action>
+            <xf:submission id="getProfile" method="get" replace="instance" ref="instance('profile')">
+                <xf:resource value="concat('http://localhost:8080/exist/restxq/xtoks/profile/',instance('vars')/current-profile-id/text())"/>
+            </xf:submission>
+            <xf:submission id="storeProfile" method="put" replace="instance" ref="instance('profile')">
+                <xf:resource value="concat('http://xToksAdmin:SvP5p5z3yCyL5DeM@localhost:8080/exist/restxq/xtoks/profile/',instance('profile')/@id)"/>
+                <xf:action ev:event="xforms-submit-done">
+                    <xf:send submission="listProfiles"/>
+                </xf:action>
+            </xf:submission>
+            <xf:submission id="deleteProfile" method="delete" replace="instance" ref="instance('profile')">
+                <xf:resource value="concat('http://xToksAdmin:SvP5p5z3yCyL5DeM@localhost:8080/exist/restxq/xtoks/profile/',instance('profile')/@id)"/>
+            </xf:submission>
+            <xf:submission id="createProfile" method="post" replace="instance" ref="instance('profile')" action="http://xToksAdmin:SvP5p5z3yCyL5DeM@localhost:8080/exist/restxq/xtoks/profile">
+                <!--<xf:message ev:event="xforms-submit-error" level="ephemeral">an error occured (error type: <xf:output value="event('error-type')"/>; resource-Delete: <xf:output value="event('resource-Delete')"/>; reason: <xf:output value="event('response-reason-phrase')"/>)</xf:message>-->
+                <xf:action ev:event="xforms-submit-done">
+                    <xf:setvalue ref="instance('vars')/current-profile-id" value="instance('profile')/@id"/>
+                    <xf:send submission="listProfiles"/>
+                </xf:action>
+            </xf:submission>
+            <xf:bind ref="instance('profile')/about/name" constraint=". != 'new profile'"/>
+            <xf:bind ref="instance('profile')/about/creator" constraint=". != 'author'"/>
+        </xf:model>
+    </head>
+    <body>
+        <h1>XML Tokenizer | Manage Profiles</h1>
+        <xf:select1 ref="instance('vars')/current-profile-id">
+            <xf:label>Choose the profile to edit</xf:label>
+            <xf:itemset nodeset="instance('profiles')/profile">
+                <xf:label ref="about/name"/>
+                <xf:value ref="@id"/>
+            </xf:itemset>
+        </xf:select1>
+        <xf:trigger>
+            <xf:label>edit</xf:label>
+            <xf:action>
+                <xf:send submission="getProfile"/>
+            </xf:action>
+        </xf:trigger>
+        <xf:group ref="instance('profile')[@id]">
+            <xf:trigger>
+                <xf:label>Delete this profile</xf:label>
+                <xf:send submission="delete"/>
+            </xf:trigger>
+        </xf:group>
+        <div>
+            <xf:trigger>
+                <xf:label>Create a new profile</xf:label>
+                <xf:action>
+                    <xf:insert origin="instance('template')/profile" ref="instance('profile')" at="1"/>
+                    <xf:delete nodeset="instance('profile')/profile[position() gt 1]"/>
+                    <xf:send submission="createProfile"/>
+                </xf:action>
+            </xf:trigger>
+        </div>
+        <xf:group ref="instance('profile')[@id]">
+            <xf:trigger>
+                <xf:label>Store profile</xf:label>
+                <xf:action>
+                    <xf:send submission="storeProfile"/>
+                </xf:action>
+            </xf:trigger>
+            <p id="toc">
+                <a href="#settings_about">Profile Metadata</a> | 
+                <a href="#settings_general">General Settings</a> | 
+                <a href="#settings_namespaces">Namespaces</a> | 
+                <a href="#settings_copy">Copy elements</a> |
+                <a href="#settings_ignore">Ignore elements</a> |
+                <a href="#settings_in-word">In-word elements</a> |
+                <a href="#settings_floats">Floating Blocks</a> | 
+                <a href="#settings_structure">Structure elments</a>
+            </p>
+            <div id="settings_about" style="margin-top: 2em;">
+                <h2>About</h2>
+                <xf:output ref="instance('profile')/@id">
+                    <xf:label>Profile ID</xf:label>
+                </xf:output>
+                <br/>
+                <xf:output ref="instance('profile')/@created">
+                    <xf:label>Created</xf:label>
+                </xf:output>
+                <xf:group ref="instance('profile')/about" appearance="bf:verticalTable">
+                    <xf:input ref="name">
+                        <xf:label>Profile name</xf:label>
+                        <xf:alert>Please enter a profile name</xf:alert>
+                    </xf:input>
+                    <xf:input ref="creator">
+                        <xf:label>Creator</xf:label>
+                        <xf:alert>Please enter your name</xf:alert>
+                    </xf:input>
+                    <xf:textarea ref="description">
+                        <xf:label>Description</xf:label>
+                    </xf:textarea>
+                </xf:group>
+                <p class="tocLink">
+                    <a href="#">up</a>
+                </p>
+            </div>
+            <div id="settings_general">
+                <xf:group appearance="bf:verticalTable" ref="instance('profile')/parameters">
+                    <h2>General Settings</h2>
+                    <xf:input ref="param[@key = 'pc-regex']/@value">
+                        <xf:label>Punctuation Character Pattern (XSLT Regex expression)</xf:label>
+                    </xf:input>
+                    <xf:input ref="param[@key = 'ws-regex']/@value">
+                        <xf:label>Whitespace Character Pattern (XSLT Regex expression)</xf:label>
+                    </xf:input>
+                    <xf:textarea ref="param[@key = 'lexicon']" incremental="true" id="lexicon_area">
+                        <xf:label>Lexicon</xf:label>
+                        <xf:hint>one entry per line</xf:hint>
+                        <xf:help>tokens in this lexicon will be kept together also when they contain whitespace</xf:help>
+                    </xf:textarea>
+                </xf:group>
+                <p class="tocLink">
+                    <a href="#">up</a>
+                </p>
+            </div>
+            <div class="settingsBlock" id="settings_namespaces">
+                <h2>Namespaces</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Namespace Prefix</th>
+                            <th>Namespace Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="repeat-ns" xf:repeat-nodeset="namespace">
+                        <tr>
+                            <td>
+                                <xf:output ref="@prefix"/>
+                            </td>
+                            <td>
+                                <xf:output ref="text()"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <xf:group ref="//namespace[index('repeat-ns')]" appearance="full">
+                    <xf:input ref="@prefix">
+                        <xf:label>Prefix</xf:label>
+                    </xf:input>
+                    <xf:input ref="text()" size="50">
+                        <xf:label>Delete</xf:label>
+                    </xf:input>
+                </xf:group>
+                <xf:trigger>
+                    <xf:label>Add Namespace</xf:label>
+                    <xf:action ev:event="DOMActivate">
+                        <xf:insert context="instance('profile')" origin="instance('template')/profile/namespace" at="1"/>
+                        <xf:setvalue ref="//namespace[1]/@prefix">ex</xf:setvalue>
+                        <xf:setvalue ref="//namespace[1]/text()">http://example.org</xf:setvalue>
+                    </xf:action>
+                </xf:trigger>
+                <xf:trigger>
+                    <xf:label>Remove Namespace</xf:label>
+                    <xf:action>
+                        <xf:delete nodeset="//namespace[index('repeat-ns')]"/>
+                    </xf:action>
+                </xf:trigger>
+                <p class="tocLink">
+                    <a href="#">up</a>
+                </p>
+            </div>
+            <div class="settingsBlock" id="settings_copy">
+                <h2>Copy Elements <span class="helptext">
+                        <span class="hook">? <span>"Copy elements" are copied from the source document to the tokenized document as they are (are
+                        not tokenized). They constitute token boundaries, i.e. will break words. When
+                        verticalizing the document, the contents of these elements are omitted.</span>
+                        </span>
+                    </span>
+                </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>XPath Expression</th>
+                        </tr>
+                    </thead>
+                    <tbody id="repeat-copy" xf:repeat-nodeset="copy/expression">
+                        <tr>
+                            <td>
+                                <xf:output ref="."/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <xf:group ref="copy/expression[index('repeat-copy')]" appearance="full">
+                    <xf:input ref="." incremental="true">
+                        <xf:label>XPath</xf:label>
+                    </xf:input>
+                </xf:group>
+                <xf:trigger>
+                    <xf:label>Add</xf:label>
+                    <xf:action>
+                        <xf:insert context="copy" origin="instance('templates')/expression" at="1"/>
+                        <xf:setvalue ref="copy/expression[1]">[copy element]</xf:setvalue>
+                    </xf:action>
+                </xf:trigger>
+                <xf:trigger>
+                    <xf:label>Delete</xf:label>
+                    <xf:action>
+                        <xf:delete nodeset="copy/expression[index('repeat-copy')]"/>
+                    </xf:action>
+                </xf:trigger>
+                <p class="tocLink">
+                    <a href="#">up</a>
+                </p>
+            </div>
+            <div class="settingsBlock" id="settings_ignore">
+                <h2>Ignore Elements <span class="helptext">
+                        <span class="hook">? <span>ignored nodes are "invisible" to the tokenizer, i.e. unlike "copy nodes" they do NOT
+                    break tokens but are copied to the tokenized document as they are When verticalizing the
+                    document, the contents of these elements are omitted. </span>
+                        </span>
+                    </span>
+                </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>XPath Expression</th>
+                        </tr>
+                    </thead>
+                    <tbody id="repeat-ignore" xf:repeat-nodeset="ignore/expression">
+                        <tr>
+                            <td>
+                                <xf:output ref="."/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <xf:group ref="ignore/expression[index('repeat-ignore')]" appearance="full">
+                    <xf:input ref="." incremental="true">
+                        <xf:label>XPath</xf:label>
+                    </xf:input>
+                </xf:group>
+                <xf:trigger>
+                    <xf:label>Add</xf:label>
+                    <xf:action ev:event="DOMActivate">
+                        <xf:insert context="ignore" origin="instance('templates')/expression" at="1"/>
+                        <xf:setvalue ref="ignore/expression[1]">[ignore element]</xf:setvalue>
+                    </xf:action>
+                </xf:trigger>
+                <xf:trigger>
+                    <xf:label>Delete</xf:label>
+                    <xf:action>
+                        <xf:delete nodeset="ignore/expression[index('repeat-ignore')]"/>
+                    </xf:action>
+                </xf:trigger>
+                <!--<xf:group><xf:trigger>
+                    <xf:label>Store profile</xf:label>
+                    <xf:action>
+                        <xf:send submission="storeProfile"/>
+                    </xf:action>
+                </xf:trigger></xf:group>-->
+                <p class="tocLink">
+                    <a href="#">up</a>
+                </p>
+            </div>
+            <div class="settingsBlock" id="settings_in-word">
+                <h2>In-Word Elements <a class="helptext">
+                        <span class="hook">?<span>"In-Word elements" do not mark token boundaries but are tokenized themselves. The preceding
+                     partial token (i.e. one that does *not* end with a blank) and the following partial
+                     token (i.e. one that does not start with a blank) will be wrapped by an &lt;w&gt;
+                     element, including the in-word token.<br/>
+                                <code class="xml">
+                                    <pre>&lt;p&gt;Some words are partially &lt;hi&gt;under&lt;/hi&gt;lined.&lt;/p&gt;</pre>
+                                </code>
+                                <br/>will become <br/>
+                                <code>
+                                    <pre>&lt;p&gt;
+    &lt;w&gt;Some&lt;/w&gt;
+    &lt;w&gt;words&lt;/w&gt;
+    &lt;w&gt;are&lt;/w&gt;
+    &lt;w&gt;partially&lt;/w&gt;
+    &lt;hi&gt;
+        &lt;w part="I"&gt;under&lt;/w&gt;
+    &lt;/hi&gt;
+    &lt;w part="F"&gt;lined&lt;/w&gt;
+    &lt;pc&gt;.&lt;/pc&gt;
+&lt;/p&gt;</pre>
+                                </code>
+                            </span>
+                        </span>
+                    </a>
+                </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>XPath Expression</th>
+                        </tr>
+                    </thead>
+                    <tbody id="repeat-in-word-tags" xf:repeat-nodeset="in-word-tags/expression">
+                        <tr>
+                            <td>
+                                <xf:output ref="."/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <xf:group ref="in-word-tags/expression[index('repeat-in-word-tags')]" appearance="full">
+                    <xf:input ref="." incremental="true">
+                        <xf:label>XPath</xf:label>
+                    </xf:input>
+                </xf:group>
+                <xf:trigger>
+                    <xf:label>Add</xf:label>
+                    <xf:action ev:event="DOMActivate">
+                        <xf:insert context="in-word-tags" origin="instance('templates')/expression" at="1"/>
+                        <xf:setvalue ref="in-word-tags/expression[1]">[in-word element]</xf:setvalue>
+                    </xf:action>
+                </xf:trigger>
+                <xf:trigger>
+                    <xf:label>Delete</xf:label>
+                    <xf:action>
+                        <xf:delete nodeset="in-word-tags/expression[index('repeat-in-word-tags')]"/>
+                    </xf:action>
+                </xf:trigger>
+                <p class="tocLink">
+                    <a href="#">up</a>
+                </p>
+            </div>
+            <div class="settingsBlock" id="settings_floats">
+                <h2>Floating Blocks <a class="helptext">
+                        <span class="hook">?<span>"Floating Blocks" are chunks of text that are not part of the main text flow (e.g. figures)
+                    and to be tokenized for themselves.<br/>
+                                <code class="xml">
+                                    <pre>&lt;p&gt;
+    &lt;w&gt;This&lt;/w&gt;
+    &lt;w&gt;can&lt;/w&gt;
+    &lt;w&gt;get&lt;/w&gt;
+    &lt;w part="I"&gt;some&lt;/w&gt;
+    &lt;lb/&gt;
+    &lt;pb/&gt;
+    &lt;figure&gt;
+        &lt;graphic&gt;...&lt;/graphic&gt;
+        &lt;caption&gt;
+            &lt;w part="I"&gt;Fig&lt;/w&gt;
+            &lt;lb/&gt;
+            &lt;w part="F"&gt;ure&lt;/w&gt;
+            &lt;w&gt;1&lt;/w&gt;
+        &lt;/caption&gt;
+    &lt;/figure&gt;
+    &lt;w part="F"&gt;what&lt;/w&gt;
+    &lt;w&gt;complicated&lt;/w&gt;
+    &lt;w&gt;.&lt;/w&gt;
+&lt;/p&gt;</pre>
+                                </code>
+                            </span>
+                        </span>
+                    </a>
+                </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>XPath Expression</th>
+                        </tr>
+                    </thead>
+                    <tbody id="repeat-floating-blocks" xf:repeat-nodeset="floating-blocks/expression">
+                        <tr>
+                            <td>
+                                <xf:output ref="."/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <xf:group ref="floating-blocks/expression[index('repeat-floating-blocks')]" appearance="full">
+                    <xf:input ref="." incremental="true">
+                        <xf:label>XPath</xf:label>
+                    </xf:input>
+                </xf:group>
+                <xf:trigger>
+                    <xf:label>Add</xf:label>
+                    <xf:action ev:event="DOMActivate">
+                        <xf:insert context="floating-blocks" origin="instance('templates')/expression" at="1"/>
+                        <xf:setvalue ref="floating-blocks/expression[1]">[floating block]</xf:setvalue>
+                    </xf:action>
+                </xf:trigger>
+                <xf:trigger>
+                    <xf:label>Delete</xf:label>
+                    <xf:action>
+                        <xf:delete nodeset="floating-blocks/expression[index('repeat-floating-blocks')]"/>
+                    </xf:action>
+                </xf:trigger>
+                <p class="tocLink">
+                    <a href="#">up</a>
+                </p>
+            </div>
+            <div class="settingsBlock" id="settings_structure">
+                <h2>Structure Elements <a class="helptext">
+                        <span class="hook">?<span>Structure Elements are elements that should be included in the vertical output. E.g.
+                    headings, paragraphs, sentences etc.</span>
+                        </span>
+                    </a>
+                </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>XPath Expression</th>
+                        </tr>
+                    </thead>
+                    <tbody id="repeat-structure" xf:repeat-nodeset="structure/expression">
+                        <tr>
+                            <td>
+                                <xf:output ref="."/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <xf:group ref="structure/expression[index('repeat-structure')]" appearance="full">
+                    <xf:input ref="." incremental="true">
+                        <xf:label>XPath</xf:label>
+                    </xf:input>
+                </xf:group>
+                <xf:trigger>
+                    <xf:label>Add</xf:label>
+                    <xf:action ev:event="DOMActivate">
+                        <xf:insert context="structure" origin="instance('templates')/expression" at="1"/>
+                        <xf:setvalue ref="structure/expression[1]">[structure element]</xf:setvalue>
+                    </xf:action>
+                </xf:trigger>
+                <xf:trigger>
+                    <xf:label>Delete</xf:label>
+                    <xf:action>
+                        <xf:delete nodeset="structure/expression[index('repeat-structure')]"/>
+                    </xf:action>
+                </xf:trigger>
+                <p class="tocLink">
+                    <a href="#">up</a>
+                </p>
+            </div>
+        </xf:group>
+    </body>
+</html>
