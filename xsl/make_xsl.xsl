@@ -84,7 +84,7 @@
                         </xsl:for-each>
                     </xsl:element>
                 </xsl:element>
-                <for-each select="//expression[parent::ignore]">
+                <for-each select="//expression[parent::ignore][text()]">
                     <xsl:element name="xsl:template">
                         <xsl:attribute name="match" select="."/>
                         <xsl:attribute name="mode">is-ignore-node</xsl:attribute>
@@ -93,7 +93,7 @@
                         </xsl:element>
                     </xsl:element>
                 </for-each>
-                <for-each select="//expression[parent::in-word-tags]">
+                <for-each select="//expression[parent::in-word-tags][text()]">
                     <xsl:element name="xsl:template">
                         <xsl:attribute name="match" select="."/>
                         <xsl:attribute name="mode">is-inline-node</xsl:attribute>
@@ -102,7 +102,7 @@
                         </xsl:element>
                     </xsl:element>
                 </for-each>
-                <for-each select="//expression[parent::floating-blocks]">
+                <for-each select="//expression[parent::floating-blocks][text()]">
                     <xsl:element name="xsl:template">
                         <xsl:attribute name="match" select="."/>
                         <xsl:attribute name="mode">is-floating-node</xsl:attribute>
@@ -111,7 +111,7 @@
                         </xsl:element>
                     </xsl:element>
                 </for-each>
-                <for-each select="//expression[parent::copy]">
+                <for-each select="//expression[parent::copy][text()]">
                     <xsl:element name="xsl:template">
                         <xsl:attribute name="match" select="."/>
                         <xsl:attribute name="mode">is-copy-node</xsl:attribute>
@@ -207,7 +207,7 @@
                 <text xml:space="preserve">
 
 </text>
-                <for-each select="//expression[parent::structure]">
+                <for-each select="//expression[parent::structure][text()]">
                     <xsl:element name="xsl:template">
                         <xsl:attribute name="match" select="."/>
                         <xsl:attribute name="mode">extractTokens</xsl:attribute>
@@ -245,7 +245,7 @@
                 <text xml:space="preserve">
 
 </text>
-                <for-each select="//expression[parent::structure]">
+                <for-each select="//expression[parent::structure][text()]">
                     <xsl:element name="xsl:template">
                         <xsl:attribute name="match" select="."/>
                         <xsl:element name="xsl:sequence">
