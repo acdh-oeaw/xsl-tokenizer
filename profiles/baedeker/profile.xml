@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile created="2015-10-12T14:09:42.047+02:00" id="baedeker" last-updated="">
+    <about>
+        <name>Baedeker Profile</name>
+        <creator>Barbara Krautgartner</creator>
+        <description>Profile for tokenizing Baedeker texts.</description>
+    </about>
+    <parameters>
+        <param key="makeNoNamespaceVersion" value="true()"/>
+        <param key="preserve-ws" value="true"/>
+        <param key="pc-regex" value="[\p{P}]"/>
+        <param key="ws-regex" value="\s+"/>
+        <param key="debug" value="false"/>
+        <param key="useLexicon" value="true"/>
+        <param key="lexicon" xml:space="preserve">A.
+AB.
+ab.
+Abb.
+Adj.
+Adr.
+Alph.
+Anf.
+Apr.
+Aufenth.
+Aufl.
+Ausfl.
+B.
+b.
+BH.
+BUI.
+Bahnrest.
+Bahnrestaur.
+Bal.
+Bat.
+Bd.
+Bde.
+Bes.
+Bg.
+Biblioth.
+Botan.
+Boul.
+Br.
+Bristol-Hot.
+Brit.
+C.
+Cav.
+Ch.
+Chr.
+Cie.
+Co.
+Comp.
+Cons.
+D.
+DLB.
+Dez.
+Di.
+Do.
+Dr.
+Du.
+E.
+Ed.
+Educat.-Institutes
+Edw.
+Eig.
+Eingeb.- Kavallerieregimenter
+Eingeb.-Infanterieregimenter
+Eingeb.-Kavallerie-Regiment
+Einsp.
+Eintr.
+Einw.
+Einw.n
+Engl.
+Establ.
+Eug.
+Europ.
+F.
+Fa.
+Fahrpr.
+Fahrz.
+Ferd.
+Fr.
+Fr.-Dampfer
+Französ.
+Frhr.
+Friedr.
+G.
+GEOGR.
+Gasth.
+Gb.
+Geogr.
+Geograph.
+Geor.
+Ger.
+Gh.
+Gr.
+Gr.-H.
+Grundr.
+H.
+H.-P.
+H.-Rest.
+Ha.
+Heil.
+Herm.
+Hosp.
+Hot.
+Hôt.
+I.
+Ind.
+Inf.
+J.
+Jahrh.
+Jan.
+Joh.
+Jos.
+K.
+Ka.
+Kan.
+Kat.
+Kilom.
+Kl.
+Kl.-Abteil
+Koninkl.
+Kr.
+Königl.
+L.
+LDH.
+Lieut.-Governors
+Ltd.
+M.
+MITTELLÄND.
+Madj.
+Mant.
+Mar.
+Mess.
+Mi.
+Mill.
+Min.
+Mo.
+Mohamm.
+Mrs.
+N-
+N.
+N.-
+N.-Ende
+N.-Fuß
+N.-Galerie
+N.-Mauer
+N.-S.-Straße
+N.-Seite
+N.-Spitze
+N.-Wendung
+N.W.
+NNW.
+NO.
+NO.- Ecke
+NO.-Abhang
+NO.-Ecke
+NO.-Mon sun
+NO.-Monsun
+NO.-Monsuns
+NO.-Seite
+NW.
+NW.-Monsuns
+NW.-Bahn
+NW.-Ecke
+NW.-Ende
+NW.-Kurs
+NW.-Küste
+NW.-Provinz
+NW.-Rande
+NW.-Seite
+Nachm.-Schnellzug
+Nachm.-Tee
+Naj.
+Napol.
+Nederl.
+Nederl.-Indische
+Niederl.
+Niederländ.
+Nordd.
+Nordwestl.
+Nordöstl.
+Nov.
+Nr.
+Nördl.
+O.
+O.-
+O.-Dampfer
+O.-Ecke
+O.-Eingang
+O.-Ende
+O.-Rand
+O.-Seite
+O.-Tor
+ONO.
+OSO.
+Off.
+Off.-Stellvertretern
+Okt.
+Oranje-Hot.
+Orientle.
+P.
+PRAKT.
+Pers.
+Pers.- Zug
+Pf.
+Pfd.
+Ph.
+Pl.
+Portugies.
+Prakt.
+Prof.
+Prov.-Museums
+R.
+Ra.
+Ramp.
+Rasth.
+Reg.-Rasthaus
+Reg.-Tons
+Regina- Hôt.
+Rest.
+Restaur.
+Rich.
+Rup.
+Russ.
+Russ.-Asien
+Ry.
+S.
+S.-
+S.-Ende
+S.-N.-Straße
+S.-O.-Fuß
+S.-Seite
+S.-Spitze
+S.-Ufer
+S.-Wendung
+S.O.-Ende
+SM.
+SO.
+SO.- Asien
+SO.- Ende
+SO.-Abhang
+SO.-Asien
+SO.-Ecke
+SO.-Küste
+SO.-Monsuns
+SO.-Passat
+SO.-Rande
+SO.-Seite
+SO.-Spitze
+SO.-Ufer
+SSW.
+SW.
+SW.- Monsuns
+SW.- Seite
+SW.-Ecke
+SW.-Ende
+SW.-Mon suns
+SW.-Monsun
+SW.-Spitze
+Sa.
+sächs.
+Schang.
+Schnellz.
+Sept.
+Serg.
+Sh.
+So.
+Sonnt.
+St.
+Sterl.
+Str.
+Stud.
+Subst.
+Sächs.
+Südl.
+Südwestl.
+Südöstl.
+T.
+Telegr.
+Th.
+Thom.
+Thos.
+Ti.
+Tjitj.
+Trinkg.
+Trkg.
+V.
+Vergl.
+Vgl.
+Vinc.
+Vitt.
+Vorm.-Zug
+W.
+W.-
+W.- Fuß
+W.-Fuß
+W.-Küste
+W.- Küste
+W.-Abhang
+W.-Eingang
+W.-Ende
+W.-Fuß
+W.-Küste
+W.-Rand
+W.-Seite
+W.-Ufer
+WNW.
+WSW.
+Warrantoff.
+Wasserwerkstädt.
+Westl.
+Wilh.
+Will.
+Z.
+Zweisp.
+a.
+adv.
+allgem.
+bes.
+bez.
+br.
+brit.
+britisch.-indische
+bzw.
+c.
+ca.
+chines.
+christl.
+constr.
+ct.
+cts.
+d.
+dergl.
+dgl.
+ed.
+ehem.
+eig.
+eigentl.
+einf.
+eingeb.
+einschl.
+einsp.
+elektr.
+engl.
+engl.-ostindische
+engl.-ägyptischen
+englisch.
+erzbischöfl.
+et.
+etc.
+europ.
+evang.
+ff.
+fl.
+folg.
+fr.
+franz.
+franz.-indisches
+franz.-ostindischen
+ft.
+fürstl.
+gen.
+geogr.
+gespr.
+gew.
+gig.
+gleichnam.
+gr.
+griech.
+h.
+heil.
+herr schaftl.-
+hindust.
+hindustan.
+holl.
+holländ.
+höfl.
+i.
+illustr.
+ind.
+italien.
+jun.
+jährl.
+kaiserl.
+kg.
+kgl.
+königl.
+l.
+lat.
+m.
+mal.
+moham.
+monatl.
+n.
+n.n.ö.
+n.w.
+n.ö.
+nachm.
+nachmal.
+namentl.
+niederl.
+niederl.-indische
+nord westl.
+nordwestl.
+nordöstl.
+nördl.
+od.
+oz.
+p.
+portug.
+pr.
+prot.
+r.
+röm.- katholischen
+röm.-kath.
+röm.-katholische
+röm.-katholischen
+röm.-katholischer
+s.
+s.w.
+s.ö.
+sanskr.
+sanskrit.
+schl.
+schweizer.
+sh.
+singhal.
+sog.
+spr.
+städt.
+stünd.
+süd westl.
+südl.
+südwestl.
+südöstl.
+telegr.
+tibet.
+tägl.
+türk.
+u.
+usw.
+v.
+vergl.
+verst.
+vgl.
+vizekgl.
+vizekönigl.
+vorm.
+vortreffl.
+w.
+westl.
+westöstl.
+wöch.
+wörtl.
+z.
+zweisp.
+Äq.
+Österreich.
+Östl-
+Östl.
+éd.
+ö.
+österr.
+östl.
+ü.I.
+II.
+III.
+IV.
+V.
+VI.
+VII.
+VIII.
+IX.
+X.
+XI.
+XII.
+XIII.
+XIV.
+XV.
+XVI.
+XVII.
+XVIII.
+XIX.
+XX.
+XXI.
+XXII.
+XXIII.
+XXIV.
+XXV.
+XXVI.
+XXVII.
+XXVIII.
+XXIX.
+XXX.
+XXXI.
+XXXII.
+XXXIII.
+XXXIV.
+XXXV.
+XXXVI.
+XXXVII.
+XXXVIII.
+XXXIX.
+XXXX.</param>
+    </parameters>
+    <postProcessing/>
+    <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
+    <copy>
+        <expression>tei:teiHeader</expression>
+    </copy>
+    <ignore>
+        <expression>tei:pb</expression>
+        <expression>tei:fw</expression>
+        <expression>tei:note[@place='below']</expression>
+        <expression>tei:lb[@break='no']</expression>
+    </ignore>
+    <in-word-tags>
+        <expression>tei:hi</expression>
+        <expression>tei:emph</expression>
+        <expression>tei:seg</expression>
+    </in-word-tags>
+    <floating-blocks>
+        <expression>tei:floatingText</expression>
+        <expression>tei:figure</expression>
+    </floating-blocks>
+    <structure>
+        
+        
+    </structure>
+</profile>
