@@ -12,6 +12,18 @@
     
     <xsl:key name="tag-by-id" match="tei:*" use="@xml:id"/>
     
+    <xsl:template match="/">
+        <xsl:variable name="part-i" select="count(//tei:*[@part = 'I'])"/>
+        <xsl:variable name="part-f" select="count(//tei:*[@part = 'F'])"/>
+        <xsl:if test="$part-i != $part-f">
+            <xsl:message terminate="yes">Unequal number of partial tokens: <xsl:value-of select="$part-i"/> inital, <xsl:value-of select="$part-f"/> final parts</xsl:message>
+        </xsl:if>
+        <xsl:if test="$debug != 'no'">
+            <xsl:message>Debug level: <xsl:value-of select="$debug"/></xsl:message>
+        </xsl:if>
+        <xsl:apply-templates/>
+    </xsl:template>
+    
     <xsl:template match="tei:TEI|*[ancestor-or-self::tei:teiHeader]">
         <xsl:copy>
             <xsl:copy-of select="@*"/>
@@ -37,18 +49,48 @@
     </xsl:template>
     
     <xsl:template match="*[@part = 'I']" mode="extractTokens" priority="1">
+        <xsl:variable name="next" select="key('tag-by-id', substring-after(@next, '#'))" as="node()?"/>
+        <xsl:if test="$debug = 'no' and not($next)">
+            <xsl:message terminate="yes">@next is empty or element not found for element <xsl:copy-of select="."/></xsl:message>
+        </xsl:if>
         <xsl:copy>
             <xsl:copy-of select="@* except (@part|@prev|@next)"/>
-            <xsl:value-of select="."/>
-            <xsl:apply-templates select="key('tag-by-id', substring-after(@next, '#'))" mode="getTokenContent"/>
+            <xsl:choose>
+                <xsl:when test="$debug = 'tei2vert'">
+                    <xsl:sequence select="."/>
+                    <xsl:apply-templates select="$next" mode="getTokenCopy"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="."/>
+                    <xsl:apply-templates select="$next" mode="getTokenContent"/>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:copy>
     </xsl:template>
     
     <xsl:template match="*[@part = ('M', 'F')]" mode="extractTokens" priority="2"/>
     
-    <xsl:template match="*[@part = ('M', 'F')]" mode="getTokenContent">
+    <xsl:template match="*[@part = 'M']" mode="getTokenContent">
+        <xsl:variable name="next" select="key('tag-by-id', substring-after(@next, '#'))" as="node()?"/>
+        <xsl:if test="not($next)">
+            <xsl:message terminate="yes">@next is empty or not found for element <xsl:copy-of select="."/></xsl:message>
+        </xsl:if>
         <xsl:value-of select="."/>
-        <xsl:apply-templates select="key('tag-by-id', substring-after(@next, '#'))" mode="getTokenContent"/>
+        <xsl:apply-templates select="$next" mode="getTokenContent"/>
+    </xsl:template>
+    
+    <xsl:template match="*[@part = 'M']" mode="getTokenCopy">
+        <xsl:variable name="next" select="key('tag-by-id', substring-after(@next, '#'))" as="node()?"/>
+        <xsl:sequence select="."/>
+        <xsl:apply-templates select="$next" mode="getTokenCopy"/>
+    </xsl:template>
+    
+    <xsl:template match="*[@part = 'F']" mode="getTokenContent">
+        <xsl:value-of select="."/>
+    </xsl:template>
+    
+    <xsl:template match="*[@part = 'F']" mode="getTokenCopy">
+        <xsl:sequence select="."/>
     </xsl:template>
     
     <xsl:template match="text()[not(parent::tei:w) or not(parent::tei:seg)]" mode="extractTokens"/>
