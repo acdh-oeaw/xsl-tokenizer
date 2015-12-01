@@ -106,19 +106,32 @@
         <xsl:variable name="w" select="." as="element()"/>
         <xsl:variable name="entry-length" select="string-length($lexToks)" as="xs:integer"/>
         <xsl:variable name="next" select="subsequence(following-sibling::*, 1, $entry-length)" as="item()*"/>
-        <xsl:variable name="entries" select="$lexToks//tei:entry[starts-with(string-join(($w,$next),''),.)]" as="item()*"/>
+        <xsl:variable name="candidates" select="$lexToks//tei:entry[starts-with(string-join(($w,$next),''),.)]" as="item()*"/>
         <xsl:choose>
-            <xsl:when test="$entries">
+            <xsl:when test="$candidates">
+                <xsl:variable name="entries" as="element()*">
+                    <xsl:for-each select="$candidates">
+                        <xsl:variable name="sum" as="item()*">
+                            <xsl:call-template name="sum">
+                                <xsl:with-param name="entry" select="." as="xs:string"/>
+                                <xsl:with-param name="bag" select="$w" as="item()"/>
+                            </xsl:call-template>
+                        </xsl:variable>
+                        <xsl:if test="exists($sum)">
+                            <xsl:element name="next-by-lex" namespace="">
+                                <xsl:attribute name="lex_entry" select="./@xml:id"/>
+                                <xsl:attribute name="entry" select="."/>
+                                <xsl:value-of select="string-join(subsequence($sum,2)/@xml:id, ' ')"/>
+                            </xsl:element>
+                        </xsl:if>
+                    </xsl:for-each>
+                </xsl:variable>
                 <xsl:copy>
                     <xsl:copy-of select="@*"/>
-                    <xsl:attribute name="lex_entry" select="$entries[1]/@xml:id"/>
-                    <xsl:variable name="sum" as="item()*">
-                        <xsl:call-template name="sum">
-                            <xsl:with-param name="entry" select="$entries[1]" as="xs:string"/>
-                            <xsl:with-param name="bag" select="$w" as="item()"/>
-                        </xsl:call-template>
-                    </xsl:variable>
-                    <xsl:attribute name="next-by-lex" select="string-join(subsequence($sum,2)/@xml:id, ' ')"/>
+                    <xsl:if test="$entries">
+                        <xsl:copy-of select="$entries[1]/@lex_entry"/>
+                        <xsl:attribute name="next-by-lex" select="$entries[1]"/>
+                    </xsl:if>
                     <xsl:copy-of select="node()"/>
                 </xsl:copy>
             </xsl:when>
@@ -131,15 +144,27 @@
     <xsl:template match="*[@next-by-lex and @lex_entry]" mode="add-lex-parts">
         <xsl:copy>
             <xsl:copy-of select="@* except (@next-by-lex|@lex_entry|@part|@prev|@next)"/>
-            <xsl:attribute name="part">I</xsl:attribute>
+            <!-- may be part of an split abbreviation -->
+            <xsl:attribute name="part" select="if (@part = ('F','M')) then 'M' else 'I'"/>
             <xsl:attribute name="next" select="concat('#',tokenize(@next-by-lex,' ')[1])"/>
+            <xsl:if test="@part = ('F','M')">
+                <xsl:copy-of select="@prev"/>
+            </xsl:if>
             <xsl:copy-of select="node()"/>
         </xsl:copy>
     </xsl:template>
     
-    <xsl:template match="*[key('first-lex-token-by-reference', @xml:id)]" mode="add-lex-parts">
+    <xsl:template match="*[key('first-lex-token-by-reference', @xml:id)]" mode="add-lex-parts" priority="1">
         <xsl:variable name="id" select="@xml:id" as="xs:string"/>
-        <xsl:variable name="first-lex-token" select="key('first-lex-token-by-reference', $id)" as="item()"/>
+        <xsl:variable name="first-lex-tokens" select="key('first-lex-token-by-reference', $id)" as="item()+"/>
+        <xsl:if test="count($first-lex-tokens) gt 1">
+            <xsl:message>ID: <xsl:value-of select="$id"/></xsl:message>
+            <xsl:message>
+                <xsl:copy-of select="$first-lex-tokens"/>
+            </xsl:message>
+            <xsl:message>=========</xsl:message>
+        </xsl:if>
+        <xsl:variable name="first-lex-token" select="($first-lex-tokens)[1]" as="item()"/>
         <xsl:variable name="all-lex-tokens" as="text()*">
             <xsl:for-each select="tokenize($first-lex-token/@next-by-lex,' ')">
                 <xsl:value-of select="."/>
