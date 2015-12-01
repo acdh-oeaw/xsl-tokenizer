@@ -12,7 +12,47 @@
         <param key="ws-regex" value="\s+"/>
         <param key="debug" value="false"/>
         <param key="useLexicon" value="true"/>
-        <param key="lexicon" xml:space="preserve">A.
+        <param key="lexicon" xml:space="preserve">I.
+II.
+III.
+IV.
+V.
+VI.
+VII.
+VIII.
+IX.
+X.
+XI.
+XII.
+XIII.
+XIV.
+XV.
+XVI.
+XVII.
+XVIII.
+XIX.
+XX.
+XXI.
+XXII.
+XXIII.
+XXIV.
+XXV.
+XXVI.
+XXVII.
+XXVIII.
+XXIX.
+XXX.
+XXXI.
+XXXII.
+XXXIII.
+XXXIV.
+XXXV.
+XXXVI.
+XXXVII.
+XXXVIII.
+XXXIX.
+XXXX.
+A.
 AB.
 ab.
 Abb.
@@ -118,7 +158,7 @@ Kan.
 Kat.
 Kilom.
 Kl.
-Kl.-Abteil
+Kl.- Abteil
 Koninkl.
 Kr.
 Königl.
@@ -141,6 +181,7 @@ Mrs.
 N-
 N.
 N.-
+N.- Ende
 N.-Ende
 N.-Fuß
 N.-Galerie
@@ -160,7 +201,8 @@ NO.-Monsun
 NO.-Monsuns
 NO.-Seite
 NW.
-NW.-Monsuns
+NW.- Ecke
+NW.- Monsuns
 NW.-Bahn
 NW.-Ecke
 NW.-Ende
@@ -174,7 +216,7 @@ Nachm.-Tee
 Naj.
 Napol.
 Nederl.
-Nederl.-Indische
+Nederl.- Indische
 Niederl.
 Niederländ.
 Nordd.
@@ -185,6 +227,7 @@ Nr.
 Nördl.
 O.
 O.-
+O.- Seite
 O.-Dampfer
 O.-Ecke
 O.-Eingang
@@ -463,46 +506,7 @@ zweisp.
 ö.
 österr.
 östl.
-ü.I.
-II.
-III.
-IV.
-V.
-VI.
-VII.
-VIII.
-IX.
-X.
-XI.
-XII.
-XIII.
-XIV.
-XV.
-XVI.
-XVII.
-XVIII.
-XIX.
-XX.
-XXI.
-XXII.
-XXIII.
-XXIV.
-XXV.
-XXVI.
-XXVII.
-XXVIII.
-XXIX.
-XXX.
-XXXI.
-XXXII.
-XXXIII.
-XXXIV.
-XXXV.
-XXXVI.
-XXXVII.
-XXXVIII.
-XXXIX.
-XXXX.</param>
+ü.</param>
     </parameters>
     <postProcessing/>
     <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
@@ -512,16 +516,27 @@ XXXX.</param>
     <ignore>
         <expression>tei:pb</expression>
         <expression>tei:fw</expression>
+        <expression>tei:milestone</expression>
         <expression>tei:note[@place='below']</expression>
+        <expression>tei:reg</expression>
+        <expression>tei:corr</expression>
         <expression>tei:lb[@break='no']</expression>
     </ignore>
     <in-word-tags>
+        <expression>tei:supplied</expression>
+        <expression>tei:choice</expression>
         <expression>tei:hi</expression>
         <expression>tei:emph</expression>
+        <expression>tei:placeName</expression>
         <expression>tei:seg</expression>
+        <expression>tei:persName</expression>
+        <expression>tei:foreign</expression>
+        <expression>tei:abbr</expression>
+        <expression>aac_GD</expression>
     </in-word-tags>
     <floating-blocks>
         <expression>tei:floatingText</expression>
+        <expression>tei:note[not(@place='below')]</expression>
         <expression>tei:figure</expression>
     </floating-blocks>
     <structure>
