@@ -16,12 +16,21 @@
     
     <xsl:template match="/">
         <xsl:variable name="ids-added">
+            <xsl:if test="$debug = ('yes','addP')">
+                <xsl:message>Run "add-ids"</xsl:message>
+            </xsl:if>
             <xsl:apply-templates mode="add-ids"/>
         </xsl:variable>
         <xsl:variable name="floats">
+            <xsl:if test="$debug = ('yes','addP')">
+                <xsl:message>Run "floats"</xsl:message>
+            </xsl:if>
             <xsl:sequence select="$ids-added//*[@mode='float']"/>
         </xsl:variable>
         <xsl:variable name="flatten" as="item()*">
+            <xsl:if test="$debug = ('yes','addP')">
+                <xsl:message>Run "flatten"</xsl:message>
+            </xsl:if>
             <xsl:document>
                 <xsl:apply-templates select="$ids-added" mode="flatten"/>
                 <xsl:apply-templates select="$floats" mode="flattenFloats"/>
@@ -29,6 +38,9 @@
         </xsl:variable>
         
         <xsl:variable name="partsTagged" as="document-node()*">
+            <xsl:if test="$debug = ('yes','addP')">
+                <xsl:message>Run "group"</xsl:message>
+            </xsl:if>
             <xsl:document>
                 <xsl:apply-templates select="$flatten" mode="group"/>
             </xsl:document>
@@ -38,22 +50,34 @@
             <xsl:when test="$useLexicon = 'true' and $lexToks//*">
                 
                 <xsl:variable name="lexApplied" as="document-node()">
+                    <xsl:if test="$debug = ('yes','addP')">
+                        <xsl:message>Run "apply-lex"</xsl:message>
+                    </xsl:if>
                     <xsl:document>
                         <xsl:apply-templates select="$partsTagged" mode="apply-lex"/>
                     </xsl:document>
                 </xsl:variable>
                 
                 <xsl:variable name="lexPartsAdded" as="document-node()">
+                    <xsl:if test="$debug = ('yes','addP')">
+                        <xsl:message>Run "add-lex-parts"</xsl:message>
+                    </xsl:if>
                     <xsl:document>
                         <xsl:apply-templates select="$lexApplied" mode="add-lex-parts"/>
                     </xsl:document>
                 </xsl:variable>
                 
+                <xsl:if test="$debug = ('yes','addP')">
+                    <xsl:message>Run "add-p"</xsl:message>
+                </xsl:if>
                 <xsl:apply-templates select="$ids-added" mode="addP">
                     <xsl:with-param name="grouped" select="$lexPartsAdded" as="document-node()" tunnel="yes"/>
                 </xsl:apply-templates>
             </xsl:when>
             <xsl:otherwise>
+                <xsl:if test="$debug = ('yes','addP')">
+                    <xsl:message>Run "add-p"</xsl:message>
+                </xsl:if>
                 <xsl:apply-templates select="$ids-added" mode="addP">
                     <xsl:with-param name="grouped" select="$partsTagged" as="document-node()" tunnel="yes"/>
                 </xsl:apply-templates>
