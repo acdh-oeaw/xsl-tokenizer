@@ -238,9 +238,12 @@
     </xsl:template>
     
     <xsl:template match="tei:w|tei:pc|tei:seg[@type='ws']" priority="1" mode="add-ids">
+        <xsl:variable name="number" as="xs:integer">
+            <xsl:number level="any" count="tei:w|tei:pc|tei:seg[@type = 'ws']"/>
+        </xsl:variable>
         <xsl:copy>
             <xsl:copy-of select="@*"/>
-            <xsl:attribute name="xml:id" select="generate-id(.)"/>
+            <xsl:attribute name="xml:id" select="concat('xTok_',format-number($number,'000000'))"/>
             <xsl:apply-templates select="node()" mode="#current"/>
         </xsl:copy>
     </xsl:template>
