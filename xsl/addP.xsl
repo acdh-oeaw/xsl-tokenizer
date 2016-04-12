@@ -15,18 +15,21 @@
     
     
     <xsl:template match="/">
+        <!-- First every token is assigned a stable ID -->
         <xsl:variable name="ids-added">
             <xsl:if test="$debug = ('yes','addP')">
                 <xsl:message>Run "add-ids"</xsl:message>
             </xsl:if>
             <xsl:apply-templates mode="add-ids"/>
         </xsl:variable>
+        <!--This variable holds all floating blocks. -->
         <xsl:variable name="floats">
             <xsl:if test="$debug = ('yes','addP')">
                 <xsl:message>Run "floats"</xsl:message>
             </xsl:if>
             <xsl:sequence select="$ids-added//*[@mode='float']"/>
         </xsl:variable>
+        <!-- This variable holds the plain token list, i.e. a sequence of all tokens in the document where all other structural tags are removed. -->
         <xsl:variable name="flatten" as="item()*">
             <xsl:if test="$debug = ('yes','addP')">
                 <xsl:message>Run "flatten"</xsl:message>
@@ -37,6 +40,9 @@
             </xsl:document>
         </xsl:variable>
         
+        <!-- This variable holds the token list with added @part attributes: partial tokens are only 
+             determined by checking for adjacent whitespace / puctuation characters. The lexicon is not yet 
+             applied in this step. -->
         <xsl:variable name="partsTagged" as="document-node()*">
             <xsl:if test="$debug = ('yes','addP')">
                 <xsl:message>Run "group"</xsl:message>
@@ -49,6 +55,7 @@
         <xsl:choose>
             <xsl:when test="$useLexicon = 'true' and $lexToks//*">
                 
+                <!-- This variable holds the token list with those tokens tagged that occure in the lexicon. -->
                 <xsl:variable name="lexApplied" as="document-node()">
                     <xsl:if test="$debug = ('yes','addP')">
                         <xsl:message>Run "apply-lex"</xsl:message>
@@ -58,6 +65,7 @@
                     </xsl:document>
                 </xsl:variable>
                 
+                <!-- In this step, @part attributes are added to the tagged lexicon tokens. -->
                 <xsl:variable name="lexPartsAdded" as="document-node()">
                     <xsl:if test="$debug = ('yes','addP')">
                         <xsl:message>Run "add-lex-parts"</xsl:message>
@@ -67,6 +75,8 @@
                     </xsl:document>
                 </xsl:variable>
                 
+                <!-- In this step, the @part atributes determined in the previous step 
+                    are copied over to the plain token list  -->
                 <xsl:if test="$debug = ('yes','addP')">
                     <xsl:message>Run "add-p"</xsl:message>
                 </xsl:if>
@@ -284,32 +294,6 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <xsl:template name="splitCollapsed">
         <xsl:param name="parts" as="element()*" required="yes"/>
         <xsl:param name="lex-entry" as="xs:string" tunnel="yes" required="yes"/>
@@ -346,7 +330,4 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
-    
-    
 </xsl:stylesheet>
