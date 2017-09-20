@@ -16,7 +16,9 @@
         <xsl:text>&gt;&#10;</xsl:text>
     </xsl:function>
     <xsl:template match="/">
+        <xsl:text>&lt;doc&gt;&#10;</xsl:text>
         <xsl:apply-templates select="tei:TEI/tei:text/tei:body"/>
+        <xsl:text>&lt;/doc&gt;</xsl:text>
     </xsl:template>
     <xsl:template match="tei:seg[@type = 'ws']"/>
     <xsl:template match="*">
