@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xtoks="http://acdh.oeaw.ac.at/xtoks" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" exclude-result-prefixes="xs xd" version="2.0">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xtoks="http://acdh.oeaw.ac.at/xtoks" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" exclude-result-prefixes="xs xd" version="2.0">
     <xd:doc scope="stylesheet">
         <xd:desc>
             <xd:p>
@@ -211,13 +210,35 @@
                     <xsl:element name="xsl:template">
                         <xsl:attribute name="match" select="."/>
                         <xsl:attribute name="mode">extractTokens</xsl:attribute>
-                        <xsl:element name="xsl:copy">
-                            <xsl:element name="xsl:copy-of">
-                                <xsl:attribute name="select">@*</xsl:attribute>
-                            </xsl:element>
+                        <xsl:element name="xsl:variable">
+                            <xsl:attribute name="name">content</xsl:attribute>
+                            <xsl:attribute name="as">item()*</xsl:attribute>
                             <xsl:element name="xsl:apply-templates">
                                 <xsl:attribute name="mode">#current</xsl:attribute>
                             </xsl:element>
+                        </xsl:element>
+                        <xsl:element name="xsl:if">
+                            <xsl:attribute name="test">exists($content)</xsl:attribute>
+                            <xsl:element name="xsl:copy">
+                                <xsl:element name="xsl:copy-of">
+                                    <xsl:attribute name="select">@*</xsl:attribute>
+                                </xsl:element>
+                                <xsl:element name="xsl:sequence">
+                                    <xsl:attribute name="select">$content</xsl:attribute>
+                                </xsl:element>
+                            </xsl:element>
+                        </xsl:element>
+                    </xsl:element>
+                </for-each>
+                
+                <for-each select="//doc-attribute[parent::doc-attributes][expression/text()]">
+                    <xsl:element name="xsl:template">
+                        <xsl:attribute name="match" select="expression"/>
+                        <xsl:attribute name="mode">doc-attributes</xsl:attribute>
+                        <xsl:element name="xsl:attribute">
+                            <xsl:attribute name="namespace">http://acdh.oeaw.ac.at/apps/xtoks</xsl:attribute>
+                            <xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
+                            <xsl:attribute name="select">normalize-space(.)</xsl:attribute>
                         </xsl:element>
                     </xsl:element>
                 </for-each>

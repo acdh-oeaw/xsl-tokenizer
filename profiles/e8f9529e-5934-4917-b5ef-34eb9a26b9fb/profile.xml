@@ -1,0 +1,46 @@
+<profile created="2017-09-19T10:42:28.701Z" id="e8f9529e-5934-4917-b5ef-34eb9a26b9fb" last-updated="">
+    <about>
+        <name>deutschmaturatexte</name>
+        <creator>Daniel Schopper</creator>
+        <description>Tokenisierungs-Profil für Daten des Projekts "Corpuslinguistische Untersuchung von Deutschmaturatexten" (#7324)</description>
+    </about>
+    <parameters>
+        <param key="pc-regex" value="[\p{P}]"/>
+        <param key="ws-regex" value="\s+"/>
+        <param key="preserve-ws" value="true"/>
+        <param key="debug" value="false"/>
+        <param key="useLexicon" value="true"/>
+        <param key="lexicon" xml:space="preserve"/>
+    </parameters>
+    <postProcessing/>
+    <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
+    <copy>
+        <expression>tei:back</expression>
+        <expression>tei:front</expression>
+        <expression>tei:teiHeader</expression>
+    </copy>
+    <ignore>
+        
+    </ignore>
+    <in-word-tags>
+        
+    </in-word-tags>
+    <floating-blocks>
+        
+    </floating-blocks>
+    <structure>
+        <expression>tei:seg</expression>
+        <expression>tei:p</expression>
+    </structure>
+    <doc-attributes>
+        <doc-attribute name="sex">
+            <expression>//tei:f[@name = 'sex']/tei:symbol/@value</expression>
+        </doc-attribute>
+        <doc-attribute name="grade">
+            <expression>//tei:f[@name = 'grade']/tei:symbol/@value</expression>
+        </doc-attribute>
+        <doc-attribute name="format">
+            <expression>//tei:f[@name = 'format']/tei:symbol/@value</expression>
+        </doc-attribute>
+    </doc-attributes>
+</profile>
