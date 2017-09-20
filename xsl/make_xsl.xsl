@@ -212,6 +212,9 @@
                         <xsl:attribute name="match" select="."/>
                         <xsl:attribute name="mode">extractTokens</xsl:attribute>
                         <xsl:element name="xsl:copy">
+                            <xsl:element name="xsl:copy-of">
+                                <xsl:attribute name="select">@*</xsl:attribute>
+                            </xsl:element>
                             <xsl:element name="xsl:apply-templates">
                                 <xsl:attribute name="mode">#current</xsl:attribute>
                             </xsl:element>

@@ -6,6 +6,9 @@
         <xsl:param name="elt"/>
         <xsl:text>&lt;</xsl:text>
         <xsl:value-of select="local-name($elt)"/>
+        <xsl:for-each select="$elt/@*">
+            <xsl:value-of select="concat(' ',local-name(.),'=','&quot;',data(.),'&quot;')"/>
+        </xsl:for-each>
         <xsl:text>&gt;&#10;</xsl:text>
         <xsl:apply-templates select="$elt/*"/>
         <xsl:text>&lt;/</xsl:text>
