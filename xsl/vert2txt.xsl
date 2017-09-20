@@ -26,5 +26,8 @@
     </xsl:template>
     <xsl:template match="tei:w|tei:pc">
         <xsl:value-of select="concat(normalize-space(.),'&#x9;',@xml:id,'&#xA;')"/>
+        <xsl:if test="exists(following-sibling::*) and not(following-sibling::*[1]/self::tei:seg[@type='ws'])">
+            <xsl:text>&lt;g/&gt;&#10;</xsl:text>
+        </xsl:if>
     </xsl:template>
 </xsl:stylesheet>
