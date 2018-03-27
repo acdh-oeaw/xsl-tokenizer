@@ -18,6 +18,7 @@
     <xsl:param name="ws-regex" as="xs:string" select="if(exists(root()//param[@key='ws-regex'])) then xs:string(root()//param[@key='ws-regex']/data(@value)) else '\s+'"/>
     <xsl:param name="preserve-ws" as="xs:boolean" select="if(exists(root()//param[@key='preserve-ws'])) then xs:boolean(root()//param[@key='preserve-ws']/data(@value)) else true()"/>
     <xsl:param name="pathToPLib" as="xs:string" select="if(exists(root()//param[@key='pathToPLib'])) then xs:string(root()//param[@key='pathToPLib']/data(@value)) else '../../xsl/addP.xsl'"/>
+    <xsl:param name="output-base-path"/>
     <xsl:function name="xtoks:expand-path">
         <xsl:param name="path" as="xs:string?"/>
         <xsl:if test="$path != ''">
@@ -42,8 +43,18 @@
         </xsl:if>
     </xsl:function>
     <xsl:variable name="profile-name" as="xs:string" select="/profile/@id"/>
+    <xsl:variable name="output-path">
+        <xsl:choose>
+            <xsl:when test="$output-base-path != ''">
+                <xsl:value-of select="$output-base-path"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="concat('../',$profile-name)"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
     <xsl:template match="/"><!-- parameter stylesheet -->
-        <xsl:result-document href="../{$profile-name}/params.xsl">
+        <xsl:result-document href="{$output-path}/params.xsl">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
                 <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
@@ -122,11 +133,11 @@
             </xsl:element>
         </xsl:result-document>
         <xsl:if test="exists(//postProcessing[xsl:stylesheet])">
-            <xsl:result-document href="postTokenization.xsl">
+            <xsl:result-document href="{$output-path}/postTokenization.xsl">
                 <xsl:copy-of select="//postProcessing/xsl:stylesheet"/>
             </xsl:result-document>
         </xsl:if><!-- tokenizer wrapper -->
-        <xsl:result-document href="../{$profile-name}/wrapper_toks.xsl">
+        <xsl:result-document href="{$output-path}/wrapper_toks.xsl">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
                 <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
@@ -154,7 +165,7 @@
 </text>
             </xsl:element>
         </xsl:result-document><!-- tokenizer wrapper -->
-        <xsl:result-document href="../{$profile-name}/wrapper_addP.xsl">
+        <xsl:result-document href="{$output-path}/wrapper_addP.xsl">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
                 <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
@@ -185,7 +196,7 @@
 </text>
             </xsl:element>
         </xsl:result-document>
-        <xsl:result-document href="../{$profile-name}/wrapper_tei2vert.xsl">
+        <xsl:result-document href="{$output-path}/wrapper_tei2vert.xsl">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
                 <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
@@ -244,7 +255,7 @@
                 </for-each>
             </xsl:element>
         </xsl:result-document>
-        <xsl:result-document href="../{$profile-name}/wrapper_vert2txt.xsl">
+        <xsl:result-document href="{$output-path}/wrapper_vert2txt.xsl">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
                 <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
