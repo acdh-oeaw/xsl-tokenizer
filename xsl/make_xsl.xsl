@@ -52,91 +52,154 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
-    <xsl:template match="/"><!-- parameter stylesheet -->
-        <xsl:result-document href="{$output-path}/params.xsl">
-            <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
-                <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
-                <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
-                <xsl:attribute name="version">2.0</xsl:attribute>
-                <xsl:for-each select="//namespace">
-                    <namespace name="{@prefix}" select="."/>
-                </xsl:for-each>
-                <for-each select="//param">
-                    <xsl:element name="xsl:param">
-                        <xsl:attribute name="name">
-                            <xsl:value-of select="@key"/>
-                        </xsl:attribute>
-                        <if test="@as">
-                            <xsl:attribute name="as">
-                                <xsl:value-of select="@as"/>
-                            </xsl:attribute>
-                        </if>
-                        <value-of select="xtoks:expand-path(@value)"/>
-                    </xsl:element>
-                </for-each>
-                <variable name="lexicon" select="//param[@key = 'lexicon']"/>
-                <xsl:element name="xsl:param">
-                    <xsl:attribute name="name">lexToks</xsl:attribute>
-                    <xsl:element name="lexicon" namespace="">
-                        <xsl:for-each select="tokenize($lexicon,'\n+')">
-                            <xsl:sort select="string-length(.)" order="descending"/>
-                            <entry xmlns="http://www.tei-c.org/ns/1.0">
-                                <xsl:attribute name="xml:id" select="concat('entry_',position())"/>
-                                <xsl:for-each select="normalize-space(.)">
-                                    <xsl:call-template name="tokenize-text">
-                                        <xsl:with-param name="pc-regex" select="$punctCharPattern"/>
-                                        <xsl:with-param name="ws-regex" select="$ws-regex"/>
-                                        <xsl:with-param name="preserve-ws" select="$preserve-ws"/>
-                                    </xsl:call-template>
-                                </xsl:for-each>
-                            </entry>
+    
+    <xsl:template match="/" mode="mkParams">
+        <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
+            <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
+            <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
+            <xsl:attribute name="version">2.0</xsl:attribute>
+            <xsl:apply-templates select="profile/namespace" mode="#current"/>
+            <xsl:apply-templates select="profile/parameters/param" mode="#current"/>
+            <xsl:apply-templates select="profile/ignore/expression[text()]" mode="#current"/>
+            <xsl:apply-templates select="profile/in-word-tags/expression[text()]" mode="#current"/>
+            <xsl:apply-templates select="profile/floating-blocks/expression[text()]" mode="#current"/>
+            <xsl:apply-templates select="profile/copy/expression[text()]" mode="#current"/>
+        </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="namespace" mode="mkParams">
+        <xsl:namespace name="{@prefix}" select="."/>
+    </xsl:template>
+    
+    <xsl:template match="param[@key != 'lexicon']" mode="mkParams">
+        <xsl:element name="xsl:param">
+            <xsl:attribute name="name">
+                <xsl:value-of select="@key"/>
+            </xsl:attribute>
+            <if test="@as">
+                <xsl:attribute name="as">
+                    <xsl:value-of select="@as"/>
+                </xsl:attribute>
+            </if>
+            <value-of select="xtoks:expand-path(@value)"/>
+        </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="param[@key = 'lexicon']" mode="mkParams">
+        <variable name="lexicon" select="//param[@key = 'lexicon']"/>
+        <xsl:element name="xsl:param">
+            <xsl:attribute name="name">lexToks</xsl:attribute>
+            <xsl:element name="lexicon" namespace="">
+                <xsl:for-each select="tokenize($lexicon,'\n+')">
+                    <xsl:sort select="string-length(.)" order="descending"/>
+                    <entry xmlns="http://www.tei-c.org/ns/1.0">
+                        <xsl:attribute name="xml:id" select="concat('entry_',position())"/>
+                        <xsl:for-each select="normalize-space(.)">
+                            <xsl:call-template name="tokenize-text">
+                                <xsl:with-param name="pc-regex" select="$punctCharPattern"/>
+                                <xsl:with-param name="ws-regex" select="$ws-regex"/>
+                                <xsl:with-param name="preserve-ws" select="$preserve-ws"/>
+                            </xsl:call-template>
                         </xsl:for-each>
+                    </entry>
+                </xsl:for-each>
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
+
+    <xsl:template match="ignore/expression[text()]" mode="mkParams">
+        <xsl:element name="xsl:template">
+            <xsl:attribute name="match" select="."/>
+            <xsl:attribute name="mode">is-ignore-node</xsl:attribute>
+            <xsl:element name="xsl:sequence">
+                <xsl:attribute name="select">true()</xsl:attribute>
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="in-word-tags/expression[text()]" mode="mkParams">
+        <xsl:element name="xsl:template">
+            <xsl:attribute name="match" select="."/>
+            <xsl:attribute name="mode">is-inline-node</xsl:attribute>
+            <xsl:element name="xsl:sequence">
+                <xsl:attribute name="select">true()</xsl:attribute>
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="floating-blocks/expression[text()]" mode="mkParams">
+        <xsl:element name="xsl:template">
+            <xsl:attribute name="match" select="."/>
+            <xsl:attribute name="mode">is-floating-node</xsl:attribute>
+            <xsl:element name="xsl:sequence">
+                <xsl:attribute name="select">true()</xsl:attribute>
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="copy/expression[text()]" mode="mkParams">
+        <xsl:element name="xsl:template">
+            <xsl:attribute name="match" select="."/>
+            <xsl:attribute name="mode">is-copy-node</xsl:attribute>
+            <xsl:element name="xsl:sequence">
+                <xsl:attribute name="select">true()</xsl:attribute>
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="structure/expression[text()]" mode="tei2vert">
+        <xsl:element name="xsl:template">
+            <xsl:attribute name="match" select="."/>
+            <xsl:attribute name="mode">extractTokens</xsl:attribute>
+            <xsl:element name="xsl:variable">
+                <xsl:attribute name="name">content</xsl:attribute>
+                <xsl:attribute name="as">item()*</xsl:attribute>
+                <xsl:element name="xsl:apply-templates">
+                    <xsl:attribute name="mode">#current</xsl:attribute>
+                </xsl:element>
+            </xsl:element>
+            <xsl:element name="xsl:if">
+                <xsl:attribute name="test">exists($content)</xsl:attribute>
+                <xsl:element name="xsl:copy">
+                    <xsl:element name="xsl:copy-of">
+                        <xsl:attribute name="select">@*</xsl:attribute>
+                    </xsl:element>
+                    <xsl:element name="xsl:sequence">
+                        <xsl:attribute name="select">$content</xsl:attribute>
                     </xsl:element>
                 </xsl:element>
-                <for-each select="//expression[parent::ignore][text()]">
-                    <xsl:element name="xsl:template">
-                        <xsl:attribute name="match" select="."/>
-                        <xsl:attribute name="mode">is-ignore-node</xsl:attribute>
-                        <xsl:element name="xsl:sequence">
-                            <xsl:attribute name="select">true()</xsl:attribute>
-                        </xsl:element>
-                    </xsl:element>
-                </for-each>
-                <for-each select="//expression[parent::in-word-tags][text()]">
-                    <xsl:element name="xsl:template">
-                        <xsl:attribute name="match" select="."/>
-                        <xsl:attribute name="mode">is-inline-node</xsl:attribute>
-                        <xsl:element name="xsl:sequence">
-                            <xsl:attribute name="select">true()</xsl:attribute>
-                        </xsl:element>
-                    </xsl:element>
-                </for-each>
-                <for-each select="//expression[parent::floating-blocks][text()]">
-                    <xsl:element name="xsl:template">
-                        <xsl:attribute name="match" select="."/>
-                        <xsl:attribute name="mode">is-floating-node</xsl:attribute>
-                        <xsl:element name="xsl:sequence">
-                            <xsl:attribute name="select">true()</xsl:attribute>
-                        </xsl:element>
-                    </xsl:element>
-                </for-each>
-                <for-each select="//expression[parent::copy][text()]">
-                    <xsl:element name="xsl:template">
-                        <xsl:attribute name="match" select="."/>
-                        <xsl:attribute name="mode">is-copy-node</xsl:attribute>
-                        <xsl:element name="xsl:sequence">
-                            <xsl:attribute name="select">true()</xsl:attribute>
-                        </xsl:element>
-                    </xsl:element>
-                </for-each>
             </xsl:element>
+        </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="doc-attributes/doc-attribute[expression/text()]" mode="tei2vert">
+        <xsl:element name="xsl:template">
+            <xsl:attribute name="match" select="expression"/>
+            <xsl:attribute name="mode">doc-attributes</xsl:attribute>
+            <xsl:element name="xsl:attribute">
+                <xsl:attribute name="namespace">http://acdh.oeaw.ac.at/apps/xtoks</xsl:attribute>
+                <xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
+                <xsl:attribute name="select">normalize-space(.)</xsl:attribute>
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
+    
+    
+    <xsl:template match="/">
+        <!-- preapare parameter stylesheet -->
+        <xsl:result-document href="{$output-path}/params.xsl">
+            <xsl:apply-templates select="." mode="mkParams"/>
         </xsl:result-document>
+        
+        <!-- if present, create the post-processing stylesheet -->
         <xsl:if test="exists(//postProcessing[xsl:stylesheet])">
             <xsl:result-document href="{$output-path}/postTokenization.xsl">
                 <xsl:copy-of select="//postProcessing/xsl:stylesheet"/>
             </xsl:result-document>
-        </xsl:if><!-- tokenizer wrapper -->
-        <xsl:result-document href="{$output-path}/wrapper_toks.xsl">
+        </xsl:if>
+        
+        <!-- Create the tokenizer wrapper stylesheet -->
+        <xsl:result-document href="{$output-path}/wrapper_toks.xsl" indent="yes">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
                 <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
@@ -145,9 +208,7 @@
                 </xsl:for-each>
                 <attribute name="version">2.0</attribute>
                 <attribute name="exclude-result-prefixes">#all</attribute>
-                <text xml:space="preserve">
-
-</text>
+                
                 <element name="xsl:include">
                     <attribute name="href">params.xsl</attribute>
                 </element>
@@ -159,11 +220,12 @@
                         <attribute name="href">postTokenization.xsl</attribute>
                     </element>
                 </xsl:if>
-                <text xml:space="preserve">
-
-</text>
             </xsl:element>
-        </xsl:result-document><!-- tokenizer wrapper -->
+        </xsl:result-document>
+        
+        
+        
+        <!-- Create the partial-token linker stylehsheet -->
         <xsl:result-document href="{$output-path}/wrapper_addP.xsl">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
@@ -195,6 +257,7 @@
 </text>
             </xsl:element>
         </xsl:result-document>
+        
         <xsl:result-document href="{$output-path}/wrapper_tei2vert.xsl">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
@@ -204,54 +267,19 @@
                 </xsl:for-each>
                 <attribute name="version">2.0</attribute>
                 <attribute name="exclude-result-prefixes">#all</attribute>
-                <text xml:space="preserve">
-
-</text>
+                
                 <element name="xsl:include">
                     <attribute name="href">params.xsl</attribute>
                 </element>
                 <element name="xsl:include">
                     <attribute name="href" select="$pathToVertXSL"/>
                 </element>
-                <text xml:space="preserve">
-
-</text>
-                <for-each select="//expression[parent::structure][text()]">
-                    <xsl:element name="xsl:template">
-                        <xsl:attribute name="match" select="."/>
-                        <xsl:attribute name="mode">extractTokens</xsl:attribute>
-                        <xsl:element name="xsl:variable">
-                            <xsl:attribute name="name">content</xsl:attribute>
-                            <xsl:attribute name="as">item()*</xsl:attribute>
-                            <xsl:element name="xsl:apply-templates">
-                                <xsl:attribute name="mode">#current</xsl:attribute>
-                            </xsl:element>
-                        </xsl:element>
-                        <xsl:element name="xsl:if">
-                            <xsl:attribute name="test">exists($content)</xsl:attribute>
-                            <xsl:element name="xsl:copy">
-                                <xsl:element name="xsl:copy-of">
-                                    <xsl:attribute name="select">@*</xsl:attribute>
-                                </xsl:element>
-                                <xsl:element name="xsl:sequence">
-                                    <xsl:attribute name="select">$content</xsl:attribute>
-                                </xsl:element>
-                            </xsl:element>
-                        </xsl:element>
-                    </xsl:element>
-                </for-each>
                 
-                <for-each select="//doc-attribute[parent::doc-attributes][expression/text()]">
-                    <xsl:element name="xsl:template">
-                        <xsl:attribute name="match" select="expression"/>
-                        <xsl:attribute name="mode">doc-attributes</xsl:attribute>
-                        <xsl:element name="xsl:attribute">
-                            <xsl:attribute name="namespace">http://acdh.oeaw.ac.at/apps/xtoks</xsl:attribute>
-                            <xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
-                            <xsl:attribute name="select">normalize-space(.)</xsl:attribute>
-                        </xsl:element>
-                    </xsl:element>
-                </for-each>
+                <apply-templates select="//expression[parent::structure][text()]" mode="tei2vert"/>
+                
+                <apply-templates select="//doc-attribute[parent::doc-attributes][expression/text()]" mode="tei2vert"/>
+                    
+                
             </xsl:element>
         </xsl:result-document>
         <xsl:result-document href="{$output-path}/wrapper_vert2txt.xsl">
