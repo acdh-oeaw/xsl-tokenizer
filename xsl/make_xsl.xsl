@@ -10,7 +10,6 @@
     </xd:doc>
     <xsl:output method="xml" indent="yes"/>
     <xsl:include href="toks-lib.xsl"/>
-    <xsl:param name="makeNoNamespaceVersion" as="xs:boolean" select="if(exists(root()//param[@key='makeNoNamespaceVersion'])) then xs:boolean(root()//param[@key='makeNoNamespaceVersion']/data(@value)) else true()"/>
     <xsl:param name="pathToTokenizerLib" as="xs:string" select="if(exists(root()//param[@key='pathToTokenizerLib'])) then xs:string(root()//param[@key='pathToTokenizerLib']/data(@value)) else '../../xsl/toks.xsl'"/>
     <xsl:param name="pathToVertXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertXSL'])) then xs:string(root()//param[@key='pathToVertXSL']/data(@value)) else '../../xsl/tei2vert.xsl'"/>
     <xsl:param name="pathToVertTxtXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertTxtXSL'])) then xs:string(root()//param[@key='pathToVertTxtXSL']/data(@value)) else '../../xsl/vert2txt.xsl'"/>
