@@ -58,6 +58,7 @@
             <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
             <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
             <xsl:attribute name="version">2.0</xsl:attribute>
+            <xsl:attribute name="xml:id">params</xsl:attribute>
             <xsl:apply-templates select="profile/namespace" mode="#current"/>
             <xsl:apply-templates select="profile/parameters/param" mode="#current"/>
             <xsl:apply-templates select="profile/ignore/expression[text()]" mode="#current"/>
@@ -178,7 +179,9 @@
             <xsl:attribute name="mode">doc-attributes</xsl:attribute>
             <xsl:element name="xsl:attribute">
                 <xsl:attribute name="namespace">http://acdh.oeaw.ac.at/apps/xtoks</xsl:attribute>
-                <xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
+                <xsl:attribute name="name">
+                    <xsl:value-of select="@name"/>
+                </xsl:attribute>
                 <xsl:attribute name="select">normalize-space(.)</xsl:attribute>
             </xsl:element>
         </xsl:element>
