@@ -1,4 +1,4 @@
-<xsl:stylesheet xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xtoks="http://acdh.oeaw.ac.at/xtoks" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" exclude-result-prefixes="xs xd" version="2.0">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:p="xpath20" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xtoks="http://acdh.oeaw.ac.at/xtoks" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" exclude-result-prefixes="xs xd p" version="2.0">
     <xd:doc scope="stylesheet">
         <xd:desc>
             <xd:p>
@@ -9,6 +9,7 @@
         </xd:desc>
     </xd:doc>
     <xsl:output method="xml" indent="yes"/>
+    <xsl:import href="xpath20.xsl"/>
     <xsl:include href="toks-lib.xsl"/>
     <xsl:param name="pathToTokenizerLib" as="xs:string" select="if(exists(root()//param[@key='pathToTokenizerLib'])) then xs:string(root()//param[@key='pathToTokenizerLib']/data(@value)) else '../../xsl/toks.xsl'"/>
     <xsl:param name="pathToVertXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertXSL'])) then xs:string(root()//param[@key='pathToVertXSL']/data(@value)) else '../../xsl/tei2vert.xsl'"/>
@@ -68,7 +69,7 @@
         </xsl:element>
     </xsl:template>
     
-    <xsl:template match="namespace" mode="mkParams">
+    <xsl:template match="namespace[text()]" mode="mkParams">
         <xsl:namespace name="{@prefix}" select="."/>
     </xsl:template>
     
@@ -108,45 +109,45 @@
         </xsl:element>
     </xsl:template>
 
-    <xsl:template match="ignore/expression[text()]" mode="mkParams">
-        <xsl:element name="xsl:template">
-            <xsl:attribute name="match" select="."/>
-            <xsl:attribute name="mode">is-ignore-node</xsl:attribute>
-            <xsl:element name="xsl:sequence">
-                <xsl:attribute name="select">true()</xsl:attribute>
-            </xsl:element>
-        </xsl:element>
+   
+    <xsl:template match="*/expression[text()]" mode="mkParams">
+        <xsl:variable name="parent" select="parent::*/local-name()"/>
+        <xsl:variable name="mode">
+            <xsl:choose>
+                <xsl:when test="$parent = 'copy'">is-copy-node</xsl:when>
+                <xsl:when test="$parent = 'floating-blocks'">is-floating-node</xsl:when>
+                <xsl:when test="$parent = 'in-word-tags'">is-inline-node</xsl:when>
+                <xsl:when test="$parent = 'ignore'">is-ignore-node</xsl:when>
+                <xsl:otherwise/>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="expression" select="."/>
+        <xsl:variable name="prefixes" select="root()//namespace/@prefix/xs:string(.)"/>
+        <xsl:variable name="expression-parsed" select="p:parse-XPath(xs:string($expression))"/>
+        <xsl:variable name="syntactically-valid" select="not($expression-parsed instance of element(ERROR))"/>
+        <xsl:variable name="all-prefixes-defined" select="every $prefix in $expression-parsed//QName[matches(.,'^\w+:')]/substring-before(.,':') satisfies $prefix = $prefixes"/>
+        <xsl:choose>
+            <xsl:when test="$mode = ''">
+                <xsl:message>Unknown parent element '<xsl:value-of select="$parent"/>' -- ignoring expression '<xsl:value-of select="$expression"/>'</xsl:message>
+            </xsl:when>
+            <xsl:when test="not($syntactically-valid)">
+                <xsl:message>Invalid XPath expression '<xsl:value-of select="$expression"/>' in element '<xsl:value-of select="$parent"/>' -- ignoring</xsl:message>
+            </xsl:when>
+            <xsl:when test="not($all-prefixes-defined)">
+                <xsl:message>Undefined namespace prefix in XPath expression '<xsl:value-of select="$expression"/>' in element '<xsl:value-of select="$parent"/>' -- ignoring</xsl:message>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:element name="xsl:template">
+                    <xsl:attribute name="match" select="."/>
+                    <xsl:attribute name="mode"><xsl:value-of select="$mode"/></xsl:attribute>
+                    <xsl:element name="xsl:sequence">
+                        <xsl:attribute name="select">true()</xsl:attribute>
+                    </xsl:element>
+                </xsl:element>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
-    <xsl:template match="in-word-tags/expression[text()]" mode="mkParams">
-        <xsl:element name="xsl:template">
-            <xsl:attribute name="match" select="."/>
-            <xsl:attribute name="mode">is-inline-node</xsl:attribute>
-            <xsl:element name="xsl:sequence">
-                <xsl:attribute name="select">true()</xsl:attribute>
-            </xsl:element>
-        </xsl:element>
-    </xsl:template>
-    
-    <xsl:template match="floating-blocks/expression[text()]" mode="mkParams">
-        <xsl:element name="xsl:template">
-            <xsl:attribute name="match" select="."/>
-            <xsl:attribute name="mode">is-floating-node</xsl:attribute>
-            <xsl:element name="xsl:sequence">
-                <xsl:attribute name="select">true()</xsl:attribute>
-            </xsl:element>
-        </xsl:element>
-    </xsl:template>
-    
-    <xsl:template match="copy/expression[text()]" mode="mkParams">
-        <xsl:element name="xsl:template">
-            <xsl:attribute name="match" select="."/>
-            <xsl:attribute name="mode">is-copy-node</xsl:attribute>
-            <xsl:element name="xsl:sequence">
-                <xsl:attribute name="select">true()</xsl:attribute>
-            </xsl:element>
-        </xsl:element>
-    </xsl:template>
     
     <xsl:template match="structure/expression[text()]" mode="tei2vert">
         <xsl:element name="xsl:template">
@@ -174,17 +175,33 @@
     </xsl:template>
     
     <xsl:template match="doc-attributes/doc-attribute[expression/text()]" mode="tei2vert">
-        <xsl:element name="xsl:template">
-            <xsl:attribute name="match" select="expression"/>
-            <xsl:attribute name="mode">doc-attributes</xsl:attribute>
-            <xsl:element name="xsl:attribute">
-                <xsl:attribute name="namespace">http://acdh.oeaw.ac.at/apps/xtoks</xsl:attribute>
-                <xsl:attribute name="name">
-                    <xsl:value-of select="@name"/>
-                </xsl:attribute>
-                <xsl:attribute name="select">normalize-space(.)</xsl:attribute>
-            </xsl:element>
-        </xsl:element>
+        <!-- doc-attribute may only contain one expression element, but we want to make sure … -->
+        <xsl:variable name="expression" select="expression[1]"/>
+        <xsl:variable name="prefixes" select="root()//namespace/@prefix/xs:string(.)"/>
+        <xsl:variable name="expression-parsed" select="p:parse-XPath(xs:string($expression))"/>
+        <xsl:variable name="syntactically-valid" select="not($expression-parsed/ERROR)"/>
+        <xsl:variable name="all-prefixes-defined" select="every $prefix in $expression-parsed//QName[matches(.,'^\w+:')]/substring-before(.,':') satisfies $prefix = $prefixes"/>
+        <xsl:choose>
+            <xsl:when test="$syntactically-valid and $all-prefixes-defined">
+                <xsl:element name="xsl:template">
+                    <xsl:attribute name="match" select="$expression"/>
+                    <xsl:attribute name="mode">doc-attributes</xsl:attribute>
+                    <xsl:element name="xsl:attribute">
+                        <xsl:attribute name="namespace">http://acdh.oeaw.ac.at/apps/xtoks</xsl:attribute>
+                        <xsl:attribute name="name">
+                            <xsl:value-of select="@name"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="select">normalize-space(.)</xsl:attribute>
+                    </xsl:element>
+                </xsl:element>
+            </xsl:when>
+            <xsl:when test="not($syntactically-valid)">
+                <xsl:message>Invalid XPath expression '<xsl:value-of select="$expression"/>' in doc-attribute '<xsl:value-of select="@name"/>' -- ignoring</xsl:message>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:message>Undefined namespace prefixes in XPath expression '<xsl:value-of select="$expression"/>' in doc-attribute '<xsl:value-of select="@name"/>' -- ignoring</xsl:message>
+            </xsl:otherwise>
+        </xsl:choose> 
     </xsl:template>
     
     
