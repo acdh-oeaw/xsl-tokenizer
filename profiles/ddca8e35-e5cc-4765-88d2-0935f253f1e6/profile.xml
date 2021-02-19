@@ -1,0 +1,69 @@
+<profile created="2020-09-23T13:42:47.761Z" id="ddca8e35-e5cc-4765-88d2-0935f253f1e6" last-updated="">
+    <about>
+        <name>VOICE</name>
+        <creator>Pirker, Schopper</creator>
+        <description>Profile for pre-tokenizing VOICE XML; v 0.016w
+(NO punctuation-regex anymore)</description>
+    </about>
+    <parameters>
+        <param key="pc-regex" value="NoPunctuationRegexAtAll"/>
+        <param key="ws-regex" value="\s+"/>
+        <param key="preserve-ws" value="true"/>
+        <param key="debug" value="false"/>
+        <param key="useLexicon" value="true"/>
+        <param key="lexicon" xml:space="preserve"/>
+    </parameters>
+    <postProcessing>
+        <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0">
+                <xsl:template match="node() | @*">
+                    <xsl:copy>
+                        <xsl:apply-templates select="node() | @*"/>
+                    </xsl:copy>
+                </xsl:template>
+                
+                <xsl:template match="*[not(@xml:id)][ancestor::tei:body]">
+                    <xsl:copy>
+                        <xsl:copy-of select="@*"/>
+                        <xsl:if test="not(exists(@xml:id))">
+                            <xsl:attribute name="xml:id" select="generate-id()"/>
+                            <xsl:apply-templates select="node()"/>
+                        </xsl:if>
+                    </xsl:copy>
+                </xsl:template>
+                <xsl:template match="tei:seg[@type = 'ws']"/>
+        </xsl:stylesheet>
+    </postProcessing>
+    <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
+    <namespace prefix="voice">http://www.univie.ac.at/voice/ns/1.0</namespace>
+    <copy>
+        <expression>tei:w</expression>
+
+
+
+        <expression>tei:teiHeader</expression>
+    </copy>
+    <ignore>
+
+        <expression>tei:c</expression>
+    </ignore>
+    <in-word-tags>
+        <expression>tei:anchor</expression>
+        <expression>tei:emph</expression>
+        <expression>tei:foreign</expression>
+        <expression>tei:incident</expression>
+        <expression>tei:pause</expression>
+        <expression>tei:seg</expression>
+        <expression>tei:shift</expression>
+        <expression>tei:supplied</expression>
+        <expression>tei:unclear</expression>
+        <expression>tei:vocal</expression>
+        <expression>voice:pvc</expression>
+        <expression>voice:to</expression>
+        <expression>voice:track</expression>
+    </in-word-tags>
+    <floating-blocks/>
+    <structure>
+        <expression>tei:div</expression>
+        <expression>tei:u</expression>
+    </structure>
+</profile>

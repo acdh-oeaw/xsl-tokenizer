@@ -1,0 +1,35 @@
+<profile created="2019-03-16T08:52:41.227Z" id="8435b0e6-85fe-460c-8a98-231a63abc22b" last-updated="">
+                        <about>
+                            <name>thun</name>
+                            <creator>Peter Andorfer</creator>
+                            <description>https://thun-korrespondenz.acdh.oeaw.ac.at/pages/index.html</description>
+                        </about>
+                        <parameters>
+                            <param key="pc-regex" value="[\p{P}]"/>
+                            <param key="ws-regex" value="\s+"/>
+                            <param key="preserve-ws" value="true"/>
+                            <param key="debug" value="false"/>
+                            <param key="useLexicon" value="true"/>
+                            <param key="lexicon" xml:space="preserve"/>
+                        </parameters>
+                        <postProcessing/>
+                        <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
+                        <copy>
+                            
+                        </copy>
+                        <ignore>
+        <expression>tei:idno</expression>
+        
+        
+                            <expression>tei:back</expression>
+                        </ignore>
+                        <in-word-tags>
+                            
+                        </in-word-tags>
+                        <floating-blocks>
+                            
+                        </floating-blocks>
+                        <structure>
+                            
+                        </structure>
+                    </profile>

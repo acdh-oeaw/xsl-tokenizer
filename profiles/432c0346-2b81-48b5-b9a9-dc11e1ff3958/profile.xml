@@ -1,0 +1,38 @@
+<profile created="2019-10-03T16:37:09.701Z" id="432c0346-2b81-48b5-b9a9-dc11e1ff3958" last-updated="">
+                        <about>
+                            <name>WiTTFind 2b</name>
+                            <creator>Daniel Schopper</creator>
+                            <description>sample profile 3 for WiTTFind test data 1 </description>
+                        </about>
+                        <parameters>
+                            <param key="pc-regex" value="[\p{P}]"/>
+                            <param key="ws-regex" value="\s+"/>
+                            <param key="preserve-ws" value="true"/>
+                            <param key="debug" value="false"/>
+                            <param key="useLexicon" value="true"/>
+                            <param key="lexicon" xml:space="preserve"/>
+                        </parameters>
+                        <postProcessing/>
+                        <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
+                        <copy>
+                            
+                        </copy>
+                        <ignore>
+                            
+                        </ignore>
+                        <in-word-tags>
+                            <expression>c</expression>
+                        </in-word-tags>
+                        <floating-blocks>
+                            
+                        </floating-blocks>
+                        <structure><expression>add</expression>
+        
+        <expression>c</expression>
+        <expression>reg</expression>
+        <expression>emph</expression>
+        <expression>orig</expression>
+        <expression>choice</expression>
+                            <expression>s</expression>
+                        </structure>
+                    </profile>

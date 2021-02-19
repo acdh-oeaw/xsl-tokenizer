@@ -21,28 +21,117 @@
         <expression>tei:front</expression>
         <expression>tei:teiHeader</expression>
     </copy>
-    <ignore>
-        
-    </ignore>
+    <ignore/> 
     <in-word-tags>
-        
-    </in-word-tags>
-    <floating-blocks>
-        
-    </floating-blocks>
-    <structure>
         <expression>tei:seg</expression>
+    </in-word-tags>
+    <floating-blocks/> 
+    <structure>
+        <expression>tei:seg[@ana]</expression>
         <expression>tei:p</expression>
     </structure>
     <doc-attributes>
+        <doc-attribute name="id">
+            <expression>//tei:title</expression>
+        </doc-attribute>
         <doc-attribute name="sex">
             <expression>//tei:f[@name = 'sex']/tei:symbol/@value</expression>
+        </doc-attribute>
+        <doc-attribute name="school">
+            <expression>//tei:f[@name = 'school']/tei:symbol/@value</expression>
         </doc-attribute>
         <doc-attribute name="grade">
             <expression>//tei:f[@name = 'grade']/tei:symbol/@value</expression>
         </doc-attribute>
+        <doc-attribute name="topic">
+            <expression>//tei:f[@name = 'topic']/tei:symbol/@value</expression>
+        </doc-attribute>
+        <doc-attribute name="region">
+            <expression>//tei:f[@name = 'region']/tei:symbol/@value</expression>
+        </doc-attribute>
+        <doc-attribute name="place">
+            <expression>//tei:f[@name = 'place']/tei:symbol/@value</expression>
+        </doc-attribute>
         <doc-attribute name="format">
             <expression>//tei:f[@name = 'format']/tei:symbol/@value</expression>
         </doc-attribute>
-    </doc-attributes>
+        <doc-attribute name="profile">
+            <expression>//tei:f[@name = 'profile']/tei:symbol/@value</expression>
+        </doc-attribute>
+        <doc-attribute name="DaM">
+                                                <expression>//tei:f[@name = 'DaM']/tei:binary/@value</expression>
+        </doc-attribute>
+                                <doc-attribute name="grade_lang">
+                                                <expression>//tei:f[@name = 'grade_lang']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="grade_total">
+                                                <expression>//tei:f[@name = 'grade_total']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="no_words">
+                                                <expression>//tei:f[@name = 'no_words']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="errs_orth_wo_pc">
+                                                <expression>//tei:f[@name = 'errs_orth_wo_pc']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="errs_comma">
+                                                <expression>//tei:f[@name = 'errs_comma']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="errs_pc">
+                                                <expression>//tei:f[@name = 'errs_pc']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="runningWordsShortText">
+                                                <expression>//tei:f[@name = 'runningWordsShortText']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="runningWordsLongText">
+                                                <expression>//tei:f[@name = 'runningWordsLongText']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="runningWordsTotal">
+                                                <expression>//tei:f[@name = 'runningWordsTotal']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="err_RechtschreibungKurztext">
+                                                <expression>//tei:f[@name = 'err_RechtschreibungKurztext']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="err_RechtschreibungLangtext">
+                                                <expression>//tei:f[@name = 'err_RechtschreibungLangtext']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="err_Rechtschreibunggesamt">
+                                                <expression>//tei:f[@name = 'err_Rechtschreibunggesamt']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="err_ZeichensetzungKurztext">
+                                                <expression>//tei:f[@name = 'err_ZeichensetzungKurztext']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="err_ZeichensetzungLangtext">
+                                                <expression>//tei:f[@name = 'err_ZeichensetzungLangtext']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="err_Zeichensetzunggesamt">
+                                                <expression>//tei:f[@name = 'err_Zeichensetzunggesamt']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="err_BeistrichfehlerKurztext">
+                                                <expression>//tei:f[@name = 'err_BeistrichfehlerKurztext']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="err_BeistrichfehlerLangtext">
+                                                <expression>//tei:f[@name = 'err_BeistrichfehlerLangtext']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="err_Beistrichfehlergesamt">
+                                                <expression>//tei:f[@name = 'err_Beistrichfehlergesamt']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="err_Grammatik">
+                                                <expression>//tei:f[@name = 'err_Grammatik']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="err_Inhalt">
+                                                <expression>//tei:f[@name = 'err_Inhalt']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="err_StilAusdruckWortwahl">
+                                                <expression>//tei:f[@name = 'err_StilAusdruckWortwahl']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="err_Zeitfehler">
+                                                <expression>//tei:f[@name = 'err_Zeitfehler']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="err_Auslassungszeichen">
+                                                <expression>//tei:f[@name = 'err_Auslassungszeichen']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                                <doc-attribute name="err_andere">
+                                                <expression>//tei:f[@name = 'err_andere']/tei:numeric/@value</expression>
+                                </doc-attribute>
+                </doc-attributes>
 </profile>

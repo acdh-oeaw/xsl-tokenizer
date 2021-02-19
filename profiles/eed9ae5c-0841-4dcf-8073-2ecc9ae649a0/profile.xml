@@ -1,0 +1,129 @@
+<profile created="2016-06-01T13:31:19.763Z" id="eed9ae5c-0841-4dcf-8073-2ecc9ae649a0" last-updated="">
+    <about>
+        <name>todesurteile</name>
+        <creator>Daniel Schopper</creator>
+        <description>Draft tokenization profile for the "Todesurteile" project.</description>
+    </about>
+    <parameters>
+        <param key="pc-regex" value="[\p{P}-[-'=]]"/>
+        <param key="ws-regex" value="\s+"/>
+        <param key="preserve-ws" value="true"/>
+        <param key="debug" value="false"/>
+        <param key="useLexicon" value="true"/>
+        <param key="lexicon" xml:space="preserve">A.
+a.
+Acad.
+An.
+Aug.
+B.
+Bapt.
+Buchdr.
+Burgerl.
+c.
+Cathol.
+Churfürstl.
+D.
+Dec.
+Decem.
+Delinqu.
+Dez.
+E.
+Ertz=Hertzogl.
+F.
+Feb.
+Febr.
+Fl.
+fl.
+fürstl.
+G.
+H.
+H....
+Hochlöbl.
+Hoch=löbl.
+hochlöbl.
+Hungar.
+J.
+Ja.
+Jan.
+Jul.
+Jun.
+K.
+k.
+Kaiserl.
+kaiserl.
+Kais.
+kais.
+Kays.
+Kayserl.
+Kön.
+Königl.
+königl.
+Kr.
+kr.
+Kurfürstl.
+L.
+Landesfürstl.
+Landes=fürstl.
+landesfürstl.
+Landschafts=Buchdr.
+Löbl.
+M.
+N.
+NB.
+NB
+Ni.
+ni.
+Nied.
+Nov.
+Novembr.
+Nro.
+O.
+Oct.
+Octob.
+Octobr.
+Oe.
+Oest.
+öst.
+P.
+pf.
+pr.
+R.
+rc.
+Rel.
+Relig.
+resp.
+S.
+s.
+seel.
+Sept.
+Sp.
+St.
+T.
+U.
+Unteröster.
+V.
+v.
+W.
+Z.</param>
+    </parameters>
+    <postProcessing/>
+    <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
+    <copy>
+        <expression>tei:teiHeader</expression>
+    </copy>
+    <ignore>
+        <expression>tei:note</expression>
+        <expression>tei:fw</expression>
+        <expression>tei:corr</expression>
+        <expression>tei:lb[@break="no"]</expression>
+    </ignore>
+    <in-word-tags>
+        <expression>tei:hi</expression>
+    </in-word-tags>
+    <floating-blocks>
+        
+    </floating-blocks>
+    <structure>
+        
+    </structure>
+</profile>

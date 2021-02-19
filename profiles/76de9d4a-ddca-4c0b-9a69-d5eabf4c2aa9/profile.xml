@@ -1,13 +1,10 @@
-<profile created="2015-10-12T14:09:42.047+02:00" id="default" last-updated="">
+<profile created="2018-04-10T20:40:04.029Z" id="76de9d4a-ddca-4c0b-9a69-d5eabf4c2aa9" last-updated="">
     <about>
-        <name>simple TEI</name>
+        <name>test profile</name>
         <creator>Daniel Schopper</creator>
-        <description>A simple profile for tokenizing TEI documents.
-
-</description>
+        <description>A simple profile for testing purposes.</description>
     </about>
     <parameters>
-        <param key="makeNoNamespaceVersion" value="true()"/>
         <param key="preserve-ws" value="true"/>
         <param key="pc-regex" value="[\p{P}]"/>
         <param key="ws-regex" value="\s+"/>
@@ -18,31 +15,25 @@ A B C
 Hauptbhf.
 O-W
 ACDH-OEAW
-Blub.blub.
-C.K.</param>
+Blub.blub.</param>
     </parameters>
     <postProcessing/>
     <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
-    <copy>
+    <copy><expression>tei:xenoData</expression>
         <expression>tei:teiHeader</expression>
     </copy>
     <ignore>
         <expression>tei:pb</expression>
-        <expression>tei:fw</expression>
-        <expression>tei:note[@place='below']</expression>
         <expression>tei:lb[@break='no']</expression>
     </ignore>
     <in-word-tags>
         <expression>tei:hi</expression>
-        <expression>tei:emph</expression>
-        <expression>tei:seg</expression>
     </in-word-tags>
     <floating-blocks>
         <expression>tei:floatingText</expression>
-        <expression>tei:figure</expression>
     </floating-blocks>
     <structure>
-        
-        
+        <expression>tei:head</expression>
+        <expression>tei:p</expression>
     </structure>
 </profile>

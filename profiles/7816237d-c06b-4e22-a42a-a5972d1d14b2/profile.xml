@@ -1,0 +1,33 @@
+<profile created="2018-08-16T07:18:15.33Z" id="7816237d-c06b-4e22-a42a-a5972d1d14b2" last-updated="">
+                        <about>
+                            <name>Rollett</name>
+                            <creator>Georg Vogeler</creator>
+                            <description>Rollett-Briefe</description>
+                        </about>
+                        <parameters>
+                            <param key="pc-regex" value="[\p{P}]"/>
+                            <param key="ws-regex" value="\s+"/>
+                            <param key="preserve-ws" value="true"/>
+                            <param key="debug" value="false"/>
+                            <param key="useLexicon" value="true"/>
+                            <param key="lexicon" xml:space="preserve">token 1 
+token 2</param>
+                        </parameters>
+                        <postProcessing/>
+                        <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
+                        <copy>
+                            <expression>XPath expression</expression>
+                        </copy>
+                        <ignore><expression>[ignore element]</expression><expression>//teiHeader</expression>
+                            <expression>//div/header</expression>
+                        </ignore>
+                        <in-word-tags><expression>[in-word element]</expression><expression>lb[@break='no']</expression>
+                            
+                        </in-word-tags>
+                        <floating-blocks>
+                            <expression>XPath expression</expression>
+                        </floating-blocks>
+                        <structure>
+                            <expression>XPath expression</expression>
+                        </structure>
+                    </profile>
