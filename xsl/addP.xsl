@@ -7,11 +7,11 @@
     exclude-result-prefixes="#all"
     version="2.0">
     <xsl:strip-space elements="*"/>
-    <xsl:preserve-space elements="tei:seg"/>
+    <xsl:preserve-space elements="xtoks:seg"/>
     <xsl:output indent="yes"></xsl:output>
     
-    <xsl:key name="token-by-id" match="tei:w|tei:pc|tei:seg" use="@xml:id"/>
-    <xsl:key name="first-lex-token-by-reference" match="tei:w[@next-by-lex]" use="tokenize(@next-by-lex,' ')"/>
+    <xsl:key name="token-by-id" match="xtoks:w|xtoks:pc|xtoks:seg" use="@xml:id"/>
+    <xsl:key name="first-lex-token-by-reference" match="xtoks:w[@next-by-lex]" use="tokenize(@next-by-lex,' ')"/>
     
     
     <xsl:template match="/">
@@ -112,11 +112,11 @@
         </xsl:choose>
     </xsl:template>
     
-    <xsl:template match="*[some $x in $lexToks//tei:entry satisfies starts-with($x, .)]" mode="apply-lex">
+    <xsl:template match="*[some $x in $lexToks//xtoks:entry satisfies starts-with($x, .)]" mode="apply-lex">
         <xsl:variable name="w" select="." as="element()"/>
         <xsl:variable name="entry-length" select="string-length($lexToks)" as="xs:integer"/>
         <xsl:variable name="next" select="subsequence(following-sibling::*, 1, $entry-length)" as="item()*"/>
-        <xsl:variable name="candidates" select="$lexToks//tei:entry[starts-with(string-join(($w,$next),''),.)]" as="item()*"/>
+        <xsl:variable name="candidates" select="$lexToks//xtoks:entry[starts-with(string-join(($w,$next),''),.)]" as="item()*"/>
         <xsl:choose>
             <xsl:when test="$candidates">
                 <xsl:variable name="entries" as="element()*">
@@ -206,7 +206,7 @@
     <xsl:template match="/" mode="group">
         <xsl:for-each-group select="*" group-adjacent="local-name(.)">
             <xsl:choose>
-                <xsl:when test="count(current-group()[self::tei:w]) > 1">
+                <xsl:when test="count(current-group()[self::xtoks:w]) > 1">
                     <xsl:for-each select="current-group()">
                         <xsl:variable name="part">
                             <xsl:choose>
@@ -231,15 +231,15 @@
                     </xsl:for-each>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:sequence select="current-group()[not(self::tei:break)]"/>
+                    <xsl:sequence select="current-group()[not(self::xtoks:break)]"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:for-each-group>
     </xsl:template>
     
-    <xsl:template match="tei:w|tei:pc|tei:seg[@type='ws']" priority="1" mode="add-ids">
+    <xsl:template match="xtoks:w|xtoks:pc|xtoks:seg[@type='ws']" priority="1" mode="add-ids">
         <xsl:variable name="number" as="xs:integer">
-            <xsl:number level="any" count="tei:w|tei:pc|tei:seg[@type = 'ws']"/>
+            <xsl:number level="any" count="xtoks:w|xtoks:pc|xtoks:seg[@type = 'ws']"/>
         </xsl:variable>
         <xsl:copy>
             <xsl:copy-of select="@*"/>
@@ -254,7 +254,7 @@
         </xsl:copy>
     </xsl:template>
     
-    <xsl:template match="tei:w|tei:pc|tei:seg[@type = 'ws']" mode="flatten flattenFloats" priority="1">
+    <xsl:template match="xtoks:w|xtoks:pc|xtoks:seg[@type = 'ws']" mode="flatten flattenFloats" priority="1">
         <xsl:sequence select="."/>
     </xsl:template>
     
@@ -272,7 +272,7 @@
     
     <xsl:template match="node() | @*" mode="addP">
         <xsl:choose>
-            <xsl:when test="@mode|descendant::tei:w|descendant::tei:pc">
+            <xsl:when test="@mode|descendant::xtoks:w|descendant::xtoks:pc">
                 <xsl:copy>
                     <xsl:apply-templates select="node() | @* except @mode" mode="#current"/>
                 </xsl:copy>
@@ -283,7 +283,7 @@
         </xsl:choose>
     </xsl:template>
     
-    <xsl:template match="tei:w|tei:pc|tei:seg[@type = 'ws']" mode="addP">
+    <xsl:template match="xtoks:w|xtoks:pc|xtoks:seg[@type = 'ws']" mode="addP">
         <xsl:param name="grouped" tunnel="yes" as="document-node()+"/>
         <xsl:variable name="w" select="key('token-by-id', @xml:id, $grouped)"/>
         <xsl:copy>

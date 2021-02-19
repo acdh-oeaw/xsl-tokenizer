@@ -1,11 +1,11 @@
-<xsl:stylesheet xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="#all" version="2.0">
+<xsl:stylesheet xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xtoks="http://acdh.oeaw.ac.at/xtoks" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="#all" version="2.0">
     <xsl:output indent="yes"/>
     <xsl:strip-space elements="*"/>
-    <xsl:preserve-space elements="tei:seg tei:w tei:pc"/>
-    <xsl:key name="tag-by-id" match="tei:*" use="@xml:id"/>
+    <xsl:preserve-space elements="xtoks:seg xtoks:w xtoks:pc"/>
+    <xsl:key name="tag-by-id" match="xtoks:*" use="@xml:id"/>
     <xsl:template match="/">
-        <xsl:variable name="part-i" select="count(//tei:*[@part = 'I'])"/>
-        <xsl:variable name="part-f" select="count(//tei:*[@part = 'F'])"/>
+        <xsl:variable name="part-i" select="count(//xtoks:*[@part = 'I'])"/>
+        <xsl:variable name="part-f" select="count(//xtoks:*[@part = 'F'])"/>
         <xsl:if test="$part-i != $part-f">
             <xsl:message terminate="yes">Unequal number of partial tokens: <xsl:value-of select="$part-i"/> inital, <xsl:value-of select="$part-f"/> final parts</xsl:message>
         </xsl:if>
@@ -52,7 +52,7 @@
     <xsl:template match="*" mode="extractTokens">
         <xsl:apply-templates mode="#current"/>
     </xsl:template>
-    <xsl:template match="tei:w|tei:seg[@type = 'ws']|tei:pc" mode="extractTokens">
+    <xsl:template match="xtoks:w|xtoks:seg[@type = 'ws']|xtoks:pc" mode="extractTokens">
         <xsl:copy-of select="."/>
     </xsl:template>
     <xsl:template match="*[@part = 'I']" mode="extractTokens" priority="1">
@@ -64,7 +64,7 @@
         <xsl:copy>
             <xsl:copy-of select="@* except (@part|@prev|@next)"/>
             <xsl:choose>
-                <xsl:when test="$debug = 'tei2vert'">
+                <xsl:when test="$debug = 'xtoks2vert'">
                     <xsl:sequence select="."/>
                     <xsl:apply-templates select="$next" mode="getTokenCopy"/>
                 </xsl:when>
@@ -96,5 +96,5 @@
     <xsl:template match="*[@part = 'F']" mode="getTokenCopy">
         <xsl:sequence select="."/>
     </xsl:template>
-    <xsl:template match="text()[not(parent::tei:w) or not(parent::tei:seg)]" mode="extractTokens"/>
+    <xsl:template match="text()[not(parent::xtoks:w) or not(parent::xtoks:seg)]" mode="extractTokens"/>
 </xsl:stylesheet>

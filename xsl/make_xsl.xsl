@@ -12,7 +12,7 @@
     <xsl:import href="xpath20.xsl"/>
     <xsl:include href="toks-lib.xsl"/>
     <xsl:param name="pathToTokenizerLib" as="xs:string" select="if(exists(root()//param[@key='pathToTokenizerLib'])) then xs:string(root()//param[@key='pathToTokenizerLib']/data(@value)) else '../../xsl/toks.xsl'"/>
-    <xsl:param name="pathToVertXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertXSL'])) then xs:string(root()//param[@key='pathToVertXSL']/data(@value)) else '../../xsl/tei2vert.xsl'"/>
+    <xsl:param name="pathToVertXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertXSL'])) then xs:string(root()//param[@key='pathToVertXSL']/data(@value)) else '../../xsl/xtoks2vert.xsl'"/>
     <xsl:param name="pathToVertTxtXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertTxtXSL'])) then xs:string(root()//param[@key='pathToVertTxtXSL']/data(@value)) else '../../xsl/vert2txt.xsl'"/>
     <xsl:param name="punctCharPattern" as="xs:string" select="if(exists(root()//param[@key='pc-regex'])) then xs:string(root()//param[@key='pc-regex']/data(@value)) else '\p{P}+'"/>
     <xsl:param name="ws-regex" as="xs:string" select="if(exists(root()//param[@key='ws-regex'])) then xs:string(root()//param[@key='ws-regex']/data(@value)) else '\s+'"/>
@@ -94,7 +94,7 @@
             <xsl:element name="lexicon" namespace="">
                 <xsl:for-each select="tokenize($lexicon,'\n+')">
                     <xsl:sort select="string-length(.)" order="descending"/>
-                    <entry xmlns="http://www.tei-c.org/ns/1.0">
+                    <entry xmlns="http://acdh.oeaw.ac.at/xtoks">
                         <xsl:attribute name="xml:id" select="concat('entry_',position())"/>
                         <xsl:for-each select="normalize-space(.)">
                             <xsl:call-template name="tokenize-text">
@@ -149,7 +149,7 @@
     </xsl:template>
     
     
-    <xsl:template match="structure/expression[text()]" mode="tei2vert">
+    <xsl:template match="structure/expression[text()]" mode="xtoks2vert">
         <xsl:element name="xsl:template">
             <xsl:attribute name="match" select="."/>
             <xsl:attribute name="mode">extractTokens</xsl:attribute>
@@ -174,7 +174,7 @@
         </xsl:element>
     </xsl:template>
     
-    <xsl:template match="doc-attributes/doc-attribute[expression/text()]" mode="tei2vert">
+    <xsl:template match="doc-attributes/doc-attribute[expression/text()]" mode="xtoks2vert">
         <!-- doc-attribute may only contain one expression element, but we want to make sure … -->
         <xsl:variable name="expression" select="expression[1]"/>
         <xsl:variable name="prefixes" select="root()//namespace/@prefix/xs:string(.)"/>
@@ -278,7 +278,7 @@
             </xsl:element>
         </xsl:result-document>
         
-        <xsl:result-document href="{$output-path}/wrapper_tei2vert.xsl">
+        <xsl:result-document href="{$output-path}/wrapper_xtoks2vert.xsl">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
                 <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
@@ -295,9 +295,9 @@
                     <attribute name="href" select="$pathToVertXSL"/>
                 </element>
                 
-                <apply-templates select="//expression[parent::structure][text()]" mode="tei2vert"/>
+                <apply-templates select="//expression[parent::structure][text()]" mode="xtoks2vert"/>
                 
-                <apply-templates select="//doc-attribute[parent::doc-attributes][expression/text()]" mode="tei2vert"/>
+                <apply-templates select="//doc-attribute[parent::doc-attributes][expression/text()]" mode="xtoks2vert"/>
                     
                 
             </xsl:element>
