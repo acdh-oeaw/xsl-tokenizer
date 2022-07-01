@@ -213,9 +213,13 @@
         
         <!-- if present, create the post-processing stylesheet -->
         <xsl:if test="exists(//postProcessing[xsl:stylesheet])">
-            <xsl:result-document href="{$output-path}/postTokenization.xsl">
-                <xsl:copy-of select="//postProcessing/xsl:stylesheet"/>
-            </xsl:result-document>
+            <xsl:for-each select="//postProcessing/xsl:stylesheet">
+                <xsl:variable name="pos" select="position()"/>
+                <!-- IMPORTANT Do not change this file name as the order is important here. -->
+                <xsl:result-document href="{$output-path}/postTokenization/{$pos}.xsl">
+                    <xsl:copy-of select="."/>
+                </xsl:result-document>
+            </xsl:for-each>
         </xsl:if>
         
         <!-- Create the tokenizer wrapper stylesheet -->
@@ -235,11 +239,6 @@
                 <element name="xsl:include">
                     <attribute name="href" select="$pathToTokenizerLib"/>
                 </element>
-                <xsl:if test="exists(//postProcessing[xsl:stylesheet])">
-                    <element name="xsl:include">
-                        <attribute name="href">postTokenization.xsl</attribute>
-                    </element>
-                </xsl:if>
             </xsl:element>
         </xsl:result-document>
         
@@ -267,11 +266,6 @@
                 <element name="xsl:include">
                     <attribute name="href" select="$pathToPLib"/>
                 </element>
-                <xsl:if test="exists(//postProcessing[xsl:stylesheet])">
-                    <element name="xsl:include">
-                        <attribute name="href">postTokenization.xsl</attribute>
-                    </element>
-                </xsl:if>
                 <text xml:space="preserve">
 
 </text>
