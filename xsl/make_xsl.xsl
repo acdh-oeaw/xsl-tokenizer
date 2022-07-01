@@ -166,6 +166,18 @@
                     <xsl:element name="xsl:copy-of">
                         <xsl:attribute name="select">@*</xsl:attribute>
                     </xsl:element>
+                    <xsl:for-each select="root()//struct-attribute[@on = current()]">
+                        <xsl:element name="xsl:attribute">
+                            <xsl:attribute name="namespace">http://acdh.oeaw.ac.at/apps/xtoks</xsl:attribute>
+                            <xsl:attribute name="name">
+                                <xsl:value-of select="@name"/>
+                            </xsl:attribute>
+                            <xsl:attribute name="select">
+                                <xsl:value-of select="normalize-space(.)"/>
+                            </xsl:attribute>
+                        </xsl:element>
+                    </xsl:for-each>
+                    
                     <xsl:element name="xsl:sequence">
                         <xsl:attribute name="select">$content</xsl:attribute>
                     </xsl:element>

@@ -3,20 +3,6 @@
   <documentation xmlns="http://relaxng.org/ns/compatibility/annotations/1.0">This grammar defines the structure of a Tokenization Profile Definition Document used by the xsl-tokenizer. For more information see http://github.com/acdh-oeaw/xsl-tokenizer.</documentation>
   
   
-  <define name="anyElement">
-    <documentation xmlns="http://relaxng.org/ns/compatibility/annotations/1.0">A class of any element in any namespace with any number of attributes of any name.</documentation>
-    <element>
-      <anyName/>
-      <zeroOrMore>
-        <attribute>
-          <anyName/>
-        </attribute>
-      </zeroOrMore>
-      <zeroOrMore>
-        <ref name="anyElement"/>
-      </zeroOrMore>
-    </element>
-  </define>
   
   <define name="profile.atts">
     <documentation xmlns="http://relaxng.org/ns/compatibility/annotations/1.0">The class of attributes on the root element profile.</documentation>
@@ -101,6 +87,22 @@
     </zeroOrMore>
   </define>
   
+  <define name="anyXSLTelement">
+    <element ns="http://www.w3.org/1999/XSL/Transform">
+      <nsName ns="http://www.w3.org/1999/XSL/Transform"/>
+      <mixed>
+        <zeroOrMore>
+          <attribute>
+            <anyName/>
+          </attribute>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="anyXSLTelement"/>
+        </zeroOrMore>
+      </mixed>
+    </element>
+  </define>
+  
   <start>
     <element name="profile">
       <ref name="profile.atts"/>
@@ -114,9 +116,9 @@
       <optional>
         <element name="postProcessing">
           <optional>
-            <element name="stylesheet" ns="http://www.w3.org/1999/XSL/Transform">
-              <ref name="anyElement"/>
-            </element>
+            <oneOrMore>
+              <ref name="anyXSLTelement"/>
+            </oneOrMore>
           </optional>
         </element>
       </optional>
@@ -148,6 +150,20 @@
       </element>
       
       <optional>
+        <element name="struct-attributes">
+          <oneOrMore>
+            <element name="struct-attribute">
+              <attribute name="name">
+                <data type="NCName"/>
+              </attribute>
+              <attribute name="on"/>
+              <ref name="expression.class"/>
+            </element>
+          </oneOrMore>
+        </element>
+      </optional>
+      
+      <optional>
         <element name="doc-attributes">
           <oneOrMore>
             <element name="doc-attribute">
@@ -171,7 +187,7 @@
   <define name="expression.class">
     <documentation xmlns="http://relaxng.org/ns/compatibility/annotations/1.0">Expression elements contain XPath expression to locate elements in the input document. We try to ensure (very simplistically) that a used namespace prefix is declared.</documentation>
     <sch:pattern>
-      <sch:rule context="expression[matches(.,'^\w+:')]">
+      <sch:rule context="expression[matches(.,'^\w+:\w+')]">
         <sch:let name="prefix" value="substring-before(.,':')"/>
         <sch:assert test="$prefix = root()//namespace/@prefix">Missing namespace element for prefix <sch:value-of select="$prefix"/>.</sch:assert>
       </sch:rule>
