@@ -78,7 +78,8 @@ tokenize() {
 vert-xml() {
 	eval "tokenize $1 $2" > tmp_$$/1_toks.xml
 	xsl="wrapper_xtoks2vert.xsl"
-	$s -s:tmp_$$/1_toks.xml -xsl:"`profilePath $2`/$xsl" "token-namespace=$3" $d
+	[ -z $3 ] && tokenNamespace="tei" || tokenNamespace="$3"
+	$s -s:tmp_$$/1_toks.xml -xsl:"`profilePath $2`/$xsl" "token-namespace=$tokenNamespace" $d
 }
 
 # verticalize to txt

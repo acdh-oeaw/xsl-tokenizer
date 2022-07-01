@@ -3,6 +3,13 @@
     <xsl:strip-space elements="*"/>
     <xsl:preserve-space elements="xtoks:seg xtoks:w xtoks:pc"/>
     <xsl:key name="tag-by-id" match="xtoks:*" use="@xml:id"/>
+    <!-- either "xtoks" (output xtoks:w) or "tei" (output tei:w) -->
+    <!-- IMPORTANT: if you want to create a text vertical out of this xml vertical, 
+        make sure to set $token-namespace to 'xtoks'
+        as vert2txt.xsl relies on that.
+    -->
+    <xsl:param name="token-namespace">tei</xsl:param>
+    
     <xsl:template match="/">
         <xsl:variable name="part-i" select="count(//xtoks:*[@part = 'I'])"/>
         <xsl:variable name="part-f" select="count(//xtoks:*[@part = 'F'])"/>
@@ -13,36 +20,61 @@
             <xsl:message>Debug level: <xsl:value-of select="$debug"/>
             </xsl:message>
         </xsl:if>
-        <TEI>
-            <xsl:choose>
-                <xsl:when test="exists(tei:TEI/tei:teiHeader)">
-                    <xsl:sequence select="tei:TEI/tei:teiHeader"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <teiHeader>
-                        <fileDesc>
-                            <titleStmt>
-                                <title>Automatically generated vertical</title>
-                            </titleStmt>
-                            <publicationStmt>
-                                <p>Intermediate working data.</p>
-                            </publicationStmt>
-                            <sourceDesc>
-                                <p>Born digital.</p>
-                            </sourceDesc>
-                        </fileDesc>
-                    </teiHeader>
-                </xsl:otherwise>
-            </xsl:choose>
-            <text>
-                <body>
-                    <xsl:apply-templates mode="doc-attributes"/>
-                    <ab>
-                        <xsl:apply-templates mode="extractTokens"/>
-                    </ab>
-                </body>
-            </text>
-        </TEI>
+        <xsl:variable name="vert">
+            <TEI>
+                <xsl:choose>
+                    <xsl:when test="exists(tei:TEI/tei:teiHeader)">
+                        <xsl:sequence select="tei:TEI/tei:teiHeader"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <teiHeader>
+                            <fileDesc>
+                                <titleStmt>
+                                    <title>Automatically generated vertical</title>
+                                </titleStmt>
+                                <publicationStmt>
+                                    <p>Intermediate working data.</p>
+                                </publicationStmt>
+                                <sourceDesc>
+                                    <p>Born digital.</p>
+                                </sourceDesc>
+                            </fileDesc>
+                        </teiHeader>
+                    </xsl:otherwise>
+                </xsl:choose>
+                <text>
+                    <body>
+                        <xsl:apply-templates mode="doc-attributes"/>
+                        <xsl:variable name="tokenStream">
+                            <xsl:apply-templates mode="extractTokens"/>
+                        </xsl:variable>
+                        <xsl:choose>
+                            <xsl:when test="every $i in $tokenStream/* satisfies namespace-uri($i) = 'http://acdh.oeaw.ac.at/xtoks'">
+                                <ab>
+                                    <xsl:sequence select="$tokenStream"/>
+                                </ab>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:sequence select="$tokenStream"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </body>
+                </text>
+            </TEI>
+        </xsl:variable>
+        <xsl:choose>
+            <xsl:when test="$token-namespace = 'tei'">
+                <xsl:apply-templates select="$vert" mode="xtoks2tei"/>
+            </xsl:when>
+            <xsl:when test="$token-namespace = 'xtoks'">
+                <xsl:sequence select="$vert"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:message terminate="no">xtoks2vert.xsl: unknown value $token-namespace = '<xsl:value-of select="$token-namespace"/>' Falling back to 'xtoks'.</xsl:message>
+                <xsl:sequence select="$vert"/>
+            </xsl:otherwise>
+        </xsl:choose>
+        
     </xsl:template>
     <xsl:template match="text() | @*" mode="doc-attributes"/>
     <xsl:template match="*" mode="doc-attributes">
@@ -97,4 +129,27 @@
         <xsl:sequence select="."/>
     </xsl:template>
     <xsl:template match="text()[not(parent::xtoks:w) or not(parent::xtoks:seg)]" mode="extractTokens"/>
+    
+    <xsl:template match="node() | @*" mode="xtoks2tei">
+        <xsl:copy>
+            <xsl:apply-templates select="node() | @*" mode="#current"/>
+        </xsl:copy>
+    </xsl:template>
+    
+    <xsl:template match="xtoks:seg[@type = 'ws']" mode="xtoks2tei"/>
+    <xsl:template match="xtoks:pc" mode="xtoks2tei">
+        <xsl:element name="{local-name(.)}" namespace="http://www.tei-c.org/ns/1.0">
+            <xsl:apply-templates select="@*|node()" mode="#current"/>
+        </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="xtoks:w" mode="xtoks2tei">
+        <xsl:element name="{local-name(.)}" namespace="http://www.tei-c.org/ns/1.0">
+            <xsl:if test="exists(following-sibling::*[1][not(self::xtoks:seg[@type='ws'])])">
+                <xsl:attribute name="join">right</xsl:attribute>
+            </xsl:if>
+            <xsl:apply-templates select="@*|node()" mode="#current"/>
+        </xsl:element>
+    </xsl:template>
+    
 </xsl:stylesheet>
