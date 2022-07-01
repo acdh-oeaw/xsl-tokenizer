@@ -12,7 +12,7 @@ usage() {
     echo "  -p / --profile: The name of the tokenization profile. (MANDADORY)"
     echo "  -i / --input: The path to the XML document to be tokenized."
     echo "  -o / --output: The path to the tokenized dokument. If not given, the scripts outputs to the shell."
-    echo "  -f / --format: One of $methodKeys (MANDADORY)"
+    echo "  -m / --method: One of $methodKeys (MANDADORY)"
     echo "                 * makeXSL: Re-compile the wrapper stylesheets (done automatically, if the profile definition document has changed)."
     echo "                 * get-profile: Return the XML definition of the tokenizeation profile."
     echo "                 * rmNl: Return the input document with pretty-print newlines stripped"
@@ -39,43 +39,57 @@ profilePath() {
 # prepare profile wrapper stylesheets
 # $1 = profile name
 mkXSL() {
-	$s -s:"`profile $1`" -xsl:xsl/make_xsl.xsl output-base-path="`profilePath $1`"
+	$s -s:"`profile $1`" -xsl:xsl/make_xsl.xsl output-base-path="`profilePath $1`" $d
 	eval "md5sum `profile $1`" > "`profilePath $1`/compiledFrom"
 }
 
 # remove new lines 
 # $1 = input file
 rmNl() {
-	$s -s:$1 -xsl:xsl/rmNl.xsl
+	$s -s:$1 -xsl:xsl/rmNl.xsl $d
 }
 
 # tokenize 
 # $1 = input file
 # $2 = profile name
 tokenize() {
+	profilePath="`profilePath $2`"
 	eval "rmNl $1" > tmp_$$/rmnl.xml
 	xsl="wrapper_toks.xsl"
-	eval "$s -s:tmp_$$/rmnl.xml -xsl:`profilePath $2`/$xsl" > tmp_$$/0_toks.xml
+	eval "$s -s:tmp_$$/rmnl.xml -xsl:$profilePath/$xsl $d" > tmp_$$/0_toks.xml
 	xsl="wrapper_addP.xsl"
-	$s -s:tmp_$$/0_toks.xml -xsl:"`profilePath $2`/$xsl"
+	$s -s:tmp_$$/0_toks.xml -xsl:"$profilePath/$xsl" $d > tmp_$$/0_toks_PAdded.xml
+	noOfPostTokenizationXSLs=`ls $profilePath/postTokenization/*.xsl | wc -l`
+
+	for i in `ls $profilePath/postTokenization/*.xsl`; do
+		pos=`basename $i .xsl`
+		[ $pos = "1" ] && input="tmp_$$/0_toks_PAdded.xml" || input="tmp_$$/0_toks_PAdded_$((pos - 1)).xml"
+		$s -s:$input -xsl:"$i" > "tmp_$$/0_toks_PAdded_$pos.xml"
+	done
+#	cat tmp_$$/0_toks_PAdded.xml
+	[ -z $noOfPostTokenizationXSLs ] && cat "tmp_$$/0_toks_PAdded.xml" || cat "tmp_$$/0_toks_PAdded_$noOfPostTokenizationXSLs.xml"
 }
+
 
 # verticalize to XML
 # $1 = input file
 # $2 = profile name
+# $3 = token namespace
 vert-xml() {
 	eval "tokenize $1 $2" > tmp_$$/1_toks.xml
-	xsl="wrapper_tei2vert.xsl"
-	$s -s:tmp_$$/1_toks.xml -xsl:"`profilePath $2`/$xsl"
+	xsl="wrapper_xtoks2vert.xsl"
+	$s -s:tmp_$$/1_toks.xml -xsl:"`profilePath $2`/$xsl" "token-namespace=$3" $d
 }
 
 # verticalize to txt
 # $1 = input file
 # $2 = profile name
 vert-txt() {
-	eval "vert-xml $1 $2" > tmp_$$/2_vert.xml
+	# important! must pass 'xtoks' as third argument here 
+	# in order to keep the proprietary token namespace expected by vert-txt
+	eval "vert-xml $1 $2 xtoks" > tmp_$$/2_vert.xml
 	xsl="wrapper_vert2txt.xsl"
-	$s -s:tmp_$$/2_vert.xml -xsl:"`profilePath $2`/$xsl"
+	$s -s:tmp_$$/2_vert.xml -xsl:"`profilePath $2`/$xsl" $d
 }
 
 # returns if the profile has changed since last wrapper stylesheet compilation
@@ -112,6 +126,9 @@ while [ "$1" != "" ]; do
 	-s | --saxon )          shift
                                 s=$(cd "$(dirname "$1")"; pwd)/$(basename "$1")
                                 ;;
+	-d | --debug )          shift
+				d="debug=$1"
+                                ;;
         -h | --help )           usage
                                 exit
                                 ;;
@@ -127,6 +144,7 @@ done
 
 [ ! -e "profiles/$profile/profile.xml" ] && { echo "ERROR: Unknown profile named '$profile'. Profile definition file not found at profiles/$profile/profile.xml"; exit 1; }
 [ ! -e $s ] && { echo "Saxon not found at $s"; exit 1; }
+s="java -jar $s"
 case $method in
     get-profile) cat `profile $profile` ;;
     makeXSL) mkXSL $profile ;;
@@ -146,7 +164,7 @@ case $method in
 	fi
 	mkdir tmp_$$
 	[ -z $output ] && $method $input $profile || { eval "$method $input $profile" > $output ; } 
-	rm -rf "tmp_$$"
+	[ -z $d ] && rm -rf "tmp_$$"
       ;;
 
     *) echo "Invalid method $method. Must be either $methodKeys"; exit 1 ;;
