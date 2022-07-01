@@ -18,12 +18,12 @@
     </xsl:function>
     <xsl:template match="/">
         <xsl:text>&lt;doc</xsl:text>
-        <xsl:for-each select="xtoks:TEI/xtoks:text/xtoks:body/@*">
+        <xsl:for-each select="//tei:body/@*">
             <xsl:value-of select="concat(' ',local-name(.),'=','&#34;',data(.),'&#34;')"/>
         </xsl:for-each>
         <xsl:text>&gt;
 </xsl:text>
-        <xsl:apply-templates select="xtoks:TEI/xtoks:text/xtoks:body"/>
+        <xsl:apply-templates select="//tei:body"/>
         <xsl:text>&lt;/doc&gt;</xsl:text>
     </xsl:template>
     <xsl:template match="xtoks:seg[@type = 'ws']"/>
