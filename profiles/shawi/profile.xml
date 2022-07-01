@@ -1,0 +1,105 @@
+<?xml-model href="../../profile.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../profile.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<profile created="2022-06-29T12:32:00+02:00" id="shawi" last-updated="" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0">
+    <about>
+        <name>SHAWI Tokenizatoin Profile</name>
+        <creator>Daniel Schopper</creator>
+        <description>A simple profile for tokenizing ELAN-generated TEI documents.</description>
+    </about>
+    <parameters>
+        <param key="preserve-ws" value="false"/>
+        <param key="pc-regex" value="\p{P}"/>
+        <param key="ws-regex" value="[\s+]"/>
+        <param key="debug" value="false"/>
+        <param key="useLexicon" value="false"/>
+        <param key="lexicon" xml:space="preserve"/>
+    </parameters>
+    <postProcessing>
+        <xsl:stylesheet xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:xtx="http://acdh.oeaw.ac.at/xtoks"
+            xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+            exclude-result-prefixes="#all"
+            version="2.0">
+            <xsl:output method="xml" indent="yes"/>
+            <xsl:strip-space elements="*"/>
+            <xsl:template match="node() | @*">
+                <xsl:copy>
+                    <xsl:apply-templates select="node() | @*"/>
+                </xsl:copy>
+            </xsl:template>
+            <xsl:template match="xtx:w[following-sibling::*[1]/self::xtx:pc[. = '-']]">
+                <xsl:copy>
+                    <xsl:copy-of select="@* except @xml:id"/>
+                    <xsl:attribute name="xml:id" select="concat(root()//tei:title[@level ='a'],'_',@xml:id)"/>
+                    <xsl:attribute name="join">right</xsl:attribute>
+                    <xsl:attribute name="rend">withDash</xsl:attribute>
+                    <xsl:apply-templates/>
+                </xsl:copy>
+            </xsl:template>
+            <xsl:template match="xtx:w[following-sibling::*[1]/self::xtx:seg[@ŧype = 'ws']]">
+                <xsl:copy>
+                    <xsl:copy-of select="@* except @xml:id"/>
+                    <xsl:attribute name="xml:id" select="concat(root()//tei:title[@level ='a'],'_',@xml:id)"/>
+                    <xsl:attribute name="join">right</xsl:attribute>
+                    <xsl:attribute name="rend">withBlank</xsl:attribute>
+                    <xsl:apply-templates/>
+                </xsl:copy>
+            </xsl:template>
+            
+            
+            <xsl:template match="xtx:w">
+                <xsl:copy>
+                    <xsl:copy-of select="@* except @xml:id"/>
+                    <xsl:attribute name="xml:id" select="concat(root()//tei:title[@level ='a'],'_',@xml:id)"/>
+                    <xsl:apply-templates/>
+                </xsl:copy>
+            </xsl:template>
+            
+            
+
+            <xsl:template match="xtx:pc[.='-']"/>
+
+        </xsl:stylesheet>
+        
+    </postProcessing>
+    <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
+    <copy>
+        <expression>tei:teiHeader</expression>
+        <expression>tei:timeline</expression>
+        <expression>tei:note</expression>
+    </copy>
+    <ignore/> 
+    <in-word-tags/>
+    <floating-blocks/>
+    <structure>
+        <expression>tei:u</expression>
+    </structure>
+
+    <struct-attributes>
+        <struct-attribute name="id" on="tei:u">
+            <expression>parent::tei:annotationBlock/concat(ancestor::tei:TEI//tei:title[@level = 'a'],'_',@xml:id)</expression>
+        </struct-attribute>
+        <struct-attribute name="who" on="tei:u">
+            <expression>parent::tei:annotationBlock/concat('#',@who)</expression>
+        </struct-attribute>
+    </struct-attributes>
+
+    <doc-attributes>
+        <doc-attribute name="id">
+            <expression>//tei:titleStmt/tei:title[@level='a']</expression>
+        </doc-attribute>
+        <doc-attribute name="audio">
+            <expression>//tei:sourceDesc/tei:recording/tei:media/@url</expression>
+        </doc-attribute>
+        <doc-attribute name="topic">
+            <expression>//tei:textClass/tei:catRef/@target</expression>
+        </doc-attribute>
+        <doc-attribute name="geo">
+            <expression>//tei:settingDesc/tei:place</expression>
+        </doc-attribute>
+        <doc-attribute name="speakers">
+            <expression>//tei:particDesc//tei:person</expression>
+        </doc-attribute>
+    </doc-attributes>
+
+</profile>
