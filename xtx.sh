@@ -3,6 +3,9 @@
 #the default saxon 
 s=saxon9he.jar
 
+export tmpDir="tmp_$$"
+export pathToLogfile="$tmpDir/log.txt"
+
 methodKeys="'makeXSL', 'get-profile','rmNl', 'tokenize', 'vert-xml' or 'vert-txt'"
 
 usage() {
@@ -10,6 +13,7 @@ usage() {
     echo "====================================================="
     echo "Parameters:"
     echo "  -p / --profile: The name of the tokenization profile. (MANDADORY)"
+    echo "  -pv / --paramValue: read profile and return the value of given parameter (implies -m = get-profile)"
     echo "  -i / --input: The path to the XML document to be tokenized."
     echo "  -o / --output: The path to the tokenized dokument. If not given, the scripts outputs to the shell."
     echo "  -m / --method: One of $methodKeys (MANDADORY)"
@@ -20,27 +24,58 @@ usage() {
     echo "                 * vert-xml: Return a vertical of the tokens as an XML tokument."
     echo "                 * vert-txt: Return a vertical of the tokens as a text file."
     echo "  -s/ --saxon: The path to a JAR distribution of the Saxon XSLT Processor. If this is not set, Saxon 9 HE (saxon9he.jar) must be present in your \$PATH for this script to work."
+    echo "  -f / --force: Force rebuilding the wrapper stylesheets"
     echo "This script is merely provided for convenience - other methods of invoking the stylesheets are most probably more efficient."
     echo ""
 }
 
-# return path to profile definition document by profile name
+
+# write to log file 
+# $1 = message to be written 
+log () {
+	echo "$1" >> $pathToLogfile
+}
+
+# retrieve parameter value from profile
+# $1 = profile name
+# $2 = parameter name
+profileParamValue() {
+	profile $1 | grep "param key=\"$2\"" | grep -oP '(?<=value=").+(?=\")'
+}
+
+# return profile definition document by profile name
 # $1 = profile name
 profile() {
-	echo "`profilePath $1`/profile.xml"	
+	cat "`profilePath $1`"
+}
+
+# return path to profile definition directory by profile name
+# $1 = profile name
+profileDir() {
+	echo "profiles/$1"	
 }
 
 # return path to profile definition document by profile name
 # $1 = profile name
 profilePath() {
-	echo "profiles/$1"	
+	echo "profiles/$1/profile.xml"	
+}
+
+# return path to the cached post-tokenization XSLT scripts extracted from tokenization profile
+# $1 = profile name
+postTokXSLDir() {
+	echo "`profileDir $1`/postTokenization"
 }
 
 # prepare profile wrapper stylesheets
 # $1 = profile name
 mkXSL() {
-	$s -s:"`profile $1`" -xsl:xsl/make_xsl.xsl output-base-path="`profilePath $1`" $d
-	eval "md5sum `profile $1`" > "`profilePath $1`/compiledFrom"
+	profileDir=`profileDir $1`
+	profilePath=`profilePath $1`
+	postTokXSLDir=`postTokXSLDir $1`
+	[ -d "$postTokXSLDir" ] && rm -r $postTokXSLDir
+	$s -xi -s:"$profilePath" -xsl:xsl/make_xsl.xsl "output-base-path=$profileDir" "postTokXSLDir=$postTokXSLDir" $d
+	eval "md5sum `profilePath $1`" > "`profileDir $1`/compiledFrom"
 }
 
 # remove new lines 
@@ -53,51 +88,101 @@ rmNl() {
 # $1 = input file
 # $2 = profile name
 tokenize() {
-	profilePath="`profilePath $2`"
-	eval "rmNl $1" > tmp_$$/rmnl.xml
+	profileDir="`profileDir $2`"
+	log "starting rmNl"
+	eval "rmNl $1" > $tmpDir/rmnl.xml
+	log "stopped rmNl"
 	xsl="wrapper_toks.xsl"
-	eval "$s -s:tmp_$$/rmnl.xml -xsl:$profilePath/$xsl $d" > tmp_$$/0_toks.xml
+	log "starting $xsl"
+	eval "$s -s:$tmpDir/rmnl.xml -xsl:$profileDir/$xsl $d" > $tmpDir/0_toks.xml
+	log "stopped $xsl"
+		
+	
 	xsl="wrapper_addP.xsl"
-	$s -s:tmp_$$/0_toks.xml -xsl:"$profilePath/$xsl" $d > tmp_$$/0_toks_PAdded.xml
-	noOfPostTokenizationXSLs=`ls $profilePath/postTokenization/*.xsl | wc -l`
+	eval log "starting $xsl"
+	$s -s:"$tmpDir/0_toks.xml" -xsl:"$profileDir/$xsl" -o:"$tmpDir/0_toks_PAdded.xml" $d
+	log "stopped $xsl"
 
-	for i in `ls $profilePath/postTokenization/*.xsl`; do
-		pos=`basename $i .xsl`
-		[ $pos = "1" ] && input="tmp_$$/0_toks_PAdded.xml" || input="tmp_$$/0_toks_PAdded_$((pos - 1)).xml"
-		$s -s:$input -xsl:"$i" > "tmp_$$/0_toks_PAdded_$pos.xml"
-	done
-#	cat tmp_$$/0_toks_PAdded.xml
-	[ -z $noOfPostTokenizationXSLs ] && cat "tmp_$$/0_toks_PAdded.xml" || cat "tmp_$$/0_toks_PAdded_$noOfPostTokenizationXSLs.xml"
+	# apply post-tokenization stylesheets	
+	postTokXSLDir=`postTokXSLDir $2`
+	echo "\$postTokXSLDir=$postTokXSLDir" >> $pathToLogfile
+	if [ -e $postTokXSLDir ];
+	then 
+		noOfPostTokenizationXSLs=`ls $postTokXSLDir/*.xsl | wc -l`
+		echo $noOfPostTokenizationXSLs > "$tmpDir/noOfPostTokenizationXSLs.txt"
+		for i in `ls $postTokXSLDir/*.xsl`; do
+			pos=`basename $i .xsl`
+			log "starting $pos"
+			[ $pos = "1" ] && input="$tmpDir/0_toks_PAdded.xml" || input="$tmpDir/0_toks_PAdded_$((pos - 1)).xml"
+			$s -s:$input -xsl:"$i" $d > "$tmpDir/0_toks_PAdded_$pos.xml"
+			log "stopped $xsl"
+		done
+		pathToPostProcessedTok="$tmpDir/0_toks_PAdded_$noOfPostTokenizationXSLs.xml"
+	else 
+		pathToPostProcessedTok="$tmpDir/0_toks_PAdded.xml" 
+
+	fi
+
+
+	# create TEI version if wanted; otherwise just remove whitespace nodes if needed	
+	tokenNamespace=`profileParamValue $2 "token-namespace"`
+	preserveWs=`profileParamValue $2 "preserve-ws"`
+	if [ $tokenNamespace = 'tei' ];
+	then 
+		$s -s:$pathToPostProcessedTok -xsl:xsl/xtoks2tei.xsl "preserve-ws=$preserveWs" $d
+	else 
+		if [ $preserveWs = 'true' ];
+		then 
+			cat $pathToPostProcessedTok 
+		else 
+			$s -s:$pathToPostProcessedTok -xsl:xsl/rmWs.xsl "preserve-ws=$preserveWs"
+		fi
+	fi
 }
 
 
 # verticalize to XML
 # $1 = input file
 # $2 = profile name
-# $3 = token namespace
+# $3 = override tokenNamespace parameter (needed by vert-txt())
+# $4 = override preserveWs parameter (needed by vert-txt())
 vert-xml() {
-	eval "tokenize $1 $2" > tmp_$$/1_toks.xml
+	eval "tokenize $1 $2" > $tmpDir/1_toks.xml
 	xsl="wrapper_xtoks2vert.xsl"
-	[ -z $3 ] && tokenNamespace="tei" || tokenNamespace="$3"
-	$s -s:tmp_$$/1_toks.xml -xsl:"`profilePath $2`/$xsl" "token-namespace=$tokenNamespace" $d
+	$s -s:$tmpDir/1_toks.xml -xsl:"`profileDir $2`/$xsl" $d > $tmpDir/2_vert.xml
+
+	# create TEI version if wanted, otherwise just remove whitespace nodes
+	[ -z $3 ] && tokenNamespace=`profileParamValue $2 "token-namespace"` || tokenNamespace=$3
+	[ -z $3 ] && preserveWs=`profileParamValue $2 "preserve-ws"` || preserveWs=$4
+	if [ $tokenNamespace = 'tei' ];
+	then
+		# whitespace is handled by xtoks2tei.xsl
+		$s -s:$tmpDir/2_vert.xml -xsl:xsl/xtoks2tei.xsl "preserve-ws=$preserveWs" $d
+	else
+		# when outputting tokens in xtoks namespace, we need to remove whitespace separately 
+		if [ $preserveWs = 'true' ];
+		then 
+			cat $$tmpDir/2_vert.xml
+		else 
+			$s -s:$pathToPostProcessedTok -xsl:xsl/rmWs.xsl "preserve-ws=$preserveWs"
+		fi
+	fi
 }
 
 # verticalize to txt
 # $1 = input file
 # $2 = profile name
 vert-txt() {
-	# important! must pass 'xtoks' as third argument here 
-	# in order to keep the proprietary token namespace expected by vert-txt
-	eval "vert-xml $1 $2 xtoks" > tmp_$$/2_vert.xml
+	eval "vert-xml $1 $2 xtoks true" > $tmpDir/2_vert.xml
 	xsl="wrapper_vert2txt.xsl"
-	$s -s:tmp_$$/2_vert.xml -xsl:"`profilePath $2`/$xsl" $d
+	$s -s:$tmpDir/2_vert.xml -xsl:"`profileDir $2`/$xsl" $d
 }
 
 # returns if the profile has changed since last wrapper stylesheet compilation
 # $1 = profile name
 profile-has-changed(){
-	if [ -e "`profilePath $profile`/compiledFrom" ]; then
-		! md5sum -c "`profilePath $profile`/compiledFrom" --status
+	if [ -e "`profileDir $profile`/compiledFrom" ]; then
+		! md5sum -c "`profileDir $profile`/compiledFrom" --status
 	else
 		true
 	fi
@@ -115,9 +200,15 @@ while [ "$1" != "" ]; do
         -i | --input )           shift
                                 input=$1
                                 ;;
-	-p | --profile )           shift
+	-p | --profile )        shift
                                 profile=$1
                                 ;;
+	-pv | --paramValue )    shift
+                                paramValue=$1
+                                ;;
+	-f | --force ) 		shift
+				forceRebuild="true"
+				;;                                
         -o | --output )         shift
                                 output=$1
                                 ;;
@@ -147,25 +238,32 @@ done
 [ ! -e $s ] && { echo "Saxon not found at $s"; exit 1; }
 s="java -jar $s"
 case $method in
-    get-profile) cat `profile $profile` ;;
+    get-profile) [ -z $paramValue ] && `profile $profile` || profileParamValue $profile $paramValue ;;
     makeXSL) mkXSL $profile ;;
     rmNl|tokenize|vert-xml|vert-txt)
 	echo "Using Saxon at $s" 
 	[ -z $input ] && { echo "ERROR: Missing parameter for input file. Please provide parameter -i or --input"; exit 1; }
 	#Checking existence of input document
 	[ ! -e $input ] && { echo "ERROR: Input file $input not found."; exit 1; }
-	# Only re-make wrapper Stylesheets if there is no compiledFrom file in the profile directory or if the hash of the profile definition document has changed.
-	
-	if [ ! -e "`profilePath $profile`/compiledFrom" ] || profile-has-changed $profile ; 
+	# Only re-make wrapper Stylesheets if there is no compiledFrom file in the profile directory or if the hash of the profile definition document has changed.	
+	if [ ! -e "`profileDir $profile`/compiledFrom" ] || profile-has-changed $profile ; 
 	then 
-	    	echo "The profile has changed. Re-compiling the wrapper stylesheets in `profilePath $profile`."
+	    	echo "The profile has changed. Re-compiling the wrapper stylesheets in `profileDir $profile`."
 		mkXSL $profile 
 	else 
-		echo "There are no profile updates. Using the existing wrapper stylesheets in `profilePath $profile`."
+		if [[ "$forceRebuild" = "true" ]];
+		then
+			echo "-f / --force flag is set: forcing stylesheet build"
+			mkXSL $profile
+		else
+			echo "There are no profile updates. Using the existing wrapper stylesheets in `profileDir $profile`."
+		fi
 	fi
-	mkdir tmp_$$
+	mkdir $tmpDir
+	echo "made $tmpDir"
+	
 	[ -z $output ] && $method $input $profile || { eval "$method $input $profile" > $output ; } 
-	[ -z $d ] && rm -rf "tmp_$$"
+	[ -z $d ] && rm -rf "$tmpDir"
       ;;
 
     *) echo "Invalid method $method. Must be either $methodKeys"; exit 1 ;;
