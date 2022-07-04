@@ -23,15 +23,15 @@
         </xsl:for-each>
         <xsl:text>&gt;
 </xsl:text>
-        <xsl:apply-templates select="//tei:body"/>
+        <xsl:apply-templates select="//tei:body/*"/>
         <xsl:text>&lt;/doc&gt;</xsl:text>
     </xsl:template>
     <xsl:template match="xtoks:ws"/>
     <xsl:template match="*">
-        <xsl:apply-templates/>
+        <xsl:sequence select="xtoks:structure(.)"/>
     </xsl:template>
     <xsl:template match="xtoks:w|xtoks:pc">
-        <xsl:value-of select="concat(normalize-space(.),'&#x9;',@xml:id,'&#xA;')"/>
+        <xsl:value-of select="concat(normalize-space(.),'&#x9;',@xtoks:id,'&#xA;')"/>
         <xsl:if test="exists(following-sibling::*) and not(following-sibling::*[1]/self::xtoks:ws)">
             <xsl:text>&lt;g/&gt;
 </xsl:text>
