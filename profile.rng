@@ -68,6 +68,7 @@
               <value>debug</value>
               <value>useLexicon</value>
               <value>lexicon</value>
+              <value>token-namespace</value>
             </choice>
           </attribute>
           <optional>
