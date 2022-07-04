@@ -7,14 +7,17 @@
     exclude-result-prefixes="#all"
     version="2.0">
     <xsl:strip-space elements="*"/>
-    <xsl:preserve-space elements="xtoks:seg"/>
+    <xsl:preserve-space elements="xtoks:ws"/>
     <xsl:output indent="yes"></xsl:output>
     
-    <xsl:key name="token-by-id" match="xtoks:w|xtoks:pc|xtoks:seg" use="@xml:id"/>
+    <xsl:key name="token-by-id" match="xtoks:w|xtoks:pc|xtoks:ws|xtoks:seg" use="@xtoks:id"/>
     <xsl:key name="first-lex-token-by-reference" match="xtoks:w[@next-by-lex]" use="tokenize(@next-by-lex,' ')"/>
     
     
     <xsl:template match="/">
+        <xsl:if test="$debug !=''">
+            <xsl:message select="'addP.xsl'"/>
+        </xsl:if>    
         <!-- First every token is assigned a stable ID -->
         <xsl:variable name="ids-added">
             <xsl:if test="$debug = ('yes','addP')">
@@ -52,6 +55,7 @@
             </xsl:document>
         </xsl:variable>
         
+        
         <xsl:choose>
             <xsl:when test="$useLexicon = 'true' and $lexToks//*">
                 
@@ -76,7 +80,7 @@
                 </xsl:variable>
                 
                 <!-- In this step, the @part atributes determined in the previous step 
-                    are copied over to the plain token list  -->
+                are copied over to the plain token list  -->
                 <xsl:if test="$debug = ('yes','addP')">
                     <xsl:message>Run "add-p"</xsl:message>
                 </xsl:if>
@@ -93,6 +97,7 @@
                 </xsl:apply-templates>
             </xsl:otherwise>
         </xsl:choose>
+        
     </xsl:template>
     
     <xsl:template name="sum">
@@ -129,9 +134,9 @@
                         </xsl:variable>
                         <xsl:if test="exists($sum)">
                             <xsl:element name="next-by-lex" namespace="">
-                                <xsl:attribute name="lex_entry" select="./@xml:id"/>
+                                <xsl:attribute name="lex_entry" select="./@xtoks:id"/>
                                 <xsl:attribute name="entry" select="."/>
-                                <xsl:value-of select="string-join(subsequence($sum,2)/@xml:id, ' ')"/>
+                                <xsl:value-of select="string-join(subsequence($sum,2)/@xtoks:id, ' ')"/>
                             </xsl:element>
                         </xsl:if>
                     </xsl:for-each>
@@ -164,8 +169,8 @@
         </xsl:copy>
     </xsl:template>
     
-    <xsl:template match="*[key('first-lex-token-by-reference', @xml:id)]" mode="add-lex-parts" priority="1">
-        <xsl:variable name="id" select="@xml:id" as="xs:string"/>
+    <xsl:template match="*[key('first-lex-token-by-reference', @xtoks:id)]" mode="add-lex-parts" priority="1">
+        <xsl:variable name="id" select="@xtoks:id" as="xs:string"/>
         <xsl:variable name="first-lex-tokens" select="key('first-lex-token-by-reference', $id)" as="item()+"/>
         <xsl:if test="count($first-lex-tokens) gt 1">
             <xsl:message>ID: <xsl:value-of select="$id"/></xsl:message>
@@ -182,7 +187,7 @@
         </xsl:variable>
         <xsl:variable name="pos" select="index-of($all-lex-tokens, $id)" as="xs:integer"/>
         <xsl:variable name="next-id" select="subsequence($all-lex-tokens, $pos+1, 1)"/>
-        <xsl:variable name="prev-id" select="if ($pos = 1) then $first-lex-token/@xml:id else subsequence($all-lex-tokens,xs:integer($pos) - 1, 1)"/>
+        <xsl:variable name="prev-id" select="if ($pos = 1) then $first-lex-token/@xtoks:id else subsequence($all-lex-tokens,xs:integer($pos) - 1, 1)"/>
         <xsl:variable name="part" select="if ($pos lt count($all-lex-tokens)) then 'M' else 'F'"/>
         <xsl:copy>
             <xsl:if test="$pos lt count($all-lex-tokens)">
@@ -215,8 +220,8 @@
                                 <xsl:otherwise>M</xsl:otherwise>
                             </xsl:choose>
                         </xsl:variable>
-                        <xsl:variable name="prev" select="preceding-sibling::*[1]/@xml:id"/>
-                        <xsl:variable name="next" select="following-sibling::*[1]/@xml:id"/>
+                        <xsl:variable name="prev" select="preceding-sibling::*[1]/@xtoks:id"/>
+                        <xsl:variable name="next" select="following-sibling::*[1]/@xtoks:id"/>
                         <xsl:copy>
                             <xsl:copy-of select="@*"/>
                             <xsl:attribute name="part" select="$part"/>
@@ -237,13 +242,13 @@
         </xsl:for-each-group>
     </xsl:template>
     
-    <xsl:template match="xtoks:w|xtoks:pc|xtoks:seg[@type='ws']" priority="1" mode="add-ids">
+    <xsl:template match="xtoks:w|xtoks:pc|xtoks:ws" priority="1" mode="add-ids">
         <xsl:variable name="number" as="xs:integer">
-            <xsl:number level="any" count="xtoks:w|xtoks:pc|xtoks:seg[@type = 'ws']"/>
+            <xsl:number level="any" count="xtoks:w|xtoks:pc|ws"/>
         </xsl:variable>
         <xsl:copy>
             <xsl:copy-of select="@*"/>
-            <xsl:attribute name="xml:id" select="concat('xTok_',format-number($number,'000000'))"/>
+            <xsl:attribute name="xtoks:id" select="concat('xTok_',format-number($number,'000000'))"/>
             <xsl:apply-templates select="node()" mode="#current"/>
         </xsl:copy>
     </xsl:template>
@@ -254,7 +259,7 @@
         </xsl:copy>
     </xsl:template>
     
-    <xsl:template match="xtoks:w|xtoks:pc|xtoks:seg[@type = 'ws']" mode="flatten flattenFloats" priority="1">
+    <xsl:template match="xtoks:w|xtoks:pc|ws" mode="flatten flattenFloats" priority="1">
         <xsl:sequence select="."/>
     </xsl:template>
     
@@ -283,12 +288,12 @@
         </xsl:choose>
     </xsl:template>
     
-    <xsl:template match="xtoks:w|xtoks:pc|xtoks:seg[@type = 'ws']" mode="addP">
+    <xsl:template match="xtoks:w|xtoks:pc|xtoks:ws" mode="addP">
         <xsl:param name="grouped" tunnel="yes" as="document-node()+"/>
-        <xsl:variable name="w" select="key('token-by-id', @xml:id, $grouped)"/>
+        <xsl:variable name="w" select="key('token-by-id', @xtoks:id, $grouped)"/>
         <xsl:copy>
             <xsl:if test="exists($w)">
-                <xsl:copy-of select="$w/@xml:id|$w/@part|$w/@next|$w/@prev"/>
+                <xsl:copy-of select="$w/@xtoks:id|$w/@part|$w/@next|$w/@prev"/>
             </xsl:if>
             <xsl:apply-templates select="node() | @*" mode="#current"/>
         </xsl:copy>
@@ -312,7 +317,7 @@
                         <xsl:variable name="parts1-id" select="($parts[1]/@orig-id,$parts/parent::*/@collapsed-id)[1]"/>
                         <xsl:sequence select="$results"/>
                         <xsl:element name="{name($parts[1])}" namespace="{namespace-uri($parts[1])}">
-                            <xsl:attribute name="xml:id" select="$parts1-id"/>
+                            <xsl:attribute name="xtoks:id" select="$parts1-id"/>
                             <xsl:attribute name="part">
                                 <xsl:choose>
                                     <xsl:when test="count($results) = 0 and starts-with($lex-entry,string-join(($results,$parts[1]),''))">I</xsl:when>
@@ -321,7 +326,7 @@
                                 </xsl:choose>
                             </xsl:attribute>
                             <xsl:if test="count($results) > 0">
-                                <xsl:attribute name="prev" select="concat('#',$results[last()]/@xml:id)"/>
+                                <xsl:attribute name="prev" select="concat('#',$results[last()]/@xtoks:id)"/>
                             </xsl:if>
                             <xsl:if test="count($parts) > 1">
                                 <xsl:attribute name="next" select="concat('#',$parts[2]/@orig-id)"/>

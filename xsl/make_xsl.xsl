@@ -10,6 +10,8 @@
         </xd:desc>
     </xd:doc>
     <xsl:include href="toks-lib.xsl"/>
+    
+    <xsl:param name="debug"/>
     <xsl:param name="pathToTokenizerLib" as="xs:string" select="if(exists(root()//param[@key='pathToTokenizerLib'])) then xs:string(root()//param[@key='pathToTokenizerLib']/data(@value)) else '../../xsl/toks.xsl'"/>
     <xsl:param name="pathToVertXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertXSL'])) then xs:string(root()//param[@key='pathToVertXSL']/data(@value)) else '../../xsl/xtoks2vert.xsl'"/>
     <xsl:param name="pathToVertTxtXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertTxtXSL'])) then xs:string(root()//param[@key='pathToVertTxtXSL']/data(@value)) else '../../xsl/vert2txt.xsl'"/>
@@ -18,6 +20,9 @@
     <xsl:param name="preserve-ws" as="xs:boolean" select="if(exists(root()//param[@key='preserve-ws'])) then xs:boolean(root()//param[@key='preserve-ws']/data(@value)) else true()"/>
     <xsl:param name="pathToPLib" as="xs:string" select="if(exists(root()//param[@key='pathToPLib'])) then xs:string(root()//param[@key='pathToPLib']/data(@value)) else '../../xsl/addP.xsl'"/>
     <xsl:param name="output-base-path"/>
+    <xsl:param name="postTokXSLDir">postTokenization</xsl:param>
+    
+    
     <xsl:function name="xtoks:expand-path">
         <xsl:param name="path" as="xs:string?"/>
         <xsl:if test="$path != ''">
@@ -168,7 +173,7 @@
                     </xsl:element>
                     <xsl:for-each select="root()//struct-attribute[@on = current()]">
                         <xsl:element name="xsl:attribute">
-                            <xsl:attribute name="namespace">http://acdh.oeaw.ac.at/apps/xtoks</xsl:attribute>
+                            <xsl:attribute name="namespace">http://acdh.oeaw.ac.at/xtoks</xsl:attribute>
                             <xsl:attribute name="name">
                                 <xsl:value-of select="@name"/>
                             </xsl:attribute>
@@ -199,7 +204,7 @@
                     <xsl:attribute name="match" select="$expression"/>
                     <xsl:attribute name="mode">doc-attributes</xsl:attribute>
                     <xsl:element name="xsl:attribute">
-                        <xsl:attribute name="namespace">http://acdh.oeaw.ac.at/apps/xtoks</xsl:attribute>
+                        <xsl:attribute name="namespace">http://acdh.oeaw.ac.at/xtoks</xsl:attribute>
                         <xsl:attribute name="name">
                             <xsl:value-of select="@name"/>
                         </xsl:attribute>
@@ -218,6 +223,12 @@
     
     
     <xsl:template match="/">
+        <xsl:if test="$debug != ''">
+            <xsl:message select="concat('make_xsl.xsl: $debug=',$debug)"/>
+            <xsl:message select="concat('make_xsl.xsl: $output-base-path=',$output-base-path)"/>
+            <xsl:message select="concat('make_xsl.xsl: $postTokXSLDir=',$postTokXSLDir)"/>    
+        </xsl:if>
+        
         <!-- preapare parameter stylesheet -->
         <xsl:result-document href="{$output-path}/params.xsl">
             <xsl:apply-templates select="." mode="mkParams"/>
@@ -228,7 +239,7 @@
             <xsl:for-each select="//postProcessing/xsl:stylesheet">
                 <xsl:variable name="pos" select="position()"/>
                 <!-- IMPORTANT Do not change this file name as the order is important here. -->
-                <xsl:result-document href="{$output-path}/postTokenization/{$pos}.xsl">
+                <xsl:result-document href="{$postTokXSLDir}/{$pos}.xsl">
                     <xsl:copy-of select="."/>
                 </xsl:result-document>
             </xsl:for-each>

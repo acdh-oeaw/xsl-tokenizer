@@ -28,8 +28,7 @@
         <xsl:param name="preserve-ws" required="no" as="xs:boolean" select="true()"/>
         <xsl:analyze-string select="." regex="{$ws-regex}">
             <xsl:matching-substring>
-                <xsl:element name="seg">
-                    <xsl:attribute name="type">ws</xsl:attribute>
+                <xsl:element name="ws">
                     <xsl:attribute name="xml:space">preserve</xsl:attribute>
                     <xsl:value-of select="."/>
                 </xsl:element>
