@@ -42,10 +42,7 @@
             <text>
                 <body>
                     <xsl:apply-templates mode="doc-attributes"/>
-                    <xsl:variable name="tokenStream">
-                        <xsl:apply-templates mode="extractTokens"/>
-                    </xsl:variable>
-                    <xsl:sequence select="$tokenStream"/>
+                    <xsl:apply-templates mode="extractTokens"/>
                 </body>
             </text>
         </TEI>        
