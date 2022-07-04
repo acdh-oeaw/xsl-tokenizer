@@ -87,6 +87,8 @@ rmNl() {
 # tokenize 
 # $1 = input file
 # $2 = profile name
+# $3 = override tokenNamespace parameter (needed by vert-txt())
+# $4 = override preserveWs parameter (needed by vert-txt())
 tokenize() {
 	profileDir="`profileDir $2`"
 	log "starting rmNl"
@@ -125,8 +127,8 @@ tokenize() {
 
 
 	# create TEI version if wanted; otherwise just remove whitespace nodes if needed	
-	tokenNamespace=`profileParamValue $2 "token-namespace"`
-	preserveWs=`profileParamValue $2 "preserve-ws"`
+	[ -z $3 ] && tokenNamespace=`profileParamValue $2 "token-namespace"` || tokenNamespace=$3
+	[ -z $4 ] && preserveWs=`profileParamValue $2 "preserve-ws"` || preserveWs=$4
 	if [ $tokenNamespace = 'tei' ];
 	then 
 		$s -s:$pathToPostProcessedTok -xsl:xsl/xtoks2tei.xsl "preserve-ws=$preserveWs" $d
@@ -147,9 +149,9 @@ tokenize() {
 # $3 = override tokenNamespace parameter (needed by vert-txt())
 # $4 = override preserveWs parameter (needed by vert-txt())
 vert-xml() {
-	eval "tokenize $1 $2" > $tmpDir/1_toks.xml
+	eval "tokenize $1 $2 xtoks" > $tmpDir/1_toks.xml
 	xsl="wrapper_xtoks2vert.xsl"
-	$s -s:$tmpDir/1_toks.xml -xsl:"`profileDir $2`/$xsl" $d > $tmpDir/2_vert.xml
+	$s -s:$tmpDir/1_toks.xml -xsl:"`profileDir $2`/$xsl" -o:"$tmpDir/2_vert.xml" $d 
 
 	# create TEI version if wanted, otherwise just remove whitespace nodes
 	[ -z $3 ] && tokenNamespace=`profileParamValue $2 "token-namespace"` || tokenNamespace=$3
@@ -162,7 +164,7 @@ vert-xml() {
 		# when outputting tokens in xtoks namespace, we need to remove whitespace separately 
 		if [ $preserveWs = 'true' ];
 		then 
-			cat $$tmpDir/2_vert.xml
+			cat $tmpDir/2_vert.xml
 		else 
 			$s -s:$pathToPostProcessedTok -xsl:xsl/rmWs.xsl "preserve-ws=$preserveWs"
 		fi
