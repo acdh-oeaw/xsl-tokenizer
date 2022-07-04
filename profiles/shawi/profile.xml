@@ -13,54 +13,10 @@
         <param key="debug" value="false"/>
         <param key="useLexicon" value="false"/>
         <param key="lexicon" xml:space="preserve"/>
+        <param key="token-namespace" value="tei"/> 
     </parameters>
     <postProcessing>
-        <xsl:stylesheet xmlns:xs="http://www.w3.org/2001/XMLSchema"
-            xmlns:xtx="http://acdh.oeaw.ac.at/xtoks"
-            xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-            exclude-result-prefixes="#all"
-            version="2.0">
-            <xsl:output method="xml" indent="yes"/>
-            <xsl:strip-space elements="*"/>
-            <xsl:template match="node() | @*">
-                <xsl:copy>
-                    <xsl:apply-templates select="node() | @*"/>
-                </xsl:copy>
-            </xsl:template>
-            <xsl:template match="xtx:w[following-sibling::*[1]/self::xtx:pc[. = '-']]">
-                <xsl:copy>
-                    <xsl:copy-of select="@* except @xml:id"/>
-                    <xsl:attribute name="xml:id" select="concat(root()//tei:title[@level ='a'],'_',@xml:id)"/>
-                    <xsl:attribute name="join">right</xsl:attribute>
-                    <xsl:attribute name="rend">withDash</xsl:attribute>
-                    <xsl:apply-templates/>
-                </xsl:copy>
-            </xsl:template>
-            <xsl:template match="xtx:w[following-sibling::*[1]/self::xtx:seg[@ŧype = 'ws']]">
-                <xsl:copy>
-                    <xsl:copy-of select="@* except @xml:id"/>
-                    <xsl:attribute name="xml:id" select="concat(root()//tei:title[@level ='a'],'_',@xml:id)"/>
-                    <xsl:attribute name="join">right</xsl:attribute>
-                    <xsl:attribute name="rend">withBlank</xsl:attribute>
-                    <xsl:apply-templates/>
-                </xsl:copy>
-            </xsl:template>
-            
-            
-            <xsl:template match="xtx:w">
-                <xsl:copy>
-                    <xsl:copy-of select="@* except @xml:id"/>
-                    <xsl:attribute name="xml:id" select="concat(root()//tei:title[@level ='a'],'_',@xml:id)"/>
-                    <xsl:apply-templates/>
-                </xsl:copy>
-            </xsl:template>
-            
-            
-
-            <xsl:template match="xtx:pc[.='-']"/>
-
-        </xsl:stylesheet>
-        
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="postTokenization.xsl"/>
     </postProcessing>
     <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
     <copy>
@@ -73,6 +29,7 @@
     <floating-blocks/>
     <structure>
         <expression>tei:u</expression>
+        <expression>tei:seg[@type = 'token']</expression>
     </structure>
 
     <struct-attributes>
