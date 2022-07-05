@@ -13,6 +13,8 @@
     <xsl:include href="toks-lib.xsl"/>
     
     <xsl:param name="debug"/>
+    <!-- force rebuilding of wrapper.xsl -->
+    <xsl:param name="force"/>
     <xsl:param name="pathToTokenizerLib" as="xs:string" select="if(exists(root()//param[@key='pathToTokenizerLib'])) then xs:string(root()//param[@key='pathToTokenizerLib']/data(@value)) else '../../xsl/toks.xsl'"/>
     <xsl:param name="pathToVertXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertXSL'])) then xs:string(root()//param[@key='pathToVertXSL']/data(@value)) else '../../xsl/xtoks2vert.xsl'"/>
     <xsl:param name="pathToVertTxtXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertTxtXSL'])) then xs:string(root()//param[@key='pathToVertTxtXSL']/data(@value)) else '../../xsl/vert2txt.xsl'"/>
@@ -21,8 +23,12 @@
     <xsl:param name="preserve-ws" as="xs:boolean" select="if(exists(root()//param[@key='preserve-ws'])) then xs:boolean(root()//param[@key='preserve-ws']/data(@value)) else true()"/>
     <xsl:param name="pathToPLib" as="xs:string" select="if(exists(root()//param[@key='pathToPLib'])) then xs:string(root()//param[@key='pathToPLib']/data(@value)) else '../../xsl/addP.xsl'"/>
     <xsl:param name="output-base-path"/>
-    <xsl:param name="postTokXSLDir">postTokenization</xsl:param>
+    <xsl:param name="postTokXSLDir"><xsl:value-of select="$output-base-path"/>/postTokenization</xsl:param>
     
+
+    <xsl:variable name="FILENAME_PARAMS">params.xsl</xsl:variable>
+    <xsl:variable name="FILENAME_XTOKS2VERT">wrapper_xtoks2vert.xsl</xsl:variable>
+    <xsl:variable name="FILENAME_POSTTOKSWRAPPER">wrapper_postTokenization.xsl</xsl:variable>
     
     <xsl:function name="xtoks:expand-path">
         <xsl:param name="path" as="xs:string?"/>
@@ -63,6 +69,7 @@
         <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
             <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
             <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
+            <xsl:namespace name="xtoks">http://acdh.oeaw.ac.at/xtoks</xsl:namespace>
             <xsl:attribute name="version">2.0</xsl:attribute>
             <xsl:attribute name="xml:id">params</xsl:attribute>
             <xsl:apply-templates select="profile/namespace" mode="#current"/>
@@ -230,45 +237,132 @@
         </xsl:if>
         
         <!-- preapare parameter stylesheet -->
-        <xsl:result-document href="{$output-path}/params.xsl">
+        <xsl:result-document href="{$output-path}/{$FILENAME_PARAMS}">
             <xsl:apply-templates select="." mode="mkParams"/>
         </xsl:result-document>
         
-        <!-- if present, create the post-processing stylesheet -->
+        <!-- if present, create the post-processing stylesheets and wrapper XSLT -->
         <xsl:if test="exists(//postProcessing[xsl:stylesheet])">
             <xsl:for-each select="//postProcessing/xsl:stylesheet">
                 <xsl:variable name="pos" select="position()"/>
-                <!-- IMPORTANT Do not change this file name as the order is important here. -->
-                <xsl:result-document href="{$postTokXSLDir}/{$pos}.xsl">
+                <xsl:result-document href="{$postTokXSLDir}/{$pos}.xsl" method="xml">
+                    <xsl:comment><xsl:value-of select="current-dateTime()"/></xsl:comment>
                     <xsl:copy-of select="."/>
                 </xsl:result-document>
             </xsl:for-each>
+            
+            <xsl:result-document href="wrapper_postTokenization.xsl" method="xml">
+                <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
+                    <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
+                    <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
+                    <xsl:namespace name="xtoks">http://acdh.oeaw.ac.at/xtoks</xsl:namespace>
+                    <xsl:for-each select="//namespace">
+                        <namespace name="{@prefix}" select="."/>
+                    </xsl:for-each>
+                    <attribute name="version">2.0</attribute>
+                    <attribute name="exclude-result-prefixes">#all</attribute>
+                    
+                    <xsl:comment>This is genereated by make_xsl.xsl</xsl:comment>
+                    
+                    <xsl:for-each select="//postProcessing/xsl:stylesheet">
+                        <xsl:variable name="pos" select="position()"/>
+                        <xsl:element name="xsl:include">
+                            <xsl:attribute name="href" select="concat($postTokXSLDir,'/',$pos,'.xsl')"/>
+                        </xsl:element>
+                    </xsl:for-each>
+                    
+                    <xsl:element name="xsl:function">
+                        <xsl:variable name="noOfPPXSLTs" select="count(//postProcessing/xsl:stylesheet)"/>
+                        <xsl:attribute name="name">xtoks:applyPostProcessingXSLTs</xsl:attribute>
+                        <xsl:element name="xsl:param">
+                            <xsl:attribute name="name">input</xsl:attribute>
+                            <xsl:attribute name="as">document-node()</xsl:attribute>
+                        </xsl:element>
+                        <xsl:for-each select="//postProcessing/xsl:stylesheet">
+                            <xsl:variable name="pos" select="position()"/>
+                            <xsl:element name="xsl:variable">
+                                <xsl:attribute name="name">pp<xsl:value-of select="$pos"/></xsl:attribute>
+                                <xsl:element name="xsl:apply-templates">
+                                    <xsl:attribute name="select">
+                                        <xsl:choose>
+                                            <xsl:when test="$pos = 1">$input</xsl:when>
+                                            <xsl:otherwise>$pp<xsl:value-of select="$pos -1"/></xsl:otherwise>
+                                        </xsl:choose>
+                                    </xsl:attribute>
+                                    <xsl:attribute name="mode">pp<xsl:value-of select="$pos"/></xsl:attribute>
+                                </xsl:element>
+                            </xsl:element>
+                        </xsl:for-each>
+                        <xsl:element name="xsl:sequence">
+                            <xsl:attribute name="select" select="concat('pp',$noOfPPXSLTs)"/>
+                        </xsl:element>
+                    </xsl:element>
+                </xsl:element>
+            </xsl:result-document>
         </xsl:if>
         
         <!-- Create the tokenizer wrapper stylesheet -->
-        <xsl:result-document href="{$output-path}/wrapper_toks.xsl" indent="yes">
-            <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
-                <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
-                <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
-                <xsl:for-each select="//namespace">
-                    <namespace name="{@prefix}" select="."/>
-                </xsl:for-each>
-                <attribute name="version">2.0</attribute>
-                <attribute name="exclude-result-prefixes">#all</attribute>
-                
-                <element name="xsl:include">
-                    <attribute name="href">params.xsl</attribute>
-                </element>
-                <element name="xsl:include">
-                    <attribute name="href" select="$pathToTokenizerLib"/>
-                </element>
-            </xsl:element>
-        </xsl:result-document>
-        
+        <xsl:if test="not(doc-available(concat($output-path,'/wrapper.xsl'))) or $force = 'true'">
+             <xsl:result-document href="{$output-path}/wrapper.xsl" indent="yes">
+                 <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
+                     <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
+                     <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
+                     <xsl:namespace name="xtoks">http://acdh.oeaw.ac.at/xtoks</xsl:namespace>
+                     <xsl:for-each select="//namespace">
+                         <namespace name="{@prefix}" select="."/>
+                     </xsl:for-each>
+                     <attribute name="version">2.0</attribute>
+                     <attribute name="exclude-result-prefixes">#all</attribute>
+                     
+                     <element name="xsl:variable">
+                         <attribute name="name">basename</attribute>
+                         <attribute name="select">replace(tokenize(base-uri(),'/')[last()],'\.xml$','')</attribute>
+                     </element>
+                     <element name="xsl:param"><attribute name="name">path-to-profile</attribute></element>
+                     <element name="xsl:variable">
+                         <attribute name="name">profile</attribute>
+                         <attribute name="select">doc($path-to-profile)</attribute>
+                         <attribute name="as">document-node()</attribute>
+                     </element>
+                     
+                     
+                     <element name="xsl:include"><attribute name="href">../../xsl/rmNl.xsl</attribute></element>
+                     <element name="xsl:include"><attribute name="href" select="$pathToTokenizerLib"/></element>
+                     <element name="xsl:include"><attribute name="href">../../xsl/addP.xsl</attribute></element>
+                     <element name="xsl:include"><attribute name="href">../../xsl/vert2txt.xsl</attribute></element>
+                     <element name="xsl:include"><attribute name="href">../../xsl/xtoks2tei.xsl</attribute></element>
+                     <element name="xsl:include"><attribute name="href">../../xsl/rmWs.xsl</attribute></element>
+                     <element name="xsl:include"><attribute name="href">../../xsl/functions.xsl</attribute></element>
+                     
+                     <element name="xsl:include"><attribute name="href"><xsl:value-of select="$FILENAME_PARAMS"/></attribute></element>
+                     <element name="xsl:include"><attribute name="href"><xsl:value-of select="$FILENAME_POSTTOKSWRAPPER"/></attribute></element>
+                     
+                     <element name="xsl:include"><attribute name="href" select="$FILENAME_XTOKS2VERT"/></element>
+                     
+                     <comment>This is just a template. In order to create one or several other output formast, 
+                         call the respective template in ../../xsl/functions.xsl</comment>
+                     <element name="xsl:template">
+                         <attribute name="match">/</attribute>
+                         <element name="xsl:result-document">
+                             <attribute name="href">{$basename}_toks.xml</attribute>
+                             <attribute name="method">xml</attribute>
+                             <attribute name="indent">yes</attribute>
+                             <element name="xsl:call-template">
+                                 <attribute name="name">xtoks:tokenize</attribute>
+                                 <element name="xsl:with-param">
+                                     <attribute name="name">input</attribute>
+                                     <attribute name="select">.</attribute>
+                                 </element>
+                             </element>
+                         </element>
+                     </element>
+                 </xsl:element>
+             </xsl:result-document>
+        </xsl:if>
         
         
         <!-- Create the partial-token linker stylehsheet -->
-        <xsl:result-document href="{$output-path}/wrapper_addP.xsl">
+      <!--  <xsl:result-document href="{$output-path}/wrapper_addP.xsl">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
                 <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
@@ -293,9 +387,9 @@
 
 </text>
             </xsl:element>
-        </xsl:result-document>
+        </xsl:result-document>-->
         
-        <xsl:result-document href="{$output-path}/wrapper_xtoks2vert.xsl">
+        <xsl:result-document href="{$output-path}/{$FILENAME_XTOKS2VERT}.xsl">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
                 <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
@@ -319,7 +413,7 @@
                 
             </xsl:element>
         </xsl:result-document>
-        <xsl:result-document href="{$output-path}/wrapper_vert2txt.xsl">
+        <!--<xsl:result-document href="{$output-path}/wrapper_vert2txt.xsl">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
                 <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
@@ -353,6 +447,6 @@
                     </xsl:element>
                 </for-each>
             </xsl:element>
-        </xsl:result-document>
+        </xsl:result-document>-->
     </xsl:template>
 </xsl:stylesheet>

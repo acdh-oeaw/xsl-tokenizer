@@ -4,7 +4,7 @@
     <xsl:preserve-space elements="xtoks:seg xtoks:w xtoks:pc xtoks:ws"/>
     <xsl:key name="tag-by-id" match="xtoks:*" use="@xml:id"/>
     
-    <xsl:template match="/">
+    <xsl:template match="/" mode="xtoks2vert">
         <xsl:if test="$debug !=''">
             <xsl:message select="'xtoks2vert.xsl'"/>
         </xsl:if>    

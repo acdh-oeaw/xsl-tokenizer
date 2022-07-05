@@ -14,7 +14,7 @@
     <xsl:key name="first-lex-token-by-reference" match="xtoks:w[@next-by-lex]" use="tokenize(@next-by-lex,' ')"/>
     
     
-    <xsl:template match="/">
+    <xsl:template match="/" mode="addP">
         <xsl:if test="$debug !=''">
             <xsl:message select="'addP.xsl'"/>
         </xsl:if>    
@@ -84,7 +84,7 @@
                 <xsl:if test="$debug = ('yes','addP')">
                     <xsl:message>Run "add-p"</xsl:message>
                 </xsl:if>
-                <xsl:apply-templates select="$ids-added" mode="addP">
+                <xsl:apply-templates select="$ids-added" mode="doAddP">
                     <xsl:with-param name="grouped" select="$lexPartsAdded" as="document-node()" tunnel="yes"/>
                 </xsl:apply-templates>
             </xsl:when>
@@ -92,7 +92,7 @@
                 <xsl:if test="$debug = ('yes','addP')">
                     <xsl:message>Run "add-p"</xsl:message>
                 </xsl:if>
-                <xsl:apply-templates select="$ids-added" mode="addP">
+                <xsl:apply-templates select="$ids-added" mode="doAddP">
                     <xsl:with-param name="grouped" select="$partsTagged" as="document-node()" tunnel="yes"/>
                 </xsl:apply-templates>
             </xsl:otherwise>
@@ -275,7 +275,7 @@
         <xsl:apply-templates mode="#current"/>
     </xsl:template>
     
-    <xsl:template match="node() | @*" mode="addP">
+    <xsl:template match="node() | @*" mode="doAddP">
         <xsl:choose>
             <xsl:when test="@mode|descendant::xtoks:w|descendant::xtoks:pc">
                 <xsl:copy>
@@ -288,7 +288,7 @@
         </xsl:choose>
     </xsl:template>
     
-    <xsl:template match="xtoks:w|xtoks:pc|xtoks:ws" mode="addP">
+    <xsl:template match="xtoks:w|xtoks:pc|xtoks:ws" mode="doAddP">
         <xsl:param name="grouped" tunnel="yes" as="document-node()+"/>
         <xsl:variable name="w" select="key('token-by-id', @xtoks:id, $grouped)"/>
         <xsl:copy>
