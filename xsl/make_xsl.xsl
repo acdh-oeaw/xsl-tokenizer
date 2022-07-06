@@ -294,7 +294,7 @@
                             </xsl:element>
                         </xsl:for-each>
                         <xsl:element name="xsl:sequence">
-                            <xsl:attribute name="select" select="concat('pp',$noOfPPXSLTs)"/>
+                            <xsl:attribute name="select" select="concat('$pp',$noOfPPXSLTs)"/>
                         </xsl:element>
                     </xsl:element>
                 </xsl:element>
