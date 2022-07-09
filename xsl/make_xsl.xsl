@@ -15,13 +15,14 @@
     <xsl:param name="debug"/>
     <!-- force rebuilding of wrapper.xsl -->
     <xsl:param name="force"/>
-    <xsl:param name="pathToTokenizerLib" as="xs:string" select="if(exists(root()//param[@key='pathToTokenizerLib'])) then xs:string(root()//param[@key='pathToTokenizerLib']/data(@value)) else '../../xsl/toks.xsl'"/>
-    <xsl:param name="pathToVertXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertXSL'])) then xs:string(root()//param[@key='pathToVertXSL']/data(@value)) else '../../xsl/xtoks2vert.xsl'"/>
-    <xsl:param name="pathToVertTxtXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertTxtXSL'])) then xs:string(root()//param[@key='pathToVertTxtXSL']/data(@value)) else '../../xsl/vert2txt.xsl'"/>
+    <xsl:param name="pathToTokenizerScripts" as="xs:string" select="if(exists(root()//param[@key='pathToTokenizerScripts'])) then xs:string(root()//param[@key='pathToTokenizerScripts']/data(@value)) else '../..'"/>
+    <xsl:param name="pathToTokenizerLib" as="xs:string" select="if(exists(root()//param[@key='pathToTokenizerLib'])) then xs:string(root()//param[@key='pathToTokenizerLib']/data(@value)) else concat($pathToTokenizerScripts,'/toks.xsl')"/>
+    <xsl:param name="pathToVertXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertXSL'])) then xs:string(root()//param[@key='pathToVertXSL']/data(@value)) else concat($pathToTokenizerScripts,'/xtoks2vert.xsl')"/>
+    <xsl:param name="pathToVertTxtXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertTxtXSL'])) then xs:string(root()//param[@key='pathToVertTxtXSL']/data(@value)) else concat($pathToTokenizerScripts,'/vert2txt.xsl')"/>
     <xsl:param name="punctCharPattern" as="xs:string" select="if(exists(root()//param[@key='pc-regex'])) then xs:string(root()//param[@key='pc-regex']/data(@value)) else '\p{P}+'"/>
     <xsl:param name="ws-regex" as="xs:string" select="if(exists(root()//param[@key='ws-regex'])) then xs:string(root()//param[@key='ws-regex']/data(@value)) else '\s+'"/>
     <xsl:param name="preserve-ws" as="xs:boolean" select="if(exists(root()//param[@key='preserve-ws'])) then xs:boolean(root()//param[@key='preserve-ws']/data(@value)) else true()"/>
-    <xsl:param name="pathToPLib" as="xs:string" select="if(exists(root()//param[@key='pathToPLib'])) then xs:string(root()//param[@key='pathToPLib']/data(@value)) else '../../xsl/addP.xsl'"/>
+    <xsl:param name="pathToPLib" as="xs:string" select="if(exists(root()//param[@key='pathToPLib'])) then xs:string(root()//param[@key='pathToPLib']/data(@value)) else concat($pathToTokenizerScripts,'/addP.xsl')"/>
     <xsl:param name="output-base-path"/>
     <xsl:param name="postTokXSLDir"><xsl:value-of select="$output-base-path"/>/postTokenization</xsl:param>
     
@@ -326,7 +327,7 @@
                      </element>
                      
                      
-                     <element name="xsl:include"><attribute name="href">../../xsl/rmNl.xsl</attribute></element>
+                     <element name="xsl:include"><attribute name="href"><value-of select="$pathToTokenizerScripts"/>rmNl.xsl</attribute></element>
                      <element name="xsl:include"><attribute name="href" select="$pathToTokenizerLib"/></element>
                      <element name="xsl:include"><attribute name="href">../../xsl/addP.xsl</attribute></element>
                      <element name="xsl:include"><attribute name="href">../../xsl/vert2txt.xsl</attribute></element>
