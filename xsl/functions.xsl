@@ -23,12 +23,18 @@
                 <xsl:apply-templates select="$nlRmd" mode="tokenize"/>
             </xsl:document>    
         </xsl:variable>
-        
         <xsl:variable name="pAdded" as="document-node()">
             <xsl:document>
                 <xsl:apply-templates select="$tokenized" mode="addP"/>
             </xsl:document>    
         </xsl:variable>
+        <xsl:call-template name="xtoks:postProcessing">
+            <xsl:with-param name="pAdded" select="$pAdded"/>
+        </xsl:call-template>
+    </xsl:template>
+    
+    <xsl:template name="xtoks:postProcessing" use-when="function-available('xtoks:applyPostProcessingXSLTs', 1)">
+        <xsl:param name="pAdded"/>
         <xsl:variable name="postProcessed" select="xtoks:applyPostProcessingXSLTs($pAdded)"/>
         <xsl:choose>
             <xsl:when test="$token-namespace = 'xtoks' and $preserve-ws = 'true'">
@@ -41,9 +47,22 @@
                 <xsl:apply-templates select="$postProcessed" mode="xtoks2tei"/>
             </xsl:otherwise>
         </xsl:choose>
-        
     </xsl:template>
     
+    <xsl:template name="xtoks:postProcessing" use-when="not(function-available('xtoks:applyPostProcessingXSLTs', 1))">
+        <xsl:param name="pAdded"/>
+        <xsl:choose>
+            <xsl:when test="$token-namespace = 'xtoks' and $preserve-ws = 'true'">
+                <xsl:sequence select="$pAdded"/>
+            </xsl:when>
+            <xsl:when test="$token-namespace = 'xtoks' and $preserve-ws = 'false'">
+                <xsl:apply-templates select="$pAdded" mode="rmWs"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates select="$pAdded" mode="xtoks2tei"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
     
     <xsl:template name="xtoks:vert-xml">
         <xsl:param name="input" as="document-node()"/>
