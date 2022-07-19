@@ -1,4 +1,5 @@
 <xsl:stylesheet xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:p="xpath20" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xtoks="http://acdh.oeaw.ac.at/xtoks" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" exclude-result-prefixes="xs xd p" version="2.0">
+    <xsl:import href="xpath20.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>
             <xd:p>
@@ -8,9 +9,9 @@
             <xd:p/>
         </xd:desc>
     </xd:doc>
-    <xsl:output method="xml" indent="yes"/>
-    <xsl:import href="xpath20.xsl"/>
     <xsl:include href="toks-lib.xsl"/>
+        
+    <xsl:output method="xml" indent="yes"/>
     
     <xsl:param name="debug"/>
     <!-- force rebuilding of wrapper.xsl -->
@@ -61,7 +62,8 @@
                 <xsl:value-of select="$output-base-path"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="concat('../',$profile-name)"/>
+                <xsl:variable name="pathParts" as="xs:string+" select="tokenize(base-uri(), '/')"/>
+                <xsl:value-of select="string-join(subsequence($pathParts, 1, count($pathParts) - 1), '/')"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
@@ -303,7 +305,7 @@
         </xsl:if>
         
         <!-- Create the tokenizer wrapper stylesheet -->
-        <xsl:if test="not(doc-available(concat($output-path,'/wrapper.xsl'))) or $force = 'true'">
+        <xsl:if test="$force = 'true' or not(doc-available(concat($output-path,'/wrapper.xsl')))">
              <xsl:result-document href="{$output-path}/wrapper.xsl" indent="yes">
                  <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                      <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
