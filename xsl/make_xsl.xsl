@@ -16,7 +16,7 @@
     <xsl:param name="debug"/>
     <!-- force rebuilding of wrapper.xsl -->
     <xsl:param name="force"/>
-    <xsl:param name="pathToTokenizerScripts" as="xs:string" select="if(exists(root()//param[@key='pathToTokenizerScripts'])) then xs:string(root()//param[@key='pathToTokenizerScripts']/data(@value)) else '../..'"/>
+    <xsl:param name="pathToTokenizerScripts" as="xs:string" select="if(exists(root()//param[@key='pathToTokenizerScripts'])) then xs:string(root()//param[@key='pathToTokenizerScripts']/data(@value)) else '../../xsl'"/>
     <xsl:param name="pathToTokenizerLib" as="xs:string" select="if(exists(root()//param[@key='pathToTokenizerLib'])) then xs:string(root()//param[@key='pathToTokenizerLib']/data(@value)) else concat($pathToTokenizerScripts,'/toks.xsl')"/>
     <xsl:param name="pathToVertXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertXSL'])) then xs:string(root()//param[@key='pathToVertXSL']/data(@value)) else concat($pathToTokenizerScripts,'/xtoks2vert.xsl')"/>
     <xsl:param name="pathToVertTxtXSL" as="xs:string" select="if(exists(root()//param[@key='pathToVertTxtXSL'])) then xs:string(root()//param[@key='pathToVertTxtXSL']/data(@value)) else concat($pathToTokenizerScripts,'/vert2txt.xsl')"/>
@@ -62,8 +62,7 @@
                 <xsl:value-of select="$output-base-path"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:variable name="pathParts" as="xs:string+" select="tokenize(base-uri(), '/')"/>
-                <xsl:value-of select="string-join(subsequence($pathParts, 1, count($pathParts) - 1), '/')"/>
+                <xsl:value-of select="string-join(tokenize(base-uri(), '/')[position() != last()], '/')"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
@@ -77,6 +76,12 @@
             <xsl:attribute name="xml:id">params</xsl:attribute>
             <xsl:apply-templates select="profile/namespace" mode="#current"/>
             <xsl:apply-templates select="profile/parameters/param" mode="#current"/>
+            <xsl:if test="not(exists(profile/parameters/param[@key = 'token-namespace']))">
+                <xsl:element name="xsl:param">
+                    <xsl:attribute name="name">token-namespace</xsl:attribute>
+                    tei
+                </xsl:element>
+            </xsl:if>
             <xsl:apply-templates select="profile/ignore/expression[text()]" mode="#current"/>
             <xsl:apply-templates select="profile/in-word-tags/expression[text()]" mode="#current"/>
             <xsl:apply-templates select="profile/floating-blocks/expression[text()]" mode="#current"/>
@@ -254,7 +259,7 @@
                 </xsl:result-document>
             </xsl:for-each>
             
-            <xsl:result-document href="wrapper_postTokenization.xsl" method="xml">
+            <xsl:result-document href="{$output-path}/{$FILENAME_POSTTOKSWRAPPER}" method="xml">
                 <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                     <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
                     <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
@@ -316,12 +321,17 @@
                      </xsl:for-each>
                      <attribute name="version">2.0</attribute>
                      <attribute name="exclude-result-prefixes">#all</attribute>
+                                          
+                     <element name="xsl:import"><attribute name="href"><xsl:value-of select="$FILENAME_PARAMS"/></attribute></element>
                      
                      <element name="xsl:variable">
                          <attribute name="name">basename</attribute>
-                         <attribute name="select">replace(tokenize(base-uri(),'/')[last()],'\.xml$','')</attribute>
+                         <attribute name="select">string-join((tokenize(base-uri(), '/')[position() != last()], replace(tokenize(base-uri(),'/')[last()],'\.xml$','')), '/')</attribute>
                      </element>
-                     <element name="xsl:param"><attribute name="name">path-to-profile</attribute></element>
+                     <element name="xsl:param">
+                         <attribute name="name">path-to-profile</attribute>
+                         <attribute name="select">replace(static-base-uri(), 'wrapper.xsl$', 'profile.xml')</attribute>
+                     </element>
                      <element name="xsl:variable">
                          <attribute name="name">profile</attribute>
                          <attribute name="select">doc($path-to-profile)</attribute>
@@ -329,7 +339,7 @@
                      </element>
                      
                      
-                     <element name="xsl:include"><attribute name="href"><value-of select="$pathToTokenizerScripts"/>rmNl.xsl</attribute></element>
+                     <element name="xsl:include"><attribute name="href"><value-of select="$pathToTokenizerScripts"/>/rmNl.xsl</attribute></element>
                      <element name="xsl:include"><attribute name="href" select="$pathToTokenizerLib"/></element>
                      <element name="xsl:include"><attribute name="href">../../xsl/addP.xsl</attribute></element>
                      <element name="xsl:include"><attribute name="href">../../xsl/vert2txt.xsl</attribute></element>
@@ -337,8 +347,9 @@
                      <element name="xsl:include"><attribute name="href">../../xsl/rmWs.xsl</attribute></element>
                      <element name="xsl:include"><attribute name="href">../../xsl/functions.xsl</attribute></element>
                      
-                     <element name="xsl:include"><attribute name="href"><xsl:value-of select="$FILENAME_PARAMS"/></attribute></element>
-                     <element name="xsl:include"><attribute name="href"><xsl:value-of select="$FILENAME_POSTTOKSWRAPPER"/></attribute></element>
+                     <xsl:if test="exists(//postProcessing[xsl:stylesheet])">
+                        <element name="xsl:include"><attribute name="href"><xsl:value-of select="$FILENAME_POSTTOKSWRAPPER"/></attribute></element>
+                     </xsl:if>
                      
                      <element name="xsl:include"><attribute name="href" select="$FILENAME_XTOKS2VERT"/></element>
                      
@@ -380,7 +391,7 @@
                 <text xml:space="preserve">
 
 </text>
-                <element name="xsl:include">
+                <element name="xsl:import">
                     <attribute name="href">params.xsl</attribute>
                 </element>
                 <element name="xsl:include">
@@ -392,7 +403,7 @@
             </xsl:element>
         </xsl:result-document>-->
         
-        <xsl:result-document href="{$output-path}/{$FILENAME_XTOKS2VERT}.xsl">
+        <xsl:result-document href="{$output-path}/{$FILENAME_XTOKS2VERT}">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
                 <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
@@ -402,8 +413,8 @@
                 <attribute name="version">2.0</attribute>
                 <attribute name="exclude-result-prefixes">#all</attribute>
                 
-                <element name="xsl:include">
-                    <attribute name="href">params.xsl</attribute>
+                <element name="xsl:import">
+                    <attribute name="href"><xsl:value-of select="$FILENAME_PARAMS"/></attribute>
                 </element>
                 <element name="xsl:include">
                     <attribute name="href" select="$pathToVertXSL"/>
