@@ -1,65 +1,78 @@
-#xtx HOWTO 
+# xtx HOWTO 
 
 For an overview of the functionality, esp. of the profile definition document, see README.md.
 
-This has been tested with Saxon HE 9.8.0.11 (Saxon9he.jar) on Ubuntu 14.04.2 LTS using GNU bash, version 4.3.11(1)-release (x86_64-pc-linux-gnu).
+This has been tested with Saxon HE 9.8.0.11 (java -jar Saxon-HE-9.9.1-8.jar) on Ubuntu 14.04.2 LTS using GNU bash, version 4.3.11(1)-release (x86_64-pc-linux-gnu).
 
 
  
-##Running the Stylesheets separately
+## Running the Stylesheets separately
 
 
-###Step 1
+### Step 1
 
 Create a working directory and copy the test file into it.
 
-`mkdir documents; mkdir documents/test`
+```bash
+mkdir documents; mkdir documents/test
+cp test/test.xml documents/test/
+``` 
 
-`cp test/test.xml documents/test/` 
-
-###Step 2
+### Step 2
 
 Create the wrapper stylesheets, in this example the "default" profile.
 
-`saxon9he.jar profiles/default/profile.xml xsl/make_xsl.xsl`
+```bash
+java -jar Saxon-HE-9.9.1-8.jar -s:profiles/default/profile.xml -xsl:xsl/make_xsl.xsl
+```
 
   
-###Step 3
+### Step 3
 
 Remove new lines and store to intermediate document:
 
-`saxon9he.jar documents/test/test.xml xsl/rmNl.xsl -o:documents/test/test_01_nlRmd.xml`
+```bash
+java -jar Saxon-HE-9.9.1-8.jar -s:documents/test/test.xml -xsl:xsl/rmNl.xsl -o:documents/test/test_01_nlRmd.xml
+```
 
-###Step 4
+### Step 4
 
 Tokenize: 
 
-`saxon9he.jar documents/test/test_01_nlRmd.xml profiles/default/wrapper_toks.xsl -o:documents/test/test_02_toks.xml`
+```bash
+java -jar Saxon-HE-9.9.1-8.jar -s:documents/test/test_01_nlRmd.xml -xsl:profiles/default/wrapper_toks.xsl -o:documents/test/test_02_toks.xml
+```
 
 This creates an intermediate file with some additional meta-information on the tokens.
 
-###Step 5
+### Step 5
 
 Add Part-Attributes and explicit token links:
 
-`saxon9he.jar documents/test/test_02_toks.xml profiles/default/wrapper_addP.xsl -o:documents/test/test_tokenized.xml`
+```bash
+java -jar Saxon-HE-9.9.1-8.jar documents/test/test_02_toks.xml profiles/default/wrapper_addP.xsl -o:documents/test/test_tokenized.xml
+```
 
 This step returns you input document with added tokens. Depending on your needs, you can further process this document: 
 
-###Step 6
+### Step 6
 
 NLP applications like taggers mostly operate on so called verticals, i.e. rather flat token sequences in plain text, which can contain only select structure elements. To get there, we first create a vertical in XML, merging any partial tokens into single `<w>`-elements: 
 
-`saxon9he.jar documents/test/test_tokenized.xml profiles/default/wrapper_tei2vert.xsl -o:documents/test/test_vert.xml`
+```bash
+java -jar Saxon-HE-9.9.1-8.jar -s:documents/test/test_tokenized.xml -xsl:profiles/default/wrapper_xtoks2vert.xsl -o:documents/test/test_vert.xml
+```
 
-###Step 7
+### Step 7
 
 Based on Step 6, we then create a vertical in text format:  
 
-`saxon9he.jar documents/test/test_tokenized.xml profiles/default/wrapper_tei2vert.xsl -o:documents/test/test_vert.xml`
+```bash
+java -jar Saxon-HE-9.9.1-8.jar documents/test/test_vert.xml profiles/default/wrapper_vert2txt.xsl -o:documents/test/test_txt.xml
+```
 
 
-#Using the Shell script
+# Using the Shell script
 
 There is a quickly-hacked shell script named `xtx.sh` which provides some shortcuts to the above-mentioned procedure.
    
@@ -79,11 +92,11 @@ There is a quickly-hacked shell script named `xtx.sh` which provides some shortc
 	                 * tokenize: Return the input document with added tokens.
 	                 * vert-xml: Return a vertical of the tokens as an XML tokument.
 	                 * vert-txt: Return a vertical of the tokens as a text file.
-	  -s/ --saxon: The path to a JAR distribution of the Saxon XSLT Processor. If this is not set, Saxon 9 HE (saxon9he.jar) must be present in your $PATH for this script to work.
+	  -s/ --saxon: The path to a JAR distribution of the Saxon XSLT Processor. If this is not set, Saxon 9 HE (java -jar Saxon-HE-9.9.1-8.jar) must be present in your $PATH for this script to work.
 
-##Example:
+## Example:
 
-`>./xtx.sh -m tokenize -p default -i test/test.xml -o test/test_tokenized.xml --saxon ../saxon/saxon9he.jar`
+`>./xtx.sh -m tokenize -p default -i test/test.xml -o test/test_tokenized.xml --saxon ../saxon/java -jar Saxon-HE-9.9.1-8.jar`
 
 This means that you:
 
