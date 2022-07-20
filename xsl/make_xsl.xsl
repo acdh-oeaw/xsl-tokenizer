@@ -20,7 +20,7 @@
     <xsl:param name="preserve-ws" as="xs:boolean" select="if(exists(root()//param[@key='preserve-ws'])) then xs:boolean(root()//param[@key='preserve-ws']/data(@value)) else true()"/>
     <xsl:param name="pathToPLib" as="xs:string" select="if(exists(root()//param[@key='pathToPLib'])) then xs:string(root()//param[@key='pathToPLib']/data(@value)) else '../../xsl/addP.xsl'"/>
     <xsl:param name="output-base-path"/>
-    <xsl:param name="postTokXSLDir">postTokenization</xsl:param>
+    <xsl:param name="postTokXSLDir" select="concat($output-path,'/postTokenization')"/>
     
     
     <xsl:function name="xtoks:expand-path">
@@ -348,7 +348,7 @@
                     <xsl:element name="xsl:template">
                         <xsl:attribute name="match" select="."/>
                         <xsl:element name="xsl:sequence">
-                            <xsl:attribute name="select">xtoks:structure(.)</xsl:attribute>
+                            <xsl:attribute name="select">tei:structure(.)</xsl:attribute>
                         </xsl:element>
                     </xsl:element>
                 </for-each>

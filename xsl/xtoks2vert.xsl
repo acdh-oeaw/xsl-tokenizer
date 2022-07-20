@@ -3,7 +3,6 @@
     <xsl:strip-space elements="*"/>
     <xsl:preserve-space elements="xtoks:seg xtoks:w xtoks:pc xtoks:ws"/>
     <xsl:key name="tag-by-id" match="xtoks:*" use="@xml:id"/>
-    <xsl:param name="debug"/>
     
     <xsl:template match="/">
         <xsl:if test="$debug !=''">
@@ -97,7 +96,7 @@
         <xsl:sequence select="."/>
         <xsl:apply-templates select="$next" mode="getTokenCopy"/>
     </xsl:template>
-    <xsl:template match="*[@part = 'F']" mo	de="getTokenContent">
+    <xsl:template match="*[@part = 'F']" mode="getTokenContent">
         <xsl:value-of select="."/>
     </xsl:template>
     <xsl:template match="*[@part = 'F']" mode="getTokenCopy">
