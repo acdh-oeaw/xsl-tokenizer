@@ -34,7 +34,7 @@
 
     <struct-attributes>
         <struct-attribute name="id" on="tei:u">
-            <expression>parent::tei:annotationBlock/concat(ancestor::tei:TEI//tei:title[@level = 'a'],'_',@xtoks:id)</expression>
+            <expression>parent::tei:annotationBlock/concat(ancestor::tei:TEI//tei:title[@level = 'a'],'_',@xml:id)</expression>
         </struct-attribute>
         <struct-attribute name="who" on="tei:u">
             <expression>parent::tei:annotationBlock/concat('#',@who)</expression>
