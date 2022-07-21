@@ -18,3 +18,4 @@ compiledFrom
 # exist-db specific make_xsl file created by prep_make_xsl_existdb.xsl #
 ########################################################################
 make_xsl_existdb.xsl
+/profiles/*/postTokenization
