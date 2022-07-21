@@ -19,6 +19,7 @@
         </xsl:if>
         
         <TEI>
+            <xsl:sequence select="tei:TEI/@*"/>
             <xsl:choose>
                 <xsl:when test="exists(tei:TEI/tei:teiHeader)">
                     <xsl:sequence select="tei:TEI/tei:teiHeader"/>
