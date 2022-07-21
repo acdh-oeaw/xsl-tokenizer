@@ -46,7 +46,7 @@
 </xsl:text>        
     </xsl:template>
     <!-- do not "render" @rend remarks for NoSkE, it is a bad "renderer" any way -->
-    <xsl:template match="xtoks:w[@rend]">        
+    <xsl:template match="xtoks:w[@rend]" priority="2">        
         <xsl:call-template name="noske-token"/>
     </xsl:template>
 </xsl:stylesheet>
