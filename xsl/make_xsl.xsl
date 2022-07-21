@@ -230,7 +230,7 @@
         </xsl:if>
         
         <!-- preapare parameter stylesheet -->
-        <xsl:result-document href="{$output-path}/params.xsl">
+        <xsl:result-document href="{$output-path}/params.xsl" indent="yes">
             <xsl:apply-templates select="." mode="mkParams"/>
         </xsl:result-document>
         
@@ -239,7 +239,7 @@
             <xsl:for-each select="//postProcessing/xsl:stylesheet">
                 <xsl:variable name="pos" select="position()"/>
                 <!-- IMPORTANT Do not change this file name as the order is important here. -->
-                <xsl:result-document href="{$postTokXSLDir}/{$pos}.xsl">
+                <xsl:result-document href="{$postTokXSLDir}/{$pos}.xsl" indent="yes">
                     <xsl:copy-of select="."/>
                 </xsl:result-document>
             </xsl:for-each>
@@ -268,7 +268,7 @@
         
         
         <!-- Create the partial-token linker stylehsheet -->
-        <xsl:result-document href="{$output-path}/wrapper_addP.xsl">
+        <xsl:result-document href="{$output-path}/wrapper_addP.xsl" indent="yes">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
                 <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
@@ -295,10 +295,11 @@
             </xsl:element>
         </xsl:result-document>
         
-        <xsl:result-document href="{$output-path}/wrapper_xtoks2vert.xsl">
+        <xsl:result-document href="{$output-path}/wrapper_xtoks2vert.xsl" indent="yes">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
                 <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
+                <xsl:namespace name="xtoks">http://acdh.oeaw.ac.at/xtoks</xsl:namespace>
                 <xsl:for-each select="//namespace">
                     <namespace name="{@prefix}" select="."/>
                 </xsl:for-each>
@@ -319,7 +320,7 @@
                 
             </xsl:element>
         </xsl:result-document>
-        <xsl:result-document href="{$output-path}/wrapper_vert2txt.xsl">
+        <xsl:result-document href="{$output-path}/wrapper_vert2txt.xsl" indent="yes">
             <xsl:element name="xsl:stylesheet" namespace="http://www.w3.org/1999/XSL/Transform">
                 <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
                 <xsl:namespace name="xd">http://www.oxygenxml.com/ns/doc/xsl</xsl:namespace>
