@@ -19,6 +19,7 @@
         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="postTokenization.xsl"/>
     </postProcessing>
     <namespace prefix="tei">http://www.tei-c.org/ns/1.0</namespace>
+    <namespace prefix="xml">http://www.w3.org/XML/1998/namespace</namespace>
     <copy>
         <expression>tei:teiHeader</expression>
         <expression>tei:timeline</expression>
@@ -43,7 +44,7 @@
 
     <doc-attributes>
         <doc-attribute name="id">
-            <expression>//tei:titleStmt/tei:title[@level='a']</expression>
+            <expression>tei:TEI/@xml:id</expression>
         </doc-attribute>
         <doc-attribute name="audio">
             <expression>//tei:sourceDesc/tei:recording/tei:media/@url</expression>
