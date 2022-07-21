@@ -191,6 +191,15 @@
         </xsl:element>
     </xsl:template>
     
+    <xsl:template match="structure/expression[text()]" mode="xtoks2txt">        
+        <xsl:element name="xsl:template">
+            <xsl:attribute name="match" select="."/>
+            <xsl:element name="xsl:sequence">
+                <xsl:attribute name="select">tei:structure(.)</xsl:attribute>
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
+    
     <xsl:template match="doc-attributes/doc-attribute[expression/text()]" mode="xtoks2vert">
         <!-- doc-attribute may only contain one expression element, but we want to make sure … -->
         <xsl:variable name="expression" select="expression[1]"/>
@@ -345,14 +354,7 @@
                 <text xml:space="preserve">
 
 </text>
-                <for-each select="//expression[parent::structure][text()]">
-                    <xsl:element name="xsl:template">
-                        <xsl:attribute name="match" select="."/>
-                        <xsl:element name="xsl:sequence">
-                            <xsl:attribute name="select">tei:structure(.)</xsl:attribute>
-                        </xsl:element>
-                    </xsl:element>
-                </for-each>
+                <apply-templates select="//expression[parent::structure][text()]" mode="xtoks2txt"/>
             </xsl:element>
         </xsl:result-document>
     </xsl:template>
