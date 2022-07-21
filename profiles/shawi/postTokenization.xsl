@@ -38,13 +38,13 @@
                         <xsl:when test="count(current-group())-2 gt 1">
                             <xsl:variable name="parts-in-between" select="current-group()[position() gt 1][not(. is current-group()[last()])]"/>
                             <xsl:apply-templates select="current-group()[1]"/>
-                            <tei:seg type="token">
+                            <seg xmlns="http://www.tei-c.org/ns/1.0" type="token">
                                 <xsl:for-each select="$parts-in-between">
                                     <xsl:apply-templates select=".">
                                         <xsl:with-param tunnel="yes" name="join" select="if (exists(following-sibling::*) and not(following-sibling::*[1]/self::xtoks:ws)) then 'right' else ''"/>
                                     </xsl:apply-templates>
                                 </xsl:for-each>
-                            </tei:seg>
+                            </seg>
                             <xsl:apply-templates select="current-group()[last()]"/>
                         </xsl:when>
                         <!-- .. otherwise, don't wrap them -->
@@ -57,7 +57,7 @@
                 <xsl:when test="not($first-is-ws) and $last-is-pc">
                     <xsl:choose>
                         <xsl:when test="count(current-group() except current-group()[last()]) gt 1">
-                            <tei:seg type="token">
+                            <seg xmlns="http://www.tei-c.org/ns/1.0" type="token">
                                 <xsl:for-each select="current-group()[position() lt count(current-group())]">
                                     <xsl:apply-templates select=".">
                                         <xsl:with-param tunnel="yes"
@@ -65,7 +65,7 @@
                                             select="if (exists(following-sibling::*) and not(following-sibling::*[1]/self::xtoks:ws)) then 'right' else ''"/>
                                     </xsl:apply-templates>
                                 </xsl:for-each>
-                            </tei:seg>
+                            </seg>
                             <xsl:apply-templates select="current-group()[last()]"/>
                         </xsl:when>
                         <xsl:otherwise>
@@ -78,7 +78,7 @@
                     <xsl:choose>
                         <xsl:when test="count(current-group()[position() gt 1]) gt 1">
                             <xsl:apply-templates select="current-group()[1]"/>
-                            <tei:seg type="token">
+                            <seg xmlns="http://www.tei-c.org/ns/1.0" type="token">
                                 <xsl:for-each select="current-group()[position() gt 1]">
                                     <xsl:apply-templates select=".">
                                         <xsl:with-param tunnel="yes"
@@ -86,7 +86,7 @@
                                             select="if (exists(following-sibling::*) and not(following-sibling::*[1]/self::xtoks:ws)) then 'right' else ''"/>
                                     </xsl:apply-templates>
                                 </xsl:for-each>
-                            </tei:seg>
+                            </seg>
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:apply-templates select="current-group()"/>
@@ -96,7 +96,7 @@
                 <xsl:otherwise>
                     <xsl:choose>
                         <xsl:when test="count(current-group()) gt 1">
-                            <tei:seg type="token">
+                            <seg xmlns="http://www.tei-c.org/ns/1.0" type="token">
                                 <xsl:for-each select="current-group()">
                                     <xsl:apply-templates select=".">
                                         <xsl:with-param tunnel="yes" name="join">
@@ -104,7 +104,7 @@
                                         </xsl:with-param>
                                     </xsl:apply-templates>
                                 </xsl:for-each>
-                            </tei:seg>
+                            </seg>
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:apply-templates select="current-group()"/>
