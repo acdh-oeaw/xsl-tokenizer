@@ -15,6 +15,10 @@
         <xsl:value-of select="local-name($elt)"/>
         <xsl:text xml:space="preserve">&gt;
 </xsl:text>
+        <xsl:if test="exists($elt/following-sibling::*) and $elt/following-sibling::*[1]/(self::xtoks:w|self::xtoks:pc)">
+            <xsl:text xml:space="preserve">&lt;g/&gt;
+</xsl:text>
+        </xsl:if>
     </xsl:function>
     <xsl:template match="/">
         <xsl:text>&lt;doc</xsl:text>
@@ -30,11 +34,19 @@
     <xsl:template match="*">
         <xsl:sequence select="tei:structure(.)"/>
     </xsl:template>
-    <xsl:template match="xtoks:w|xtoks:pc">
-        <xsl:value-of select="concat(normalize-space(.),'&#x9;',@xtoks:id,'&#xA;')"/>
-        <xsl:if test="exists(following-sibling::*) and not(following-sibling::*[1]/self::xtoks:ws)">
-            <xsl:text xml:space="preserve">&lt;g/&gt;
-</xsl:text>
-        </xsl:if>
+    <xsl:template match="(xtoks:w|xtoks:pc)[following-sibling::*[1][self::xtoks:ws] or empty(following-sibling::*)]">
+        <xsl:call-template name="noske-token"/>
+    </xsl:template>
+    <xsl:template name="noske-token">
+        <xsl:value-of select="concat(string-join((normalize-space(.), @xtoks:id[parent::xtoks:w], @* except (@xtoks:id, @join, @rend)),'&#x9;'),'&#xA;')"/>
+    </xsl:template>
+    <xsl:template match="xtoks:w|xtoks:pc">        
+        <xsl:call-template name="noske-token"/>
+        <xsl:text xml:space="preserve">&lt;g/&gt;
+</xsl:text>        
+    </xsl:template>
+    <!-- do not "render" @rend remarks for NoSkE, it is a bad "renderer" any way -->
+    <xsl:template match="xtoks:w[@rend]">        
+        <xsl:call-template name="noske-token"/>
     </xsl:template>
 </xsl:stylesheet>
